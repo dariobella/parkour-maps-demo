@@ -1,0 +1,41 @@
+version: "3"
+services:
+  db:
+    image: mysql:8
+    container_name: $CODENAME-mysql
+    restart: unless-stopped
+    user: "${UID}:${GID}"
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+    ports:
+      - $MYSQL_PORT:3306
+    volumes:
+      - ./mysql/my.cnf:/etc/my.cnf
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/mysql.log:/var/log/mysql/mysql.log
+  backend:
+    build:
+      context: backend
+      dockerfile: backend.Dockerfile
+    image: $CODENAME-backend
+    container_name: $CODENAME-backend
+    user: ${UID}:${UID}
+    entrypoint: ["./wait.sh"]
+    depends_on:
+      - db
+    ports:
+      - 8000:8000
+    volumes:
+      - ./backend:/backend
+  app:
+    build:
+      context: frontend
+      dockerfile: frontend.Dockerfile
+    image: $CODENAME-app
+    container_name: $CODENAME-app
+    depends_on:
+      - backend
+    ports:
+      - 8080:8080
+    volumes:
+      - ./frontend:/frontend
