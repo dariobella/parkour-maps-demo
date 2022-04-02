@@ -1,30 +1,38 @@
 <template>
 
-        <nav class="navbar navbar-expand navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"> 
-                    <router-link :to=" {name:'Home'} " class="logo-link">PK SPOT MAP</router-link>
-                </a>
-
-                <div class="collapse navbar-collapse" id="navbarMenu">
-
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <router-link :to=" {name:'Login'} " class="nav-link">Login</router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link :to=" {name:'SignUp'} " class="nav-link">Sign Up</router-link>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse order-md-1 order-3" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+        </ul>
+      </div>
+      <router-link class="navbar-brand order-1" to="/">PK SPOT MAP</router-link>
+      <button class="navbar-toggler order-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse order-md-3 order-4" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/login">Login</router-link>
+          </li>
+          <li class="nav-item">
+           <router-link class="nav-link" to="/sign-up">Sign Up</router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 </template>
 
 
 <style scoped>
+
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-collapse {
+    width: 100%;
+  }
+}
 
 .logo-link {
     color: white;
@@ -32,3 +40,4 @@
 }
 
 </style>
+

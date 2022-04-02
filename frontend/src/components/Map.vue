@@ -44,7 +44,16 @@ export default {
       this.iconSize = new google.maps.Size(20, 30); // (width, height)
       const lonato = {lat:45.4609, lng:10.4845};
 
-      var options = {zoom: 12, center: lonato};
+      var options = {
+        zoom: 12, 
+        center: lonato, 
+        minZoom: 3,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+          position: google.maps.ControlPosition.LEFT_BOTTOM,
+        },
+      };
       this.map = new google.maps.Map(document.getElementById('map'), options);
 
 
@@ -158,7 +167,9 @@ export default {
 
 
 <style>
-
+#map {
+  text-align: left;
+}
 
 #search {
   background-color: white;
@@ -167,7 +178,8 @@ export default {
   border-radius: 3px;
   border: 0;
   margin-top: 10px;
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
   height: 40px;
   text-overflow: ellipsis;
   padding: 0 1em;

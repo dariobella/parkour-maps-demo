@@ -1,12 +1,13 @@
 <template>
-    <div>
-        <h1>Login :)</h1>
+    <div class="login">
+      
+      <h1>Login</h1>
 
-        <form @submit.prevent="submitForm">
-            <input type="text" name="username" v-model="username" placeholder="username">
-            <input type="password" name="password" v-model="password" placeholder="password">
-            <button type="submit">Login</button>
-        </form>
+      <form @submit.prevent="submitForm">
+          <input type="text" name="username" v-model="username" placeholder="username">
+          <input type="password" name="password" v-model="password" placeholder="password">
+          <button type="submit">Login</button>
+      </form>
     </div>
 </template>
 
@@ -49,3 +50,27 @@ export default {
     }
 }
 </script>
+
+<style>
+
+.login {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login form {
+  width: 30%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login form button {
+  align-self: flex-end;
+  width: 100px;
+}
+
+</style>

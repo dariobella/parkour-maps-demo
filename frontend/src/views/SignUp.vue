@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1>Sign Up :)</h1>
+    <div class="signup">
+        <h1>Sign Up</h1>
 
         <form @submit.prevent="submitForm">
             <input type="text" name="username" v-model="username" placeholder="username">
@@ -46,3 +46,26 @@ export default {
     }
 }
 </script>
+
+<style>
+.signup {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup form {
+  width: 30%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup form button {
+  align-self: flex-end;
+  width: 100px;
+}
+
+</style>

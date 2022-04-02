@@ -33,5 +33,39 @@ html, body {
 
 #app {
   font-family: 'Nunito', sans-serif;
+  text-align: center;
+}
+
+input[type=text], input[type=password], input[type=email] {
+  padding: 6px;
+  border: none;
+  background-color: #dcdcdc;
+  color: #333333;
+  border-radius: 5px;
+}
+
+form {
+  margin: 20px;
+}
+
+form input {
+  margin-bottom: 20px;
+}
+
+form button {
+  font-family: 'Nunito', sans-serif;
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+  padding: 10px;
+  padding-left: 20px; padding-right: 20px;
+  font-size: 1rem;
+  transition: transform .2s ease-in-out;
+  border-radius: 10px;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 </style>
