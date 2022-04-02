@@ -6,6 +6,7 @@
             <input type="text" name="username" v-model="username" placeholder="username">
             <input type="email" name="email" v-model="email" placeholder="email">
             <input type="password" name="password" v-model="password" placeholder="password">
+            <input type="password" name="confirmPassword" v-model="confirmPassword" placeholder="confirm password">
             <button type="submit">Sign Up</button>
         </form>
     </div>
