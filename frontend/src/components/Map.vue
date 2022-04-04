@@ -11,7 +11,7 @@ export default {
       map: {},
       iconSize: {},
       infoWindow: {},
-      searchWindow: {}
+      searchWindow: {},
     }
   },
 
@@ -123,11 +123,18 @@ export default {
         map: this.map,
       });
 
+      
       if (m.icon) {
-        marker.setIcon(m.icon);
+        var icon = {
+          url: m.icon,
+          scaledSize: this.iconSize,
+        }
+        console.log(this.iconSize);
+        marker.setIcon(icon);
       }
 
       var vm = this
+
       var offset = new google.maps.Size(0, 0);
       marker.addListener("click", function () {
         vm.infoWindow.setContent(m.info);
@@ -146,8 +153,9 @@ export default {
       for (var spot of JSON.parse(JSON.stringify(vm.APIData))) {
         vm.addMarker({
           position: {lat: spot.lat, lng: spot.lng},
-          info: "<b>" + spot.name + "</b> <br>" + spot.type + '<br> <br> <a href="https://www.google.com/maps/search/?api=1&query='+ spot.lat +'%2C'+ spot.lng + '" target="_blank" >Visualizza su Google Maps</a>',
-          //icon: '../assets/redPin.png'
+          info: "<b>" + spot.name + "</b> <br>" + spot.type + "<br> <br>" + spot.description + "<br>" + ' <br> <a href="https://www.google.com/maps/search/?api=1&query='+ spot.lat +'%2C'+ spot.lng + '" target="_blank" >Visualizza su Google Maps</a>',
+          icon: "https://i.ibb.co/ZddWhrd/redPin.png",
+          maxWidth: 250,
         });
       }
     },

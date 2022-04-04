@@ -1,4 +1,4 @@
-version: "3"
+version: '3.1'
 services:
   db:
     image: mysql:8
@@ -27,12 +27,12 @@ services:
       - 8000:8000
     volumes:
       - ./backend:/backend
-  app:
+  frontend:
     build:
       context: frontend
       dockerfile: frontend.Dockerfile
-    image: $CODENAME-app
-    container_name: $CODENAME-app
+    image: $CODENAME-frontend
+    container_name: $CODENAME-frontend
     depends_on:
       - backend
     ports:
