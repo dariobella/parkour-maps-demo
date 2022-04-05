@@ -2,4 +2,7 @@ Django==4.0.3
 django-mysql==4.5.0
 djangorestframework==3.13.1
 django-cors-headers==3.11.0
+djsoer==2.1.0
+Pillow==9.1.0
+stripe==2.70.0
 djangorestframework-simplejwt==5.1.0
