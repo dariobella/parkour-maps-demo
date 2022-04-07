@@ -1,11 +1,9 @@
-FROM python:3.10.3-alpine3.15
+FROM python:3.9.12-slim-buster
 
 WORKDIR /backend
 
 COPY requirements.txt requirements.txt
 
-RUN apk add --no-cache mariadb-connector-c-dev
-RUN apk update && apk add python3 python3-dev mariadb-dev build-base && pip3 install mysqlclient && apk del python3-dev mariadb-dev build-base
-RUN apk add netcat-openbsd
+RUN apt-get update && apt install -y netcat && apt-get install -y default-libmysqlclient-dev build-essential && apt-get install -y default-libmysqlclient-dev && apt-get install -y python-mysqldb
 
 RUN pip install -r ./requirements.txt
