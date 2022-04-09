@@ -1,7 +1,8 @@
 #!/bin/bash
-FILE=/frontend/package.json
+FILE="/frontend/package.json"
 cd /frontend
 if [[ -f "$FILE" ]]; then
+    npm install
     npm run serve
 else
     echo "App folder is empty, keeping container alive for generation"
