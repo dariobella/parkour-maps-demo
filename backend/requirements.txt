@@ -1,8 +1,8 @@
-Django==4.0.3
+pip install Django==3.2.12
 pytz==2022.1
 django-mysql==4.5.0
 mysqlclient==2.1.0
-djangorestframework==3.11.1
+djangorestframework==3.12.4
 django-cors-headers==3.11.0
 djoser==2.1.0
 stripe==2.70.0
