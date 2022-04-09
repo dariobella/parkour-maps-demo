@@ -42,7 +42,22 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
+    'djoser',
     'pkspotapp',
+]
+
+CORS_ALLOWED_ORIGINS = [
+  'http://localhost:8080',
+  'http://127.0.0.1:8080',
+]
+
+#CORS_ORIGIN_WHITELIST = (
+#    'http://localhost:8080',
+#    'http://127.0.0.1:8080',
+#)
+
+CORS_ALLOW_HEADERS = [
+    'contenttype',
 ]
 
 MIDDLEWARE = [
@@ -56,20 +71,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
-#CORS_ORIGIN_WHITELIST = (
-#    'http://localhost:8080',
-#    'http://127.0.0.1:8080',
-#)
-
-CORS_ALLOWED_ORIGINS = [
-  'http://localhost:8080',
-  'http://127.0.0.1:8080',
-]
-
-CORS_ALLOW_HEADERS = [
-    'contenttype',
-]
 
 ROOT_URLCONF = 'pkspotwebsite.urls'
 

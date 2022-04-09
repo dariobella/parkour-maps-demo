@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 FILE="/frontend/package.json"
 cd /frontend
 if [[ -f "$FILE" ]]; then

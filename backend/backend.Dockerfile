@@ -4,6 +4,6 @@ WORKDIR /backend
 
 COPY requirements.txt requirements.txt
 
-RUN apt-get update && apt install -y netcat && apt-get install -y default-libmysqlclient-dev build-essential && apt-get install -y default-libmysqlclient-dev && apt-get install -y python-mysqldb
+RUN apt-get update && apt-get install -y netcat && apt-get -y install gcc && apt-get install -y default-libmysqlclient-dev
 
 RUN pip install -r ./requirements.txt
