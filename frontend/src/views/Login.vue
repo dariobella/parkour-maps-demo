@@ -8,6 +8,8 @@
           <input type="password" name="password" v-model="password" placeholder="password">
           <button type="submit">Login</button>
       </form>
+
+      <div>New here? <router-link to="/sign-up">Sign up</router-link></div>
     </div>
 </template>
 
@@ -21,32 +23,49 @@ export default {
         return {
             username: '',
             password: '',
+            errors: []
         }
     },
+    mounted() {
+      document.title = 'PKSPOTMAP | Login'
+    },
     methods: {
-        submitForm(e) {
-            const formData = {
-                username: this.username,
-                email: this.email,
-                password: this.password,
-            }
+      async submitForm() {
+        axios.defaults.headers.common["Authorization"] = ""
 
-            axios
-                .post('/api/v1/token/login', formData)
-                .then(response => {
-                    console.log(response)
+        localStorage.removeItem("token")
 
-                    const token = response.data.auth_token
-                    this.$store.commit('setToken', token)
-
-                    axios.defaults.headers.common['Authorization'] = "Token " + token
-
-                    localStorage.setItem('token', token);
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+        const formData = {
+          username: this.username,
+          password: this.password,
         }
+
+        await axios
+          .post('/api/v1/token/login', formData)
+          .then(response => {
+              const token = response.data.auth_token
+              this.$store.commit('setToken', token)
+
+              axios.defaults.headers.common['Authorization'] = "Token " + token
+
+              localStorage.setItem('token', token)
+
+              this.$router.push('/')
+          })
+          .catch(error => {
+            if (error.response) {
+              for (const property in error.response.data) {
+                this.errors.push(`${property}: ${error.response.data[property]}`)
+              }
+
+              console.log(JSON.stringify(error.response.data))
+            } else if (error.message) {
+              this.errors.push('Something went wrong, please try again')
+            
+              console.log(JSON.stringify(error))
+            }
+          })
+      }
     }
 }
 </script>

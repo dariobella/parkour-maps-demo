@@ -2,13 +2,19 @@
     <div class="signup">
         <h1>Sign Up</h1>
 
+        <div class="alert alert-danger" v-if="errors.length">
+          <p v-for="error in errors" :key="error">{{ error }}</p>
+        </div>
+
         <form @submit.prevent="submitForm">
             <input type="text" name="username" v-model="username" placeholder="username">
             <input type="email" name="email" v-model="email" placeholder="email">
             <input type="password" name="password" v-model="password" placeholder="password">
-            <input type="password" name="confirmPassword" v-model="confirmPassword" placeholder="confirm password">
+            <input type="password" name="confPassword" v-model="confPassword" placeholder="confirm password">
             <button type="submit">Sign Up</button>
         </form>
+
+        <div>Already have an account? <router-link to="/login">Login</router-link></div>
     </div>
 </template>
 
@@ -17,34 +23,57 @@
 import axios from 'axios'
 
 export default {
-    name: 'SignUp',
-    data() {
-        return {
-            username: '',
-            email: '',
-            password: '',
+  name: 'SignUp',
+  data() {
+    return {
+      username: '',
+      email: '',
+      password: '',
+      confPassword: '',
+      errors: []
+    }
+  },
+  mounted() {
+    document.title = 'PKSPOTMAP | Sign Up'
+  },
+  methods: {
+    submitForm() {
+      this.errors = []
+
+      if (this.username === '') this.errors.push('The username is missing')
+      else if (this.password === '') this.errors.push('The password is too short')
+      else if (this.password !== this.confPassword) this.errors.push('The passwords do not match')
+
+      if (!this.errors.length) {
+        console.log('no errori amico')
+        const formData = {
+          username: this.username,
+          email: this.email,
+          password: this.password,
         }
-    },
-    methods: {
-        submitForm(e) {
-            const formData = {
-                username: this.username,
-                email: this.email,
-                password: this.password,
+
+        axios
+        .post('/api/v1/users/', formData)
+        .then(response => {
+          this.$router.push('/login')
+          console.log(response)
+        })
+        .catch(error => {
+          if (error.response) {
+            for (const property in error.response.data) {
+              this.errors.push(`${property}: ${error.response.data[property]}`)
             }
 
-            axios
-                .post('/api/v1/users/', formData)
-                .then(response => {
-
-                    this.$router.push('/log-in')
-                    console.log(response)
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-        }
+            console.log(JSON.stringify(error.response.data))
+          } else if (error.message) {
+            this.errors.push('Something went wrong, please try again')
+          
+            console.log(JSON.stringify(error))
+          }
+        })
     }
+      }
+  }
 }
 </script>
 

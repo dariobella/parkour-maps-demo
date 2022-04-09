@@ -1,6 +1,6 @@
 <script>
 
-import { axiosAPI } from '../axios-api'
+import axios from 'axios'
 
 export default {
   name: Map,
@@ -17,7 +17,8 @@ export default {
 
 
   created () {
-    axiosAPI.get('/api/spots/',)
+    axios
+      .get('/api/spots/',)
       .then(response => {
         console.log('API data retrieved')
         this.APIData = response.data

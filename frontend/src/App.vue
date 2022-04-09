@@ -8,12 +8,23 @@
 
 
 <script>
+import axios from 'axios'
 import Navbar from './components/Navbar.vue'
 
 export default {
   name: 'App',
   components: {
     Navbar
+  },
+  beforeCreate() {
+    this.$store.commit('initializeStore')
+    const token = this.$store.state.token
+  
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = "Token " + token
+    } else {
+      axios.defaults.headers.common['Authotization'] = ""
+    }
   },
 }
 </script>
@@ -29,6 +40,10 @@ html, body {
   padding: 0;
   background-color: #f8f8f8!important;
   font-family: 'Nunito', sans-serif;
+}
+
+p {
+  margin: 0rem!important;
 }
 
 #app {

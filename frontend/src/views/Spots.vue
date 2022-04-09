@@ -13,23 +13,24 @@
 </template>
 
 <script>
-import { axiosAPI } from '../axios-api'
+import axios from 'axios'
 
 export default {
-    data() {
-        return {
-            APIData: []
-        }
-    },
-    created () {
-        axiosAPI.get('/api/spots/',)
-            .then(response => {
-                console.log('Here\'s the data')
-                this.APIData = response.data
-            })
-            .catch(err => {
-                console.log(err)
-            })
+  data() {
+    return {
+      APIData: []
     }
+  },
+  created () {
+    axios
+      .get('/api/spots/',)
+      .then(response => {
+        console.log('Here\'s the data')
+        this.APIData = response.data
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 }
 </script>

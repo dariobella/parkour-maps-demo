@@ -15,6 +15,10 @@ export default {
     Map
   },
 
+  mounted() {
+    document.title = 'PKSPOTMAP'
+  },
+
 }
 </script>
 
