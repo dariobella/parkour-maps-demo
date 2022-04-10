@@ -9,6 +9,10 @@
 
 ## Secondary
 
-1. Cool Django landing page with api paths
+1. Cool Django landing page 
 2. Better spot visualization
 3. toasts and alerts in forms
+
+## Maybe
+
+1. API paths in Django landing page

@@ -23,7 +23,7 @@ export default {
     if (token) {
       axios.defaults.headers.common['Authorization'] = "Token " + token
     } else {
-      axios.defaults.headers.common['Authotization'] = ""
+      axios.defaults.headers.common['Authorization'] = ""
     }
   },
 }

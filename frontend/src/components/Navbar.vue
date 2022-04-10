@@ -12,12 +12,20 @@
       </button>
       <div class="collapse navbar-collapse order-md-3 order-4" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <router-link class="nav-link" to="/login">Login</router-link>
-          </li>
-          <li class="nav-item">
-           <router-link class="nav-link" to="/sign-up">Sign Up</router-link>
-          </li>
+          <template v-if="$store.state.isAuthenticated">
+            <li class="nav-item">
+              <router-link class="nav-link" to="/profile">Profile</router-link>
+            </li>
+          </template>
+          
+          <template v-else>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/login">Login</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/sign-up">Sign Up</router-link>
+            </li>
+          </template>
         </ul>
       </div>
     </div>
