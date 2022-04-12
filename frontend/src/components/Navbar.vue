@@ -36,6 +36,10 @@
 
 <style scoped>
 
+.navbar {
+  height: 6vh;
+}
+
 @media (min-width: 768px) {
   .navbar-expand-md .navbar-collapse {
     width: 100%;

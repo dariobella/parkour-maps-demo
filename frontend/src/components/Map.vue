@@ -1,8 +1,10 @@
 <script>
 
 import axios from 'axios'
+import App from '../App.vue'
 
 export default {
+  components: { App },
   name: Map,
 
   data() {
@@ -41,7 +43,7 @@ export default {
 
   methods: {
 
-    initMap: function() {
+    initMap() {
       this.iconSize = new google.maps.Size(20, 30); // (width, height)
       const lonato = {lat:45.4609, lng:10.4845};
 
@@ -55,16 +57,19 @@ export default {
           position: google.maps.ControlPosition.LEFT_BOTTOM,
         },
       };
+
       this.map = new google.maps.Map(document.getElementById('map'), options);
-
-
       this.infoWindow = new google.maps.InfoWindow();
 
-      var search = document.createElement('input');
-      search.id = 'search';
-      search.type = 'text';
-      search.placeholder = 'Search places';
+      var search = document.createElement('input')
+      search.id = 'search'
+      search.type = 'text'
+      search.placeholder = 'Search places'
       this.map.controls[google.maps.ControlPosition.TOP_CENTER].push(search);
+
+      var addBtn = document.getElementById('addBtn')
+      this.map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(addBtn);
+
       var autocomplete = new google.maps.places.Autocomplete(search);
       autocomplete.bindTo('bounds', this.map);
       autocomplete.setFields(['place_id', 'name', 'geometry', 'formatted_address']);
@@ -75,13 +80,12 @@ export default {
       this.searchWindow = new google.maps.InfoWindow();
 
       var vm = this;
-
       autocomplete.addListener('place_changed', function() {
 
         var place = autocomplete.getPlace();
 
         if (!place.geometry) {
-          document.getElementById('search').placeholder = 'Enter a place';
+          search.placeholder = 'Enter a place';
           searchMarker.setPosition();
           vm.searchWindow.close();
         } else {
@@ -118,7 +122,7 @@ export default {
 
     },
 
-    addMarker: function(m) {
+    addMarker(m) {
       var marker = new google.maps.Marker({
         position: m.position,
         map: this.map,
@@ -130,7 +134,6 @@ export default {
           url: m.icon,
           scaledSize: this.iconSize,
         }
-        console.log(this.iconSize);
         marker.setIcon(icon);
       }
 
@@ -149,7 +152,7 @@ export default {
       });
     },
 
-    loadSpots: function() {
+    loadSpots() {
       var vm = this;
       for (var spot of JSON.parse(JSON.stringify(vm.APIData))) {
         vm.addMarker({
@@ -159,6 +162,10 @@ export default {
           maxWidth: 250,
         });
       }
+    },
+
+    addSpots() {
+      if ($store.state.isAuthenticated) $router.push('add-spots')
     },
   },
 
@@ -170,13 +177,20 @@ export default {
 
 <template>
 
-  <div id="map"></div>
-
+  <div class="maproot">
+    <div id="map"></div>
+    <button @click="addSpots()" type="button" id="addBtn" v-if="$store.state.isAuthenticated">
+      <span>+</span>
+    </button>
+  </div>
+  
 </template>
 
 
 <style>
+
 #map {
+  height: 94vh;
   text-align: left;
 }
 
@@ -192,6 +206,28 @@ export default {
   height: 40px;
   text-overflow: ellipsis;
   padding: 0 1em;
+}
+
+#addBtn {
+  background-color: black;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem; height: 4rem;
+  border-radius: 100%;
+  margin-bottom: 50px;
+  transition: transform .2s ease-in-out;
+}
+
+#addBtn:hover {
+  transform: scale(1.2);
+}
+
+#addBtn span {
+  font-size: 3rem;
+  font-family: 'Nunito', sans-serif;
 }
 
 </style>

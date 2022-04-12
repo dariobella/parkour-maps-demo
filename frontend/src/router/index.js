@@ -7,6 +7,7 @@ import SignUp from '../views/SignUp.vue'
 import Spots from '../views/Spots.vue'
 import Home from '../views/Home.vue'
 import Profile from '../views/Profile.vue'
+import AddSpots from '../views/AddSpots.vue'
 
 const routes = [
   {
@@ -33,6 +34,14 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/add-spots',
+    name: 'AddSpots',
+    component: AddSpots,
     meta: {
       requireLogin: true
     }
