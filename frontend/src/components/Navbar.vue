@@ -14,16 +14,16 @@
         <ul class="navbar-nav ms-auto">
           <template v-if="$store.state.isAuthenticated">
             <li class="nav-item">
-              <router-link class="nav-link" to="/profile">Profile</router-link>
+              <router-link class="nav-link" :class="{'active': $router.currentRoute.value.name == 'Profile'}" to="/profile">Profile</router-link>
             </li>
           </template>
           
           <template v-else>
             <li class="nav-item">
-              <router-link class="nav-link" to="/login">Login</router-link>
+              <router-link class="nav-link" :class="{'active': $router.currentRoute.value.name == 'Login'}" to="/login">Login</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/sign-up">Sign Up</router-link>
+              <router-link class="nav-link" :class="{'active': $router.currentRoute.value.name == 'SignUp'}" to="/sign-up">Sign Up</router-link>
             </li>
           </template>
         </ul>
@@ -35,10 +35,6 @@
 
 
 <style scoped>
-
-.navbar {
-  height: 6vh;
-}
 
 @media (min-width: 768px) {
   .navbar-expand-md .navbar-collapse {

@@ -45,7 +45,6 @@ export default {
       else if (this.password !== this.confPassword) this.errors.push('The passwords do not match')
 
       if (!this.errors.length) {
-        console.log('no errori amico')
         const formData = {
           username: this.username,
           email: this.email,

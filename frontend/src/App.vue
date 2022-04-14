@@ -51,7 +51,7 @@ p {
   text-align: center;
 }
 
-input[type=text], input[type=password], input[type=email] {
+input[type=text], input[type=password], input[type=email], input[type=number] {
   padding: 6px;
   border: none;
   background-color: #dcdcdc;
@@ -77,6 +77,15 @@ form button {
   font-size: 1rem;
   transition: transform .2s ease-in-out;
   border-radius: 10px;
+}
+
+button {
+  background-color: #aaa;
+  color: white;
+  border: 1px solid #aaa;
+  font-family: 'Nunito', sans-serif;
+  padding: 10px;
+  transition: transform .2s ease-in-out;
 }
 
 button:hover {

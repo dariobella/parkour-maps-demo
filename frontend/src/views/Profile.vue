@@ -10,6 +10,9 @@
 import axios from 'axios'
 export default {
   name: 'Profile',
+  mounted() {
+    document.title = 'PK SPOT MAP | Profile'
+  },
   methods: {
     logout() {
       axios.defaults.headers.common["Authorization"] = ""

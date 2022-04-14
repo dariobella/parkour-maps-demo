@@ -163,10 +163,6 @@ export default {
         });
       }
     },
-
-    addSpots() {
-      if ($store.state.isAuthenticated) $router.push('add-spots')
-    },
   },
 
 }
@@ -179,7 +175,7 @@ export default {
 
   <div class="maproot">
     <div id="map"></div>
-    <button @click="addSpots()" type="button" id="addBtn" v-if="$store.state.isAuthenticated">
+    <button @click="$router.push('add-spots')" type="button" id="addBtn" v-if="$store.state.isAuthenticated">
       <span>+</span>
     </button>
   </div>
