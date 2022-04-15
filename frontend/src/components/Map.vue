@@ -197,11 +197,17 @@ export default {
   border-radius: 3px;
   border: 0;
   margin-top: 10px;
-  width: 90%;
+  width: 70%;
   max-width: 400px;
   height: 40px;
   text-overflow: ellipsis;
   padding: 0 1em;
+}
+
+@media (max-width: 400px) {
+  #search {
+    left: 20px!important;
+  }
 }
 
 #addBtn {

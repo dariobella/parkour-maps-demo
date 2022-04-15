@@ -51,7 +51,7 @@ p {
   text-align: center;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=number] {
+input[type=text], input[type=password], input[type=email], input[type=number], select, textarea {
   padding: 6px;
   border: none;
   background-color: #dcdcdc;
@@ -63,7 +63,7 @@ form {
   margin: 20px;
 }
 
-form input {
+form input, form select {
   margin-bottom: 20px;
 }
 
