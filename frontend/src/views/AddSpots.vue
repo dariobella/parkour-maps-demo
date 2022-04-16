@@ -15,25 +15,30 @@
 
     <div class="tab-content">
       <div class="tab-spot" v-show="current == 1">
+
+        <div class="alert alert-danger" v-if="errors.length">
+          <p v-for="error in errors" :key="error">{{ error }}</p>
+        </div>
+
         <form @submit.prevent="spotSubmitForm">
           <div class="selectLocation">
             <div class="choose">
               <span>Location:</span> <button @click.prevent="initMapModal()" data-bs-toggle="modal" data-bs-target="#locationModal">Choose from map</button>
             </div>
             <div class="LatLng">
-              <label for="Lat">Lat:</label> <input type="number" name="Lat" id="Lat">
-              <label for="Lat">Lng:</label> <input type="number" name="Lat" id="Lng">
+              <label for="Lat">Lat:</label> <input type="number" name="Lat" id="Lat" v-model="lat" step="0.000001">
+              <label for="Lat">Lng:</label> <input type="number" name="Lat" id="Lng" v-model="lng" step="0.000001">
             </div>
             
           </div>
 
           <div class="name">
-            <label for="name">Name:</label> <input type="text" name="name" id="name">
+            <label for="name">Name:</label> <input type="text" name="name" id="name" v-model="name">
           </div>
 
           <div class="type">
             <label for="type">Type:</label>
-            <select name="type" id="type">
+            <select name="type" id="type" v-model="type">
               <option value="spot">Spot</option>
               <option value="gym">Gym</option>
               <option value="park">Parkour Park</option>
@@ -43,7 +48,7 @@
 
           <div class="description">
             <label for="description">Description:</label>
-            <textarea name="description" id="description"></textarea>
+            <textarea name="description" id="description" v-model="description"></textarea>
           </div>
         
           <button class="btn-success" type="submit">Add spots</button>
@@ -54,8 +59,11 @@
       </div>
 
       <div class="tab-kml" v-show="current == 2">
-        <form @submit.prevent="kmlSubmitForm">
-        
+        <form @submit.prevent="kmlSubmitForm" enctype="multipart/form-data">
+          <div class="file">
+            <label for="kmlFile">Upload file</label>
+            <input type="file" accept=".kml" name="kmlFile" id="kmlFile" ref="kmlFile" @change="fileSelected">
+          </div>
           <button class="btn-success" type="submit">Add spots</button>
         </form>
       </div>
@@ -87,6 +95,9 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
   name: 'AddSpots',
   data() {
@@ -95,6 +106,13 @@ export default {
       map: {},
       iconSize: {},
       marker: {},
+      lat: 0,
+      lng: 0,
+      name: '',
+      type: '',
+      description: '',
+      kmlFile : {},
+      errors: []
     }
   },
   mounted() {
@@ -102,11 +120,34 @@ export default {
   },
   methods: {
     spotSubmitForm() {
-      console.log('spot submit form')
-    },
+      this.errors = []
 
-    kmlSubmitForm() {
-      console.log('kml submit form')
+      if (this.lat === 0 && this.lng  === 0) {
+        this.errors.push('The coordinates are missing')
+      }
+      else if (this.name === '') this.errors.push('The name is missing')
+
+      if (!this.errors.length) {
+        const formData = {
+          lat: this.lat,
+          lng: this.lng,
+          name: this.name,
+          type: this.type,
+          description: this.description,
+        }
+
+        axios
+        .post('/api/addSpot/', formData)
+        .then(response => {
+          this.$router.push('/')
+          console.log(response)
+        })
+        .catch(error => {
+          this.errors.push('Something went wrong, please try again')
+          console.log(JSON.stringify(error))
+        })
+
+      }
     },
 
     initMapModal() {
@@ -155,17 +196,29 @@ export default {
         }
       });
 
-      var latInput = document.getElementById("Lat")
-      var lngInput = document.getElementById("Lng")
-
       this.map.addListener("click", (mapsMouseEvent) => {
         var position = mapsMouseEvent.latLng
         vm.marker.setPosition(position)
 
-        latInput.value = position.toJSON().lat;
-        lngInput.value = position.toJSON().lng;
+        vm.lat = position.toJSON().lat.toFixed(6)
+        vm.lng = position.toJSON().lng.toFixed(6)
       })
 
+    },
+
+    kmlSubmitForm() {
+      const tj = require("@tmcw/togeojson")
+      const fs = require("fs")
+      const DOMParser = require("xmldom").DOMParser
+      const kml = new DOMParser().parseFromString(fs.readFileSync(this.kmlFile, "utf8"))
+
+      const converted = tj.kml(kml)
+      console.log(converted)
+    },
+
+    fileSelected() {
+      this.kmlFile = this.$refs.kmlFile.files[0]
+      console.log(this.kmlFile)
     }
   }
   

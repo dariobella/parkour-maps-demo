@@ -9,7 +9,6 @@ export default createStore({
   },
   mutations: {
     initializeStore(state) {
-      console.log('init store')
       if ( localStorage.getItem('token') ) {
         state.token = localStorage.getItem('token')
         state.isAuthenticated = true

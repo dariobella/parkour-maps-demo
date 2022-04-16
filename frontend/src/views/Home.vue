@@ -25,9 +25,8 @@ export default {
 
 <style scoped>
 
-#map {
-  width: 100%;
-  height: 94vh;
+.home {
+  background-color: #212529!important;
 }
 
 </style>
