@@ -97,6 +97,8 @@
 <script>
 
 import axios from 'axios'
+import * as xmldom from '@xmldom/xmldom'
+import { kml } from '@tmcw/togeojson'
 
 export default {
   name: 'AddSpots',
@@ -207,12 +209,10 @@ export default {
     },
 
     kmlSubmitForm() {
-      const tj = require("@tmcw/togeojson")
-      const fs = require("fs")
-      const DOMParser = require("xmldom").DOMParser
-      const kml = new DOMParser().parseFromString(fs.readFileSync(this.kmlFile, "utf8"))
+      const fs = require('fs')
+      const kmlData = new xmldom.DOMParser().parseFromString(fs.readFileSync(this.kmlFile))
 
-      const converted = tj.kml(kml)
+      const converted = kml(kmlData)
       console.log(converted)
     },
 
