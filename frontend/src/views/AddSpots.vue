@@ -61,8 +61,9 @@
       <div class="tab-kml" v-show="current == 2">
         <form @submit.prevent="kmlSubmitForm" enctype="multipart/form-data">
           <div class="file">
-            <label for="kmlFile">Upload file</label>
             <input type="file" accept=".kml" name="kmlFile" id="kmlFile" ref="kmlFile" @change="fileSelected">
+            <button @click="this.$refs.kmFile.click()"> <span class="material-icons">upload</span> <span> Upload file</span> </button>
+
           </div>
           <button class="btn-success" type="submit">Add spots</button>
         </form>
@@ -99,6 +100,7 @@
 import axios from 'axios'
 import * as xmldom from '@xmldom/xmldom'
 import { kml } from '@tmcw/togeojson'
+//import { readFileSync } from 'fs'
 
 export default {
   name: 'AddSpots',
@@ -209,8 +211,7 @@ export default {
     },
 
     kmlSubmitForm() {
-      const fs = require('fs')
-      const kmlData = new xmldom.DOMParser().parseFromString(fs.readFileSync(this.kmlFile))
+      const kmlData = ''//new xmldom.DOMParser().parseFromString(readFileSync(this.kmlFile))
 
       const converted = kml(kmlData)
       console.log(converted)
@@ -267,8 +268,21 @@ export default {
 
 .addSpots .selectLocation {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: center;
+}
+
+.addSpots .file button {
+  display: flex;
+}
+
+.addSpots .file button .material-icons {
+  margin-right: 10px;
+}
+
+.addSpots .file input[type=file] {
+  display: none;
 }
 
 .addSpots .modal-footer button {
