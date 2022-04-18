@@ -62,8 +62,11 @@
         <form @submit.prevent="kmlSubmitForm" enctype="multipart/form-data">
           <div class="file">
             <input type="file" accept=".kml" name="kmlFile" id="kmlFile" ref="kmlFile" @change="fileSelected">
-            <button @click="this.$refs.kmFile.click()"> <span class="material-icons">upload</span> <span> Upload file</span> </button>
-
+            <button @click="this.$refs.kmlFile.click()"> <span class="material-icons">upload</span> <span> Upload file</span> </button>
+            <div class="selectedFile">
+              <div v-if="this.kmlFile && this.kmlFile.name !== ''"> {{ this.kmlFile.name }} </div>
+              <div v-else> No file selected </div>
+            </div>
           </div>
           <button class="btn-success" type="submit">Add spots</button>
         </form>
@@ -115,7 +118,7 @@ export default {
       name: '',
       type: '',
       description: '',
-      kmlFile : {},
+      kmlFile : '',
       errors: []
     }
   },
@@ -160,6 +163,7 @@ export default {
         center: location,
         zoom: 12,
         minZoom: 3,
+        draggableCursor: 'pointer',
       }
 
       this.map = new google.maps.Map(document.getElementById('modalMap'), options)
@@ -273,6 +277,11 @@ export default {
   justify-content: center;
 }
 
+.addSpots .file {
+  display: flex;
+  justify-content: center;
+}
+
 .addSpots .file button {
   display: flex;
 }
@@ -283,6 +292,20 @@ export default {
 
 .addSpots .file input[type=file] {
   display: none;
+}
+
+.addSpots .file .selectedFile {
+  display: flex;
+  align-items: center;
+}
+
+.addSpots .file .selectedFile div {
+  padding: 10px;
+  padding-inline: 15px;
+  border: none;
+  background-color: #dcdcdc;
+  color: #333333;
+  border-radius: 5px;
 }
 
 .addSpots .modal-footer button {

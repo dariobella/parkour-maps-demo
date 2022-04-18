@@ -211,7 +211,7 @@ export default {
 }
 
 #addBtn {
-  background-color: black;
+  background-color: #212529;
   color: white;
   border: none;
   display: flex;

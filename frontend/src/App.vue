@@ -69,8 +69,8 @@ form input, form select {
 
 form button {
   font-family: 'Nunito', sans-serif;
-  background-color: black;
-  border: 1px solid black;
+  background-color: #212529;
+  border: 1px solid #212529;
   color: white;
   padding: 10px;
   padding-left: 20px; padding-right: 20px;
