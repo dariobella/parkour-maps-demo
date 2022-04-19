@@ -16,8 +16,8 @@
     <div class="tab-content">
       <div class="tab-spot" v-show="current == 1">
 
-        <div class="alert alert-danger" v-if="errors.length">
-          <p v-for="error in errors" :key="error">{{ error }}</p>
+        <div class="alert alert-danger" v-if="spotErrors.length">
+          <p v-for="error in spotErrors" :key="error">{{ error }}</p>
         </div>
 
         <form @submit.prevent="spotSubmitForm">
@@ -59,12 +59,17 @@
       </div>
 
       <div class="tab-kml" v-show="current == 2">
+
+        <div class="alert alert-danger" v-if="kmlErrors.length">
+          <p v-for="error in kmlErrors" :key="error">{{ error }}</p>
+        </div>
+
         <form @submit.prevent="kmlSubmitForm" enctype="multipart/form-data">
           <div class="file">
             <input type="file" accept=".kml" name="kmlFile" id="kmlFile" ref="kmlFile" @change="fileSelected">
             <button @click="this.$refs.kmlFile.click()"> <span class="material-icons">upload</span> <span> Upload file</span> </button>
             <div class="selectedFile">
-              <div v-if="this.kmlFile && this.kmlFile.name !== ''"> {{ this.kmlFile.name }} </div>
+              <div v-if="this.kmlFile" class="fileName"> <img src="../assets/kmlIcon.png" alt=""> {{ this.kmlFile.name }} </div>
               <div v-else> No file selected </div>
             </div>
           </div>
@@ -101,9 +106,6 @@
 <script>
 
 import axios from 'axios'
-import * as xmldom from '@xmldom/xmldom'
-import { kml } from '@tmcw/togeojson'
-//import { readFileSync } from 'fs'
 
 export default {
   name: 'AddSpots',
@@ -119,7 +121,8 @@ export default {
       type: '',
       description: '',
       kmlFile : '',
-      errors: []
+      spotErrors: [],
+      kmlErrors: []
     }
   },
   mounted() {
@@ -127,14 +130,14 @@ export default {
   },
   methods: {
     spotSubmitForm() {
-      this.errors = []
+      this.spotErrors = []
 
       if (this.lat === 0 && this.lng  === 0) {
-        this.errors.push('The coordinates are missing')
+        this.spotErrors.push('The coordinates are missing')
       }
-      else if (this.name === '') this.errors.push('The name is missing')
+      else if (this.name === '') this.spotErrors.push('The name is missing')
 
-      if (!this.errors.length) {
+      if (!this.spotErrors.length) {
         const formData = {
           lat: this.lat,
           lng: this.lng,
@@ -150,7 +153,7 @@ export default {
           console.log(response)
         })
         .catch(error => {
-          this.errors.push('Something went wrong, please try again')
+          this.spotErrors.push('Something went wrong, please try again')
           console.log(JSON.stringify(error))
         })
 
@@ -194,7 +197,6 @@ export default {
 
           vm.marker.setPosition(place.geometry.location)
 
-          // adatto la mappa visibile alla posizione del risultato della ricerca
           if (place.geometry.viewport) {
             bounds.union(place.geometry.viewport)
           } else {
@@ -215,15 +217,30 @@ export default {
     },
 
     kmlSubmitForm() {
-      const kmlData = ''//new xmldom.DOMParser().parseFromString(readFileSync(this.kmlFile))
+      this.kmlErrors = []
 
-      const converted = kml(kmlData)
-      console.log(converted)
+      if (this.kmlFile) {
+        const formData = new FormData();
+        formData.append('kmlFile', this.kmlFile, this.kmlFile.name)
+        
+        axios
+        .post('url', formData)
+        .then (res => {
+          console.log(res)
+        })
+        .catch(error => {
+          this.kmlErrors.push('Something went wrong, please try again')
+          console.log(JSON.stringify(error))
+        })
+      } else {
+        this.kmlErrors.push('The file is missing')
+      }
+
+
     },
 
     fileSelected() {
       this.kmlFile = this.$refs.kmlFile.files[0]
-      console.log(this.kmlFile)
     }
   }
   
@@ -306,6 +323,20 @@ export default {
   background-color: #dcdcdc;
   color: #333333;
   border-radius: 5px;
+}
+
+.addSpots .file .selectedFile .fileName {
+  padding: 10px;
+  padding-inline: 15px;
+  border: none;
+  background-color: #dcdcdc;
+  color: #333333;
+  border-radius: 5px;
+}
+
+.addSpots .file .selectedFile img {
+  width: 2rem;
+  margin-right: 5px;
 }
 
 .addSpots .modal-footer button {
