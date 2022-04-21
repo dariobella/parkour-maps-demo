@@ -2,8 +2,8 @@
 
 ## Primary
 
-1. User authentication
-2. Add spots (also with .kml)
+1. User authentication (sort of done)
+2. Add spots (missing .kml)
 3. User profile with maps
 4. spot images
 
@@ -12,6 +12,7 @@
 1. Cool Django landing page 
 2. Better spot visualization
 3. toasts and alerts in forms
+4. Check google autocomplete for relevant results
 
 ## Maybe
 

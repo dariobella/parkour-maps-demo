@@ -6,6 +6,11 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from django.utils.translation import gettext_lazy as gtl
+
+
+def upload_to(instance, filename):
+  return 'spots/{filename}'.format(filename=filename)
 
 
 class AuthGroup(models.Model):
@@ -151,7 +156,7 @@ class MapsSpots(models.Model):
 
 
 class Pics(models.Model):
-    url = models.CharField(unique=True, max_length=500)
+    image = models.ImageField(gtl("Image"), upload_to=upload_to)
     spotid = models.IntegerField(db_column='spotId')  # Field name made lowercase.
 
     class Meta:

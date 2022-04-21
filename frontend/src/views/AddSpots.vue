@@ -51,7 +51,7 @@
             <textarea name="description" id="description" v-model="description"></textarea>
           </div>
         
-          <button class="btn-success" type="submit">Add spots</button>
+          <button class="btn-success" type="submit">Add spot</button>
         </form>
 
 
@@ -167,6 +167,11 @@ export default {
         zoom: 12,
         minZoom: 3,
         draggableCursor: 'pointer',
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+          position: google.maps.ControlPosition.LEFT_BOTTOM,
+        },
       }
 
       this.map = new google.maps.Map(document.getElementById('modalMap'), options)
@@ -240,7 +245,12 @@ export default {
     },
 
     fileSelected() {
+      this.kmlErrors = []
       this.kmlFile = this.$refs.kmlFile.files[0]
+
+      if (!this.kmlFile) {
+        this.kmlErrors.push('The file is missing')
+      }
     }
   }
   

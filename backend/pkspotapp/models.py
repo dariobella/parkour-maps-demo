@@ -1,7 +1,10 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as gtl
 
 
-# Create your models here.
+def upload_to(instance, filename):
+  return 'spots/{filename}'.format(filename=filename)
+
 
 class Maps(models.Model):
     name = models.CharField(max_length=50)
@@ -22,7 +25,7 @@ class MapsSpots(models.Model):
 
 
 class Pics(models.Model):
-    url = models.CharField(unique=True, max_length=500)
+    image = models.ImageField(gtl("Image"), upload_to=upload_to)
     spotid = models.IntegerField(db_column='spotId')  # Field name made lowercase.
 
     class Meta:
