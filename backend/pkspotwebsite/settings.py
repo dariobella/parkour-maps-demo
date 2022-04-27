@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'djoser',
     
     'pkspotapp',
+    'pkspotapi'
 ]
 
 CORS_ORIGIN_WHITELIST = [

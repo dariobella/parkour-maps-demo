@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from pkspotapp.models import Users, Spots
-from .serializers import UsersSerializer, SpotsSerializer
+from pkspotapp.models import Users, Spots, Pics
+from .serializers import UsersSerializer, SpotsSerializer, PicsSerializer
 from rest_framework.permissions import IsAuthenticated
 
 
@@ -97,3 +97,12 @@ def deleteSpot(request, id):
     spot.delete()
 
     return Response(status=204)
+
+
+# ----------------- PICS --------------------------------------------
+
+@api_view(['GET'])
+def pics(request):
+    pics = Pics.objects.all()
+    serializer = PicsSerializer(pics, many=True)
+    return Response(serializer.data)

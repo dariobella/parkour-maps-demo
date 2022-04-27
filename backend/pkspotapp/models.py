@@ -25,6 +25,7 @@ class MapsSpots(models.Model):
 
 
 class Pics(models.Model):
+    title = models.CharField(max_length=50)
     image = models.ImageField(gtl("Image"), upload_to=upload_to)
     spotid = models.IntegerField(db_column='spotId')  # Field name made lowercase.
 
