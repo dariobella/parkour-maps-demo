@@ -50,6 +50,19 @@
             <label for="description">Description:</label>
             <textarea name="description" id="description" v-model="description"></textarea>
           </div>
+
+          <div class="images">
+            <input type="file" name="images" id="images" ref="images" @change="imageSelected" multiple>
+            <div class="imagesBtn">
+              <button @click.prevent="this.$refs.images.click()"> <span class="material-icons">upload</span> <span> Upload images</span> </button>
+            </div>  
+            <div class="allImages">
+              <div class="imageSelected" v-for="(image, index) in images" :key="index">
+                <div v-if="this.images" class="fileName"> <span class="material-icons">image</span> {{ image.name }} </div>
+                <div v-else> No file selected </div>
+              </div>
+            </div>
+          </div>
         
           <button class="btn-success" type="submit">Add spot</button>
         </form>
@@ -67,7 +80,7 @@
         <form @submit.prevent="kmlSubmitForm" enctype="multipart/form-data">
           <div class="file">
             <input type="file" accept=".kml" name="kmlFile" id="kmlFile" ref="kmlFile" @change="fileSelected">
-            <button @click="this.$refs.kmlFile.click()"> <span class="material-icons">upload</span> <span> Upload file</span> </button>
+            <button @click.prevent="this.$refs.kmlFile.click()"> <span class="material-icons">upload</span> <span> Upload file</span> </button>
             <div class="selectedFile">
               <div v-if="this.kmlFile" class="fileName"> <img src="../assets/kmlIcon.png" alt=""> {{ this.kmlFile.name }} </div>
               <div v-else> No file selected </div>
@@ -118,11 +131,12 @@ export default {
       lat: 0,
       lng: 0,
       name: '',
-      type: '',
+      type: 'spot',
       description: '',
+      images: [],
       kmlFile : '',
       spotErrors: [],
-      kmlErrors: []
+      kmlErrors: [],
     }
   },
   mounted() {
@@ -244,6 +258,13 @@ export default {
 
     },
 
+    imageSelected() {
+      for (let i = 0; i < this.$refs.images.files.length; i++) {
+        this.images.push(this.$refs.images.files[i])
+      }
+      console.log(this.images)
+    },
+
     fileSelected() {
       this.kmlErrors = []
       this.kmlFile = this.$refs.kmlFile.files[0]
@@ -304,26 +325,32 @@ export default {
   justify-content: center;
 }
 
-.addSpots .file {
+.addSpots .file, .addSpots .images {
   display: flex;
   justify-content: center;
 }
 
-.addSpots .file button {
+.addSpots .file button, .addSpots .images button {
   display: flex;
+  align-items: center;
 }
 
-.addSpots .file button .material-icons {
+.addSpots .file button .material-icons, .addSpots .images button .material-icons {
   margin-right: 10px;
 }
 
-.addSpots .file input[type=file] {
+.addSpots .file input[type=file], .addSpots .images input[type=file] {
   display: none;
 }
 
-.addSpots .file .selectedFile {
+.addSpots .file .selectedFile, .addSpots .images .imageSelected {
   display: flex;
   align-items: center;
+}
+
+.addSpots .images .allImages {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .addSpots .file .selectedFile div {
@@ -342,6 +369,22 @@ export default {
   background-color: #dcdcdc;
   color: #333333;
   border-radius: 5px;
+}
+
+.addSpots .images .imageSelected .fileName {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  padding-inline: 15px;
+  margin: 10px;
+  border: none;
+  background-color: #dcdcdc;
+  color: #333333;
+  border-radius: 5px;
+}
+
+.addSpots .images .imageSelected .fileName span {
+  padding-right: 10px;
 }
 
 .addSpots .file .selectedFile img {

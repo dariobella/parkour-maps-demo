@@ -75,9 +75,9 @@ def addSpot(request):
     serializer = SpotsSerializer(data=request.data)
 
     if serializer.is_valid():
-        serializer.save()
+        valid = True
 
-    return Response(serializer.data)
+    return Response(request.data)
 
 
 @api_view(['POST'])
