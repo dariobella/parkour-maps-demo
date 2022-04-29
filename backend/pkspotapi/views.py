@@ -75,7 +75,9 @@ def addSpot(request):
     serializer = SpotsSerializer(data=request.data)
 
     if serializer.is_valid():
+        #lastSpot = serializer.save()
         valid = True
+
 
     return Response(request.data)
 

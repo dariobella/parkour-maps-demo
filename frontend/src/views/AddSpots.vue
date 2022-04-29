@@ -58,7 +58,7 @@
             </div>  
             <div class="allImages">
               <div class="imageSelected" v-for="(image, index) in images" :key="index">
-                <div v-if="this.images" class="fileName"> <span class="material-icons">image</span> {{ image.name }} </div>
+                <div v-if="this.images" class="fileName"> <span class="material-icons">image</span> <span class="text"> {{ image.name }} </span> </div>
                 <div v-else> No file selected </div>
               </div>
             </div>
@@ -158,6 +158,7 @@ export default {
           name: this.name,
           type: this.type,
           description: this.description,
+          images: this.images,
         }
 
         axios
@@ -383,8 +384,8 @@ export default {
   border-radius: 5px;
 }
 
-.addSpots .images .imageSelected .fileName span {
-  padding-right: 10px;
+.addSpots .images .imageSelected .fileName .text {
+  padding-inline: 10px;
 }
 
 .addSpots .file .selectedFile img {
