@@ -134,6 +134,7 @@ export default {
       type: 'spot',
       description: '',
       images: [],
+      lastId: 0,
       kmlFile : '',
       spotErrors: [],
       kmlErrors: [],
@@ -158,19 +159,37 @@ export default {
           name: this.name,
           type: this.type,
           description: this.description,
-          images: this.images,
         }
 
         axios
         .post('/api/addSpot/', formData)
         .then(response => {
-          this.$router.push('/')
-          console.log(response)
+          this.lastId = response.data
         })
         .catch(error => {
           this.spotErrors.push('Something went wrong, please try again')
           console.log(JSON.stringify(error))
         })
+
+        if (!this.spotErrors.length) {
+
+          const imagesData = new FormData()
+          this.images.forEach(image => {
+            imagesData.append('image', image, image.name)
+          })
+
+          imagesData.append('spotId', this.lastId)
+
+          axios
+          .post('api/addPics/', imagesData)
+          .then(response => {
+            console.log(response.data)
+          })
+          .catch(error => {
+            this.spotErrors.push('Something went wrong, please try again')
+            console.log(JSON.stringify(error))
+          })
+        }
 
       }
     },

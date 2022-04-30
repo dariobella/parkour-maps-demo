@@ -19,6 +19,7 @@ urlpatterns = [
     path('api/deleteSpot/<str:id>/', views.deleteSpot, name="deleteSpot"),
 
     path('api/pics/', views.pics, name="pics"),
+    path('api/addPics/', views.addPics, name="addPics"),
 
 
 ]

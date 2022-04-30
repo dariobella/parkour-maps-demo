@@ -75,11 +75,9 @@ def addSpot(request):
     serializer = SpotsSerializer(data=request.data)
 
     if serializer.is_valid():
-        #lastSpot = serializer.save()
-        valid = True
+        lastSpot = serializer.save()
 
-
-    return Response(request.data)
+    return Response(lastSpot.id)
 
 
 @api_view(['POST'])
@@ -108,3 +106,18 @@ def pics(request):
     pics = Pics.objects.all()
     serializer = PicsSerializer(pics, many=True)
     return Response(serializer.data)
+
+
+@api_view(['POST'])
+def addPics(request):
+    images = request.FILES.getlist('images')
+
+    n = 0
+    for image in images:
+      print(image)
+      n += 1
+
+    #if serializer.is_valid():
+    #    serializer.save()
+
+    return Response(n)
