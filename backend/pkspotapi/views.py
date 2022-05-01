@@ -110,14 +110,15 @@ def pics(request):
 
 @api_view(['POST'])
 def addPics(request):
-    images = request.FILES.getlist('images')
+    #images = request.FILES.getlist('images')
 
-    n = 0
-    for image in images:
-      print(image)
-      n += 1
+    #reqData = []
+    #for image in images:
+    #  reqData.append(image.name)
+
+    #reqData.append(request.data.spotId)
 
     #if serializer.is_valid():
     #    serializer.save()
 
-    return Response(n)
+    return Response(request.data)

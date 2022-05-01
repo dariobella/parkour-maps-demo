@@ -161,37 +161,47 @@ export default {
           description: this.description,
         }
 
-        axios
-        .post('/api/addSpot/', formData)
-        .then(response => {
-          this.lastId = response.data
+        Promise.all([
+          this.submitSpot(formData),
+          false
+        ])
+        .then(function () {
+          console.log('sono nella then')
+          const imagesData = new FormData()
+          //this.images.forEach(image => {
+          //  imagesData.append('images', image, image.name)
+          //})
+          console.log('2) last id: ' + this.lastId)
+          imagesData.append('spotId', this.lastId)
+
+          console.log(imagesData)
+          this.submitImages(imagesData)
         })
         .catch(error => {
           this.spotErrors.push('Something went wrong, please try again')
           console.log(JSON.stringify(error))
         })
 
-        if (!this.spotErrors.length) {
-
-          const imagesData = new FormData()
-          this.images.forEach(image => {
-            imagesData.append('image', image, image.name)
-          })
-
-          imagesData.append('spotId', this.lastId)
-
-          axios
-          .post('api/addPics/', imagesData)
-          .then(response => {
-            console.log(response.data)
-          })
-          .catch(error => {
-            this.spotErrors.push('Something went wrong, please try again')
-            console.log(JSON.stringify(error))
-          })
-        }
-
       }
+    },
+
+    async submitSpot(formData) {
+      return axios
+      .post('/api/addSpot/', formData)
+      .then(response => {
+        console.log(response)
+        this.lastId = response.data
+        console.log('1) last id: ' + this.lastId)
+      })
+    },
+
+    async submitImages(imagesData) {
+      return axios
+      .post('api/addPics/', imagesData)
+      .then(response => {
+        console.log('images response')
+        console.log(response.data)
+      })
     },
 
     initMapModal() {
