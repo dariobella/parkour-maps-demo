@@ -1,8 +1,11 @@
+import re
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.renderers import JSONRenderer
+
 from pkspotapp.models import Users, Spots, Pics
 from .serializers import UsersSerializer, SpotsSerializer, PicsSerializer
-from rest_framework.permissions import IsAuthenticated
 
 
 # ----------------- USERS --------------------------------------------
@@ -77,7 +80,7 @@ def addSpot(request):
     if serializer.is_valid():
         lastSpot = serializer.save()
 
-    return Response(lastSpot.id)
+    return Response(serializer.data)
 
 
 @api_view(['POST'])
@@ -110,15 +113,12 @@ def pics(request):
 
 @api_view(['POST'])
 def addPics(request):
-    #images = request.FILES.getlist('images')
+    images = request.FILES.getlist('images')
 
-    #reqData = []
-    #for image in images:
-    #  reqData.append(image.name)
+    for image in images:
+      serializer = PicsSerializer(data={'title':image.name, 'image':image, 'spotid':request.data['spotId']})
 
-    #reqData.append(request.data.spotId)
+      if serializer.is_valid():
+        serializer.save()
 
-    #if serializer.is_valid():
-    #    serializer.save()
-
-    return Response(request.data)
+    return Response(serializer.data)

@@ -161,21 +161,34 @@ export default {
           description: this.description,
         }
 
-        Promise.all([
-          this.submitSpot(formData),
-          false
-        ])
-        .then(function () {
-          console.log('sono nella then')
-          const imagesData = new FormData()
-          //this.images.forEach(image => {
-          //  imagesData.append('images', image, image.name)
-          //})
-          console.log('2) last id: ' + this.lastId)
-          imagesData.append('spotId', this.lastId)
+        axios
+        .post('/api/addSpot/', formData)
+        .then(response => {
+          console.log(response)
+          this.lastId = response.data.id
+        })
+        .then(() => {
+          if (this.images.length > 0) {
+            const imagesData = new FormData()
+            this.images.forEach(image => {
+              imagesData.append('images', image, image.name)
+            })
+            imagesData.append('spotId', this.lastId)
 
-          console.log(imagesData)
-          this.submitImages(imagesData)
+            console.log(imagesData)
+            axios
+            .post('api/addPics/', imagesData, { headers: {
+                "Content-Type": "multipart/form-data",
+            }})
+            .then(response => {
+              console.log('images response')
+              console.log(response.data)
+            })
+            .catch(error => {
+              this.spotErrors.push('Something went wrong, please try again')
+              console.log(JSON.stringify(error))
+            })
+          }
         })
         .catch(error => {
           this.spotErrors.push('Something went wrong, please try again')
@@ -183,25 +196,6 @@ export default {
         })
 
       }
-    },
-
-    async submitSpot(formData) {
-      return axios
-      .post('/api/addSpot/', formData)
-      .then(response => {
-        console.log(response)
-        this.lastId = response.data
-        console.log('1) last id: ' + this.lastId)
-      })
-    },
-
-    async submitImages(imagesData) {
-      return axios
-      .post('api/addPics/', imagesData)
-      .then(response => {
-        console.log('images response')
-        console.log(response.data)
-      })
     },
 
     initMapModal() {
@@ -292,7 +286,6 @@ export default {
       for (let i = 0; i < this.$refs.images.files.length; i++) {
         this.images.push(this.$refs.images.files[i])
       }
-      console.log(this.images)
     },
 
     fileSelected() {
