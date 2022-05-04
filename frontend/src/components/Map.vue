@@ -46,10 +46,20 @@ export default {
     initMap() {
       this.iconSize = new google.maps.Size(20, 30); // (width, height)
       const lonato = {lat:45.4609, lng:10.4845};
+      const bounds = {
+        north: 85,
+        south: -85,
+        west: -200,
+        east: 200,
+      }
 
       var options = {
         zoom: 12, 
-        center: lonato, 
+        center: lonato,
+        restriction: {
+          latLngBounds: bounds,
+          strictBounds: false,
+        },
         minZoom: 3,
         mapTypeControl: true,
         mapTypeControlOptions: {

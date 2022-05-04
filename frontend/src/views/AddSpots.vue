@@ -199,7 +199,11 @@ export default {
     },
 
     initMapModal() {
-      var location = {lat:45.4609, lng:10.4845};
+      
+      console.log(this.lat)
+      console.log(this.lng)
+      var location = {lat: parseInt(this.lat), lng: parseInt(this.lng)};
+
       var options = {
         center: location,
         zoom: 12,
@@ -224,21 +228,24 @@ export default {
       modalSearch.placeholder = 'Search places'
       this.map.controls[google.maps.ControlPosition.TOP_CENTER].push(modalSearch)
       
-      var autocomplete = new google.maps.places.Autocomplete(modalSearch)
-      autocomplete.bindTo('bounds', this.map)
-      autocomplete.setFields(['place_id', 'name', 'geometry', 'formatted_address'])
+      var modalAutocomplete = new google.maps.places.Autocomplete(modalSearch)
+      modalAutocomplete.bindTo('bounds', this.map)
+      modalAutocomplete.setFields(['place_id', 'name', 'geometry', 'formatted_address'])
 
       var vm = this
-      autocomplete.addListener('place_changed', function() {
-
-        var place = autocomplete.getPlace();
+      modalAutocomplete.addListener('place_changed', function() {
+        console.log('place changed')
+        var place = modalAutocomplete.getPlace();
 
         if (!place.geometry) {
           modalSearch.placeholder = 'Enter a place'
         } else {
           var bounds = new google.maps.LatLngBounds()
 
-          vm.marker.setPosition(place.geometry.location)
+          var position = place.geometry.location
+          vm.marker.setPosition(position)
+          vm.lat = position.toJSON().lat.toFixed(6)
+          vm.lng = position.toJSON().lng.toFixed(6)
 
           if (place.geometry.viewport) {
             bounds.union(place.geometry.viewport)
@@ -302,6 +309,8 @@ export default {
 </script>
 
 <style>
+
+.pac-container { z-index: 10000 !important; }
 
 .addSpots {
   margin: 3rem;
