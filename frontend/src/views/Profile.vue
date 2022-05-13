@@ -1,8 +1,20 @@
 <template>
   <div class="profile">
-    <h1>My Profile</h1>
 
-    <button @click="logout()" type="button" class="btn btn-danger">Logout</button>
+    <div class="topProfile row">
+      <div class="left col-sm"></div>
+      <div class="center col-sm"><h1>My Profile</h1></div>
+      <div class="right col-sm"><button @click="logout()" type="button" class="btn btn-danger">Logout</button></div>
+    </div>
+
+    <div class="maps">
+      <div class="map">
+
+      </div>
+    </div>
+    
+
+    
   </div>
 </template>
 
@@ -28,3 +40,17 @@ export default {
   }
 }
 </script>
+
+<style>
+
+.topProfile div {
+  padding: 20px;
+}
+
+.topProfile .right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+</style>
