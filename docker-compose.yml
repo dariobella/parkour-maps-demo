@@ -36,6 +36,6 @@ services:
     depends_on:
       - backend
     ports:
-      - 8080:8080
+      - $HTTP_PORT:3000
     volumes:
       - ./frontend:/frontend

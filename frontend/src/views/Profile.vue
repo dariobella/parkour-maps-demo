@@ -3,7 +3,7 @@
 
     <div class="topProfile row">
       <div class="left col-sm"></div>
-      <div class="center col-sm"><h1>My Profile</h1></div>
+      <div class="center col-sm"> <span> My Profile </span></div>
       <div class="right col-sm"><button @click="logout()" type="button" class="btn btn-danger">Logout</button></div>
     </div>
 

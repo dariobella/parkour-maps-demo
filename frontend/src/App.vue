@@ -92,4 +92,24 @@ button:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
+
+
+* {
+  scrollbar-width: 5px;
+  scrollbar-color: white black;
+}
+
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20px;
+}
 </style>

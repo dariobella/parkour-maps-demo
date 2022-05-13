@@ -1,0 +1,1016 @@
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-13T07:58:25.719026Z	    9 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T07:58:25.719872Z	    9 Query	SET NAMES utf8
+2022-05-13T07:58:25.720156Z	    9 Query	SET autocommit=0
+2022-05-13T07:58:25.720419Z	    9 Query	SET autocommit=1
+2022-05-13T07:58:25.720737Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T07:58:25.721714Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T07:58:25.722049Z	    9 Query	SHOW FULL TABLES
+2022-05-13T07:58:25.729181Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-13T08:02:53.721757Z	    9 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:02:53.722729Z	    9 Query	SET NAMES utf8
+2022-05-13T08:02:53.723439Z	    9 Query	SET autocommit=0
+2022-05-13T08:02:53.723735Z	    9 Query	SET autocommit=1
+2022-05-13T08:02:53.724285Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:02:53.726177Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:02:53.726778Z	    9 Query	SHOW FULL TABLES
+2022-05-13T08:02:53.752116Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-13T08:03:59.305469Z	    9 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:03:59.306221Z	    9 Query	SET NAMES utf8
+2022-05-13T08:03:59.306586Z	    9 Query	SET autocommit=0
+2022-05-13T08:03:59.307160Z	    9 Query	SET autocommit=1
+2022-05-13T08:03:59.307730Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:03:59.308887Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:03:59.309200Z	    9 Query	SHOW FULL TABLES
+2022-05-13T08:03:59.316570Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-13T08:07:26.491535Z	    9 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:07:26.492195Z	    9 Query	SET NAMES utf8
+2022-05-13T08:07:26.492456Z	    9 Query	SET autocommit=0
+2022-05-13T08:07:26.492703Z	    9 Query	SET autocommit=1
+2022-05-13T08:07:26.493057Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:07:26.494052Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:07:26.494430Z	    9 Query	SHOW FULL TABLES
+2022-05-13T08:07:26.502199Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-13T08:11:47.286948Z	    9 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:11:47.287608Z	    9 Query	SET NAMES utf8
+2022-05-13T08:11:47.287864Z	    9 Query	SET autocommit=0
+2022-05-13T08:11:47.288130Z	    9 Query	SET autocommit=1
+2022-05-13T08:11:47.288494Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:11:47.289619Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:11:47.290002Z	    9 Query	SHOW FULL TABLES
+2022-05-13T08:11:47.296779Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-13T08:21:22.595413Z	    9 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:21:22.596072Z	    9 Query	SET NAMES utf8
+2022-05-13T08:21:22.596373Z	    9 Query	SET autocommit=0
+2022-05-13T08:21:22.596777Z	    9 Query	SET autocommit=1
+2022-05-13T08:21:22.597224Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:21:22.598207Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:21:22.598723Z	    9 Query	SHOW FULL TABLES
+2022-05-13T08:21:22.604913Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-13T08:22:44.009469Z	    9 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:22:44.012383Z	    9 Query	SET NAMES utf8
+2022-05-13T08:22:44.012813Z	    9 Query	SET autocommit=0
+2022-05-13T08:22:44.013259Z	    9 Query	SET autocommit=1
+2022-05-13T08:22:44.013788Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:22:44.015375Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:22:44.015884Z	    9 Query	SHOW FULL TABLES
+2022-05-13T08:22:44.023392Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-13T08:25:50.025143Z	    9 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:25:50.025837Z	    9 Query	SET NAMES utf8
+2022-05-13T08:25:50.026171Z	    9 Query	SET autocommit=0
+2022-05-13T08:25:50.026452Z	    9 Query	SET autocommit=1
+2022-05-13T08:25:50.026841Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:25:50.027990Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:25:50.028331Z	    9 Query	SHOW FULL TABLES
+2022-05-13T08:25:50.035957Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-13T08:32:09.323026Z	    9 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:09.323697Z	    9 Query	SET NAMES utf8
+2022-05-13T08:32:09.323979Z	    9 Query	SET autocommit=0
+2022-05-13T08:32:09.324208Z	    9 Query	SET autocommit=1
+2022-05-13T08:32:09.324575Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:32:09.325686Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:09.325978Z	    9 Query	SHOW FULL TABLES
+2022-05-13T08:32:09.332548Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-13T08:32:12.734580Z	   10 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:12.735187Z	   10 Query	SET NAMES utf8
+2022-05-13T08:32:12.735533Z	   10 Query	SET autocommit=0
+2022-05-13T08:32:12.735848Z	   10 Query	SET autocommit=1
+2022-05-13T08:32:12.736258Z	   10 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:32:12.736735Z	   10 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:12.737145Z	   10 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:12.746868Z	   10 Quit	
+2022-05-13T08:32:13.492379Z	   11 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:13.493018Z	   11 Query	SET NAMES utf8
+2022-05-13T08:32:13.493310Z	   11 Query	SET autocommit=0
+2022-05-13T08:32:13.493597Z	   11 Query	SET autocommit=1
+2022-05-13T08:32:13.493923Z	   11 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:13.494293Z	   11 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:13.497164Z	   11 Quit	
+2022-05-13T08:32:15.595549Z	   12 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:15.596298Z	   12 Query	SET NAMES utf8
+2022-05-13T08:32:15.596847Z	   12 Query	SET autocommit=0
+2022-05-13T08:32:15.597332Z	   12 Query	SET autocommit=1
+2022-05-13T08:32:15.597778Z	   12 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:15.598335Z	   12 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:15.600430Z	   12 Quit	
+2022-05-13T08:32:17.726861Z	   13 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:17.727675Z	   13 Query	SET NAMES utf8
+2022-05-13T08:32:17.728009Z	   13 Query	SET autocommit=0
+2022-05-13T08:32:17.728275Z	   13 Query	SET autocommit=1
+2022-05-13T08:32:17.728646Z	   13 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:17.729085Z	   13 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:17.731902Z	   13 Quit	
+2022-05-13T08:32:19.873953Z	   14 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:19.875929Z	   14 Query	SET NAMES utf8
+2022-05-13T08:32:19.877098Z	   14 Query	SET autocommit=0
+2022-05-13T08:32:19.877647Z	   14 Query	SET autocommit=1
+2022-05-13T08:32:19.878404Z	   14 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:19.879219Z	   14 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:19.884495Z	   14 Quit	
+2022-05-13T08:32:21.920470Z	   15 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:21.920903Z	   15 Query	SET NAMES utf8
+2022-05-13T08:32:21.921216Z	   15 Query	SET autocommit=0
+2022-05-13T08:32:21.921486Z	   15 Query	SET autocommit=1
+2022-05-13T08:32:21.921818Z	   15 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:21.922174Z	   15 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:21.924028Z	   15 Quit	
+2022-05-13T08:32:24.037197Z	   16 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:24.037647Z	   16 Query	SET NAMES utf8
+2022-05-13T08:32:24.038015Z	   16 Query	SET autocommit=0
+2022-05-13T08:32:24.038503Z	   16 Query	SET autocommit=1
+2022-05-13T08:32:24.039004Z	   16 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:24.039585Z	   16 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:24.041625Z	   16 Quit	
+2022-05-13T08:32:26.156204Z	   17 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:26.156617Z	   17 Query	SET NAMES utf8
+2022-05-13T08:32:26.156963Z	   17 Query	SET autocommit=0
+2022-05-13T08:32:26.157314Z	   17 Query	SET autocommit=1
+2022-05-13T08:32:26.157689Z	   17 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:26.158138Z	   17 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:26.161414Z	   17 Quit	
+2022-05-13T08:32:28.312567Z	   18 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:28.313223Z	   18 Query	SET NAMES utf8
+2022-05-13T08:32:28.313803Z	   18 Query	SET autocommit=0
+2022-05-13T08:32:28.314552Z	   18 Query	SET autocommit=1
+2022-05-13T08:32:28.315504Z	   18 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:28.316128Z	   18 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:28.319033Z	   18 Quit	
+2022-05-13T08:32:30.504434Z	   19 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:30.504898Z	   19 Query	SET NAMES utf8
+2022-05-13T08:32:30.505268Z	   19 Query	SET autocommit=0
+2022-05-13T08:32:30.505592Z	   19 Query	SET autocommit=1
+2022-05-13T08:32:30.505991Z	   19 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:30.506333Z	   19 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:30.508249Z	   19 Quit	
+2022-05-13T08:32:32.657323Z	   20 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:32.657886Z	   20 Query	SET NAMES utf8
+2022-05-13T08:32:32.658278Z	   20 Query	SET autocommit=0
+2022-05-13T08:32:32.658737Z	   20 Query	SET autocommit=1
+2022-05-13T08:32:32.659177Z	   20 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:32.659688Z	   20 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:32.662560Z	   20 Quit	
+2022-05-13T08:32:34.911643Z	   21 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:34.912112Z	   21 Query	SET NAMES utf8
+2022-05-13T08:32:34.912554Z	   21 Query	SET autocommit=0
+2022-05-13T08:32:34.913122Z	   21 Query	SET autocommit=1
+2022-05-13T08:32:34.913583Z	   21 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:34.914617Z	   21 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:34.916898Z	   21 Quit	
+2022-05-13T08:32:37.156534Z	   22 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:37.157132Z	   22 Query	SET NAMES utf8
+2022-05-13T08:32:37.157548Z	   22 Query	SET autocommit=0
+2022-05-13T08:32:37.157890Z	   22 Query	SET autocommit=1
+2022-05-13T08:32:37.158313Z	   22 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:37.158735Z	   22 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:37.162012Z	   22 Quit	
+2022-05-13T08:32:39.533766Z	   23 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:39.534231Z	   23 Query	SET NAMES utf8
+2022-05-13T08:32:39.534569Z	   23 Query	SET autocommit=0
+2022-05-13T08:32:39.534891Z	   23 Query	SET autocommit=1
+2022-05-13T08:32:39.535233Z	   23 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:39.535627Z	   23 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:39.537491Z	   23 Quit	
+2022-05-13T08:32:41.819815Z	   24 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:41.820332Z	   24 Query	SET NAMES utf8
+2022-05-13T08:32:41.820805Z	   24 Query	SET autocommit=0
+2022-05-13T08:32:41.821271Z	   24 Query	SET autocommit=1
+2022-05-13T08:32:41.821924Z	   24 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:41.822492Z	   24 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:41.824391Z	   24 Quit	
+2022-05-13T08:32:44.865844Z	   25 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:44.866643Z	   25 Query	SET NAMES utf8
+2022-05-13T08:32:44.867550Z	   25 Query	SET autocommit=0
+2022-05-13T08:32:44.867999Z	   25 Query	SET autocommit=1
+2022-05-13T08:32:44.868430Z	   25 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:44.868871Z	   25 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:44.870812Z	   25 Quit	
+2022-05-13T08:32:47.985479Z	   26 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:47.985983Z	   26 Query	SET NAMES utf8
+2022-05-13T08:32:47.986363Z	   26 Query	SET autocommit=0
+2022-05-13T08:32:47.986661Z	   26 Query	SET autocommit=1
+2022-05-13T08:32:47.987009Z	   26 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:47.987347Z	   26 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:47.989122Z	   26 Quit	
+2022-05-13T08:32:55.176946Z	   27 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:32:55.178164Z	   27 Query	SET NAMES utf8
+2022-05-13T08:32:55.178615Z	   27 Query	SET autocommit=0
+2022-05-13T08:32:55.178932Z	   27 Query	SET autocommit=1
+2022-05-13T08:32:55.179316Z	   27 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:32:55.179827Z	   27 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:32:55.183307Z	   27 Quit	
+2022-05-13T08:33:00.650250Z	   28 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:33:00.651019Z	   28 Query	SET NAMES utf8
+2022-05-13T08:33:00.651383Z	   28 Query	SET autocommit=0
+2022-05-13T08:33:00.651725Z	   28 Query	SET autocommit=1
+2022-05-13T08:33:00.652201Z	   28 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:33:00.652625Z	   28 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:33:00.654451Z	   28 Quit	
+2022-05-13T08:33:04.603893Z	   29 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:33:04.604287Z	   29 Query	SET NAMES utf8
+2022-05-13T08:33:04.604607Z	   29 Query	SET autocommit=0
+2022-05-13T08:33:04.604842Z	   29 Query	SET autocommit=1
+2022-05-13T08:33:04.605186Z	   29 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:33:04.605528Z	   29 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:33:04.607770Z	   29 Quit	
+2022-05-13T08:33:11.069639Z	   30 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:33:11.070197Z	   30 Query	SET NAMES utf8
+2022-05-13T08:33:11.070627Z	   30 Query	SET autocommit=0
+2022-05-13T08:33:11.072026Z	   30 Query	SET autocommit=1
+2022-05-13T08:33:11.072497Z	   30 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:33:11.072908Z	   30 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:33:11.075037Z	   30 Quit	
+2022-05-13T08:33:17.219034Z	   31 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:33:17.219909Z	   31 Query	SET NAMES utf8
+2022-05-13T08:33:17.220994Z	   31 Query	SET autocommit=0
+2022-05-13T08:33:17.222144Z	   31 Query	SET autocommit=1
+2022-05-13T08:33:17.222827Z	   31 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:33:17.223873Z	   31 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:33:17.228312Z	   31 Quit	
+2022-05-13T08:33:23.456168Z	   32 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:33:23.456574Z	   32 Query	SET NAMES utf8
+2022-05-13T08:33:23.457006Z	   32 Query	SET autocommit=0
+2022-05-13T08:33:23.457415Z	   32 Query	SET autocommit=1
+2022-05-13T08:33:23.458010Z	   32 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:33:23.460487Z	   32 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:33:23.465239Z	   32 Quit	
+2022-05-13T08:33:28.782564Z	   33 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:33:28.785049Z	   33 Query	SET NAMES utf8
+2022-05-13T08:33:28.786154Z	   33 Query	SET autocommit=0
+2022-05-13T08:33:28.787138Z	   33 Query	SET autocommit=1
+2022-05-13T08:33:28.787948Z	   33 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:33:28.788506Z	   33 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:33:28.790743Z	   33 Quit	
+2022-05-13T08:33:34.935277Z	   34 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:33:34.935811Z	   34 Query	SET NAMES utf8
+2022-05-13T08:33:34.936238Z	   34 Query	SET autocommit=0
+2022-05-13T08:33:34.936592Z	   34 Query	SET autocommit=1
+2022-05-13T08:33:34.937122Z	   34 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:33:34.937657Z	   34 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:33:34.939797Z	   34 Quit	
+2022-05-13T08:33:38.410842Z	   35 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:33:38.411375Z	   35 Query	SET NAMES utf8
+2022-05-13T08:33:38.411780Z	   35 Query	SET autocommit=0
+2022-05-13T08:33:38.412095Z	   35 Query	SET autocommit=1
+2022-05-13T08:33:38.412498Z	   35 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:33:38.412981Z	   35 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:33:38.415387Z	   35 Quit	
+2022-05-13T08:33:45.331368Z	   36 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:33:45.332053Z	   36 Query	SET NAMES utf8
+2022-05-13T08:33:45.332761Z	   36 Query	SET autocommit=0
+2022-05-13T08:33:45.333576Z	   36 Query	SET autocommit=1
+2022-05-13T08:33:45.334207Z	   36 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:33:45.334826Z	   36 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:33:45.337604Z	   36 Quit	
+2022-05-13T08:33:50.841545Z	   37 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:33:50.842289Z	   37 Query	SET NAMES utf8
+2022-05-13T08:33:50.842805Z	   37 Query	SET autocommit=0
+2022-05-13T08:33:50.843188Z	   37 Query	SET autocommit=1
+2022-05-13T08:33:50.843622Z	   37 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:33:50.844126Z	   37 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:33:50.846861Z	   37 Quit	
+2022-05-13T08:33:54.628320Z	   38 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:33:54.628916Z	   38 Query	SET NAMES utf8
+2022-05-13T08:33:54.629620Z	   38 Query	SET autocommit=0
+2022-05-13T08:33:54.630372Z	   38 Query	SET autocommit=1
+2022-05-13T08:33:54.630880Z	   38 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:33:54.631563Z	   38 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:33:54.633739Z	   38 Quit	
+2022-05-13T08:34:01.023814Z	   39 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:34:01.024438Z	   39 Query	SET NAMES utf8
+2022-05-13T08:34:01.024869Z	   39 Query	SET autocommit=0
+2022-05-13T08:34:01.025285Z	   39 Query	SET autocommit=1
+2022-05-13T08:34:01.025741Z	   39 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:34:01.026230Z	   39 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:34:01.028812Z	   39 Quit	
+2022-05-13T08:34:06.886631Z	   40 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:34:06.888312Z	   40 Query	SET NAMES utf8
+2022-05-13T08:34:06.888725Z	   40 Query	SET autocommit=0
+2022-05-13T08:34:06.889090Z	   40 Query	SET autocommit=1
+2022-05-13T08:34:06.889568Z	   40 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:34:06.890068Z	   40 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:34:06.892380Z	   40 Quit	
+2022-05-13T08:34:10.991727Z	   41 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:34:10.993190Z	   41 Query	SET NAMES utf8
+2022-05-13T08:34:10.993771Z	   41 Query	SET autocommit=0
+2022-05-13T08:34:10.994523Z	   41 Query	SET autocommit=1
+2022-05-13T08:34:10.995041Z	   41 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:34:10.995459Z	   41 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:34:10.998663Z	   41 Quit	
+2022-05-13T08:34:17.231968Z	   42 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:34:17.232615Z	   42 Query	SET NAMES utf8
+2022-05-13T08:34:17.232989Z	   42 Query	SET autocommit=0
+2022-05-13T08:34:17.233422Z	   42 Query	SET autocommit=1
+2022-05-13T08:34:17.233837Z	   42 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:34:17.234310Z	   42 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:34:17.236520Z	   42 Quit	
+2022-05-13T08:34:23.498959Z	   43 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:34:23.499902Z	   43 Query	SET NAMES utf8
+2022-05-13T08:34:23.500567Z	   43 Query	SET autocommit=0
+2022-05-13T08:34:23.501293Z	   43 Query	SET autocommit=1
+2022-05-13T08:34:23.504466Z	   43 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:34:23.507575Z	   43 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:34:23.515094Z	   43 Quit	
+2022-05-13T08:34:28.402751Z	   44 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:34:28.403413Z	   44 Query	SET NAMES utf8
+2022-05-13T08:34:28.403865Z	   44 Query	SET autocommit=0
+2022-05-13T08:34:28.404288Z	   44 Query	SET autocommit=1
+2022-05-13T08:34:28.404845Z	   44 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:34:28.405437Z	   44 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:34:28.408372Z	   44 Quit	
+2022-05-13T08:34:34.511850Z	   45 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:34:34.520766Z	   45 Query	SET NAMES utf8
+2022-05-13T08:34:34.527491Z	   45 Query	SET autocommit=0
+2022-05-13T08:34:34.536294Z	   45 Query	SET autocommit=1
+2022-05-13T08:34:34.537306Z	   45 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:34:34.537876Z	   45 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:34:34.540873Z	   45 Quit	
+2022-05-13T08:34:38.324931Z	   46 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:34:38.327382Z	   46 Query	SET NAMES utf8
+2022-05-13T08:34:38.332139Z	   46 Query	SET autocommit=0
+2022-05-13T08:34:38.346000Z	   46 Query	SET autocommit=1
+2022-05-13T08:34:38.348816Z	   46 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:34:38.351370Z	   46 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:34:38.354276Z	   46 Quit	
+2022-05-13T08:34:45.221817Z	   47 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:34:45.222789Z	   47 Query	SET NAMES utf8
+2022-05-13T08:34:45.223742Z	   47 Query	SET autocommit=0
+2022-05-13T08:34:45.224414Z	   47 Query	SET autocommit=1
+2022-05-13T08:34:45.225141Z	   47 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:34:45.226268Z	   47 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:34:45.231305Z	   47 Quit	
+2022-05-13T08:34:49.483069Z	   48 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:34:49.483732Z	   48 Query	SET NAMES utf8
+2022-05-13T08:34:49.484400Z	   48 Query	SET autocommit=0
+2022-05-13T08:34:49.484906Z	   48 Query	SET autocommit=1
+2022-05-13T08:34:49.485713Z	   48 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:34:49.487420Z	   48 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:34:49.489883Z	   48 Quit	
+2022-05-13T08:34:52.737974Z	   49 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:34:52.739165Z	   49 Query	SET NAMES utf8
+2022-05-13T08:34:52.740181Z	   49 Query	SET autocommit=0
+2022-05-13T08:34:52.740614Z	   49 Query	SET autocommit=1
+2022-05-13T08:34:52.741178Z	   49 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:34:52.744528Z	   49 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:34:52.747857Z	   49 Quit	
+2022-05-13T08:34:58.205150Z	   50 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:34:58.205680Z	   50 Query	SET NAMES utf8
+2022-05-13T08:34:58.206093Z	   50 Query	SET autocommit=0
+2022-05-13T08:34:58.206411Z	   50 Query	SET autocommit=1
+2022-05-13T08:34:58.206821Z	   50 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:34:58.207539Z	   50 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:34:58.209955Z	   50 Quit	
+2022-05-13T08:35:02.748464Z	   51 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:02.749280Z	   51 Query	SET NAMES utf8
+2022-05-13T08:35:02.749899Z	   51 Query	SET autocommit=0
+2022-05-13T08:35:02.750404Z	   51 Query	SET autocommit=1
+2022-05-13T08:35:02.750962Z	   51 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:02.751549Z	   51 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:02.753498Z	   51 Quit	
+2022-05-13T08:35:09.218827Z	   52 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:09.219356Z	   52 Query	SET NAMES utf8
+2022-05-13T08:35:09.219703Z	   52 Query	SET autocommit=0
+2022-05-13T08:35:09.220029Z	   52 Query	SET autocommit=1
+2022-05-13T08:35:09.220360Z	   52 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:09.220777Z	   52 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:09.222547Z	   52 Quit	
+2022-05-13T08:35:16.109186Z	   53 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:16.109782Z	   53 Query	SET NAMES utf8
+2022-05-13T08:35:16.110131Z	   53 Query	SET autocommit=0
+2022-05-13T08:35:16.110503Z	   53 Query	SET autocommit=1
+2022-05-13T08:35:16.110934Z	   53 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:16.111361Z	   53 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:16.113521Z	   53 Quit	
+2022-05-13T08:35:20.708537Z	   54 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:20.709167Z	   54 Query	SET NAMES utf8
+2022-05-13T08:35:20.709868Z	   54 Query	SET autocommit=0
+2022-05-13T08:35:20.710214Z	   54 Query	SET autocommit=1
+2022-05-13T08:35:20.710607Z	   54 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:20.710958Z	   54 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:20.713039Z	   54 Quit	
+2022-05-13T08:35:24.320456Z	   55 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:24.321024Z	   55 Query	SET NAMES utf8
+2022-05-13T08:35:24.321423Z	   55 Query	SET autocommit=0
+2022-05-13T08:35:24.321764Z	   55 Query	SET autocommit=1
+2022-05-13T08:35:24.322116Z	   55 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:24.322489Z	   55 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:24.324451Z	   55 Quit	
+2022-05-13T08:35:27.479869Z	   56 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:27.480460Z	   56 Query	SET NAMES utf8
+2022-05-13T08:35:27.481005Z	   56 Query	SET autocommit=0
+2022-05-13T08:35:27.481460Z	   56 Query	SET autocommit=1
+2022-05-13T08:35:27.481937Z	   56 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:27.482534Z	   56 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:27.484675Z	   56 Quit	
+2022-05-13T08:35:30.659902Z	   57 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:30.660494Z	   57 Query	SET NAMES utf8
+2022-05-13T08:35:30.660892Z	   57 Query	SET autocommit=0
+2022-05-13T08:35:30.661320Z	   57 Query	SET autocommit=1
+2022-05-13T08:35:30.661761Z	   57 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:30.662301Z	   57 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:30.664568Z	   57 Quit	
+2022-05-13T08:35:36.724102Z	   58 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:36.724598Z	   58 Query	SET NAMES utf8
+2022-05-13T08:35:36.725001Z	   58 Query	SET autocommit=0
+2022-05-13T08:35:36.725366Z	   58 Query	SET autocommit=1
+2022-05-13T08:35:36.725776Z	   58 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:36.726158Z	   58 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:36.728328Z	   58 Quit	
+2022-05-13T08:35:40.078092Z	   59 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:40.078682Z	   59 Query	SET NAMES utf8
+2022-05-13T08:35:40.079105Z	   59 Query	SET autocommit=0
+2022-05-13T08:35:40.079632Z	   59 Query	SET autocommit=1
+2022-05-13T08:35:40.081338Z	   59 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:40.081829Z	   59 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:40.083804Z	   59 Quit	
+2022-05-13T08:35:45.256237Z	   60 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:45.256817Z	   60 Query	SET NAMES utf8
+2022-05-13T08:35:45.257178Z	   60 Query	SET autocommit=0
+2022-05-13T08:35:45.257502Z	   60 Query	SET autocommit=1
+2022-05-13T08:35:45.257906Z	   60 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:45.258319Z	   60 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:45.260416Z	   60 Quit	
+2022-05-13T08:35:50.637970Z	   61 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:50.638542Z	   61 Query	SET NAMES utf8
+2022-05-13T08:35:50.638912Z	   61 Query	SET autocommit=0
+2022-05-13T08:35:50.639247Z	   61 Query	SET autocommit=1
+2022-05-13T08:35:50.639704Z	   61 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:50.640117Z	   61 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:50.642305Z	   61 Quit	
+2022-05-13T08:35:54.806136Z	   62 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:54.806673Z	   62 Query	SET NAMES utf8
+2022-05-13T08:35:54.807047Z	   62 Query	SET autocommit=0
+2022-05-13T08:35:54.807444Z	   62 Query	SET autocommit=1
+2022-05-13T08:35:54.807818Z	   62 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:54.808406Z	   62 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:54.810498Z	   62 Quit	
+2022-05-13T08:35:58.780061Z	   63 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:35:58.780787Z	   63 Query	SET NAMES utf8
+2022-05-13T08:35:58.781222Z	   63 Query	SET autocommit=0
+2022-05-13T08:35:58.781641Z	   63 Query	SET autocommit=1
+2022-05-13T08:35:58.782068Z	   63 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:35:58.782486Z	   63 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:35:58.784609Z	   63 Quit	
+2022-05-13T08:36:04.836739Z	   64 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:36:04.837353Z	   64 Query	SET NAMES utf8
+2022-05-13T08:36:04.837815Z	   64 Query	SET autocommit=0
+2022-05-13T08:36:04.838166Z	   64 Query	SET autocommit=1
+2022-05-13T08:36:04.838577Z	   64 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:36:04.839084Z	   64 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:36:04.841312Z	   64 Quit	
+2022-05-13T08:36:08.411165Z	   65 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:36:08.411776Z	   65 Query	SET NAMES utf8
+2022-05-13T08:36:08.412175Z	   65 Query	SET autocommit=0
+2022-05-13T08:36:08.412597Z	   65 Query	SET autocommit=1
+2022-05-13T08:36:08.413061Z	   65 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:36:08.413549Z	   65 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:36:08.415685Z	   65 Quit	
+2022-05-13T08:36:13.287135Z	   66 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:36:13.287686Z	   66 Query	SET NAMES utf8
+2022-05-13T08:36:13.288127Z	   66 Query	SET autocommit=0
+2022-05-13T08:36:13.288534Z	   66 Query	SET autocommit=1
+2022-05-13T08:36:13.288932Z	   66 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:36:13.289352Z	   66 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:36:13.291353Z	   66 Quit	
+2022-05-13T08:36:20.230232Z	   67 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:36:20.230960Z	   67 Query	SET NAMES utf8
+2022-05-13T08:36:20.231531Z	   67 Query	SET autocommit=0
+2022-05-13T08:36:20.231966Z	   67 Query	SET autocommit=1
+2022-05-13T08:36:20.232407Z	   67 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:36:20.232877Z	   67 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:36:20.235034Z	   67 Quit	
+2022-05-13T08:36:26.173691Z	   68 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:36:26.174402Z	   68 Query	SET NAMES utf8
+2022-05-13T08:36:26.174756Z	   68 Query	SET autocommit=0
+2022-05-13T08:36:26.175112Z	   68 Query	SET autocommit=1
+2022-05-13T08:36:26.175535Z	   68 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:36:26.176015Z	   68 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:36:26.178199Z	   68 Quit	
+2022-05-13T08:36:30.453834Z	   69 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:36:30.454361Z	   69 Query	SET NAMES utf8
+2022-05-13T08:36:30.454750Z	   69 Query	SET autocommit=0
+2022-05-13T08:36:30.455091Z	   69 Query	SET autocommit=1
+2022-05-13T08:36:30.455601Z	   69 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:36:30.456114Z	   69 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:36:30.458340Z	   69 Quit	
+2022-05-13T08:36:37.507775Z	   70 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:36:37.508337Z	   70 Query	SET NAMES utf8
+2022-05-13T08:36:37.508736Z	   70 Query	SET autocommit=0
+2022-05-13T08:36:37.509127Z	   70 Query	SET autocommit=1
+2022-05-13T08:36:37.509558Z	   70 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:36:37.509978Z	   70 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:36:37.512163Z	   70 Quit	
+2022-05-13T08:36:44.130701Z	   71 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:36:44.131632Z	   71 Query	SET NAMES utf8
+2022-05-13T08:36:44.132059Z	   71 Query	SET autocommit=0
+2022-05-13T08:36:44.132472Z	   71 Query	SET autocommit=1
+2022-05-13T08:36:44.132945Z	   71 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:36:44.133455Z	   71 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:36:44.135834Z	   71 Quit	
+2022-05-13T08:39:42.774068Z	   72 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:39:42.774759Z	   72 Query	SET NAMES utf8
+2022-05-13T08:39:42.775461Z	   72 Query	SET autocommit=0
+2022-05-13T08:39:42.776080Z	   72 Query	SET autocommit=1
+2022-05-13T08:39:42.776559Z	   72 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:39:42.777150Z	   72 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:39:42.779368Z	   72 Quit	
+2022-05-13T08:39:49.132606Z	   73 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:39:49.133139Z	   73 Query	SET NAMES utf8
+2022-05-13T08:39:49.133511Z	   73 Query	SET autocommit=0
+2022-05-13T08:39:49.133856Z	   73 Query	SET autocommit=1
+2022-05-13T08:39:49.134347Z	   73 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:39:49.134798Z	   73 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:39:49.136858Z	   73 Quit	
+2022-05-13T08:39:54.778117Z	   74 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:39:54.785380Z	   74 Query	SET NAMES utf8
+2022-05-13T08:39:54.789261Z	   74 Query	SET autocommit=0
+2022-05-13T08:39:54.789819Z	   74 Query	SET autocommit=1
+2022-05-13T08:39:54.790819Z	   74 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:39:54.791518Z	   74 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:39:54.794721Z	   74 Quit	
+2022-05-13T08:40:00.218992Z	   75 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:40:00.219622Z	   75 Query	SET NAMES utf8
+2022-05-13T08:40:00.220006Z	   75 Query	SET autocommit=0
+2022-05-13T08:40:00.220509Z	   75 Query	SET autocommit=1
+2022-05-13T08:40:00.221037Z	   75 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:40:00.221658Z	   75 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:40:00.224401Z	   75 Quit	
+2022-05-13T08:40:04.918769Z	   76 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:40:04.919286Z	   76 Query	SET NAMES utf8
+2022-05-13T08:40:04.919657Z	   76 Query	SET autocommit=0
+2022-05-13T08:40:04.920009Z	   76 Query	SET autocommit=1
+2022-05-13T08:40:04.920445Z	   76 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:40:04.920934Z	   76 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:40:04.922842Z	   76 Quit	
+2022-05-13T08:40:08.499198Z	   77 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:40:08.499967Z	   77 Query	SET NAMES utf8
+2022-05-13T08:40:08.500409Z	   77 Query	SET autocommit=0
+2022-05-13T08:40:08.500770Z	   77 Query	SET autocommit=1
+2022-05-13T08:40:08.501120Z	   77 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:40:08.501466Z	   77 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:40:08.503339Z	   77 Quit	
+2022-05-13T08:40:15.378981Z	   78 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:40:15.380525Z	   78 Query	SET NAMES utf8
+2022-05-13T08:40:15.382379Z	   78 Query	SET autocommit=0
+2022-05-13T08:40:15.383510Z	   78 Query	SET autocommit=1
+2022-05-13T08:40:15.384032Z	   78 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:40:15.384481Z	   78 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:40:15.386273Z	   78 Quit	
+2022-05-13T08:40:21.176999Z	   79 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:40:21.177556Z	   79 Query	SET NAMES utf8
+2022-05-13T08:40:21.178598Z	   79 Query	SET autocommit=0
+2022-05-13T08:40:21.181665Z	   79 Query	SET autocommit=1
+2022-05-13T08:40:21.182863Z	   79 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:40:21.183450Z	   79 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:40:21.185783Z	   79 Quit	
+2022-05-13T08:40:24.631842Z	   80 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:40:24.632621Z	   80 Query	SET NAMES utf8
+2022-05-13T08:40:24.633111Z	   80 Query	SET autocommit=0
+2022-05-13T08:40:24.633577Z	   80 Query	SET autocommit=1
+2022-05-13T08:40:24.634030Z	   80 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:40:24.634607Z	   80 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:40:24.637167Z	   80 Quit	
+2022-05-13T08:40:29.101301Z	   81 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:40:29.101699Z	   81 Query	SET NAMES utf8
+2022-05-13T08:40:29.101960Z	   81 Query	SET autocommit=0
+2022-05-13T08:40:29.102180Z	   81 Query	SET autocommit=1
+2022-05-13T08:40:29.102448Z	   81 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:40:29.102759Z	   81 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:40:29.104466Z	   81 Quit	
+2022-05-13T08:40:35.698185Z	   82 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:40:35.698766Z	   82 Query	SET NAMES utf8
+2022-05-13T08:40:35.699044Z	   82 Query	SET autocommit=0
+2022-05-13T08:40:35.699400Z	   82 Query	SET autocommit=1
+2022-05-13T08:40:35.699724Z	   82 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:40:35.700142Z	   82 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:40:35.702118Z	   82 Quit	
+2022-05-13T08:40:40.571652Z	   83 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:40:40.572277Z	   83 Query	SET NAMES utf8
+2022-05-13T08:40:40.572716Z	   83 Query	SET autocommit=0
+2022-05-13T08:40:40.573147Z	   83 Query	SET autocommit=1
+2022-05-13T08:40:40.574180Z	   83 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:40:40.577591Z	   83 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:40:40.584133Z	   83 Quit	
+2022-05-13T08:40:46.144796Z	   84 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:40:46.147395Z	   84 Query	SET NAMES utf8
+2022-05-13T08:40:46.148310Z	   84 Query	SET autocommit=0
+2022-05-13T08:40:46.148630Z	   84 Query	SET autocommit=1
+2022-05-13T08:40:46.148923Z	   84 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:40:46.149233Z	   84 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:40:46.151395Z	   84 Quit	
+2022-05-13T08:40:52.384700Z	   85 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:40:52.385454Z	   85 Query	SET NAMES utf8
+2022-05-13T08:40:52.386523Z	   85 Query	SET autocommit=0
+2022-05-13T08:40:52.387204Z	   85 Query	SET autocommit=1
+2022-05-13T08:40:52.388023Z	   85 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:40:52.388907Z	   85 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:40:52.392248Z	   85 Quit	
+2022-05-13T08:40:56.428487Z	   86 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:40:56.429034Z	   86 Query	SET NAMES utf8
+2022-05-13T08:40:56.429420Z	   86 Query	SET autocommit=0
+2022-05-13T08:40:56.429870Z	   86 Query	SET autocommit=1
+2022-05-13T08:40:56.430297Z	   86 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:40:56.430747Z	   86 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:40:56.432704Z	   86 Quit	
+2022-05-13T08:41:03.369421Z	   87 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:41:03.370241Z	   87 Query	SET NAMES utf8
+2022-05-13T08:41:03.371162Z	   87 Query	SET autocommit=0
+2022-05-13T08:41:03.371580Z	   87 Query	SET autocommit=1
+2022-05-13T08:41:03.372131Z	   87 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:41:03.372604Z	   87 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:41:03.374530Z	   87 Quit	
+2022-05-13T08:41:08.934582Z	   88 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:41:08.935116Z	   88 Query	SET NAMES utf8
+2022-05-13T08:41:08.935556Z	   88 Query	SET autocommit=0
+2022-05-13T08:41:08.935954Z	   88 Query	SET autocommit=1
+2022-05-13T08:41:08.936459Z	   88 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:41:08.936874Z	   88 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:41:08.939046Z	   88 Quit	
+2022-05-13T08:41:12.727797Z	   89 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:41:12.728565Z	   89 Query	SET NAMES utf8
+2022-05-13T08:41:12.732768Z	   89 Query	SET autocommit=0
+2022-05-13T08:41:12.742912Z	   89 Query	SET autocommit=1
+2022-05-13T08:41:12.743692Z	   89 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:41:12.744277Z	   89 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:41:12.748520Z	   89 Quit	
+2022-05-13T08:41:16.694981Z	   90 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:41:16.698765Z	   90 Query	SET NAMES utf8
+2022-05-13T08:41:16.699963Z	   90 Query	SET autocommit=0
+2022-05-13T08:41:16.700712Z	   90 Query	SET autocommit=1
+2022-05-13T08:41:16.701902Z	   90 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:41:16.702483Z	   90 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:41:16.704654Z	   90 Quit	
+2022-05-13T08:41:22.727191Z	   91 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:41:22.727792Z	   91 Query	SET NAMES utf8
+2022-05-13T08:41:22.730965Z	   91 Query	SET autocommit=0
+2022-05-13T08:41:22.732680Z	   91 Query	SET autocommit=1
+2022-05-13T08:41:22.735042Z	   91 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:41:22.741237Z	   91 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:41:22.747152Z	   91 Quit	
+2022-05-13T08:41:26.869567Z	   92 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:41:26.869936Z	   92 Query	SET NAMES utf8
+2022-05-13T08:41:26.870212Z	   92 Query	SET autocommit=0
+2022-05-13T08:41:26.870465Z	   92 Query	SET autocommit=1
+2022-05-13T08:41:26.870749Z	   92 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:41:26.871088Z	   92 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:41:26.872903Z	   92 Quit	
+2022-05-13T08:41:30.766507Z	   93 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:41:30.767151Z	   93 Query	SET NAMES utf8
+2022-05-13T08:41:30.767537Z	   93 Query	SET autocommit=0
+2022-05-13T08:41:30.767871Z	   93 Query	SET autocommit=1
+2022-05-13T08:41:30.768407Z	   93 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:41:30.768857Z	   93 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:41:30.770792Z	   93 Quit	
+2022-05-13T08:41:34.391053Z	   94 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:41:34.391900Z	   94 Query	SET NAMES utf8
+2022-05-13T08:41:34.392539Z	   94 Query	SET autocommit=0
+2022-05-13T08:41:34.393046Z	   94 Query	SET autocommit=1
+2022-05-13T08:41:34.393524Z	   94 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:41:34.394117Z	   94 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:41:34.399520Z	   94 Quit	
+2022-05-13T08:41:41.091169Z	   95 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:41:41.091822Z	   95 Query	SET NAMES utf8
+2022-05-13T08:41:41.092279Z	   95 Query	SET autocommit=0
+2022-05-13T08:41:41.092543Z	   95 Query	SET autocommit=1
+2022-05-13T08:41:41.092849Z	   95 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:41:41.093159Z	   95 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:41:41.095205Z	   95 Quit	
+2022-05-13T08:41:44.844182Z	   96 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:41:44.844936Z	   96 Query	SET NAMES utf8
+2022-05-13T08:41:44.846899Z	   96 Query	SET autocommit=0
+2022-05-13T08:41:44.847841Z	   96 Query	SET autocommit=1
+2022-05-13T08:41:44.848389Z	   96 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:41:44.848809Z	   96 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:41:44.850620Z	   96 Quit	
+2022-05-13T08:41:49.812508Z	   97 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:41:49.813392Z	   97 Query	SET NAMES utf8
+2022-05-13T08:41:49.814551Z	   97 Query	SET autocommit=0
+2022-05-13T08:41:49.815778Z	   97 Query	SET autocommit=1
+2022-05-13T08:41:49.817433Z	   97 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:41:49.817958Z	   97 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:41:49.820044Z	   97 Quit	
+2022-05-13T08:41:55.453239Z	   98 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:41:55.454096Z	   98 Query	SET NAMES utf8
+2022-05-13T08:41:55.454561Z	   98 Query	SET autocommit=0
+2022-05-13T08:41:55.455173Z	   98 Query	SET autocommit=1
+2022-05-13T08:41:55.455605Z	   98 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:41:55.456104Z	   98 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:41:55.459108Z	   98 Quit	
+2022-05-13T08:42:00.829705Z	   99 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:42:00.830302Z	   99 Query	SET NAMES utf8
+2022-05-13T08:42:00.830636Z	   99 Query	SET autocommit=0
+2022-05-13T08:42:00.830930Z	   99 Query	SET autocommit=1
+2022-05-13T08:42:00.831243Z	   99 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:42:00.831603Z	   99 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:42:00.833330Z	   99 Quit	
+2022-05-13T08:42:04.675049Z	  100 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:42:04.676496Z	  100 Query	SET NAMES utf8
+2022-05-13T08:42:04.677477Z	  100 Query	SET autocommit=0
+2022-05-13T08:42:04.680726Z	  100 Query	SET autocommit=1
+2022-05-13T08:42:04.684491Z	  100 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:42:04.685154Z	  100 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:42:04.689962Z	  100 Quit	
+2022-05-13T08:42:08.577498Z	  101 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:42:08.578163Z	  101 Query	SET NAMES utf8
+2022-05-13T08:42:08.579830Z	  101 Query	SET autocommit=0
+2022-05-13T08:42:08.583180Z	  101 Query	SET autocommit=1
+2022-05-13T08:42:08.584680Z	  101 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:42:08.586378Z	  101 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:42:08.591993Z	  101 Quit	
+2022-05-13T08:42:12.111717Z	  102 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:42:12.112289Z	  102 Query	SET NAMES utf8
+2022-05-13T08:42:12.112620Z	  102 Query	SET autocommit=0
+2022-05-13T08:42:12.112942Z	  102 Query	SET autocommit=1
+2022-05-13T08:42:12.113312Z	  102 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:42:12.113670Z	  102 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:42:12.115473Z	  102 Quit	
+2022-05-13T08:42:16.628307Z	  103 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:42:16.629676Z	  103 Query	SET NAMES utf8
+2022-05-13T08:42:16.631135Z	  103 Query	SET autocommit=0
+2022-05-13T08:42:16.631508Z	  103 Query	SET autocommit=1
+2022-05-13T08:42:16.631909Z	  103 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:42:16.632294Z	  103 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:42:16.634478Z	  103 Quit	
+2022-05-13T08:46:23.563345Z	  104 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:46:23.564171Z	  104 Query	SET NAMES utf8
+2022-05-13T08:46:23.564864Z	  104 Query	SET autocommit=0
+2022-05-13T08:46:23.565498Z	  104 Query	SET autocommit=1
+2022-05-13T08:46:23.566121Z	  104 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:46:23.566655Z	  104 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:46:23.569606Z	  104 Quit	
+2022-05-13T08:46:24.685553Z	  105 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:46:24.686094Z	  105 Query	SET NAMES utf8
+2022-05-13T08:46:24.686887Z	  105 Query	SET autocommit=0
+2022-05-13T08:46:24.687337Z	  105 Query	SET autocommit=1
+2022-05-13T08:46:24.687817Z	  105 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:46:24.688272Z	  105 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:46:24.690797Z	  105 Quit	
+2022-05-13T08:46:29.817277Z	  106 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:46:29.817813Z	  106 Query	SET NAMES utf8
+2022-05-13T08:46:29.818230Z	  106 Query	SET autocommit=0
+2022-05-13T08:46:29.818550Z	  106 Query	SET autocommit=1
+2022-05-13T08:46:29.819005Z	  106 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:46:29.819493Z	  106 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:46:29.821349Z	  106 Quit	
+2022-05-13T08:46:35.573072Z	  107 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:46:35.573624Z	  107 Query	SET NAMES utf8
+2022-05-13T08:46:35.573971Z	  107 Query	SET autocommit=0
+2022-05-13T08:46:35.574316Z	  107 Query	SET autocommit=1
+2022-05-13T08:46:35.574676Z	  107 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:46:35.575002Z	  107 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:46:35.576705Z	  107 Quit	
+2022-05-13T08:46:40.180842Z	  108 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:46:40.181508Z	  108 Query	SET NAMES utf8
+2022-05-13T08:46:40.182158Z	  108 Query	SET autocommit=0
+2022-05-13T08:46:40.182518Z	  108 Query	SET autocommit=1
+2022-05-13T08:46:40.182868Z	  108 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:46:40.183192Z	  108 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:46:40.184903Z	  108 Quit	
+2022-05-13T08:46:46.648318Z	  109 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:46:46.648960Z	  109 Query	SET NAMES utf8
+2022-05-13T08:46:46.649683Z	  109 Query	SET autocommit=0
+2022-05-13T08:46:46.650126Z	  109 Query	SET autocommit=1
+2022-05-13T08:46:46.650641Z	  109 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:46:46.651123Z	  109 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:46:46.652850Z	  109 Quit	
+2022-05-13T08:46:51.742758Z	  110 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:46:51.743182Z	  110 Query	SET NAMES utf8
+2022-05-13T08:46:51.743498Z	  110 Query	SET autocommit=0
+2022-05-13T08:46:51.743795Z	  110 Query	SET autocommit=1
+2022-05-13T08:46:51.744163Z	  110 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:46:51.744551Z	  110 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:46:51.747403Z	  110 Quit	
+2022-05-13T08:46:55.383528Z	  111 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:46:55.384031Z	  111 Query	SET NAMES utf8
+2022-05-13T08:46:55.384437Z	  111 Query	SET autocommit=0
+2022-05-13T08:46:55.384817Z	  111 Query	SET autocommit=1
+2022-05-13T08:46:55.385208Z	  111 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:46:55.385597Z	  111 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:46:55.387409Z	  111 Quit	
+2022-05-13T08:46:58.710716Z	  112 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:46:58.711167Z	  112 Query	SET NAMES utf8
+2022-05-13T08:46:58.711764Z	  112 Query	SET autocommit=0
+2022-05-13T08:46:58.712195Z	  112 Query	SET autocommit=1
+2022-05-13T08:46:58.712637Z	  112 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:46:58.713002Z	  112 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:46:58.714713Z	  112 Quit	
+2022-05-13T08:47:04.395191Z	  113 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:47:04.395875Z	  113 Query	SET NAMES utf8
+2022-05-13T08:47:04.396467Z	  113 Query	SET autocommit=0
+2022-05-13T08:47:04.396953Z	  113 Query	SET autocommit=1
+2022-05-13T08:47:04.397563Z	  113 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:47:04.398242Z	  113 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:47:04.400374Z	  113 Quit	
+2022-05-13T08:47:10.844086Z	  114 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:47:10.844799Z	  114 Query	SET NAMES utf8
+2022-05-13T08:47:10.845262Z	  114 Query	SET autocommit=0
+2022-05-13T08:47:10.845704Z	  114 Query	SET autocommit=1
+2022-05-13T08:47:10.846182Z	  114 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:47:10.846641Z	  114 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:47:10.848590Z	  114 Quit	
+2022-05-13T08:47:16.542295Z	  115 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:47:16.542802Z	  115 Query	SET NAMES utf8
+2022-05-13T08:47:16.543093Z	  115 Query	SET autocommit=0
+2022-05-13T08:47:16.543381Z	  115 Query	SET autocommit=1
+2022-05-13T08:47:16.543717Z	  115 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:47:16.544033Z	  115 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:47:16.545674Z	  115 Quit	
+2022-05-13T08:47:22.170115Z	  116 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:47:22.170566Z	  116 Query	SET NAMES utf8
+2022-05-13T08:47:22.170885Z	  116 Query	SET autocommit=0
+2022-05-13T08:47:22.171194Z	  116 Query	SET autocommit=1
+2022-05-13T08:47:22.171631Z	  116 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:47:22.171987Z	  116 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:47:22.173746Z	  116 Quit	
+2022-05-13T08:47:27.334865Z	  117 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:47:27.335308Z	  117 Query	SET NAMES utf8
+2022-05-13T08:47:27.335607Z	  117 Query	SET autocommit=0
+2022-05-13T08:47:27.335894Z	  117 Query	SET autocommit=1
+2022-05-13T08:47:27.336286Z	  117 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:47:27.336730Z	  117 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:47:27.338740Z	  117 Quit	
+2022-05-13T08:47:31.043506Z	  118 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:47:31.044119Z	  118 Query	SET NAMES utf8
+2022-05-13T08:47:31.044682Z	  118 Query	SET autocommit=0
+2022-05-13T08:47:31.045056Z	  118 Query	SET autocommit=1
+2022-05-13T08:47:31.045433Z	  118 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:47:31.045848Z	  118 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:47:31.047640Z	  118 Quit	
+2022-05-13T08:47:37.811772Z	  119 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:47:37.812287Z	  119 Query	SET NAMES utf8
+2022-05-13T08:47:37.812626Z	  119 Query	SET autocommit=0
+2022-05-13T08:47:37.812973Z	  119 Query	SET autocommit=1
+2022-05-13T08:47:37.813321Z	  119 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:47:37.813696Z	  119 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:47:37.815438Z	  119 Quit	
+2022-05-13T08:47:44.269046Z	  120 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:47:44.269597Z	  120 Query	SET NAMES utf8
+2022-05-13T08:47:44.269994Z	  120 Query	SET autocommit=0
+2022-05-13T08:47:44.270408Z	  120 Query	SET autocommit=1
+2022-05-13T08:47:44.270791Z	  120 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:47:44.271253Z	  120 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:47:44.273563Z	  120 Quit	
+2022-05-13T08:47:50.439926Z	  121 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:47:50.440448Z	  121 Query	SET NAMES utf8
+2022-05-13T08:47:50.440853Z	  121 Query	SET autocommit=0
+2022-05-13T08:47:50.441289Z	  121 Query	SET autocommit=1
+2022-05-13T08:47:50.441723Z	  121 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:47:50.442199Z	  121 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:47:50.444102Z	  121 Quit	
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-13T08:48:14.387407Z	    9 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:48:14.388026Z	    9 Query	SET NAMES utf8
+2022-05-13T08:48:14.388282Z	    9 Query	SET autocommit=0
+2022-05-13T08:48:14.388502Z	    9 Query	SET autocommit=1
+2022-05-13T08:48:14.388822Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:48:14.389798Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:48:14.390117Z	    9 Query	SHOW FULL TABLES
+2022-05-13T08:48:14.396360Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-13T08:48:17.723435Z	   10 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:48:17.724141Z	   10 Query	SET NAMES utf8
+2022-05-13T08:48:17.724898Z	   10 Query	SET autocommit=0
+2022-05-13T08:48:17.726015Z	   10 Query	SET autocommit=1
+2022-05-13T08:48:17.726602Z	   10 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:48:17.727303Z	   10 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:48:17.727829Z	   10 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:48:17.744212Z	   10 Quit	
+2022-05-13T08:48:18.502617Z	   11 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:48:18.503125Z	   11 Query	SET NAMES utf8
+2022-05-13T08:48:18.503574Z	   11 Query	SET autocommit=0
+2022-05-13T08:48:18.503951Z	   11 Query	SET autocommit=1
+2022-05-13T08:48:18.504323Z	   11 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:48:18.504765Z	   11 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:48:18.506693Z	   11 Quit	
+2022-05-13T08:48:20.672026Z	   12 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:48:20.672485Z	   12 Query	SET NAMES utf8
+2022-05-13T08:48:20.672853Z	   12 Query	SET autocommit=0
+2022-05-13T08:48:20.673241Z	   12 Query	SET autocommit=1
+2022-05-13T08:48:20.673629Z	   12 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:48:20.674066Z	   12 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:48:20.676873Z	   12 Quit	
+2022-05-13T08:48:22.784431Z	   13 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:48:22.784960Z	   13 Query	SET NAMES utf8
+2022-05-13T08:48:22.785298Z	   13 Query	SET autocommit=0
+2022-05-13T08:48:22.785586Z	   13 Query	SET autocommit=1
+2022-05-13T08:48:22.785956Z	   13 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:48:22.786359Z	   13 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:48:22.788425Z	   13 Quit	
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-13T08:49:13.961126Z	    9 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:49:13.961944Z	    9 Query	SET NAMES utf8
+2022-05-13T08:49:13.962508Z	    9 Query	SET autocommit=0
+2022-05-13T08:49:13.963513Z	    9 Query	SET autocommit=1
+2022-05-13T08:49:13.964387Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:49:13.965640Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:49:13.966256Z	    9 Query	SHOW FULL TABLES
+2022-05-13T08:49:13.973418Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-13T08:49:26.376265Z	   10 Connect	root@172.21.0.3 on pkspotmap using TCP/IP
+2022-05-13T08:49:26.377192Z	   10 Query	SET NAMES utf8
+2022-05-13T08:49:26.378011Z	   10 Query	SET autocommit=0
+2022-05-13T08:49:26.378754Z	   10 Query	SET autocommit=1
+2022-05-13T08:49:26.379735Z	   10 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-13T08:49:26.380736Z	   10 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-13T08:49:26.381538Z	   10 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
+2022-05-13T08:49:26.392643Z	   10 Quit	
