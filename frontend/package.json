@@ -1,8 +1,8 @@
 {
-  "name": "vueprova",
+  "name": "pkspotmap",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview --port 5050"
   },

@@ -190,6 +190,9 @@ export default {
             })
           }
         })
+        .then(() => {
+          this.$router.push('/')
+        })
         .catch(error => {
           this.spotErrors.push('Something went wrong, please try again')
           console.log(JSON.stringify(error))
@@ -203,10 +206,20 @@ export default {
       console.log(this.lat)
       console.log(this.lng)
       var location = {lat: parseInt(this.lat), lng: parseInt(this.lng)};
+      const bounds = {
+        north: 85,
+        south: -85,
+        west: -200,
+        east: 200,
+      }
 
       var options = {
         center: location,
-        zoom: 12,
+        restriction: {
+          latLngBounds: bounds,
+          strictBounds: false,
+        },
+        zoom: 4,
         minZoom: 3,
         draggableCursor: 'pointer',
         mapTypeControl: true,

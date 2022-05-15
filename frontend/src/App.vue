@@ -96,7 +96,7 @@ button:hover {
 
 * {
   scrollbar-width: 5px;
-  scrollbar-color: white black;
+  scrollbar-color: white #212529;
 }
 
 
@@ -109,7 +109,7 @@ button:hover {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: black;
+  background-color: #212529;
   border-radius: 20px;
 }
 </style>

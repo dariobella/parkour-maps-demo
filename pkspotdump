@@ -1,0 +1,551 @@
+-- MySQL dump 10.13  Distrib 8.0.28, for Linux (x86_64)
+--
+-- Host: 127.0.0.1    Database: pkspotmap
+-- ------------------------------------------------------
+-- Server version	8.0.29
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `auth_group`
+--
+
+DROP TABLE IF EXISTS `auth_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_group` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group`
+--
+
+LOCK TABLES `auth_group` WRITE;
+/*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_group_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_group_permissions` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `group_id` int NOT NULL,
+  `permission_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` (`group_id`,`permission_id`),
+  KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group_permissions`
+--
+
+LOCK TABLES `auth_group_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_permission`
+--
+
+DROP TABLE IF EXISTS `auth_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_permission` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `content_type_id` int NOT NULL,
+  `codename` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
+  CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_permission`
+--
+
+LOCK TABLES `auth_permission` WRITE;
+/*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
+INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can view log entry',1,'view_logentry'),(5,'Can add permission',2,'add_permission'),(6,'Can change permission',2,'change_permission'),(7,'Can delete permission',2,'delete_permission'),(8,'Can view permission',2,'view_permission'),(9,'Can add group',3,'add_group'),(10,'Can change group',3,'change_group'),(11,'Can delete group',3,'delete_group'),(12,'Can view group',3,'view_group'),(13,'Can add user',4,'add_user'),(14,'Can change user',4,'change_user'),(15,'Can delete user',4,'delete_user'),(16,'Can view user',4,'view_user'),(17,'Can add content type',5,'add_contenttype'),(18,'Can change content type',5,'change_contenttype'),(19,'Can delete content type',5,'delete_contenttype'),(20,'Can view content type',5,'view_contenttype'),(21,'Can add session',6,'add_session'),(22,'Can change session',6,'change_session'),(23,'Can delete session',6,'delete_session'),(24,'Can view session',6,'view_session'),(25,'Can add Token',8,'add_token'),(26,'Can change Token',8,'change_token'),(27,'Can delete Token',8,'delete_token'),(28,'Can view Token',8,'view_token'),(29,'Can add token',9,'add_tokenproxy'),(30,'Can change token',9,'change_tokenproxy'),(31,'Can delete token',9,'delete_tokenproxy'),(32,'Can view token',9,'view_tokenproxy'),(33,'Can add maps',10,'add_maps'),(34,'Can change maps',10,'change_maps'),(35,'Can delete maps',10,'delete_maps'),(36,'Can view maps',10,'view_maps'),(37,'Can add maps spots',11,'add_mapsspots'),(38,'Can change maps spots',11,'change_mapsspots'),(39,'Can delete maps spots',11,'delete_mapsspots'),(40,'Can view maps spots',11,'view_mapsspots'),(41,'Can add pics',12,'add_pics'),(42,'Can change pics',12,'change_pics'),(43,'Can delete pics',12,'delete_pics'),(44,'Can view pics',12,'view_pics'),(45,'Can add spots',13,'add_spots'),(46,'Can change spots',13,'change_spots'),(47,'Can delete spots',13,'delete_spots'),(48,'Can view spots',13,'view_spots'),(49,'Can add users',7,'add_users'),(50,'Can change users',7,'change_users'),(51,'Can delete users',7,'delete_users'),(52,'Can view users',7,'view_users'),(53,'Can add users maps',14,'add_usersmaps'),(54,'Can change users maps',14,'change_usersmaps'),(55,'Can delete users maps',14,'delete_usersmaps'),(56,'Can view users maps',14,'view_usersmaps'),(57,'Can add blacklisted token',15,'add_blacklistedtoken'),(58,'Can change blacklisted token',15,'change_blacklistedtoken'),(59,'Can delete blacklisted token',15,'delete_blacklistedtoken'),(60,'Can view blacklisted token',15,'view_blacklistedtoken'),(61,'Can add outstanding token',16,'add_outstandingtoken'),(62,'Can change outstanding token',16,'change_outstandingtoken'),(63,'Can delete outstanding token',16,'delete_outstandingtoken'),(64,'Can view outstanding token',16,'view_outstandingtoken');
+/*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user`
+--
+
+DROP TABLE IF EXISTS `auth_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `password` varchar(128) NOT NULL,
+  `last_login` datetime(6) DEFAULT NULL,
+  `is_superuser` tinyint(1) NOT NULL,
+  `username` varchar(150) NOT NULL,
+  `first_name` varchar(150) NOT NULL,
+  `last_name` varchar(150) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  `is_staff` tinyint(1) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `date_joined` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user`
+--
+
+LOCK TABLES `auth_user` WRITE;
+/*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
+INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES (1,'pbkdf2_sha256$320000$K6nW1YESb3opA02izlYCyT$BCkUrLLI9udKCkxMcdnvJUSTIoxfGJSHLsf9SHLKAuk=','2022-03-20 17:17:51.303124',1,'dario','','','dbella@cerebotani.it',1,1,'2022-03-07 13:59:30.337962'),(6,'pbkdf2_sha256$260000$RUHhrvGPOLLumLOO0qz27x$4Cj2ZZf09AP3kK1S1Ds24LSHcNGuCh1trHC6SSFWspM=','2022-05-11 13:21:41.914259',1,'admin','','','',1,1,'2022-03-29 14:31:26.991838');
+/*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_groups`
+--
+
+DROP TABLE IF EXISTS `auth_user_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_user_groups` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `group_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_groups_user_id_group_id_94350c0c_uniq` (`user_id`,`group_id`),
+  KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`),
+  CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_groups`
+--
+
+LOCK TABLES `auth_user_groups` WRITE;
+/*!40000 ALTER TABLE `auth_user_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_user_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_user_user_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_user_user_permissions` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `permission_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` (`user_id`,`permission_id`),
+  KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_user_permissions`
+--
+
+LOCK TABLES `auth_user_user_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_user_user_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_user_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `authtoken_token`
+--
+
+DROP TABLE IF EXISTS `authtoken_token`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `authtoken_token` (
+  `key` varchar(40) NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`key`),
+  UNIQUE KEY `user_id` (`user_id`),
+  CONSTRAINT `authtoken_token_user_id_35299eff_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `authtoken_token`
+--
+
+LOCK TABLES `authtoken_token` WRITE;
+/*!40000 ALTER TABLE `authtoken_token` DISABLE KEYS */;
+INSERT INTO `authtoken_token` (`key`, `created`, `user_id`) VALUES ('e350103cfccd3d5c19a91fb01f21c8f4cfd888c2','2022-05-10 14:33:08.670441',6);
+/*!40000 ALTER TABLE `authtoken_token` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_admin_log`
+--
+
+DROP TABLE IF EXISTS `django_admin_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_admin_log` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `action_time` datetime(6) NOT NULL,
+  `object_id` longtext,
+  `object_repr` varchar(200) NOT NULL,
+  `action_flag` smallint unsigned NOT NULL,
+  `change_message` longtext NOT NULL,
+  `content_type_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_admin_log_content_type_id_c4bce8eb_fk_django_co` (`content_type_id`),
+  KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_admin_log`
+--
+
+LOCK TABLES `django_admin_log` WRITE;
+/*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES (1,'2022-03-18 17:32:21.469227','2','franchino@gmail.com',3,'',4,1),(2,'2022-03-18 17:32:21.481037','3','ugo',3,'',4,1),(3,'2022-03-18 17:34:15.408531','5','franco',3,'',4,1),(4,'2022-03-18 17:34:15.418857','4','ugo',3,'',4,1),(5,'2022-03-20 17:16:58.889013','2','Spots object (2)',3,'',13,1),(6,'2022-03-20 17:16:58.899984','1','Spots object (1)',3,'',13,1),(7,'2022-03-20 17:30:46.031284','3','Spots object (3)',1,'[{\"added\": {}}]',13,1),(8,'2022-03-20 17:31:42.452602','4','Spots object (4)',1,'[{\"added\": {}}]',13,1);
+/*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_content_type`
+--
+
+DROP TABLE IF EXISTS `django_content_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_content_type` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `app_label` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_content_type`
+--
+
+LOCK TABLES `django_content_type` WRITE;
+/*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
+INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES (1,'admin','logentry'),(3,'auth','group'),(2,'auth','permission'),(4,'auth','user'),(8,'authtoken','token'),(9,'authtoken','tokenproxy'),(5,'contenttypes','contenttype'),(10,'pkspotapp','maps'),(11,'pkspotapp','mapsspots'),(12,'pkspotapp','pics'),(13,'pkspotapp','spots'),(7,'pkspotapp','users'),(14,'pkspotapp','usersmaps'),(6,'sessions','session'),(15,'token_blacklist','blacklistedtoken'),(16,'token_blacklist','outstandingtoken');
+/*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_migrations`
+--
+
+DROP TABLE IF EXISTS `django_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_migrations` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `app` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `applied` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_migrations`
+--
+
+LOCK TABLES `django_migrations` WRITE;
+/*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
+INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES (1,'contenttypes','0001_initial','2022-03-07 13:35:34.971585'),(2,'auth','0001_initial','2022-03-07 13:35:36.994486'),(3,'admin','0001_initial','2022-03-07 13:35:37.466691'),(4,'admin','0002_logentry_remove_auto_add','2022-03-07 13:35:37.497889'),(5,'admin','0003_logentry_add_action_flag_choices','2022-03-07 13:35:37.529147'),(6,'contenttypes','0002_remove_content_type_name','2022-03-07 13:35:37.865881'),(7,'auth','0002_alter_permission_name_max_length','2022-03-07 13:35:38.072602'),(8,'auth','0003_alter_user_email_max_length','2022-03-07 13:35:38.153147'),(9,'auth','0004_alter_user_username_opts','2022-03-07 13:35:38.183883'),(10,'auth','0005_alter_user_last_login_null','2022-03-07 13:35:38.388401'),(11,'auth','0006_require_contenttypes_0002','2022-03-07 13:35:38.405905'),(12,'auth','0007_alter_validators_add_error_messages','2022-03-07 13:35:38.438050'),(13,'auth','0008_alter_user_username_max_length','2022-03-07 13:35:38.650195'),(14,'auth','0009_alter_user_last_name_max_length','2022-03-07 13:35:38.882703'),(15,'auth','0010_alter_group_name_max_length','2022-03-07 13:35:38.956512'),(16,'auth','0011_update_proxy_permissions','2022-03-07 13:35:38.997846'),(17,'auth','0012_alter_user_first_name_max_length','2022-03-07 13:35:39.214643'),(18,'sessions','0001_initial','2022-03-07 13:35:39.356591'),(19,'authtoken','0001_initial','2022-03-18 16:09:45.183396'),(20,'authtoken','0002_auto_20160226_1747','2022-03-18 16:09:45.247461'),(21,'authtoken','0003_tokenproxy','2022-03-18 16:09:45.256485'),(22,'pkspotapp','0001_initial','2022-03-20 17:14:11.274081'),(23,'pkspotapp','0002_alter_maps_options_alter_mapsspots_options_and_more','2022-03-20 17:29:36.464532'),(24,'token_blacklist','0001_initial','2022-03-29 14:28:38.217675'),(25,'token_blacklist','0002_outstandingtoken_jti_hex','2022-03-29 14:28:38.386361'),(26,'token_blacklist','0003_auto_20171017_2007','2022-03-29 14:28:38.440734'),(27,'token_blacklist','0004_auto_20171017_2013','2022-03-29 14:28:38.827462'),(28,'token_blacklist','0005_remove_outstandingtoken_jti','2022-03-29 14:28:39.009578'),(29,'token_blacklist','0006_auto_20171017_2113','2022-03-29 14:28:39.101705'),(30,'token_blacklist','0007_auto_20171017_2214','2022-03-29 14:28:39.733597'),(31,'token_blacklist','0008_migrate_to_bigautofield','2022-03-29 14:28:40.522251'),(32,'token_blacklist','0010_fix_migrate_to_bigautofield','2022-03-29 14:28:40.574795'),(33,'token_blacklist','0011_linearizes_history','2022-03-29 14:28:40.584129');
+/*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_session`
+--
+
+DROP TABLE IF EXISTS `django_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) NOT NULL,
+  `session_data` longtext NOT NULL,
+  `expire_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_expire_date_a5c62663` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_session`
+--
+
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('mn955gtkydr8plj9kbvius2xmze3c9pi','.eJxVjMsOwiAQRf-FtSFlSnm4dO83kAFmpGogKe3K-O_apAvd3nPOfYmA21rC1mkJcxZnocTpd4uYHlR3kO9Yb02mVtdljnJX5EG7vLZMz8vh_h0U7OVbs0kuOtboNZCGZBJrywBkBgRPUwbl2WXQBmgYESaVrVc4AtgY2Y7i_QHonDek:1nVzBf:d11Rm0D5vSq2PPSEJ6nzmAumd7614BYLNEGKAjRbOD0','2022-04-03 17:17:51.318021'),('ovib8avmlvfoybcv6cje1tuyr6oo9yoj','.eJxVjMsOwiAQRf-FtSEM5enSvd9AhgGkaiAp7cr479qkC93ec859sYDbWsM28hLmxM7MsNPvFpEeue0g3bHdOqfe1mWOfFf4QQe_9pSfl8P9O6g46reeikBwSihJYLMVBCJK0FZ7cmUycQKfNZJXBaXMxYDXZHyMJmlZXAH2_gDF0jd0:1nZCsu:AMO01m5ApbD0LSDJVocFSea5xSeHUa20Otgc-BAuP34','2022-04-12 14:31:48.098352');
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `maps`
+--
+
+DROP TABLE IF EXISTS `maps`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `maps` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `maps`
+--
+
+LOCK TABLES `maps` WRITE;
+/*!40000 ALTER TABLE `maps` DISABLE KEYS */;
+/*!40000 ALTER TABLE `maps` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `maps_spots`
+--
+
+DROP TABLE IF EXISTS `maps_spots`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `maps_spots` (
+  `mapId` int NOT NULL,
+  `spotId` int NOT NULL,
+  PRIMARY KEY (`mapId`,`spotId`),
+  KEY `spotId` (`spotId`),
+  CONSTRAINT `maps_spots_ibfk_1` FOREIGN KEY (`spotId`) REFERENCES `spots` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `maps_spots_ibfk_2` FOREIGN KEY (`mapId`) REFERENCES `maps` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `maps_spots`
+--
+
+LOCK TABLES `maps_spots` WRITE;
+/*!40000 ALTER TABLE `maps_spots` DISABLE KEYS */;
+/*!40000 ALTER TABLE `maps_spots` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pics`
+--
+
+DROP TABLE IF EXISTS `pics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pics` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `image` varchar(200) NOT NULL,
+  `spotId` int NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE KEY `image` (`image`),
+  KEY `spotId` (`spotId`),
+  CONSTRAINT `pics_ibfk_1` FOREIGN KEY (`spotId`) REFERENCES `spots` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pics`
+--
+
+LOCK TABLES `pics` WRITE;
+/*!40000 ALTER TABLE `pics` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pics` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `spots`
+--
+
+DROP TABLE IF EXISTS `spots`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `spots` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `lat` double NOT NULL,
+  `lng` double NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `type` set('spot','undercover','park','gym') NOT NULL DEFAULT 'spot',
+  `description` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `spots`
+--
+
+LOCK TABLES `spots` WRITE;
+/*!40000 ALTER TABLE `spots` DISABLE KEYS */;
+INSERT INTO `spots` (`id`, `lat`, `lng`, `name`, `type`, `description`) VALUES (3,45.46508,10.5282,'Dog Park Le Vele','spot','Ottimo per pre, plyo e stride'),(4,45.46328,10.47904,'Palazzetto Lonato','spot','Ci sono un paio di spot carini intorno al palazzetto'),(5,45.411888,10.394923,'Municipio Montichiari','spot','Challenge runnning pre plyo molto bella'),(6,51.505308,-0.113493,'IMAX','spot','No need for it');
+/*!40000 ALTER TABLE `spots` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `token_blacklist_blacklistedtoken`
+--
+
+DROP TABLE IF EXISTS `token_blacklist_blacklistedtoken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `token_blacklist_blacklistedtoken` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `blacklisted_at` datetime(6) NOT NULL,
+  `token_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `token_id` (`token_id`),
+  CONSTRAINT `token_blacklist_blacklistedtoken_token_id_3cc7fe56_fk` FOREIGN KEY (`token_id`) REFERENCES `token_blacklist_outstandingtoken` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `token_blacklist_blacklistedtoken`
+--
+
+LOCK TABLES `token_blacklist_blacklistedtoken` WRITE;
+/*!40000 ALTER TABLE `token_blacklist_blacklistedtoken` DISABLE KEYS */;
+/*!40000 ALTER TABLE `token_blacklist_blacklistedtoken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `token_blacklist_outstandingtoken`
+--
+
+DROP TABLE IF EXISTS `token_blacklist_outstandingtoken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `token_blacklist_outstandingtoken` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `token` longtext NOT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `expires_at` datetime(6) NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `jti` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `token_blacklist_outstandingtoken_jti_hex_d9bdf6f7_uniq` (`jti`),
+  KEY `token_blacklist_outs_user_id_83bc629a_fk_auth_user` (`user_id`),
+  CONSTRAINT `token_blacklist_outs_user_id_83bc629a_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `token_blacklist_outstandingtoken`
+--
+
+LOCK TABLES `token_blacklist_outstandingtoken` WRITE;
+/*!40000 ALTER TABLE `token_blacklist_outstandingtoken` DISABLE KEYS */;
+/*!40000 ALTER TABLE `token_blacklist_outstandingtoken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `psw` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `social` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`id`, `username`, `psw`, `social`) VALUES (1,'admin','1c0fd53bb6ebf1278cd9ad59e679ac97',NULL),(2,'amico','9e469f7a2ab7fa40bc2b4ce33a9c5318',NULL);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users_maps`
+--
+
+DROP TABLE IF EXISTS `users_maps`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users_maps` (
+  `userId` int NOT NULL,
+  `mapId` int NOT NULL,
+  `role` set('creator','editor','viewer') NOT NULL DEFAULT 'viewer',
+  PRIMARY KEY (`userId`,`mapId`),
+  KEY `mapId` (`mapId`),
+  CONSTRAINT `users_maps_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `users_maps_ibfk_2` FOREIGN KEY (`mapId`) REFERENCES `maps` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users_maps`
+--
+
+LOCK TABLES `users_maps` WRITE;
+/*!40000 ALTER TABLE `users_maps` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users_maps` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-05-12 18:46:03

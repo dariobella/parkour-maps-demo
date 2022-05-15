@@ -12,7 +12,11 @@ export default defineConfig({
     }
   },
   server: {
-    origin: 'http://localhost:3000/frontend',
+    port: 8080,
+    origin: 'http://localhost:8080',
     host: true,
+  },
+  hmr: {
+    host: 'localhost'
   }
 })
