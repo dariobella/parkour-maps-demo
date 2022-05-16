@@ -1,6 +1,10 @@
 from rest_framework import serializers
-from pkspotapp.models import Users, UsersMaps, Maps, MapsSpots, Spots, Pics
+from pkspotapp.models import Users, UsersMaps, Maps, MapsSpots, Spots, Pics, AuthUser
 
+class AuthUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AuthUser
+        fields = '__all__'
 
 class UsersSerializer(serializers.ModelSerializer):
     class Meta:

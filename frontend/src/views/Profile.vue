@@ -14,12 +14,11 @@
         </div>
         <div class="infoText col-9">
           <div class="social"> @darjo.pk </div>
-          <div class="bio">This is my bio</div>
+          <div class="bio">This is my biologia</div>
         </div>
       </div>
     </div>
 
-    
 
     <div class="maps container-fluid">
       <div class="row">
@@ -46,8 +45,21 @@ export default {
       username: localStorage.getItem('token'),
     }
   },
+  created () {
+    console.log('ciao')
+
+    axios
+    .get('/api/myProfile/',)
+    .then(response => {
+      console.log(response)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+  },
   mounted() {
     document.title = 'PK SPOT MAP | Profile'
+    console.log('bau')
   },
   methods: {
     logout() {

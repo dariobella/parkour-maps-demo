@@ -6,11 +6,7 @@ urlpatterns = [
     #path('api/token/', TokenObtainPairView.as_view()),
     #path('api/token-refresh/', TokenRefreshView.as_view()),
 
-    path('api/users/', views.UsersView.users, name="users"),
-    path('api/selectUser/<str:id>/', views.selectUser, name="selectUser"),
-    path('api/addUser/', views.addUser, name="addUser"),
-    path('api/updateUser/<str:id>/', views.updateUser, name="updateUser"),
-    path('api/deleteUser/<str:id>/', views.deleteUser, name="deleteUser"),
+    path('api/myProfile/', views.myProfile, name="myProfile"),
 
     path('api/spots/', views.spots, name="spots"),
     path('api/selectSpot/<str:id>/', views.selectSpot, name="selectSpot"),
