@@ -4,7 +4,7 @@ from pkspotapp.models import Users, UsersMaps, Maps, MapsSpots, Spots, Pics, Aut
 class AuthUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = AuthUser
-        fields = '__all__'
+        fields = ['id', 'first_name', 'last_name', 'email', 'username']
 
 class UsersSerializer(serializers.ModelSerializer):
     class Meta:

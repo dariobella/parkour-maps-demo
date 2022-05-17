@@ -4,15 +4,17 @@ from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
 
-from pkspotapp.models import Spots, Pics, AuthUser
-from .serializers import SpotsSerializer, PicsSerializer
+from pkspotapp.models import Spots, Pics, AuthUser, AuthtokenToken
+from .serializers import SpotsSerializer, PicsSerializer, AuthUserSerializer
 
 
 # ----------------- USERS --------------------------------------------
 
 @api_view(['GET'])
-def myProfile(request):
-    return Response(data={'miao'})
+def myProfile(request, token):
+  user = AuthtokenToken.objects.get(pk=token).user
+  serializer = AuthUserSerializer(user, many=False)
+  return Response(serializer.data)
 
 class UsersView:
     permission_classes = (IsAuthenticated,)

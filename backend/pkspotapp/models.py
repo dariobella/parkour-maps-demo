@@ -46,6 +46,9 @@ class AuthUser(models.Model):
     is_active = models.IntegerField()
     date_joined = models.DateTimeField()
 
+    social = models.CharField(max_length=150, null=True)
+    bio = models.TextField(blank=True, null=True)
+
     class Meta:
         managed = False
         db_table = 'auth_user'

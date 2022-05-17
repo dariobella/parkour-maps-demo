@@ -14,7 +14,7 @@
         </div>
         <div class="infoText col-9">
           <div class="social"> @darjo.pk </div>
-          <div class="bio">This is my biologia</div>
+          <div class="bio">This is my bio</div>
         </div>
       </div>
     </div>
@@ -42,24 +42,21 @@ export default {
   name: 'Profile',
   data() {
     return {
-      username: localStorage.getItem('token'),
+      username: '',
     }
   },
-  created () {
-    console.log('ciao')
-
+  created() {
     axios
-    .get('/api/myProfile/',)
+    .get('/api/myProfile/' + localStorage.getItem('token'))
     .then(response => {
-      console.log(response)
+      this.username = response.data.username
     })
     .catch(err => {
-        console.log(err)
+      console.log(err)
     })
   },
   mounted() {
     document.title = 'PK SPOT MAP | Profile'
-    console.log('bau')
   },
   methods: {
     logout() {
@@ -91,6 +88,7 @@ export default {
 
 .topProfile .username {
   font-size: x-large;
+  font-weight: bold;
   padding-left: 20px;
 }
 
