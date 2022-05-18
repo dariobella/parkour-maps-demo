@@ -9,9 +9,7 @@ defusedxml==0.7.1
 Django==3.2.12
 django-cors-headers==3.11.0
 django-mysql==4.5.0
-django-templated-mail==1.1.1
 djangorestframework==3.12.4
-djangorestframework-simplejwt==4.8.0
 djoser==2.1.0
 idna==3.3
 itypes==1.2.0
@@ -21,7 +19,6 @@ mysqlclient==2.1.0
 oauthlib==3.2.0
 Pillow==9.1.0
 pycparser==2.21
-PyJWT==2.3.0
 python3-openid==3.2.0
 pytz==2022.1
 requests==2.27.1
