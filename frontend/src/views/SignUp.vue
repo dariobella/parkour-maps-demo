@@ -67,6 +67,7 @@ export default {
           .post('/api/addUser/', userData)
           .then(response => {
             console.log(response)
+            this.$router.push('/login')
           })
           .catch(error => {
               this.errors.push('Something went wrong, please try again')
