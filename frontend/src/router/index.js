@@ -4,7 +4,6 @@ import store from '../store'
 
 import Login from '../views/Login.vue'
 import SignUp from '../views/SignUp.vue'
-import Spots from '../views/Spots.vue'
 import Home from '../views/Home.vue'
 import Profile from '../views/Profile.vue'
 import AddSpots from '../views/AddSpots.vue'
@@ -24,11 +23,6 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
-  },
-  {
-    path: '/spots',
-    name: 'Spots',
-    component: Spots
   },
   {
     path: '/profile',

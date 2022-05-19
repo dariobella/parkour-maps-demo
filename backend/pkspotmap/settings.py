@@ -48,6 +48,12 @@ INSTALLED_APPS = [
     'pkspotapp.apps.PkspotappConfig'
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+}
+
 
 CORS_ORIGIN_WHITELIST = [
   'http://localhost:8080',

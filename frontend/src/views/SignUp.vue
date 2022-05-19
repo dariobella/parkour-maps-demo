@@ -30,6 +30,7 @@ export default {
       email: '',
       password: '',
       confPassword: '',
+      lastId: 0,
       errors: []
     }
   },
@@ -54,8 +55,23 @@ export default {
         axios
         .post('/api/v1/users/', formData)
         .then(response => {
-          this.$router.push('/login')
           console.log(response)
+          this.lastId = response.data.id
+        })
+        .then(() => {
+          const userData = {
+            id: this.lastId
+          } 
+
+          axios
+          .post('/api/addUser/', userData)
+          .then(response => {
+            console.log(response)
+          })
+          .catch(error => {
+              this.errors.push('Something went wrong, please try again')
+              console.log(JSON.stringify(error))
+          })
         })
         .catch(error => {
           if (error.response) {

@@ -3763,3 +3763,811 @@ Time                 Id Command    Argument
 2022-05-16T07:24:44.619151Z	   10 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
 2022-05-16T07:24:44.620343Z	   10 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description` FROM `spots`
 2022-05-16T07:24:44.662136Z	   10 Quit	
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-19T07:15:00.717795Z	    9 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:15:00.719166Z	    9 Query	SET NAMES utf8
+2022-05-19T07:15:00.719512Z	    9 Query	SET autocommit=0
+2022-05-19T07:15:00.719875Z	    9 Query	SET autocommit=1
+2022-05-19T07:15:00.720329Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T07:15:00.722928Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:15:00.723429Z	    9 Query	SHOW FULL TABLES
+2022-05-19T07:15:00.734368Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T07:15:03.720722Z	   10 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:15:03.721083Z	   10 Query	SET NAMES utf8
+2022-05-19T07:15:03.721362Z	   10 Query	SET autocommit=0
+2022-05-19T07:15:03.721710Z	   10 Query	SET autocommit=1
+2022-05-19T07:15:03.722329Z	   10 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T07:15:03.722859Z	   10 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:15:03.723252Z	   10 Query	SHOW FULL TABLES
+2022-05-19T07:15:03.729234Z	   10 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T07:15:32.225078Z	   11 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:15:32.225384Z	   11 Query	SET NAMES utf8
+2022-05-19T07:15:32.225643Z	   11 Query	SET autocommit=0
+2022-05-19T07:15:32.225904Z	   11 Query	SET autocommit=1
+2022-05-19T07:15:32.226212Z	   11 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T07:15:32.226604Z	   11 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:15:32.226872Z	   11 Query	SHOW FULL TABLES
+2022-05-19T07:15:32.231526Z	   11 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T07:16:11.714886Z	   12 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:16:11.715868Z	   12 Query	SET NAMES utf8
+2022-05-19T07:16:11.716472Z	   12 Query	SET autocommit=0
+2022-05-19T07:16:11.717004Z	   12 Query	SET autocommit=1
+2022-05-19T07:16:11.717629Z	   12 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T07:16:11.718308Z	   12 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:16:11.718902Z	   12 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-19T07:16:11.732447Z	   12 Quit	
+2022-05-19T07:28:49.105028Z	   13 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:28:49.105505Z	   13 Query	SET NAMES utf8
+2022-05-19T07:28:49.105942Z	   13 Query	SET autocommit=0
+2022-05-19T07:28:49.106301Z	   13 Query	SET autocommit=1
+2022-05-19T07:28:49.106712Z	   13 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T07:28:49.107209Z	   13 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:28:49.107598Z	   13 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-19T07:28:49.234376Z	   13 Query	SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5' LIMIT 1
+2022-05-19T07:28:49.241718Z	   13 Query	SET autocommit=0
+2022-05-19T07:28:49.242442Z	   13 Query	INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('zk7fw3yo561y4rfow6xdb48gbtquzae5', 'e30:1nraaX:ldK5olUXHkgzNtwg_PR2wj1kOAVeoFgT8XVXM93RDHw', '2022-06-02 07:28:49.241460')
+2022-05-19T07:28:49.243440Z	   13 Query	COMMIT
+2022-05-19T07:28:49.245875Z	   13 Query	SET autocommit=1
+2022-05-19T07:28:49.246908Z	   13 Query	UPDATE `auth_user` SET `last_login` = '2022-05-19 07:28:49.246379' WHERE `auth_user`.`id` = 1
+2022-05-19T07:28:49.250776Z	   13 Query	SET autocommit=0
+2022-05-19T07:28:49.251513Z	   13 Query	UPDATE `django_session` SET `session_data` = '.eJxVjDsOwjAQBe_iGln-ZP2hpOcMlnfXwQHkSHFSIe4OkVJA-2bmvUTK21rT1suSJhZnocXpd8NMj9J2wPfcbrOkua3LhHJX5EG7vM5cnpfD_Tuouddv7YbRx-BRFeMGT4xKacvWBhsCeAOoHEG0nhEsj2SizsGA8-g0KyAS7w-4nzbq:1nraaX:JLmg11WEwqSi5zSRxzsfNpvvVK7hZv790F5jVXIEtX4', `expire_date` = '2022-06-02 07:28:49.250653' WHERE `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5'
+2022-05-19T07:28:49.252503Z	   13 Query	COMMIT
+2022-05-19T07:28:49.255944Z	   13 Query	SET autocommit=1
+2022-05-19T07:28:49.257134Z	   13 Quit	
+2022-05-19T07:28:49.267370Z	   14 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:28:49.267782Z	   14 Query	SET NAMES utf8
+2022-05-19T07:28:49.268135Z	   14 Query	SET autocommit=0
+2022-05-19T07:28:49.268358Z	   14 Query	SET autocommit=1
+2022-05-19T07:28:49.268714Z	   14 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:28:49.269192Z	   14 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:28:49.265773' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:28:49.270982Z	   14 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:28:49.285347Z	   14 Query	SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON (`django_admin_log`.`user_id` = `auth_user`.`id`) LEFT OUTER JOIN `django_content_type` ON (`django_admin_log`.`content_type_id` = `django_content_type`.`id`) WHERE `django_admin_log`.`user_id` = 1 ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10
+2022-05-19T07:28:49.295723Z	   14 Quit	
+2022-05-19T07:33:58.434729Z	   15 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:33:58.435081Z	   15 Query	SET NAMES utf8
+2022-05-19T07:33:58.435323Z	   15 Query	SET autocommit=0
+2022-05-19T07:33:58.435655Z	   15 Query	SET autocommit=1
+2022-05-19T07:33:58.436093Z	   15 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T07:33:58.436631Z	   15 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:33:58.437171Z	   15 Query	SHOW FULL TABLES
+2022-05-19T07:33:58.451080Z	   15 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T07:34:43.014421Z	   16 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:34:43.014788Z	   16 Query	SET NAMES utf8
+2022-05-19T07:34:43.015172Z	   16 Query	SET autocommit=0
+2022-05-19T07:34:43.015584Z	   16 Query	SET autocommit=1
+2022-05-19T07:34:43.016064Z	   16 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T07:34:43.016581Z	   16 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:34:43.017030Z	   16 Query	SHOW FULL TABLES
+2022-05-19T07:34:43.019629Z	   16 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T07:34:43.042308Z	   16 Quit	
+2022-05-19T07:36:09.150422Z	   17 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:36:09.150961Z	   17 Query	SET NAMES utf8
+2022-05-19T07:36:09.151300Z	   17 Query	SET autocommit=0
+2022-05-19T07:36:09.151677Z	   17 Query	SET autocommit=1
+2022-05-19T07:36:09.152219Z	   17 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T07:36:09.153396Z	   17 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:36:09.153823Z	   17 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:36:09.148737' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:36:09.155700Z	   17 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:36:09.157782Z	   17 Query	SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` ORDER BY `auth_group`.`name` ASC
+2022-05-19T07:36:09.170874Z	   17 Query	SELECT COUNT(*) AS `__count` FROM `auth_user`
+2022-05-19T07:36:09.172592Z	   17 Query	SELECT COUNT(*) AS `__count` FROM `auth_user`
+2022-05-19T07:36:09.193233Z	   17 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` ORDER BY `auth_user`.`username` ASC
+2022-05-19T07:36:09.259207Z	   17 Quit	
+2022-05-19T07:36:09.281228Z	   18 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:36:09.288888Z	   18 Query	SET NAMES utf8
+2022-05-19T07:36:09.290088Z	   18 Query	SET autocommit=0
+2022-05-19T07:36:09.291878Z	   18 Query	SET autocommit=1
+2022-05-19T07:36:09.292530Z	   18 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T07:36:09.293933Z	   18 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:36:09.296738Z	   18 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:36:09.279664' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:36:09.300986Z	   18 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:36:09.309215Z	   18 Quit	
+2022-05-19T07:36:16.121788Z	   19 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:36:16.122272Z	   19 Query	SET NAMES utf8
+2022-05-19T07:36:16.122674Z	   19 Query	SET autocommit=0
+2022-05-19T07:36:16.122966Z	   19 Query	SET autocommit=1
+2022-05-19T07:36:16.123309Z	   19 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T07:36:16.123720Z	   19 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:36:16.123962Z	   19 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:36:16.120367' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:36:16.124990Z	   19 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:36:16.126105Z	   19 Query	SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` ORDER BY `auth_group`.`name` ASC
+2022-05-19T07:36:16.126813Z	   19 Query	SELECT COUNT(*) AS `__count` FROM `auth_user`
+2022-05-19T07:36:16.127576Z	   19 Query	SELECT COUNT(*) AS `__count` FROM `auth_user`
+2022-05-19T07:36:16.130234Z	   19 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` ORDER BY `auth_user`.`username` DESC
+2022-05-19T07:36:16.175308Z	   19 Quit	
+2022-05-19T07:36:16.187849Z	   20 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:36:16.188637Z	   20 Query	SET NAMES utf8
+2022-05-19T07:36:16.189015Z	   20 Query	SET autocommit=0
+2022-05-19T07:36:16.189290Z	   20 Query	SET autocommit=1
+2022-05-19T07:36:16.189629Z	   20 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:36:16.190017Z	   20 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:36:16.186160' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:36:16.191250Z	   20 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:36:16.193000Z	   20 Quit	
+2022-05-19T07:36:21.828920Z	   21 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:36:21.829382Z	   21 Query	SET NAMES utf8
+2022-05-19T07:36:21.829705Z	   21 Query	SET autocommit=0
+2022-05-19T07:36:21.830043Z	   21 Query	SET autocommit=1
+2022-05-19T07:36:21.830414Z	   21 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:36:21.830805Z	   21 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:36:21.827784' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:36:21.831875Z	   21 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:36:21.832600Z	   21 Query	SET autocommit=0
+2022-05-19T07:36:21.833016Z	   21 Query	SAVEPOINT `s140623312209664_x1`
+2022-05-19T07:36:21.836182Z	   21 Query	SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'user') LIMIT 21
+2022-05-19T07:36:21.843330Z	   21 Query	RELEASE SAVEPOINT `s140623312209664_x1`
+2022-05-19T07:36:21.843787Z	   21 Query	COMMIT
+2022-05-19T07:36:21.844236Z	   21 Query	SET autocommit=1
+2022-05-19T07:36:21.878656Z	   21 Quit	
+2022-05-19T07:36:21.896792Z	   22 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:36:21.897875Z	   22 Query	SET NAMES utf8
+2022-05-19T07:36:21.898607Z	   22 Query	SET autocommit=0
+2022-05-19T07:36:21.899222Z	   22 Query	SET autocommit=1
+2022-05-19T07:36:21.899853Z	   22 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:36:21.900676Z	   22 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:36:21.894937' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:36:21.903679Z	   22 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:36:21.909392Z	   22 Quit	
+2022-05-19T07:36:34.959990Z	   23 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:36:34.960322Z	   23 Query	SET NAMES utf8
+2022-05-19T07:36:34.960657Z	   23 Query	SET autocommit=0
+2022-05-19T07:36:34.960868Z	   23 Query	SET autocommit=1
+2022-05-19T07:36:34.961166Z	   23 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:36:34.961552Z	   23 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:36:34.958690' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:36:34.962838Z	   23 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:36:34.963471Z	   23 Query	SET autocommit=0
+2022-05-19T07:36:34.963810Z	   23 Query	SAVEPOINT `s140623312209664_x2`
+2022-05-19T07:36:34.965517Z	   23 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 1
+2022-05-19T07:36:34.967989Z	   23 Query	RELEASE SAVEPOINT `s140623312209664_x2`
+2022-05-19T07:36:34.968513Z	   23 Query	COMMIT
+2022-05-19T07:36:34.968997Z	   23 Query	SET autocommit=1
+2022-05-19T07:36:34.998021Z	   23 Quit	
+2022-05-19T07:36:35.013480Z	   24 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:36:35.013891Z	   24 Query	SET NAMES utf8
+2022-05-19T07:36:35.014205Z	   24 Query	SET autocommit=0
+2022-05-19T07:36:35.014584Z	   24 Query	SET autocommit=1
+2022-05-19T07:36:35.014938Z	   24 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:36:35.015286Z	   24 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:36:35.011732' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:36:35.016377Z	   24 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:36:35.017967Z	   24 Quit	
+2022-05-19T07:36:39.606565Z	   25 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:36:39.607009Z	   25 Query	SET NAMES utf8
+2022-05-19T07:36:39.607334Z	   25 Query	SET autocommit=0
+2022-05-19T07:36:39.607615Z	   25 Query	SET autocommit=1
+2022-05-19T07:36:39.607974Z	   25 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:36:39.608320Z	   25 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:36:39.604465' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:36:39.609513Z	   25 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:36:39.610642Z	   25 Query	SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` ORDER BY `auth_group`.`name` ASC
+2022-05-19T07:36:39.611375Z	   25 Query	SELECT COUNT(*) AS `__count` FROM `auth_user`
+2022-05-19T07:36:39.612490Z	   25 Query	SELECT COUNT(*) AS `__count` FROM `auth_user`
+2022-05-19T07:36:39.615297Z	   25 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` ORDER BY `auth_user`.`username` ASC
+2022-05-19T07:36:39.658098Z	   25 Quit	
+2022-05-19T07:36:39.676376Z	   26 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:36:39.677095Z	   26 Query	SET NAMES utf8
+2022-05-19T07:36:39.677621Z	   26 Query	SET autocommit=0
+2022-05-19T07:36:39.678044Z	   26 Query	SET autocommit=1
+2022-05-19T07:36:39.678597Z	   26 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:36:39.679128Z	   26 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:36:39.674605' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:36:39.680350Z	   26 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:36:39.682101Z	   26 Quit	
+2022-05-19T07:39:17.550772Z	   27 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:39:17.551182Z	   27 Query	SET NAMES utf8
+2022-05-19T07:39:17.551532Z	   27 Query	SET autocommit=0
+2022-05-19T07:39:17.551865Z	   27 Query	SET autocommit=1
+2022-05-19T07:39:17.552714Z	   27 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:39:17.553183Z	   27 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:39:17.549610' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:39:17.554598Z	   27 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:39:17.555836Z	   27 Query	SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` ORDER BY `auth_group`.`name` ASC
+2022-05-19T07:39:17.556566Z	   27 Query	SELECT COUNT(*) AS `__count` FROM `auth_user`
+2022-05-19T07:39:17.557367Z	   27 Query	SELECT COUNT(*) AS `__count` FROM `auth_user`
+2022-05-19T07:39:17.559895Z	   27 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` ORDER BY `auth_user`.`username` ASC
+2022-05-19T07:39:17.625234Z	   27 Quit	
+2022-05-19T07:39:17.643803Z	   28 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:39:17.644571Z	   28 Query	SET NAMES utf8
+2022-05-19T07:39:17.645228Z	   28 Query	SET autocommit=0
+2022-05-19T07:39:17.645774Z	   28 Query	SET autocommit=1
+2022-05-19T07:39:17.646193Z	   28 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:39:17.646708Z	   28 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-19 07:39:17.641677' AND `django_session`.`session_key` = 'zk7fw3yo561y4rfow6xdb48gbtquzae5') LIMIT 21
+2022-05-19T07:39:17.648828Z	   28 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-19T07:39:17.651651Z	   28 Quit	
+2022-05-19T07:57:57.751482Z	   29 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:57:57.752902Z	   29 Query	SET NAMES utf8
+2022-05-19T07:57:57.753554Z	   29 Query	SET autocommit=0
+2022-05-19T07:57:57.754098Z	   29 Query	SET autocommit=1
+2022-05-19T07:57:57.754656Z	   29 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T07:57:57.755207Z	   29 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:57:57.755654Z	   29 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'e350103cfccd3d5c19a91fb01f21c8f4cfd888c2' LIMIT 21
+2022-05-19T07:57:57.761780Z	   29 Quit	
+2022-05-19T07:58:00.018911Z	   30 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:58:00.019668Z	   30 Query	SET NAMES utf8
+2022-05-19T07:58:00.020193Z	   30 Query	SET autocommit=0
+2022-05-19T07:58:00.020688Z	   30 Query	SET autocommit=1
+2022-05-19T07:58:00.021365Z	   30 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:58:00.022031Z	   30 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-19T07:58:00.024623Z	   30 Quit	
+2022-05-19T07:58:27.056313Z	   31 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T07:58:27.056788Z	   31 Query	SET NAMES utf8
+2022-05-19T07:58:27.057229Z	   31 Query	SET autocommit=0
+2022-05-19T07:58:27.057636Z	   31 Query	SET autocommit=1
+2022-05-19T07:58:27.058090Z	   31 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T07:58:27.058673Z	   31 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'prova' LIMIT 1
+2022-05-19T07:58:27.059447Z	   31 Query	SET autocommit=0
+2022-05-19T07:58:27.172768Z	   31 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$YtDa0Ns5TZeOzb7TKzVvmm$s8ZaCAAUWUge91Hgop1ViNjdV2jGHEGFvF4e1+kGKXo=', NULL, 0, 'prova', '', '', 'prova@prova.prova', 0, 1, '2022-05-19 07:58:27.059792')
+2022-05-19T07:58:27.173734Z	   31 Query	COMMIT
+2022-05-19T07:58:27.177164Z	   31 Query	SET autocommit=1
+2022-05-19T07:58:27.178642Z	   31 Quit	
+2022-05-19T08:01:50.635283Z	   32 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:01:50.635788Z	   32 Query	SET NAMES utf8
+2022-05-19T08:01:50.636209Z	   32 Query	SET autocommit=0
+2022-05-19T08:01:50.636621Z	   32 Query	SET autocommit=1
+2022-05-19T08:01:50.637085Z	   32 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:01:50.637570Z	   32 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'prova3' LIMIT 1
+2022-05-19T08:01:50.638390Z	   32 Query	SET autocommit=0
+2022-05-19T08:01:50.752152Z	   32 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$6rEqdWcHpe2VfD7oA8iMLS$BwKmEBcuzpFIaKMLp9tJlkyKS111ihsu1IVLmdP2RKA=', NULL, 0, 'prova3', '', '', 'prova3@prova3.prova', 0, 1, '2022-05-19 08:01:50.638747')
+2022-05-19T08:01:50.753290Z	   32 Query	COMMIT
+2022-05-19T08:01:50.758479Z	   32 Query	SET autocommit=1
+2022-05-19T08:01:50.759788Z	   32 Quit	
+2022-05-19T08:02:42.267794Z	   33 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:02:42.268522Z	   33 Query	SET NAMES utf8
+2022-05-19T08:02:42.269156Z	   33 Query	SET autocommit=0
+2022-05-19T08:02:42.269803Z	   33 Query	SET autocommit=1
+2022-05-19T08:02:42.270493Z	   33 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:02:42.271166Z	   33 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'prova4' LIMIT 1
+2022-05-19T08:02:42.272020Z	   33 Query	SET autocommit=0
+2022-05-19T08:02:42.385192Z	   33 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$9KbuRa8IFzHabCzkkVY2Ny$L7L1sI9Nja2vQDfY5XESD2Z8AyeRP9f5cdZEIviqFgc=', NULL, 0, 'prova4', '', '', 'prova4@prova4.prova4', 0, 1, '2022-05-19 08:02:42.272411')
+2022-05-19T08:02:42.386236Z	   33 Query	COMMIT
+2022-05-19T08:02:42.391219Z	   33 Query	SET autocommit=1
+2022-05-19T08:02:42.392539Z	   33 Quit	
+2022-05-19T08:05:21.442365Z	   34 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:05:21.442769Z	   34 Query	SET NAMES utf8
+2022-05-19T08:05:21.443097Z	   34 Query	SET autocommit=0
+2022-05-19T08:05:21.443423Z	   34 Query	SET autocommit=1
+2022-05-19T08:05:21.443822Z	   34 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:05:21.444270Z	   34 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-19T08:05:21.447478Z	   34 Quit	
+2022-05-19T08:05:39.677955Z	   35 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:05:39.678516Z	   35 Query	SET NAMES utf8
+2022-05-19T08:05:39.679041Z	   35 Query	SET autocommit=0
+2022-05-19T08:05:39.679460Z	   35 Query	SET autocommit=1
+2022-05-19T08:05:39.679987Z	   35 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:05:39.680576Z	   35 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-19T08:05:39.682624Z	   35 Quit	
+2022-05-19T08:06:14.244793Z	   36 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:06:14.245126Z	   36 Query	SET NAMES utf8
+2022-05-19T08:06:14.245378Z	   36 Query	SET autocommit=0
+2022-05-19T08:06:14.245640Z	   36 Query	SET autocommit=1
+2022-05-19T08:06:14.245900Z	   36 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:06:14.246215Z	   36 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'dsdsdsds' LIMIT 1
+2022-05-19T08:06:14.247220Z	   36 Query	SET autocommit=0
+2022-05-19T08:06:14.360793Z	   36 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$XuYGrPoT1hMcXjKn1VX9Kb$OauxmDqIuUf4KvO3dAK7xfRC/1zCQTxa5ubjyx/8uJM=', NULL, 0, 'dsdsdsds', '', '', 'ddscsd@sdcdcdc.com', 0, 1, '2022-05-19 08:06:14.247459')
+2022-05-19T08:06:14.362191Z	   36 Query	COMMIT
+2022-05-19T08:06:14.367506Z	   36 Query	SET autocommit=1
+2022-05-19T08:06:14.368715Z	   36 Quit	
+2022-05-19T08:14:49.468274Z	   37 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:14:49.468743Z	   37 Query	SET NAMES utf8
+2022-05-19T08:14:49.469071Z	   37 Query	SET autocommit=0
+2022-05-19T08:14:49.469331Z	   37 Query	SET autocommit=1
+2022-05-19T08:14:49.469710Z	   37 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:14:49.470097Z	   37 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:14:49.470365Z	   37 Query	SHOW FULL TABLES
+2022-05-19T08:14:49.475878Z	   37 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:16:05.500514Z	   38 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:16:05.500935Z	   38 Query	SET NAMES utf8
+2022-05-19T08:16:05.501353Z	   38 Query	SET autocommit=0
+2022-05-19T08:16:05.501594Z	   38 Query	SET autocommit=1
+2022-05-19T08:16:05.502135Z	   38 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:16:05.502856Z	   38 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:16:05.503240Z	   38 Query	SHOW FULL TABLES
+2022-05-19T08:16:05.506664Z	   38 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:18:07.357800Z	   39 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:18:07.358151Z	   39 Query	SET NAMES utf8
+2022-05-19T08:18:07.358491Z	   39 Query	SET autocommit=0
+2022-05-19T08:18:07.358725Z	   39 Query	SET autocommit=1
+2022-05-19T08:18:07.359051Z	   39 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:18:07.359429Z	   39 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:18:07.359698Z	   39 Query	SHOW FULL TABLES
+2022-05-19T08:18:07.362739Z	   39 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:20:06.949339Z	   40 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:20:06.949673Z	   40 Query	SET NAMES utf8
+2022-05-19T08:20:06.949951Z	   40 Query	SET autocommit=0
+2022-05-19T08:20:06.950201Z	   40 Query	SET autocommit=1
+2022-05-19T08:20:06.950618Z	   40 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:20:06.951561Z	   40 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:20:06.955702Z	   40 Query	SHOW FULL TABLES
+2022-05-19T08:20:06.980040Z	   40 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:20:29.960922Z	   41 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:20:29.961699Z	   41 Query	SET NAMES utf8
+2022-05-19T08:20:29.962121Z	   41 Query	SET autocommit=0
+2022-05-19T08:20:29.962476Z	   41 Query	SET autocommit=1
+2022-05-19T08:20:29.964387Z	   41 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:20:29.965036Z	   41 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:20:29.965956Z	   41 Query	SHOW FULL TABLES
+2022-05-19T08:20:29.971743Z	   41 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:20:50.028566Z	   42 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:20:50.029921Z	   42 Query	SET NAMES utf8
+2022-05-19T08:20:50.030708Z	   42 Query	SET autocommit=0
+2022-05-19T08:20:50.031194Z	   42 Query	SET autocommit=1
+2022-05-19T08:20:50.031782Z	   42 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:20:50.032422Z	   42 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:20:50.038974Z	   42 Query	SHOW FULL TABLES
+2022-05-19T08:20:50.042864Z	   42 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:22:12.126542Z	   43 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:22:12.127120Z	   43 Query	SET NAMES utf8
+2022-05-19T08:22:12.127613Z	   43 Query	SET autocommit=0
+2022-05-19T08:22:12.128095Z	   43 Query	SET autocommit=1
+2022-05-19T08:22:12.128619Z	   43 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:22:12.129174Z	   43 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:22:12.129683Z	   43 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'awsefwefewaf' LIMIT 1
+2022-05-19T08:22:12.139778Z	   43 Quit	
+2022-05-19T08:22:26.069456Z	   44 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:22:26.070049Z	   44 Query	SET NAMES utf8
+2022-05-19T08:22:26.070429Z	   44 Query	SET autocommit=0
+2022-05-19T08:22:26.070834Z	   44 Query	SET autocommit=1
+2022-05-19T08:22:26.071297Z	   44 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:22:26.071798Z	   44 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'awsefwefewaf' LIMIT 1
+2022-05-19T08:22:26.072570Z	   44 Query	SET autocommit=0
+2022-05-19T08:22:26.186204Z	   44 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$ovRvJr7XVGbg92LIFtr7XL$AJBcK69+E2YeJQra1UHa8qre2alhXHD/2PPUGbv1Z30=', NULL, 0, 'awsefwefewaf', '', '', 'eFEWAF@waefwef.com', 0, 1, '2022-05-19 08:22:26.072939')
+2022-05-19T08:22:26.187643Z	   44 Query	COMMIT
+2022-05-19T08:22:26.195555Z	   44 Query	SET autocommit=1
+2022-05-19T08:22:26.196981Z	   44 Quit	
+2022-05-19T08:23:00.773715Z	   45 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:23:00.774016Z	   45 Query	SET NAMES utf8
+2022-05-19T08:23:00.774254Z	   45 Query	SET autocommit=0
+2022-05-19T08:23:00.774496Z	   45 Query	SET autocommit=1
+2022-05-19T08:23:00.774870Z	   45 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:23:00.775235Z	   45 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:23:00.775563Z	   45 Query	SHOW FULL TABLES
+2022-05-19T08:23:00.779806Z	   45 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:23:21.925466Z	   46 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:23:21.925994Z	   46 Query	SET NAMES utf8
+2022-05-19T08:23:21.926398Z	   46 Query	SET autocommit=0
+2022-05-19T08:23:21.926785Z	   46 Query	SET autocommit=1
+2022-05-19T08:23:21.927312Z	   46 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:23:21.927811Z	   46 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:23:21.928246Z	   46 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'sacascsacsacsa' LIMIT 1
+2022-05-19T08:23:21.936388Z	   46 Query	SET autocommit=0
+2022-05-19T08:23:22.051743Z	   46 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$ypSl9VK9GBFm4GcOn3fH0Y$Gm5ZmDHDDIifct9HUix2e0uvv4RN/ELQlLNzs90aNOk=', NULL, 0, 'sacascsacsacsa', '', '', 'ascsacsa@sascacs.com', 0, 1, '2022-05-19 08:23:21.936932')
+2022-05-19T08:23:22.052852Z	   46 Query	COMMIT
+2022-05-19T08:23:22.057806Z	   46 Query	SET autocommit=1
+2022-05-19T08:23:22.059475Z	   46 Quit	
+2022-05-19T08:23:52.720894Z	   47 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:23:52.721284Z	   47 Query	SET NAMES utf8
+2022-05-19T08:23:52.721593Z	   47 Query	SET autocommit=0
+2022-05-19T08:23:52.721852Z	   47 Query	SET autocommit=1
+2022-05-19T08:23:52.722345Z	   47 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:23:52.722788Z	   47 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:23:52.723162Z	   47 Query	SHOW FULL TABLES
+2022-05-19T08:23:52.725794Z	   47 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:24:07.549938Z	   48 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:24:07.550490Z	   48 Query	SET NAMES utf8
+2022-05-19T08:24:07.550912Z	   48 Query	SET autocommit=0
+2022-05-19T08:24:07.551307Z	   48 Query	SET autocommit=1
+2022-05-19T08:24:07.551787Z	   48 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:24:07.552218Z	   48 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:24:07.552598Z	   48 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'wdqadawdw' LIMIT 1
+2022-05-19T08:24:07.560704Z	   48 Query	SET autocommit=0
+2022-05-19T08:24:07.673889Z	   48 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$9IhYEA1GnDHH8NshDW9bUn$mEsDoNDLKnvNNz/NUwEVRv6Ea83BvdNuiMbRDPHQVpA=', NULL, 0, 'wdqadawdw', '', '', 'waddwa@dwadw.com', 0, 1, '2022-05-19 08:24:07.561217')
+2022-05-19T08:24:07.674712Z	   48 Query	COMMIT
+2022-05-19T08:24:07.678326Z	   48 Query	SET autocommit=1
+2022-05-19T08:24:07.679926Z	   48 Quit	
+2022-05-19T08:24:21.289197Z	   49 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:24:21.289583Z	   49 Query	SET NAMES utf8
+2022-05-19T08:24:21.289857Z	   49 Query	SET autocommit=0
+2022-05-19T08:24:21.290140Z	   49 Query	SET autocommit=1
+2022-05-19T08:24:21.290536Z	   49 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:24:21.290905Z	   49 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:24:21.291198Z	   49 Query	SHOW FULL TABLES
+2022-05-19T08:24:21.293876Z	   49 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:24:33.435953Z	   50 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:24:33.436488Z	   50 Query	SET NAMES utf8
+2022-05-19T08:24:33.436925Z	   50 Query	SET autocommit=0
+2022-05-19T08:24:33.437286Z	   50 Query	SET autocommit=1
+2022-05-19T08:24:33.437776Z	   50 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:24:33.438299Z	   50 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:24:33.438753Z	   50 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'fefefefefe' LIMIT 1
+2022-05-19T08:24:33.447136Z	   50 Query	SET autocommit=0
+2022-05-19T08:24:33.560433Z	   50 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$hUQsHOl0p5DnQ26DdWKW21$LtjVxgPUIYfUOiu6Z5Fv22d+QY6LslsNzoKlpC5HM5g=', NULL, 0, 'fefefefefe', '', '', 'ewfefe@ewef.com', 0, 1, '2022-05-19 08:24:33.447689')
+2022-05-19T08:24:33.561537Z	   50 Query	COMMIT
+2022-05-19T08:24:33.564974Z	   50 Query	SET autocommit=1
+2022-05-19T08:24:33.567570Z	   50 Quit	
+2022-05-19T08:25:06.570304Z	   51 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:25:06.570670Z	   51 Query	SET NAMES utf8
+2022-05-19T08:25:06.571031Z	   51 Query	SET autocommit=0
+2022-05-19T08:25:06.571264Z	   51 Query	SET autocommit=1
+2022-05-19T08:25:06.571567Z	   51 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:25:06.571968Z	   51 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:25:06.572248Z	   51 Query	SHOW FULL TABLES
+2022-05-19T08:25:06.583762Z	   51 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:25:19.452810Z	   52 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:25:19.453379Z	   52 Query	SET NAMES utf8
+2022-05-19T08:25:19.453770Z	   52 Query	SET autocommit=0
+2022-05-19T08:25:19.454176Z	   52 Query	SET autocommit=1
+2022-05-19T08:25:19.454690Z	   52 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:25:19.455175Z	   52 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:25:19.455616Z	   52 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'ewawsasacsa' LIMIT 1
+2022-05-19T08:25:19.464418Z	   52 Query	SET autocommit=0
+2022-05-19T08:25:19.577358Z	   52 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$k1mvaoOv02mcm3gJFAWm9x$poE7e89ToPZqkTsYR8B1LuwgIw82Lq7OcPXbwGOG+9g=', NULL, 0, 'ewawsasacsa', '', '', 'assacsa@chaao.com', 0, 1, '2022-05-19 08:25:19.465011')
+2022-05-19T08:25:19.578422Z	   52 Query	COMMIT
+2022-05-19T08:25:19.583178Z	   52 Query	SET autocommit=1
+2022-05-19T08:25:19.584827Z	   52 Quit	
+2022-05-19T08:25:19.594024Z	   53 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:25:19.594641Z	   53 Query	SET NAMES utf8
+2022-05-19T08:25:19.594979Z	   53 Query	SET autocommit=0
+2022-05-19T08:25:19.595265Z	   53 Query	SET autocommit=1
+2022-05-19T08:25:19.595624Z	   53 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:25:19.596033Z	   53 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 10 LIMIT 21
+2022-05-19T08:25:19.643057Z	   53 Quit	
+2022-05-19T08:26:08.613633Z	   54 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:26:08.613935Z	   54 Query	SET NAMES utf8
+2022-05-19T08:26:08.614164Z	   54 Query	SET autocommit=0
+2022-05-19T08:26:08.614424Z	   54 Query	SET autocommit=1
+2022-05-19T08:26:08.614759Z	   54 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:26:08.615139Z	   54 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:26:08.615437Z	   54 Query	SHOW FULL TABLES
+2022-05-19T08:26:08.622492Z	   54 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:27:04.591425Z	   55 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:27:04.591943Z	   55 Query	SET NAMES utf8
+2022-05-19T08:27:04.592395Z	   55 Query	SET autocommit=0
+2022-05-19T08:27:04.592718Z	   55 Query	SET autocommit=1
+2022-05-19T08:27:04.593157Z	   55 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:27:04.593668Z	   55 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:27:04.594188Z	   55 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'efefeewsfe' LIMIT 1
+2022-05-19T08:27:04.605330Z	   55 Query	SET autocommit=0
+2022-05-19T08:27:04.718383Z	   55 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$teQXMQNp2QW3kRaMynOel3$+Vbf3xM1t8GBM22PUYuF8eGXPzWbUvRqOI8eW89pBDU=', NULL, 0, 'efefeewsfe', '', '', 'esefsfes@ciuef.com', 0, 1, '2022-05-19 08:27:04.605872')
+2022-05-19T08:27:04.719731Z	   55 Query	COMMIT
+2022-05-19T08:27:04.724026Z	   55 Query	SET autocommit=1
+2022-05-19T08:27:04.725638Z	   55 Quit	
+2022-05-19T08:27:04.732098Z	   56 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:27:04.732574Z	   56 Query	SET NAMES utf8
+2022-05-19T08:27:04.732949Z	   56 Query	SET autocommit=0
+2022-05-19T08:27:04.733223Z	   56 Query	SET autocommit=1
+2022-05-19T08:27:04.733646Z	   56 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:27:04.734000Z	   56 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 11 LIMIT 21
+2022-05-19T08:27:04.788832Z	   56 Quit	
+2022-05-19T08:28:35.181202Z	   57 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:28:35.181488Z	   57 Query	SET NAMES utf8
+2022-05-19T08:28:35.181746Z	   57 Query	SET autocommit=0
+2022-05-19T08:28:35.182058Z	   57 Query	SET autocommit=1
+2022-05-19T08:28:35.182459Z	   57 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:28:35.182893Z	   57 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:28:35.183281Z	   57 Query	SHOW FULL TABLES
+2022-05-19T08:28:35.185979Z	   57 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:28:42.358079Z	   58 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:28:42.358469Z	   58 Query	SET NAMES utf8
+2022-05-19T08:28:42.358862Z	   58 Query	SET autocommit=0
+2022-05-19T08:28:42.359155Z	   58 Query	SET autocommit=1
+2022-05-19T08:28:42.359625Z	   58 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:28:42.360018Z	   58 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:28:42.360292Z	   58 Query	SHOW FULL TABLES
+2022-05-19T08:28:42.368898Z	   58 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:28:59.142251Z	   59 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:28:59.142950Z	   59 Query	SET NAMES utf8
+2022-05-19T08:28:59.143547Z	   59 Query	SET autocommit=0
+2022-05-19T08:28:59.144138Z	   59 Query	SET autocommit=1
+2022-05-19T08:28:59.144723Z	   59 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:28:59.145339Z	   59 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:28:59.145844Z	   59 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'ewfefefe' LIMIT 1
+2022-05-19T08:28:59.153810Z	   59 Query	SET autocommit=0
+2022-05-19T08:28:59.268078Z	   59 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$VuKVEwVCYx6LPzghtPoE0o$qbPvxBUqrA+C7DhwKn9Nu1WnWRuNaRdJy6brI/Y094s=', NULL, 0, 'ewfefefe', '', '', 'efefe@ciuwd.com', 0, 1, '2022-05-19 08:28:59.155023')
+2022-05-19T08:28:59.269125Z	   59 Query	COMMIT
+2022-05-19T08:28:59.273783Z	   59 Query	SET autocommit=1
+2022-05-19T08:28:59.275904Z	   59 Quit	
+2022-05-19T08:28:59.284083Z	   60 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:28:59.284635Z	   60 Query	SET NAMES utf8
+2022-05-19T08:28:59.285117Z	   60 Query	SET autocommit=0
+2022-05-19T08:28:59.285448Z	   60 Query	SET autocommit=1
+2022-05-19T08:28:59.286498Z	   60 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:28:59.287505Z	   60 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 12 LIMIT 21
+2022-05-19T08:28:59.391056Z	   60 Quit	
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-19T08:33:34.369879Z	    9 Connect	root@172.19.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:33:34.370705Z	    9 Query	SET NAMES utf8
+2022-05-19T08:33:34.371021Z	    9 Query	SET autocommit=0
+2022-05-19T08:33:34.371405Z	    9 Query	SET autocommit=1
+2022-05-19T08:33:34.371936Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:33:34.372859Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:33:34.373124Z	    9 Query	SHOW FULL TABLES
+2022-05-19T08:33:34.390353Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:37:24.405477Z	   10 Connect	root@172.19.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:37:24.405952Z	   10 Query	SET NAMES utf8
+2022-05-19T08:37:24.406239Z	   10 Query	SET autocommit=0
+2022-05-19T08:37:24.406542Z	   10 Query	SET autocommit=1
+2022-05-19T08:37:24.406915Z	   10 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:37:24.407357Z	   10 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:37:24.407659Z	   10 Query	SHOW FULL TABLES
+2022-05-19T08:37:24.412149Z	   10 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:37:39.461758Z	   11 Connect	root@172.19.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:37:39.462377Z	   11 Query	SET NAMES utf8
+2022-05-19T08:37:39.462864Z	   11 Query	SET autocommit=0
+2022-05-19T08:37:39.463498Z	   11 Query	SET autocommit=1
+2022-05-19T08:37:39.464020Z	   11 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:37:39.464584Z	   11 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:37:39.465114Z	   11 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'drlkjfnolrfkngv' LIMIT 1
+2022-05-19T08:37:39.491198Z	   11 Query	SET autocommit=0
+2022-05-19T08:37:39.603419Z	   11 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$nzyLsh11BWzaDvPVCm9mxJ$6JscEuUI+laKdgiutA6aLMQnF0jkFWzblpTdM9e34Zw=', NULL, 0, 'drlkjfnolrfkngv', '', '', 'sdkjbfcwsiuje@wediub.com', 0, 1, '2022-05-19 08:37:39.491681')
+2022-05-19T08:37:39.604821Z	   11 Query	COMMIT
+2022-05-19T08:37:39.609877Z	   11 Query	SET autocommit=1
+2022-05-19T08:37:39.613352Z	   11 Quit	
+2022-05-19T08:37:39.618834Z	   12 Connect	root@172.19.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:37:39.619375Z	   12 Query	SET NAMES utf8
+2022-05-19T08:37:39.619778Z	   12 Query	SET autocommit=0
+2022-05-19T08:37:39.620144Z	   12 Query	SET autocommit=1
+2022-05-19T08:37:39.620521Z	   12 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:37:39.620952Z	   12 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 13 LIMIT 21
+2022-05-19T08:37:39.681284Z	   12 Quit	
+2022-05-19T08:38:30.104550Z	   13 Connect	root@172.19.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:38:30.104929Z	   13 Query	SET NAMES utf8
+2022-05-19T08:38:30.105306Z	   13 Query	SET autocommit=0
+2022-05-19T08:38:30.105638Z	   13 Query	SET autocommit=1
+2022-05-19T08:38:30.106156Z	   13 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:38:30.106595Z	   13 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:38:30.106967Z	   13 Query	SHOW FULL TABLES
+2022-05-19T08:38:30.110827Z	   13 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:38:46.332263Z	   14 Connect	root@172.19.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:38:46.332749Z	   14 Query	SET NAMES utf8
+2022-05-19T08:38:46.333074Z	   14 Query	SET autocommit=0
+2022-05-19T08:38:46.333427Z	   14 Query	SET autocommit=1
+2022-05-19T08:38:46.333852Z	   14 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:38:46.334371Z	   14 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:38:46.334761Z	   14 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'grsgdrgrdgdrrg' LIMIT 1
+2022-05-19T08:38:46.344584Z	   14 Query	SET autocommit=0
+2022-05-19T08:38:46.457560Z	   14 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$brpHs0jFUWfA9kiqUWLROh$aVulyvUW58IqimK54Udez0qaZxT1K3XiNNj3FDtEWkU=', NULL, 0, 'grsgdrgrdgdrrg', '', '', 'sokjnefoe@ciue.com', 0, 1, '2022-05-19 08:38:46.344922')
+2022-05-19T08:38:46.458615Z	   14 Query	COMMIT
+2022-05-19T08:38:46.462789Z	   14 Query	SET autocommit=1
+2022-05-19T08:38:46.466242Z	   14 Quit	
+2022-05-19T08:38:46.473301Z	   15 Connect	root@172.19.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:38:46.473893Z	   15 Query	SET NAMES utf8
+2022-05-19T08:38:46.474293Z	   15 Query	SET autocommit=0
+2022-05-19T08:38:46.474644Z	   15 Query	SET autocommit=1
+2022-05-19T08:38:46.475050Z	   15 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:38:46.475485Z	   15 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 14 LIMIT 21
+2022-05-19T08:38:46.478103Z	   15 Quit	
+2022-05-19T08:40:19.099667Z	   16 Connect	root@172.19.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:40:19.100108Z	   16 Query	SET NAMES utf8
+2022-05-19T08:40:19.100471Z	   16 Query	SET autocommit=0
+2022-05-19T08:40:19.100789Z	   16 Query	SET autocommit=1
+2022-05-19T08:40:19.101167Z	   16 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:40:19.101519Z	   16 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:40:19.101806Z	   16 Query	SHOW FULL TABLES
+2022-05-19T08:40:19.104447Z	   16 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:40:30.463885Z	   17 Connect	root@172.19.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:40:30.464339Z	   17 Query	SET NAMES utf8
+2022-05-19T08:40:30.464691Z	   17 Query	SET autocommit=0
+2022-05-19T08:40:30.464998Z	   17 Query	SET autocommit=1
+2022-05-19T08:40:30.465331Z	   17 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:40:30.465736Z	   17 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:40:30.466058Z	   17 Query	SHOW FULL TABLES
+2022-05-19T08:40:30.469089Z	   17 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:43:03.623691Z	   18 Connect	root@172.19.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:43:03.624567Z	   18 Query	SET NAMES utf8
+2022-05-19T08:43:03.625733Z	   18 Query	SET autocommit=0
+2022-05-19T08:43:03.626828Z	   18 Query	SET autocommit=1
+2022-05-19T08:43:03.627562Z	   18 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:43:03.628274Z	   18 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:43:03.628846Z	   18 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-19T08:43:03.637535Z	   18 Quit	
+2022-05-19T08:49:11.884444Z	   19 Connect	root@172.19.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:49:11.884896Z	   19 Query	SET NAMES utf8
+2022-05-19T08:49:11.885239Z	   19 Query	SET autocommit=0
+2022-05-19T08:49:11.885475Z	   19 Query	SET autocommit=1
+2022-05-19T08:49:11.885884Z	   19 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:49:11.886408Z	   19 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:49:11.886852Z	   19 Query	SHOW FULL TABLES
+2022-05-19T08:49:11.890433Z	   19 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-19T08:49:26.669142Z	   20 Connect	root@172.19.0.3 on pkspotmap using TCP/IP
+2022-05-19T08:49:26.670831Z	   20 Query	SET NAMES utf8
+2022-05-19T08:49:26.672801Z	   20 Query	SET autocommit=0
+2022-05-19T08:49:26.673312Z	   20 Query	SET autocommit=1
+2022-05-19T08:49:26.674356Z	   20 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-19T08:49:26.675077Z	   20 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-19T08:49:26.676249Z	   20 Query	SHOW FULL TABLES
+2022-05-19T08:49:26.680576Z	   20 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
