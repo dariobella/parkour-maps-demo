@@ -1,13 +1,11 @@
 import re
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-import jsonpickle
-#jsonpickle.encode(obj)
 
 from django.contrib.auth.models import User
 
 from pkspotapp.models import Spot, MyUser, Map, UserMap
-from .serializers import SpotSerializer
+from .serializers import MapSerializer, SpotSerializer, MyUserSerializer
 
 @api_view(['GET'])
 def spots(request):
@@ -28,4 +26,22 @@ def addUser(request):
     umA.save()
     umF.save()
 
-    return Response(jsonpickle.encode(mu))
+    serializer = MyUserSerializer(mu, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def myProfile(request, id):
+    u = User.objects.get(pk=id)
+    mu = MyUser.objects.get(user=u)
+
+    serializer = MyUserSerializer(mu, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def myMaps(request, id):
+    mu = MyUser.objects.get(pk=id)
+
+    serializer = MapSerializer(mu.maps.all(), many=True)
+    return Response(serializer.data)

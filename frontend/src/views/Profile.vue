@@ -23,9 +23,9 @@
     <div class="maps container-fluid">
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="map">
+          <div class="map" v-for="map in maps">
             <img src="../assets/mapIcon.svg" alt="">
-            <div class="mapName"> map name</div>
+            <div class="mapName"> {{ map.name }} </div>
           </div>
         </div>
       </div>
@@ -43,13 +43,38 @@ export default {
   data() {
     return {
       username: '',
+      userId: 0,
+      myUser: {},
+      maps: [],
     }
   },
   created() {
     axios
-    .get('/api/myProfile/' + localStorage.getItem('token'))
+    .get('/api/v1/users/me')
     .then(response => {
       this.username = response.data.username
+      this.userId = response.data.id
+    })
+    .then(() => {
+      axios
+      .get('/api/myProfile/' + this.userId)
+      .then(response => {
+        this.myUser = response.data
+        console.log('myUser: ' + this.myUser)
+      })
+      .then(() => {
+        axios
+        .get('/api/myMaps/' + this.myUser.id)
+        .then(response => {
+          this.maps = response.data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
     })
     .catch(err => {
       console.log(err)
