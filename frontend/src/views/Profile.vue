@@ -22,11 +22,9 @@
 
     <div class="maps container-fluid">
       <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="map" v-for="map in maps">
-            <img src="../assets/mapIcon.svg" alt="">
-            <div class="mapName"> {{ map.name }} </div>
-          </div>
+        <div class="map col-sm-6 col-md-4 col-lg-3" v-for="map in maps">
+          <img src="../assets/mapIcon.svg" alt="">
+          <div class="mapName"> {{ map.name }} </div>
         </div>
       </div>
     </div>
@@ -143,6 +141,7 @@ export default {
   background-color: #dcdcdc;
   border-radius: 20px;
   padding: 20px;
+  margin: 20px;
 }
 
 .map img {

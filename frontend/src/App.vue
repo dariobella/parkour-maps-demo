@@ -96,12 +96,14 @@ button:hover {
 
 * {
   scrollbar-width: 5px;
+  scrollbar-width: 5px;
   scrollbar-color: white #212529;
 }
 
 
 *::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 *::-webkit-scrollbar-track {
