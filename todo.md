@@ -5,7 +5,8 @@
 1. User authentication (sort of done)
 2. Add spots (missing .kml)
 3. User profile with maps
-4. spot images
+4. spot image
+5. Add spots adds to "Added by me"
 
 ## Secondary
 
