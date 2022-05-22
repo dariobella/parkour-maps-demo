@@ -39,10 +39,10 @@
           <div class="type">
             <label for="type">Type:</label>
             <select name="type" id="type" v-model="type">
-              <option value="spot">Spot</option>
-              <option value="gym">Gym</option>
-              <option value="park">Parkour Park</option>
-              <option value="undercover">Undercover spot</option>
+              <option value="S">Spot</option>
+              <option value="G">Gym</option>
+              <option value="P">Parkour Park</option>
+              <option value="U">Undercover spot</option>
             </select>
           </div>
 
@@ -131,11 +131,13 @@ export default {
       lat: 0,
       lng: 0,
       name: '',
-      type: 'spot',
+      type: 'S',
       description: '',
       images: [],
       lastId: 0,
       kmlFile : '',
+      userId: 0,
+      myUserId: 0,
       spotErrors: [],
       kmlErrors: [],
     }
@@ -153,51 +155,73 @@ export default {
       else if (this.name === '') this.spotErrors.push('The name is missing')
 
       if (!this.spotErrors.length) {
-        const formData = {
-          lat: this.lat,
-          lng: this.lng,
-          name: this.name,
-          type: this.type,
-          description: this.description,
-        }
 
         axios
-        .post('/api/addSpot/', formData)
+        .get('/api/v1/users/me')
         .then(response => {
-          console.log(response)
-          this.lastId = response.data.id
+          this.userId = response.data.id
         })
         .then(() => {
-          if (this.images.length > 0) {
-            const imagesData = new FormData()
-            this.images.forEach(image => {
-              imagesData.append('images', image, image.name)
-            })
-            imagesData.append('spotId', this.lastId)
+          axios
+          .get('/api/myProfile/' + this.userId)
+          .then(response => {
+            this.myUserId = response.data.id
+            console.log('myUserId: ' + this.myUserId)
+          })
+          .then(() => {
 
-            console.log(imagesData)
+            const formData = {
+              lat: this.lat,
+              lng: this.lng,
+              name: this.name,
+              type: this.type,
+              description: this.description,
+              adder: this.myUserId
+            }
+
             axios
-            .post('api/addPics/', imagesData, { headers: {
-                "Content-Type": "multipart/form-data",
-            }})
+            .post('/api/addSpot/', formData)
             .then(response => {
-              console.log('images response')
-              console.log(response.data)
+              console.log(response)
+              this.lastId = response.data.id
             })
-            .catch(error => {
-              this.spotErrors.push('Something went wrong, please try again')
-              console.log(JSON.stringify(error))
-            })
-          }
-        })
-        .then(() => {
-          this.$router.push('/')
-        })
-        .catch(error => {
-          this.spotErrors.push('Something went wrong, please try again')
-          console.log(JSON.stringify(error))
-        })
+            .then(() => {
+              if (this.images.length > 0) {
+                const imagesData = new FormData()
+                this.images.forEach(image => {
+                  imagesData.append('images', image, image.name)
+                })
+                imagesData.append('spotId', this.lastId)
 
+                console.log(imagesData)
+                axios
+                .post('api/addPics/', imagesData, { headers: {
+                    "Content-Type": "multipart/form-data",
+                }})
+                .then(response => {
+                  console.log('images response')
+                  console.log(response.data)
+                })
+                .catch(error => {
+                  this.spotErrors.push('Something went wrong, please try again')
+                  console.log(JSON.stringify(error))
+                })
+              }
+            })
+            .then(() => {
+              this.$router.push('/')
+            })
+            .catch(err => {
+              console.log(err)
+            })
+          })
+          .catch(err => {
+            console.log(err)
+          })
+        })
+        .catch(err => {
+          console.log(err)
+        })
       }
     },
 
@@ -286,15 +310,9 @@ export default {
         const formData = new FormData();
         formData.append('kmlFile', this.kmlFile, this.kmlFile.name)
         
-        axios
-        .post('url', formData)
-        .then (res => {
-          console.log(res)
-        })
-        .catch(error => {
-          this.kmlErrors.push('Something went wrong, please try again')
-          console.log(JSON.stringify(error))
-        })
+        console.log(formData)
+        console.log('Feature TBD')
+
       } else {
         this.kmlErrors.push('The file is missing')
       }

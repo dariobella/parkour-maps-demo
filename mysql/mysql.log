@@ -5050,3 +5050,895 @@ Time                 Id Command    Argument
 2022-05-20T07:44:13.460019Z	   55 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 5
 2022-05-20T07:44:13.473444Z	   55 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 6
 2022-05-20T07:44:13.478423Z	   55 Quit	
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-22T08:55:43.406370Z	    9 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:55:43.407889Z	    9 Query	SET NAMES utf8
+2022-05-22T08:55:43.408707Z	    9 Query	SET autocommit=0
+2022-05-22T08:55:43.409421Z	    9 Query	SET autocommit=1
+2022-05-22T08:55:43.425911Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T08:55:43.455541Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:55:43.456618Z	    9 Query	SHOW FULL TABLES
+2022-05-22T08:55:43.603929Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-22T08:56:10.457593Z	   10 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:56:10.459682Z	   10 Query	SET NAMES utf8
+2022-05-22T08:56:10.475791Z	   10 Query	SET autocommit=0
+2022-05-22T08:56:10.492143Z	   10 Query	SET autocommit=1
+2022-05-22T08:56:10.497196Z	   10 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T08:56:10.498473Z	   10 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:56:10.500077Z	   10 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T08:56:10.758195Z	   10 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T08:56:10.908869Z	   10 Quit	
+2022-05-22T08:56:16.143445Z	   11 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:56:16.155815Z	   11 Query	SET NAMES utf8
+2022-05-22T08:56:16.173454Z	   11 Query	SET autocommit=0
+2022-05-22T08:56:16.174439Z	   11 Query	SET autocommit=1
+2022-05-22T08:56:16.175350Z	   11 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:56:16.176331Z	   11 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T08:56:16.191596Z	   11 Quit	
+2022-05-22T08:56:16.326186Z	   12 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:56:16.345779Z	   12 Query	SET NAMES utf8
+2022-05-22T08:56:16.346475Z	   12 Query	SET autocommit=0
+2022-05-22T08:56:16.347151Z	   12 Query	SET autocommit=1
+2022-05-22T08:56:16.347830Z	   12 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:56:16.348818Z	   12 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T08:56:16.352069Z	   12 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 21
+2022-05-22T08:56:16.355276Z	   12 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 19 LIMIT 21
+2022-05-22T08:56:16.421315Z	   12 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T08:56:16.606897Z	   12 Quit	
+2022-05-22T08:56:16.672872Z	   13 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:56:16.673794Z	   13 Query	SET NAMES utf8
+2022-05-22T08:56:16.675290Z	   13 Query	SET autocommit=0
+2022-05-22T08:56:16.707131Z	   13 Query	SET autocommit=1
+2022-05-22T08:56:16.711155Z	   13 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:56:16.733131Z	   13 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T08:56:16.742723Z	   13 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 5 LIMIT 21
+2022-05-22T08:56:16.747153Z	   13 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T08:56:16.759876Z	   13 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 5
+2022-05-22T08:56:16.794848Z	   13 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 6
+2022-05-22T08:56:16.797709Z	   13 Quit	
+2022-05-22T08:56:24.234093Z	   14 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:56:24.237609Z	   14 Query	SET NAMES utf8
+2022-05-22T08:56:24.238446Z	   14 Query	SET autocommit=0
+2022-05-22T08:56:24.239310Z	   14 Query	SET autocommit=1
+2022-05-22T08:56:24.240427Z	   14 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:56:24.241615Z	   14 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T08:56:24.244734Z	   14 Quit	
+2022-05-22T08:56:29.194063Z	   15 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:56:29.195173Z	   15 Query	SET NAMES utf8
+2022-05-22T08:56:29.196143Z	   15 Query	SET autocommit=0
+2022-05-22T08:56:29.196900Z	   15 Query	SET autocommit=1
+2022-05-22T08:56:29.197687Z	   15 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:56:29.198539Z	   15 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'darjo' LIMIT 21
+2022-05-22T08:56:29.651343Z	   15 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created` FROM `authtoken_token` WHERE `authtoken_token`.`user_id` = 19 LIMIT 21
+2022-05-22T08:56:29.677239Z	   15 Query	UPDATE `auth_user` SET `last_login` = '2022-05-22 08:56:29.675572' WHERE `auth_user`.`id` = 19
+2022-05-22T08:56:29.739883Z	   15 Quit	
+2022-05-22T08:56:29.931857Z	   16 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:56:29.932743Z	   16 Query	SET NAMES utf8
+2022-05-22T08:56:29.933623Z	   16 Query	SET autocommit=0
+2022-05-22T08:56:29.935534Z	   16 Query	SET autocommit=1
+2022-05-22T08:56:29.936630Z	   16 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:56:29.937593Z	   16 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T08:56:29.941011Z	   16 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T08:56:29.955078Z	   16 Quit	
+2022-05-22T08:56:32.197671Z	   17 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:56:32.198539Z	   17 Query	SET NAMES utf8
+2022-05-22T08:56:32.199230Z	   17 Query	SET autocommit=0
+2022-05-22T08:56:32.199889Z	   17 Query	SET autocommit=1
+2022-05-22T08:56:32.200654Z	   17 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:56:32.201539Z	   17 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T08:56:32.211757Z	   17 Quit	
+2022-05-22T08:56:32.240910Z	   18 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:56:32.241786Z	   18 Query	SET NAMES utf8
+2022-05-22T08:56:32.242611Z	   18 Query	SET autocommit=0
+2022-05-22T08:56:32.243428Z	   18 Query	SET autocommit=1
+2022-05-22T08:56:32.244825Z	   18 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:56:32.245905Z	   18 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T08:56:32.249314Z	   18 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 21
+2022-05-22T08:56:32.253929Z	   18 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 19 LIMIT 21
+2022-05-22T08:56:32.273618Z	   18 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T08:56:32.277106Z	   18 Quit	
+2022-05-22T08:56:32.313826Z	   19 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:56:32.314644Z	   19 Query	SET NAMES utf8
+2022-05-22T08:56:32.315240Z	   19 Query	SET autocommit=0
+2022-05-22T08:56:32.315787Z	   19 Query	SET autocommit=1
+2022-05-22T08:56:32.317471Z	   19 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:56:32.323649Z	   19 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T08:56:32.344652Z	   19 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 5 LIMIT 21
+2022-05-22T08:56:32.369633Z	   19 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T08:56:32.385558Z	   19 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 5
+2022-05-22T08:56:32.397390Z	   19 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 6
+2022-05-22T08:56:32.444509Z	   19 Quit	
+2022-05-22T08:56:33.807427Z	   20 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:56:33.809343Z	   20 Query	SET NAMES utf8
+2022-05-22T08:56:33.813019Z	   20 Query	SET autocommit=0
+2022-05-22T08:56:33.836728Z	   20 Query	SET autocommit=1
+2022-05-22T08:56:33.870327Z	   20 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:56:33.887832Z	   20 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T08:56:33.918901Z	   20 Quit	
+2022-05-22T08:57:01.632549Z	   21 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:57:01.633450Z	   21 Query	SET NAMES utf8
+2022-05-22T08:57:01.634287Z	   21 Query	SET autocommit=0
+2022-05-22T08:57:01.634966Z	   21 Query	SET autocommit=1
+2022-05-22T08:57:01.635783Z	   21 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:57:01.636517Z	   21 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'uyuh' LIMIT 1
+2022-05-22T08:57:01.711787Z	   21 Quit	
+2022-05-22T08:58:26.949651Z	   22 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:58:26.951259Z	   22 Query	SET NAMES utf8
+2022-05-22T08:58:26.952284Z	   22 Query	SET autocommit=0
+2022-05-22T08:58:26.953454Z	   22 Query	SET autocommit=1
+2022-05-22T08:58:26.954467Z	   22 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T08:58:26.960078Z	   22 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:58:26.964228Z	   22 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'rffrr' LIMIT 1
+2022-05-22T08:58:26.980405Z	   22 Quit	
+2022-05-22T08:59:54.040139Z	   23 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T08:59:54.040918Z	   23 Query	SET NAMES utf8
+2022-05-22T08:59:54.041523Z	   23 Query	SET autocommit=0
+2022-05-22T08:59:54.042052Z	   23 Query	SET autocommit=1
+2022-05-22T08:59:54.042637Z	   23 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T08:59:54.043303Z	   23 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'bhb' LIMIT 1
+2022-05-22T08:59:54.046404Z	   23 Quit	
+2022-05-22T09:00:16.436700Z	   24 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:00:16.437542Z	   24 Query	SET NAMES utf8
+2022-05-22T09:00:16.438151Z	   24 Query	SET autocommit=0
+2022-05-22T09:00:16.438823Z	   24 Query	SET autocommit=1
+2022-05-22T09:00:16.439501Z	   24 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:00:16.440487Z	   24 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'bhb' LIMIT 1
+2022-05-22T09:00:16.454523Z	   24 Quit	
+2022-05-22T09:00:33.715109Z	   25 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:00:33.716093Z	   25 Query	SET NAMES utf8
+2022-05-22T09:00:33.716718Z	   25 Query	SET autocommit=0
+2022-05-22T09:00:33.717345Z	   25 Query	SET autocommit=1
+2022-05-22T09:00:33.718168Z	   25 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:00:33.719038Z	   25 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = '3ejù' LIMIT 1
+2022-05-22T09:00:33.723605Z	   25 Quit	
+2022-05-22T09:01:48.854758Z	   26 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:01:48.855559Z	   26 Query	SET NAMES utf8
+2022-05-22T09:01:48.856066Z	   26 Query	SET autocommit=0
+2022-05-22T09:01:48.856919Z	   26 Query	SET autocommit=1
+2022-05-22T09:01:48.858037Z	   26 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:01:48.858836Z	   26 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'djee' LIMIT 1
+2022-05-22T09:01:48.860671Z	   26 Query	SET autocommit=0
+2022-05-22T09:01:49.167343Z	   26 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$Okltk8i462Got030yehnaA$QUKh+fFw11Sy+rISTofRcXTD6e3TAWRNJyoopB94cHY=', NULL, 0, 'djee', '', '', '', 0, 1, '2022-05-22 09:01:48.917538')
+2022-05-22T09:01:49.169646Z	   26 Query	COMMIT
+2022-05-22T09:01:49.259180Z	   26 Query	SET autocommit=1
+2022-05-22T09:01:49.261391Z	   26 Quit	
+2022-05-22T09:01:49.300651Z	   27 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:01:49.301632Z	   27 Query	SET NAMES utf8
+2022-05-22T09:01:49.302440Z	   27 Query	SET autocommit=0
+2022-05-22T09:01:49.302943Z	   27 Query	SET autocommit=1
+2022-05-22T09:01:49.303793Z	   27 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:01:49.304540Z	   27 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 21 LIMIT 21
+2022-05-22T09:01:49.307232Z	   27 Query	INSERT INTO `my_user` (`user_id`, `social`, `bio`) VALUES (21, NULL, NULL)
+2022-05-22T09:01:49.317519Z	   27 Query	INSERT INTO `maps` (`name`) VALUES ('Added by me')
+2022-05-22T09:01:49.360607Z	   27 Query	INSERT INTO `maps` (`name`) VALUES ('Favourites')
+2022-05-22T09:01:49.381114Z	   27 Query	INSERT INTO `users_maps` (`user_id`, `map_id`, `role`) VALUES (7, 9, 'C')
+2022-05-22T09:01:49.438052Z	   27 Query	INSERT INTO `users_maps` (`user_id`, `map_id`, `role`) VALUES (7, 10, 'C')
+2022-05-22T09:01:49.482644Z	   27 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 7
+2022-05-22T09:01:49.539110Z	   27 Quit	
+2022-05-22T09:02:14.970344Z	   28 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:02:14.990401Z	   28 Query	SET NAMES utf8
+2022-05-22T09:02:14.990986Z	   28 Query	SET autocommit=0
+2022-05-22T09:02:14.991641Z	   28 Query	SET autocommit=1
+2022-05-22T09:02:14.992271Z	   28 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:02:14.993117Z	   28 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'djee' LIMIT 21
+2022-05-22T09:02:15.220958Z	   28 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created` FROM `authtoken_token` WHERE `authtoken_token`.`user_id` = 21 LIMIT 21
+2022-05-22T09:02:15.235491Z	   28 Query	SET autocommit=0
+2022-05-22T09:02:15.241087Z	   28 Query	INSERT INTO `authtoken_token` (`key`, `user_id`, `created`) VALUES ('fb15a33311048fcd05e27b51184fc4d9237b3af0', 21, '2022-05-22 09:02:15.240616')
+2022-05-22T09:02:15.406478Z	   28 Query	COMMIT
+2022-05-22T09:02:15.415134Z	   28 Query	SET autocommit=1
+2022-05-22T09:02:15.417259Z	   28 Query	UPDATE `auth_user` SET `last_login` = '2022-05-22 09:02:15.415778' WHERE `auth_user`.`id` = 21
+2022-05-22T09:02:15.428829Z	   28 Quit	
+2022-05-22T09:02:15.596104Z	   29 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:02:15.602014Z	   29 Query	SET NAMES utf8
+2022-05-22T09:02:15.604843Z	   29 Query	SET autocommit=0
+2022-05-22T09:02:15.606106Z	   29 Query	SET autocommit=1
+2022-05-22T09:02:15.607983Z	   29 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:02:15.609401Z	   29 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'fb15a33311048fcd05e27b51184fc4d9237b3af0' LIMIT 21
+2022-05-22T09:02:15.613068Z	   29 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T09:02:15.622044Z	   29 Quit	
+2022-05-22T09:02:23.869234Z	   30 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:02:23.869983Z	   30 Query	SET NAMES utf8
+2022-05-22T09:02:23.870599Z	   30 Query	SET autocommit=0
+2022-05-22T09:02:23.871101Z	   30 Query	SET autocommit=1
+2022-05-22T09:02:23.871677Z	   30 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:02:23.872395Z	   30 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'fb15a33311048fcd05e27b51184fc4d9237b3af0' LIMIT 21
+2022-05-22T09:02:23.875782Z	   30 Quit	
+2022-05-22T09:02:24.069347Z	   31 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:02:24.212304Z	   31 Query	SET NAMES utf8
+2022-05-22T09:02:24.212972Z	   31 Query	SET autocommit=0
+2022-05-22T09:02:24.213679Z	   31 Query	SET autocommit=1
+2022-05-22T09:02:24.214540Z	   31 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:02:24.215487Z	   31 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'fb15a33311048fcd05e27b51184fc4d9237b3af0' LIMIT 21
+2022-05-22T09:02:24.218421Z	   31 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 21 LIMIT 21
+2022-05-22T09:02:24.221383Z	   31 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 21 LIMIT 21
+2022-05-22T09:02:24.224253Z	   31 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 7
+2022-05-22T09:02:24.227473Z	   31 Quit	
+2022-05-22T09:02:24.339876Z	   32 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:02:24.371539Z	   32 Query	SET NAMES utf8
+2022-05-22T09:02:24.424328Z	   32 Query	SET autocommit=0
+2022-05-22T09:02:24.458297Z	   32 Query	SET autocommit=1
+2022-05-22T09:02:24.459107Z	   32 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:02:24.460125Z	   32 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'fb15a33311048fcd05e27b51184fc4d9237b3af0' LIMIT 21
+2022-05-22T09:02:24.462673Z	   32 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 7 LIMIT 21
+2022-05-22T09:02:24.478154Z	   32 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 7
+2022-05-22T09:02:24.502195Z	   32 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 9
+2022-05-22T09:02:24.506373Z	   32 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 10
+2022-05-22T09:02:24.508760Z	   32 Quit	
+2022-05-22T09:02:43.884748Z	   33 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:02:43.887583Z	   33 Query	SET NAMES utf8
+2022-05-22T09:02:43.898613Z	   33 Query	SET autocommit=0
+2022-05-22T09:02:43.903987Z	   33 Query	SET autocommit=1
+2022-05-22T09:02:43.931439Z	   33 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:02:43.947810Z	   33 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T09:02:43.960649Z	   33 Quit	
+2022-05-22T09:03:15.037667Z	   34 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:03:15.038781Z	   34 Query	SET NAMES utf8
+2022-05-22T09:03:15.039809Z	   34 Query	SET autocommit=0
+2022-05-22T09:03:15.040593Z	   34 Query	SET autocommit=1
+2022-05-22T09:03:15.041624Z	   34 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:03:15.042514Z	   34 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'jeded' LIMIT 1
+2022-05-22T09:03:15.072641Z	   34 Quit	
+2022-05-22T09:03:23.628274Z	   35 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:03:23.660208Z	   35 Query	SET NAMES utf8
+2022-05-22T09:03:23.661066Z	   35 Query	SET autocommit=0
+2022-05-22T09:03:23.661870Z	   35 Query	SET autocommit=1
+2022-05-22T09:03:23.662708Z	   35 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:03:23.663530Z	   35 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'jeded' LIMIT 1
+2022-05-22T09:03:23.668904Z	   35 Quit	
+2022-05-22T09:04:23.096609Z	   36 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:04:23.097720Z	   36 Query	SET NAMES utf8
+2022-05-22T09:04:23.098500Z	   36 Query	SET autocommit=0
+2022-05-22T09:04:23.113604Z	   36 Query	SET autocommit=1
+2022-05-22T09:04:23.114463Z	   36 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:04:23.115479Z	   36 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'ejejdde' LIMIT 1
+2022-05-22T09:04:23.120095Z	   36 Quit	
+2022-05-22T09:04:30.664332Z	   37 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:04:30.665275Z	   37 Query	SET NAMES utf8
+2022-05-22T09:04:30.665976Z	   37 Query	SET autocommit=0
+2022-05-22T09:04:30.666663Z	   37 Query	SET autocommit=1
+2022-05-22T09:04:30.667482Z	   37 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:04:30.668258Z	   37 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'ejejdde' LIMIT 1
+2022-05-22T09:04:30.672695Z	   37 Quit	
+2022-05-22T09:04:52.869989Z	   38 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:04:52.870901Z	   38 Query	SET NAMES utf8
+2022-05-22T09:04:52.874528Z	   38 Query	SET autocommit=0
+2022-05-22T09:04:52.875560Z	   38 Query	SET autocommit=1
+2022-05-22T09:04:52.876446Z	   38 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:04:52.877033Z	   38 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'ejejdde' LIMIT 1
+2022-05-22T09:04:52.887091Z	   38 Quit	
+2022-05-22T09:05:22.195985Z	   39 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:05:22.196804Z	   39 Query	SET NAMES utf8
+2022-05-22T09:05:22.197464Z	   39 Query	SET autocommit=0
+2022-05-22T09:05:22.198137Z	   39 Query	SET autocommit=1
+2022-05-22T09:05:22.258659Z	   39 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:05:22.259601Z	   39 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'darjo' LIMIT 21
+2022-05-22T09:05:22.507447Z	   39 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created` FROM `authtoken_token` WHERE `authtoken_token`.`user_id` = 19 LIMIT 21
+2022-05-22T09:05:22.590859Z	   39 Query	UPDATE `auth_user` SET `last_login` = '2022-05-22 09:05:22.589973' WHERE `auth_user`.`id` = 19
+2022-05-22T09:05:22.623973Z	   39 Quit	
+2022-05-22T09:05:22.733546Z	   40 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:05:22.737116Z	   40 Query	SET NAMES utf8
+2022-05-22T09:05:22.746582Z	   40 Query	SET autocommit=0
+2022-05-22T09:05:22.764384Z	   40 Query	SET autocommit=1
+2022-05-22T09:05:22.766483Z	   40 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:05:22.767692Z	   40 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:05:22.796686Z	   40 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T09:05:22.827011Z	   40 Quit	
+2022-05-22T09:05:26.753507Z	   41 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:05:26.754573Z	   41 Query	SET NAMES utf8
+2022-05-22T09:05:26.755633Z	   41 Query	SET autocommit=0
+2022-05-22T09:05:26.758471Z	   41 Query	SET autocommit=1
+2022-05-22T09:05:26.771050Z	   41 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:05:26.772129Z	   41 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:05:26.792432Z	   41 Quit	
+2022-05-22T09:05:26.909611Z	   42 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:05:26.910411Z	   42 Query	SET NAMES utf8
+2022-05-22T09:05:26.910981Z	   42 Query	SET autocommit=0
+2022-05-22T09:05:26.911587Z	   42 Query	SET autocommit=1
+2022-05-22T09:05:26.912173Z	   42 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:05:26.912824Z	   42 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:05:26.914868Z	   42 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 21
+2022-05-22T09:05:26.917481Z	   42 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 19 LIMIT 21
+2022-05-22T09:05:26.921029Z	   42 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:05:26.925110Z	   42 Quit	
+2022-05-22T09:05:27.063114Z	   43 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:05:27.063839Z	   43 Query	SET NAMES utf8
+2022-05-22T09:05:27.064411Z	   43 Query	SET autocommit=0
+2022-05-22T09:05:27.064942Z	   43 Query	SET autocommit=1
+2022-05-22T09:05:27.065475Z	   43 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:05:27.066093Z	   43 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:05:27.068932Z	   43 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 5 LIMIT 21
+2022-05-22T09:05:27.070782Z	   43 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:05:27.074914Z	   43 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 5
+2022-05-22T09:05:27.078129Z	   43 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 6
+2022-05-22T09:05:27.080179Z	   43 Quit	
+2022-05-22T09:06:52.504833Z	   44 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:06:52.506119Z	   44 Query	SET NAMES utf8
+2022-05-22T09:06:52.522312Z	   44 Query	SET autocommit=0
+2022-05-22T09:06:52.523579Z	   44 Query	SET autocommit=1
+2022-05-22T09:06:52.524512Z	   44 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:06:52.534965Z	   44 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:06:52.558172Z	   44 Quit	
+2022-05-22T09:06:52.821941Z	   45 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:06:52.823992Z	   45 Query	SET NAMES utf8
+2022-05-22T09:06:52.842028Z	   45 Query	SET autocommit=0
+2022-05-22T09:06:52.843448Z	   45 Query	SET autocommit=1
+2022-05-22T09:06:52.844481Z	   45 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:06:52.846099Z	   45 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:06:52.856437Z	   45 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 21
+2022-05-22T09:06:52.872422Z	   45 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 19 LIMIT 21
+2022-05-22T09:06:52.920053Z	   45 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:06:52.929450Z	   45 Quit	
+2022-05-22T09:06:53.054190Z	   46 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:06:53.074642Z	   46 Query	SET NAMES utf8
+2022-05-22T09:06:53.078348Z	   46 Query	SET autocommit=0
+2022-05-22T09:06:53.081231Z	   46 Query	SET autocommit=1
+2022-05-22T09:06:53.083322Z	   46 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:06:53.094955Z	   46 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:06:53.098399Z	   46 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 5 LIMIT 21
+2022-05-22T09:06:53.103221Z	   46 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:06:53.110186Z	   46 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 5
+2022-05-22T09:06:53.113459Z	   46 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 6
+2022-05-22T09:06:53.124927Z	   46 Quit	
+2022-05-22T09:07:04.741804Z	   47 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:07:04.760595Z	   47 Query	SET NAMES utf8
+2022-05-22T09:07:04.762145Z	   47 Query	SET autocommit=0
+2022-05-22T09:07:04.763501Z	   47 Query	SET autocommit=1
+2022-05-22T09:07:04.765346Z	   47 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:07:04.768341Z	   47 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:07:04.769986Z	   47 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:07:04.728840' AND `django_session`.`session_key` = 'yvjxj85e0e3efek7yskaypoloxmqeq24') LIMIT 21
+2022-05-22T09:07:04.935164Z	   47 Quit	
+2022-05-22T09:07:08.234018Z	   48 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:07:08.235454Z	   48 Query	SET NAMES utf8
+2022-05-22T09:07:08.236378Z	   48 Query	SET autocommit=0
+2022-05-22T09:07:08.237055Z	   48 Query	SET autocommit=1
+2022-05-22T09:07:08.237904Z	   48 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:07:08.238814Z	   48 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:07:08.239721Z	   48 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-22T09:07:08.571066Z	   48 Query	SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk' LIMIT 1
+2022-05-22T09:07:08.572803Z	   48 Query	SET autocommit=0
+2022-05-22T09:07:08.574203Z	   48 Query	INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('1e4jr72uhjnl0dfernvfiu49ahqyodzk', 'e30:1nshYK:fgONpI4Ka6eMnWNhO_s-ITnMRgAHfIcUzP4-GVt3NLA', '2022-06-05 09:07:08.572406')
+2022-05-22T09:07:08.575885Z	   48 Query	COMMIT
+2022-05-22T09:07:08.581952Z	   48 Query	SET autocommit=1
+2022-05-22T09:07:08.584674Z	   48 Query	UPDATE `auth_user` SET `last_login` = '2022-05-22 09:07:08.583845' WHERE `auth_user`.`id` = 1
+2022-05-22T09:07:08.594117Z	   48 Query	SET autocommit=0
+2022-05-22T09:07:08.595876Z	   48 Query	UPDATE `django_session` SET `session_data` = '.eJxVjDsOwjAQBe_iGln-ZP2hpOcMlnfXwQHkSHFSIe4OkVJA-2bmvUTK21rT1suSJhZnocXpd8NMj9J2wPfcbrOkua3LhHJX5EG7vM5cnpfD_Tuouddv7YbRx-BRFeMGT4xKacvWBhsCeAOoHEG0nhEsj2SizsGA8-g0KyAS7w-4nzbq:1nshYK:hzzEG381AzSnfnB8lVsHPQ_fOm_hAW3GupBg8O85UmU', `expire_date` = '2022-06-05 09:07:08.593726' WHERE `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk'
+2022-05-22T09:07:08.597471Z	   48 Query	COMMIT
+2022-05-22T09:07:08.604739Z	   48 Query	SET autocommit=1
+2022-05-22T09:07:08.610194Z	   48 Quit	
+2022-05-22T09:07:08.638923Z	   49 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:07:08.640151Z	   49 Query	SET NAMES utf8
+2022-05-22T09:07:08.641242Z	   49 Query	SET autocommit=0
+2022-05-22T09:07:08.642292Z	   49 Query	SET autocommit=1
+2022-05-22T09:07:08.644759Z	   49 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:07:08.647182Z	   49 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:07:08.636163' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:07:08.651841Z	   49 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:07:08.664705Z	   49 Quit	
+2022-05-22T09:07:14.511218Z	   50 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:07:14.550052Z	   50 Query	SET NAMES utf8
+2022-05-22T09:07:14.586998Z	   50 Query	SET autocommit=0
+2022-05-22T09:07:14.695197Z	   50 Query	SET autocommit=1
+2022-05-22T09:07:14.696953Z	   50 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:07:14.700039Z	   50 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:07:14.508253' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:07:14.703505Z	   50 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:07:14.795709Z	   50 Query	SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON (`django_admin_log`.`user_id` = `auth_user`.`id`) LEFT OUTER JOIN `django_content_type` ON (`django_admin_log`.`content_type_id` = `django_content_type`.`id`) WHERE `django_admin_log`.`user_id` = 1 ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10
+2022-05-22T09:07:14.937877Z	   50 Quit	
+2022-05-22T09:07:18.399682Z	   51 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:07:18.415132Z	   51 Query	SET NAMES utf8
+2022-05-22T09:07:18.416226Z	   51 Query	SET autocommit=0
+2022-05-22T09:07:18.416893Z	   51 Query	SET autocommit=1
+2022-05-22T09:07:18.417878Z	   51 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:07:18.418868Z	   51 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:07:18.420149Z	   51 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:07:18.392231' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:07:18.424310Z	   51 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:07:18.427754Z	   51 Query	SELECT COUNT(*) AS `__count` FROM `my_user`
+2022-05-22T09:07:18.481973Z	   51 Query	SELECT COUNT(*) AS `__count` FROM `my_user`
+2022-05-22T09:07:18.491912Z	   51 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` ORDER BY `my_user`.`id` DESC
+2022-05-22T09:07:18.869577Z	   51 Quit	
+2022-05-22T09:07:18.924637Z	   52 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:07:18.972017Z	   52 Query	SET NAMES utf8
+2022-05-22T09:07:18.997657Z	   52 Query	SET autocommit=0
+2022-05-22T09:07:19.000439Z	   52 Query	SET autocommit=1
+2022-05-22T09:07:19.010518Z	   52 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:07:19.011453Z	   52 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:07:18.920695' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:07:19.034587Z	   52 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:07:19.083738Z	   52 Quit	
+2022-05-22T09:07:21.147213Z	   53 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:07:21.164942Z	   53 Query	SET NAMES utf8
+2022-05-22T09:07:21.166341Z	   53 Query	SET autocommit=0
+2022-05-22T09:07:21.167034Z	   53 Query	SET autocommit=1
+2022-05-22T09:07:21.168543Z	   53 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:07:21.169870Z	   53 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:07:21.170986Z	   53 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:07:21.144243' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:07:21.174964Z	   53 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:07:21.177281Z	   53 Query	SET autocommit=0
+2022-05-22T09:07:21.179310Z	   53 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 5 LIMIT 21
+2022-05-22T09:07:21.196692Z	   53 Query	SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'pkspotapp' AND `django_content_type`.`model` = 'myuser') LIMIT 21
+2022-05-22T09:07:21.199204Z	   53 Query	COMMIT
+2022-05-22T09:07:21.248505Z	   53 Query	SET autocommit=1
+2022-05-22T09:07:21.407084Z	   53 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` ORDER BY `auth_user`.`username` ASC
+2022-05-22T09:07:21.519871Z	   53 Quit	
+2022-05-22T09:07:21.603658Z	   54 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:07:21.610086Z	   54 Query	SET NAMES utf8
+2022-05-22T09:07:21.611026Z	   54 Query	SET autocommit=0
+2022-05-22T09:07:21.612563Z	   54 Query	SET autocommit=1
+2022-05-22T09:07:21.617128Z	   54 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:07:21.619099Z	   54 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:07:21.600849' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:07:21.629065Z	   54 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:07:21.641158Z	   54 Quit	
+2022-05-22T09:07:41.986349Z	   55 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:07:41.987298Z	   55 Query	SET NAMES utf8
+2022-05-22T09:07:41.988218Z	   55 Query	SET autocommit=0
+2022-05-22T09:07:41.989033Z	   55 Query	SET autocommit=1
+2022-05-22T09:07:41.990011Z	   55 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:07:41.990882Z	   55 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:07:41.984082' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:07:41.994283Z	   55 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:07:41.996706Z	   55 Query	SET autocommit=0
+2022-05-22T09:07:41.999756Z	   55 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 5 LIMIT 21
+2022-05-22T09:07:42.003384Z	   55 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 21
+2022-05-22T09:07:42.005203Z	   55 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 1
+2022-05-22T09:07:42.007336Z	   55 Query	SELECT (1) AS `a` FROM `my_user` WHERE (`my_user`.`user_id` = 19 AND NOT (`my_user`.`id` = 5)) LIMIT 1
+2022-05-22T09:07:42.009900Z	   55 Query	UPDATE `my_user` SET `user_id` = 19, `social` = 'darjo.pk', `bio` = 'This is darjo\'s bio' WHERE `my_user`.`id` = 5
+2022-05-22T09:07:42.012544Z	   55 Query	INSERT INTO `django_admin_log` (`action_time`, `user_id`, `content_type_id`, `object_id`, `object_repr`, `action_flag`, `change_message`) VALUES ('2022-05-22 09:07:42.011913', 1, 12, '5', 'MyUser object (5)', 2, '[{\"changed\": {\"fields\": [\"Social\", \"Bio\"]}}]')
+2022-05-22T09:07:42.052425Z	   55 Query	COMMIT
+2022-05-22T09:07:42.118480Z	   55 Query	SET autocommit=1
+2022-05-22T09:07:42.122297Z	   55 Quit	
+2022-05-22T09:07:42.163725Z	   56 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:07:42.166018Z	   56 Query	SET NAMES utf8
+2022-05-22T09:07:42.167431Z	   56 Query	SET autocommit=0
+2022-05-22T09:07:42.168280Z	   56 Query	SET autocommit=1
+2022-05-22T09:07:42.169461Z	   56 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:07:42.170589Z	   56 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:07:42.135389' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:07:42.174557Z	   56 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:07:42.176652Z	   56 Query	SELECT COUNT(*) AS `__count` FROM `my_user`
+2022-05-22T09:07:42.178962Z	   56 Query	SELECT COUNT(*) AS `__count` FROM `my_user`
+2022-05-22T09:07:42.192832Z	   56 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` ORDER BY `my_user`.`id` DESC
+2022-05-22T09:07:42.335387Z	   56 Quit	
+2022-05-22T09:07:42.403958Z	   57 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:07:42.433648Z	   57 Query	SET NAMES utf8
+2022-05-22T09:07:42.463316Z	   57 Query	SET autocommit=0
+2022-05-22T09:07:42.465040Z	   57 Query	SET autocommit=1
+2022-05-22T09:07:42.466049Z	   57 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:07:42.467457Z	   57 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:07:42.401458' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:07:42.471246Z	   57 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:07:42.484601Z	   57 Quit	
+2022-05-22T09:08:16.734887Z	   58 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:08:16.736562Z	   58 Query	SET NAMES utf8
+2022-05-22T09:08:16.738546Z	   58 Query	SET autocommit=0
+2022-05-22T09:08:16.758036Z	   58 Query	SET autocommit=1
+2022-05-22T09:08:16.773018Z	   58 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:08:16.774409Z	   58 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:08:16.792793Z	   58 Quit	
+2022-05-22T09:08:16.990626Z	   59 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:08:17.012882Z	   59 Query	SET NAMES utf8
+2022-05-22T09:08:17.030476Z	   59 Query	SET autocommit=0
+2022-05-22T09:08:17.033685Z	   59 Query	SET autocommit=1
+2022-05-22T09:08:17.036404Z	   59 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:08:17.042156Z	   59 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:08:17.049601Z	   59 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 21
+2022-05-22T09:08:17.054758Z	   59 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 19 LIMIT 21
+2022-05-22T09:08:17.102920Z	   59 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:08:17.111729Z	   59 Quit	
+2022-05-22T09:08:17.256082Z	   60 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:08:17.257144Z	   60 Query	SET NAMES utf8
+2022-05-22T09:08:17.257770Z	   60 Query	SET autocommit=0
+2022-05-22T09:08:17.258498Z	   60 Query	SET autocommit=1
+2022-05-22T09:08:17.259227Z	   60 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:08:17.271047Z	   60 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:08:17.274456Z	   60 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 5 LIMIT 21
+2022-05-22T09:08:17.276417Z	   60 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:08:17.278968Z	   60 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 5
+2022-05-22T09:08:17.283435Z	   60 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 6
+2022-05-22T09:08:17.287395Z	   60 Quit	
+2022-05-22T09:08:54.384089Z	   61 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:08:54.393439Z	   61 Query	SET NAMES utf8
+2022-05-22T09:08:54.394103Z	   61 Query	SET autocommit=0
+2022-05-22T09:08:54.394604Z	   61 Query	SET autocommit=1
+2022-05-22T09:08:54.395363Z	   61 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:08:54.396070Z	   61 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:08:54.396713Z	   61 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:08:54.398993Z	   61 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T09:08:54.401718Z	   61 Quit	
+2022-05-22T09:09:09.226844Z	   62 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:09:09.230778Z	   62 Query	SET NAMES utf8
+2022-05-22T09:09:09.247095Z	   62 Query	SET autocommit=0
+2022-05-22T09:09:09.266228Z	   62 Query	SET autocommit=1
+2022-05-22T09:09:09.267854Z	   62 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:09:09.268996Z	   62 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:09:09.270233Z	   62 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:09:09.273501Z	   62 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T09:09:09.278072Z	   62 Quit	
+2022-05-22T09:29:26.941185Z	   63 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:29:26.942393Z	   63 Query	SET NAMES utf8
+2022-05-22T09:29:26.943229Z	   63 Query	SET autocommit=0
+2022-05-22T09:29:26.943919Z	   63 Query	SET autocommit=1
+2022-05-22T09:29:26.944693Z	   63 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:29:26.945720Z	   63 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:29:26.961859Z	   63 Query	SHOW FULL TABLES
+2022-05-22T09:29:27.007618Z	   63 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-22T09:30:11.633614Z	   64 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:30:11.634999Z	   64 Query	SET NAMES utf8
+2022-05-22T09:30:11.636428Z	   64 Query	SET autocommit=0
+2022-05-22T09:30:11.637335Z	   64 Query	SET autocommit=1
+2022-05-22T09:30:11.638676Z	   64 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:30:11.640771Z	   64 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:30:11.644754Z	   64 Query	SHOW FULL TABLES
+2022-05-22T09:30:11.661747Z	   64 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-22T09:32:55.022151Z	   65 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:32:55.025896Z	   65 Query	SET NAMES utf8
+2022-05-22T09:32:55.028824Z	   65 Query	SET autocommit=0
+2022-05-22T09:32:55.030627Z	   65 Query	SET autocommit=1
+2022-05-22T09:32:55.031897Z	   65 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:32:55.032804Z	   65 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:32:55.033521Z	   65 Query	SHOW FULL TABLES
+2022-05-22T09:32:55.045976Z	   65 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-22T09:34:45.319130Z	   66 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:34:45.320258Z	   66 Query	SET NAMES utf8
+2022-05-22T09:34:45.346386Z	   66 Query	SET autocommit=0
+2022-05-22T09:34:45.382100Z	   66 Query	SET autocommit=1
+2022-05-22T09:34:45.437319Z	   66 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:34:45.438629Z	   66 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:34:45.439839Z	   66 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:34:45.453723Z	   66 Quit	
+2022-05-22T09:34:45.727779Z	   67 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:34:45.728889Z	   67 Query	SET NAMES utf8
+2022-05-22T09:34:45.729765Z	   67 Query	SET autocommit=0
+2022-05-22T09:34:45.730939Z	   67 Query	SET autocommit=1
+2022-05-22T09:34:45.735162Z	   67 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:34:45.736036Z	   67 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:34:45.738417Z	   67 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 21
+2022-05-22T09:34:45.742227Z	   67 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 19 LIMIT 21
+2022-05-22T09:34:45.747566Z	   67 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:34:45.755510Z	   67 Quit	
+2022-05-22T09:34:45.893805Z	   68 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:34:45.894793Z	   68 Query	SET NAMES utf8
+2022-05-22T09:34:45.895746Z	   68 Query	SET autocommit=0
+2022-05-22T09:34:45.896281Z	   68 Query	SET autocommit=1
+2022-05-22T09:34:45.896979Z	   68 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:34:45.897766Z	   68 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:34:45.907971Z	   68 Quit	
+2022-05-22T09:34:46.028902Z	   69 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:34:46.077829Z	   69 Query	SET NAMES utf8
+2022-05-22T09:34:46.106577Z	   69 Query	SET autocommit=0
+2022-05-22T09:34:46.108288Z	   69 Query	SET autocommit=1
+2022-05-22T09:34:46.120194Z	   69 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:34:46.127480Z	   69 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:34:46.133225Z	   69 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T09:34:46.143012Z	   69 Quit	
+2022-05-22T09:35:58.012215Z	   70 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:35:58.013506Z	   70 Query	SET NAMES utf8
+2022-05-22T09:35:58.014318Z	   70 Query	SET autocommit=0
+2022-05-22T09:35:58.015432Z	   70 Query	SET autocommit=1
+2022-05-22T09:35:58.016463Z	   70 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:35:58.018272Z	   70 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:35:58.019232Z	   70 Query	SHOW FULL TABLES
+2022-05-22T09:35:58.049505Z	   70 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-22T09:37:07.238642Z	   71 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:37:07.239511Z	   71 Query	SET NAMES utf8
+2022-05-22T09:37:07.240313Z	   71 Query	SET autocommit=0
+2022-05-22T09:37:07.240801Z	   71 Query	SET autocommit=1
+2022-05-22T09:37:07.241510Z	   71 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:37:07.242357Z	   71 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:37:07.243059Z	   71 Query	SHOW FULL TABLES
+2022-05-22T09:37:07.267306Z	   71 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-22T09:37:21.850482Z	   72 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:37:21.851447Z	   72 Query	SET NAMES utf8
+2022-05-22T09:37:21.924848Z	   72 Query	SET autocommit=0
+2022-05-22T09:37:21.968532Z	   72 Query	SET autocommit=1
+2022-05-22T09:37:21.973744Z	   72 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:37:21.979082Z	   72 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:37:22.004004Z	   72 Query	SHOW FULL TABLES
+2022-05-22T09:37:22.012021Z	   72 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-22T09:37:27.003941Z	   73 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:37:27.047813Z	   73 Query	SET NAMES utf8
+2022-05-22T09:37:27.106184Z	   73 Query	SET autocommit=0
+2022-05-22T09:37:27.121736Z	   73 Query	SET autocommit=1
+2022-05-22T09:37:27.128819Z	   73 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:37:27.132912Z	   73 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:37:27.138742Z	   73 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:37:27.173207Z	   73 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T09:37:27.201934Z	   73 Quit	
+2022-05-22T09:38:05.529713Z	   74 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:38:05.531345Z	   74 Query	SET NAMES utf8
+2022-05-22T09:38:05.532268Z	   74 Query	SET autocommit=0
+2022-05-22T09:38:05.575883Z	   74 Query	SET autocommit=1
+2022-05-22T09:38:05.577211Z	   74 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:38:05.578341Z	   74 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:38:05.584019Z	   74 Quit	
+2022-05-22T09:38:05.687028Z	   75 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:38:05.688405Z	   75 Query	SET NAMES utf8
+2022-05-22T09:38:05.689262Z	   75 Query	SET autocommit=0
+2022-05-22T09:38:05.689904Z	   75 Query	SET autocommit=1
+2022-05-22T09:38:05.757415Z	   75 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:38:05.758710Z	   75 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:38:05.763617Z	   75 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 21
+2022-05-22T09:38:05.769317Z	   75 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 19 LIMIT 21
+2022-05-22T09:38:05.773691Z	   75 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:38:05.776764Z	   75 Quit	
+2022-05-22T09:38:05.845836Z	   76 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:38:05.846722Z	   76 Query	SET NAMES utf8
+2022-05-22T09:38:05.847447Z	   76 Query	SET autocommit=0
+2022-05-22T09:38:05.848037Z	   76 Query	SET autocommit=1
+2022-05-22T09:38:05.848674Z	   76 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:38:05.849605Z	   76 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:38:05.852496Z	   76 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 5 LIMIT 21
+2022-05-22T09:38:05.855740Z	   76 Query	INSERT INTO `spots` (`lat`, `lng`, `name`, `type`, `description`, `adder_id`) VALUES (44.133007e0, 8.889836e0, 'mare', 'U', 'guarda il mare quanto è bello', 5)
+2022-05-22T09:38:05.885842Z	   76 Quit	
+2022-05-22T09:38:06.032541Z	   77 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:38:06.050105Z	   77 Query	SET NAMES utf8
+2022-05-22T09:38:06.052919Z	   77 Query	SET autocommit=0
+2022-05-22T09:38:06.054673Z	   77 Query	SET autocommit=1
+2022-05-22T09:38:06.063071Z	   77 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:38:06.065476Z	   77 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:38:06.073305Z	   77 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T09:38:06.086226Z	   77 Quit	
+2022-05-22T09:38:21.616092Z	   78 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:38:21.617054Z	   78 Query	SET NAMES utf8
+2022-05-22T09:38:21.617852Z	   78 Query	SET autocommit=0
+2022-05-22T09:38:21.618433Z	   78 Query	SET autocommit=1
+2022-05-22T09:38:21.652317Z	   78 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-22T09:38:21.707438Z	   78 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:38:21.708358Z	   78 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:38:21.612073' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:38:21.712855Z	   78 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:38:21.739214Z	   78 Query	SELECT COUNT(*) AS `__count` FROM `spots`
+2022-05-22T09:38:21.748597Z	   78 Query	SELECT COUNT(*) AS `__count` FROM `spots`
+2022-05-22T09:38:21.831224Z	   78 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` ORDER BY `spots`.`id` DESC
+2022-05-22T09:38:22.246225Z	   78 Quit	
+2022-05-22T09:38:22.294859Z	   79 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:38:22.295978Z	   79 Query	SET NAMES utf8
+2022-05-22T09:38:22.298008Z	   79 Query	SET autocommit=0
+2022-05-22T09:38:22.299164Z	   79 Query	SET autocommit=1
+2022-05-22T09:38:22.300203Z	   79 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:38:22.301289Z	   79 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:38:22.287906' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:38:22.316915Z	   79 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:38:22.323214Z	   79 Quit	
+2022-05-22T09:38:24.175597Z	   80 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:38:24.215310Z	   80 Query	SET NAMES utf8
+2022-05-22T09:38:24.216164Z	   80 Query	SET autocommit=0
+2022-05-22T09:38:24.216758Z	   80 Query	SET autocommit=1
+2022-05-22T09:38:24.217373Z	   80 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:38:24.218089Z	   80 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:38:24.163814' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:38:24.219956Z	   80 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:38:24.221096Z	   80 Query	SET autocommit=0
+2022-05-22T09:38:24.224616Z	   80 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` WHERE `spots`.`id` = 1 LIMIT 21
+2022-05-22T09:38:24.232772Z	   80 Query	SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'pkspotapp' AND `django_content_type`.`model` = 'spot') LIMIT 21
+2022-05-22T09:38:24.234693Z	   80 Query	COMMIT
+2022-05-22T09:38:24.289048Z	   80 Query	SET autocommit=1
+2022-05-22T09:38:24.446838Z	   80 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user`
+2022-05-22T09:38:24.481316Z	   80 Quit	
+2022-05-22T09:38:24.550613Z	   81 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:38:24.565834Z	   81 Query	SET NAMES utf8
+2022-05-22T09:38:24.567301Z	   81 Query	SET autocommit=0
+2022-05-22T09:38:24.571142Z	   81 Query	SET autocommit=1
+2022-05-22T09:38:24.573268Z	   81 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:38:24.575036Z	   81 Query	SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2022-05-22 09:38:24.546790' AND `django_session`.`session_key` = '1e4jr72uhjnl0dfernvfiu49ahqyodzk') LIMIT 21
+2022-05-22T09:38:24.583318Z	   81 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21
+2022-05-22T09:38:24.597120Z	   81 Quit	
+2022-05-22T09:39:59.535368Z	   82 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:39:59.536406Z	   82 Query	SET NAMES utf8
+2022-05-22T09:39:59.537282Z	   82 Query	SET autocommit=0
+2022-05-22T09:39:59.538029Z	   82 Query	SET autocommit=1
+2022-05-22T09:39:59.538893Z	   82 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:39:59.539732Z	   82 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:39:59.546176Z	   82 Quit	
+2022-05-22T09:39:59.569029Z	   83 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:39:59.570775Z	   83 Query	SET NAMES utf8
+2022-05-22T09:39:59.571588Z	   83 Query	SET autocommit=0
+2022-05-22T09:39:59.572306Z	   83 Query	SET autocommit=1
+2022-05-22T09:39:59.573321Z	   83 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:39:59.574081Z	   83 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:39:59.575932Z	   83 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 21
+2022-05-22T09:39:59.577783Z	   83 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 19 LIMIT 21
+2022-05-22T09:39:59.581289Z	   83 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:39:59.653591Z	   83 Quit	
+2022-05-22T09:39:59.734018Z	   84 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:39:59.734964Z	   84 Query	SET NAMES utf8
+2022-05-22T09:39:59.735936Z	   84 Query	SET autocommit=0
+2022-05-22T09:39:59.736517Z	   84 Query	SET autocommit=1
+2022-05-22T09:39:59.737224Z	   84 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:39:59.737956Z	   84 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:39:59.740796Z	   84 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 5 LIMIT 21
+2022-05-22T09:39:59.742818Z	   84 Query	INSERT INTO `spots` (`lat`, `lng`, `name`, `type`, `description`, `adder_id`) VALUES (45.465095e0, 10.528209e0, 'Dog Park Le Vele', 'S', 'Ottimo per lavorare i pre', 5)
+2022-05-22T09:39:59.756302Z	   84 Quit	
+2022-05-22T09:39:59.868548Z	   85 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:39:59.869873Z	   85 Query	SET NAMES utf8
+2022-05-22T09:39:59.870831Z	   85 Query	SET autocommit=0
+2022-05-22T09:39:59.871570Z	   85 Query	SET autocommit=1
+2022-05-22T09:39:59.872344Z	   85 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:39:59.873162Z	   85 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:39:59.875905Z	   85 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T09:39:59.880729Z	   85 Quit	
+2022-05-22T09:41:09.573993Z	   86 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:41:09.574829Z	   86 Query	SET NAMES utf8
+2022-05-22T09:41:09.575505Z	   86 Query	SET autocommit=0
+2022-05-22T09:41:09.576179Z	   86 Query	SET autocommit=1
+2022-05-22T09:41:09.576738Z	   86 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:41:09.577468Z	   86 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:41:09.581055Z	   86 Quit	
+2022-05-22T09:41:09.652924Z	   87 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:41:09.654136Z	   87 Query	SET NAMES utf8
+2022-05-22T09:41:09.655505Z	   87 Query	SET autocommit=0
+2022-05-22T09:41:09.656481Z	   87 Query	SET autocommit=1
+2022-05-22T09:41:09.657709Z	   87 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:41:09.658656Z	   87 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:41:09.660777Z	   87 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 21
+2022-05-22T09:41:09.662543Z	   87 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 19 LIMIT 21
+2022-05-22T09:41:09.665117Z	   87 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:41:09.667941Z	   87 Quit	
+2022-05-22T09:41:09.684464Z	   88 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:41:09.685687Z	   88 Query	SET NAMES utf8
+2022-05-22T09:41:09.686615Z	   88 Query	SET autocommit=0
+2022-05-22T09:41:09.687264Z	   88 Query	SET autocommit=1
+2022-05-22T09:41:09.687990Z	   88 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:41:09.688831Z	   88 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:41:09.692345Z	   88 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 5 LIMIT 21
+2022-05-22T09:41:09.694407Z	   88 Query	INSERT INTO `spots` (`lat`, `lng`, `name`, `type`, `description`, `adder_id`) VALUES (45.463255e0, 10.479074e0, 'Palazzetto Lonato', 'S', 'Ci sono un paio di spot intorno al palazzetto', 5)
+2022-05-22T09:41:09.703410Z	   88 Quit	
+2022-05-22T09:41:09.809837Z	   89 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:41:09.811195Z	   89 Query	SET NAMES utf8
+2022-05-22T09:41:09.812363Z	   89 Query	SET autocommit=0
+2022-05-22T09:41:09.813281Z	   89 Query	SET autocommit=1
+2022-05-22T09:41:09.814640Z	   89 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:41:09.816079Z	   89 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:41:09.820811Z	   89 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T09:41:09.838355Z	   89 Quit	
+2022-05-22T09:41:59.606407Z	   90 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:41:59.607568Z	   90 Query	SET NAMES utf8
+2022-05-22T09:41:59.608567Z	   90 Query	SET autocommit=0
+2022-05-22T09:41:59.609242Z	   90 Query	SET autocommit=1
+2022-05-22T09:41:59.610204Z	   90 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:41:59.611394Z	   90 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:41:59.616595Z	   90 Quit	
+2022-05-22T09:41:59.654428Z	   91 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:41:59.655471Z	   91 Query	SET NAMES utf8
+2022-05-22T09:41:59.656436Z	   91 Query	SET autocommit=0
+2022-05-22T09:41:59.657040Z	   91 Query	SET autocommit=1
+2022-05-22T09:41:59.658156Z	   91 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:41:59.659027Z	   91 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:41:59.663420Z	   91 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 21
+2022-05-22T09:41:59.667633Z	   91 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 19 LIMIT 21
+2022-05-22T09:41:59.743710Z	   91 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:41:59.805642Z	   91 Quit	
+2022-05-22T09:41:59.829734Z	   92 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:41:59.830735Z	   92 Query	SET NAMES utf8
+2022-05-22T09:41:59.831653Z	   92 Query	SET autocommit=0
+2022-05-22T09:41:59.832423Z	   92 Query	SET autocommit=1
+2022-05-22T09:41:59.833183Z	   92 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:41:59.834129Z	   92 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:41:59.837055Z	   92 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 5 LIMIT 21
+2022-05-22T09:41:59.838820Z	   92 Query	INSERT INTO `spots` (`lat`, `lng`, `name`, `type`, `description`, `adder_id`) VALUES (45.411843e0, 10.394885e0, 'Municipio Montichiari', 'S', 'Challenge running pre plyo molto carina', 5)
+2022-05-22T09:41:59.865457Z	   92 Quit	
+2022-05-22T09:41:59.971228Z	   93 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:41:59.972721Z	   93 Query	SET NAMES utf8
+2022-05-22T09:41:59.974050Z	   93 Query	SET autocommit=0
+2022-05-22T09:41:59.974893Z	   93 Query	SET autocommit=1
+2022-05-22T09:41:59.975845Z	   93 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:41:59.977035Z	   93 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:41:59.979899Z	   93 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T09:42:00.017855Z	   93 Quit	
+2022-05-22T09:42:05.052723Z	   94 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:42:05.053863Z	   94 Query	SET NAMES utf8
+2022-05-22T09:42:05.054675Z	   94 Query	SET autocommit=0
+2022-05-22T09:42:05.055290Z	   94 Query	SET autocommit=1
+2022-05-22T09:42:05.056856Z	   94 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:42:05.074787Z	   94 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:42:05.083319Z	   94 Quit	
+2022-05-22T09:42:05.134764Z	   95 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:42:05.135886Z	   95 Query	SET NAMES utf8
+2022-05-22T09:42:05.136845Z	   95 Query	SET autocommit=0
+2022-05-22T09:42:05.137476Z	   95 Query	SET autocommit=1
+2022-05-22T09:42:05.138200Z	   95 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:42:05.155251Z	   95 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:42:05.161979Z	   95 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 19 LIMIT 21
+2022-05-22T09:42:05.163834Z	   95 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 19 LIMIT 21
+2022-05-22T09:42:05.167331Z	   95 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:42:05.171430Z	   95 Quit	
+2022-05-22T09:42:05.236491Z	   96 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:42:05.237586Z	   96 Query	SET NAMES utf8
+2022-05-22T09:42:05.238524Z	   96 Query	SET autocommit=0
+2022-05-22T09:42:05.239396Z	   96 Query	SET autocommit=1
+2022-05-22T09:42:05.241398Z	   96 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:42:05.242273Z	   96 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '98dd6b2d3fe0c052abf28c1d06d7792dbfe50a46' LIMIT 21
+2022-05-22T09:42:05.244674Z	   96 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 5 LIMIT 21
+2022-05-22T09:42:05.247224Z	   96 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 5
+2022-05-22T09:42:05.249934Z	   96 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 5
+2022-05-22T09:42:05.252729Z	   96 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 6
+2022-05-22T09:42:05.255599Z	   96 Quit	
+2022-05-22T09:42:13.153214Z	   97 Connect	root@172.18.0.3 on pkspotmap using TCP/IP
+2022-05-22T09:42:13.170389Z	   97 Query	SET NAMES utf8
+2022-05-22T09:42:13.172157Z	   97 Query	SET autocommit=0
+2022-05-22T09:42:13.172976Z	   97 Query	SET autocommit=1
+2022-05-22T09:42:13.173895Z	   97 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-22T09:42:13.174747Z	   97 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-22T09:42:13.181776Z	   97 Quit	

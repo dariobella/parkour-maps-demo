@@ -45,3 +45,13 @@ def myMaps(request, id):
 
     serializer = MapSerializer(mu.maps.all(), many=True)
     return Response(serializer.data)
+
+
+@api_view(['POST'])
+def addSpot(request):
+    #mu = MyUser.objects.get(pk=request.data['adder'])
+
+    serializer = SpotSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)

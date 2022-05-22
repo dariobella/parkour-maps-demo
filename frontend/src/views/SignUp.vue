@@ -78,7 +78,7 @@ export default {
           if (error.response) {
             const err = []
             for (const property in error.response.data) {
-              err.push(`${property}: ${error.response.data[property]}`)
+              err.push(`${error.response.data[property][0]}`)
             }
             this.errors.push(err[0])
 

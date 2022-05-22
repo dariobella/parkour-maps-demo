@@ -13,8 +13,8 @@
           <img class="pictureProfile" src="../assets/profile-placeholder.png" alt="Profile Picture">
         </div>
         <div class="infoText col-9">
-          <div class="social"> @darjo.pk </div>
-          <div class="bio">This is my bio</div>
+          <div class="social"> @{{ myUser.social }} </div>
+          <div class="bio"> {{ myUser.bio }} </div>
         </div>
       </div>
     </div>
