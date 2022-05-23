@@ -35,7 +35,7 @@ export default {
     }
   },
   mounted() {
-    document.title = 'PKSPOTMAP | Sign Up'
+    document.title = this.$store.state.title + ' | Sign Up'
   },
   methods: {
     submitForm() {
@@ -76,11 +76,11 @@ export default {
         })
         .catch(error => {
           if (error.response) {
-            const err = []
+            const e = []
             for (const property in error.response.data) {
-              err.push(`${error.response.data[property][0]}`)
+              e.push(`${error.response.data[property][0]}`)
             }
-            this.errors.push(err[0])
+            this.errors.push(e[0])
 
             console.log(JSON.stringify(error.response.data))
           } else if (error.message) {

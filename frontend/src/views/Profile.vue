@@ -79,7 +79,7 @@ export default {
     })
   },
   mounted() {
-    document.title = 'PK SPOT MAP | Profile'
+    document.title = this.$store.state.title + ' | Profile'
   },
   methods: {
     logout() {

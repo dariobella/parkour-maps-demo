@@ -134,7 +134,7 @@ export default {
       type: 'S',
       description: '',
       images: [],
-      lastId: 0,
+      spotId: 0,
       kmlFile : '',
       userId: 0,
       myUserId: 0,
@@ -143,7 +143,7 @@ export default {
     }
   },
   mounted() {
-    document.title = 'PK SPOT MAP | Add Spots'
+    document.title = this.$store.state.title + ' | Add Spots'
   },
   methods: {
     spotSubmitForm() {
@@ -183,7 +183,7 @@ export default {
             .post('/api/addSpot/', formData)
             .then(response => {
               console.log(response)
-              this.lastId = response.data.id
+              this.spotId = response.data.id
             })
             .then(() => {
               if (this.images.length > 0) {
@@ -191,7 +191,7 @@ export default {
                 this.images.forEach(image => {
                   imagesData.append('images', image, image.name)
                 })
-                imagesData.append('spotId', this.lastId)
+                imagesData.append('spotId', this.spotId)
 
                 console.log(imagesData)
                 axios

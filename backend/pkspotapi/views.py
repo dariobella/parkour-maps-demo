@@ -1,4 +1,5 @@
 import re
+from unicodedata import name
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
@@ -26,7 +27,7 @@ def addUser(request):
     umA.save()
     umF.save()
 
-    serializer = MyUserSerializer(mu, many=False)
+    serializer = MyUserSerializer(mu)
     return Response(serializer.data)
 
 
@@ -49,9 +50,8 @@ def myMaps(request, id):
 
 @api_view(['POST'])
 def addSpot(request):
-    #mu = MyUser.objects.get(pk=request.data['adder'])
 
-    serializer = SpotSerializer(data=request.data)
+    serializer = SpotSerializer(data={'lat':request.data['lat'],'lng':request.data['lng'],'name':request.data['name'],'type':request.data['type'],'description':request.data['description']})
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)

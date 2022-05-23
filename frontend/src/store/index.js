@@ -4,6 +4,7 @@ export default createStore({
   state: {
     token: '',
     isAuthenticated: false,
+    title: 'Parkour Maps',
   },
   getters: {
   },

@@ -6,7 +6,7 @@
         <ul class="navbar-nav me-auto">
         </ul>
       </div>
-      <router-link class="navbar-brand order-1" to="/">PK SPOT MAP</router-link>
+      <router-link class="navbar-brand order-1" to="/"> {{ title }} </router-link>
       <button class="navbar-toggler order-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -33,6 +33,18 @@
 
 </template>
 
+<script>
+
+export default {
+  name: 'Navbar',
+  data() {
+    return {
+      title: this.$store.state.title
+    }
+  }
+}
+
+</script>
 
 <style scoped>
 
