@@ -103,7 +103,7 @@ WSGI_APPLICATION = 'pkspotmap.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pkspotmap',
+        'NAME': 'parkour-maps',
         'USER': 'root',
         'HOST': 'db',
         'PORT': 3306,

@@ -20,7 +20,7 @@ class MyUser(models.Model):
 
 class Map(models.Model):
   name = models.CharField(max_length=50)
-  spots = models.ManyToManyField('Spot')
+  spots = models.ManyToManyField('Spot', blank=True)
 
   class Meta:
     db_table = 'maps'

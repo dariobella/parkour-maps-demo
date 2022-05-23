@@ -96,7 +96,6 @@ button:hover {
 
 * {
   scrollbar-width: 5px;
-  scrollbar-width: 5px;
   scrollbar-color: white #212529;
 }
 

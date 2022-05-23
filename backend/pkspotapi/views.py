@@ -51,7 +51,11 @@ def myMaps(request, id):
 @api_view(['POST'])
 def addSpot(request):
 
-    serializer = SpotSerializer(data={'lat':request.data['lat'],'lng':request.data['lng'],'name':request.data['name'],'type':request.data['type'],'description':request.data['description']})
+    serializer = SpotSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
+
+    a = Map.objects.get(name='Added by me', myuser=serializer.data['adder'])
+    a.spots.add(serializer.data['id'])
+
     return Response(serializer.data)
