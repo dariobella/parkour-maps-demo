@@ -6,7 +6,7 @@ from rest_framework.decorators import api_view
 from django.contrib.auth.models import User
 
 from pkspotapp.models import Spot, MyUser, Map, UserMap
-from .serializers import MapSerializer, SpotSerializer, MyUserSerializer
+from .serializers import MapSerializer, SpotSerializer, MyUserSerializer, PicSerializer
 
 @api_view(['GET'])
 def spots(request):
@@ -57,5 +57,18 @@ def addSpot(request):
 
     a = Map.objects.get(name='Added by me', myuser=serializer.data['adder'])
     a.spots.add(serializer.data['id'])
+
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def addPics(request):
+    images = request.FILES.getlist('images')
+
+    for image in images:
+      serializer = PicSerializer(data={'name':image.name, 'image':image, 'spot':request.data['spotId']})
+
+      if serializer.is_valid():
+        serializer.save()
 
     return Response(serializer.data)

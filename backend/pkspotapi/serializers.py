@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from pkspotapp.models import Spot, MyUser, Map
+from pkspotapp.models import Spot, MyUser, Map, Pic
 
 class SpotSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,7 +12,14 @@ class MyUserSerializer(serializers.ModelSerializer):
         model = MyUser
         fields = '__all__'
 
+
 class MapSerializer(serializers.ModelSerializer):
     class Meta:
         model = Map
+        fields = '__all__'
+
+
+class PicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pic
         fields = '__all__'
