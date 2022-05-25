@@ -16,7 +16,7 @@ export default {
   },
 
   mounted() {
-    document.title = this.$store.state.title + ' | Sign Up'
+    document.title = this.$store.state.title
   },
 
 }

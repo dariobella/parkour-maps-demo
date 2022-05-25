@@ -2,7 +2,6 @@
 
 ## Primary
 
-
 2. Add spots (missing .kml)
 3. User profile with maps
 4. spot image
