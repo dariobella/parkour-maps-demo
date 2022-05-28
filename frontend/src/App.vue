@@ -35,6 +35,10 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
+:root {
+  --my-black: #212529;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -69,8 +73,8 @@ form input, form select {
 
 form button {
   font-family: 'Nunito', sans-serif;
-  background-color: #212529;
-  border: 1px solid #212529;
+  background-color: var(--my-black);
+  border: 1px solid var(--my-black);
   color: white;
   padding: 10px;
   padding-left: 20px; padding-right: 20px;
@@ -96,7 +100,7 @@ button:hover {
 
 * {
   scrollbar-width: 5px;
-  scrollbar-color: white #212529;
+  scrollbar-color: white var(--my-black);
 }
 
 
@@ -110,7 +114,7 @@ button:hover {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #212529;
+  background-color: var(--my-black);
   border-radius: 20px;
 }
 </style>

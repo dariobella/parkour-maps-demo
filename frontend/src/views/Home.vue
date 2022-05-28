@@ -26,7 +26,7 @@ export default {
 <style scoped>
 
 .home {
-  background-color: #212529!important;
+  background-color: var(--my-black)!important;
 }
 
 </style>
