@@ -1,42 +1,25 @@
 from rest_framework import serializers
-from pkspotapp.models import Users, UsersMaps, Maps, MapsSpots, Spots, Pics, AuthUser
+from pkspotapp.models import Spot, MyUser, Map, Pic
 
-class AuthUserSerializer(serializers.ModelSerializer):
+class SpotSerializer(serializers.ModelSerializer):
     class Meta:
-        model = AuthUser
-        fields = ['id', 'first_name', 'last_name', 'email', 'username']
-
-class UsersSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Users
+        model = Spot
         fields = '__all__'
 
 
-class UsersMapsSerializer(serializers.ModelSerializer):
+class MyUserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = UsersMaps
+        model = MyUser
         fields = '__all__'
 
 
-class MapsSerializer(serializers.ModelSerializer):
+class MapSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Maps
+        model = Map
         fields = '__all__'
 
 
-class MapsSpotsSerializer(serializers.ModelSerializer):
+class PicSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MapsSpots
-        fields = '__all__'
-
-
-class SpotsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Spots
-        fields = '__all__'
-
-
-class PicsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Pics
+        model = Pic
         fields = '__all__'

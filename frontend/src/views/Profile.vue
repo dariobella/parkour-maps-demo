@@ -13,8 +13,8 @@
           <img class="pictureProfile" src="../assets/profile-placeholder.png" alt="Profile Picture">
         </div>
         <div class="infoText col-9">
-          <div class="social"> @darjo.pk </div>
-          <div class="bio">This is my bio</div>
+          <div class="social"> @{{ myUser.social }} </div>
+          <div class="bio"> {{ myUser.bio }} </div>
         </div>
       </div>
     </div>
@@ -22,11 +22,9 @@
 
     <div class="maps container-fluid">
       <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="map">
-            <img src="../assets/mapIcon.svg" alt="">
-            <div class="mapName"> map name</div>
-          </div>
+        <div class="map col-sm-6 col-md-4 col-lg-3" v-for="map in maps">
+          <img src="../assets/mapIcon.svg" alt="">
+          <div class="mapName"> {{ map.name }} </div>
         </div>
       </div>
     </div>
@@ -43,20 +41,45 @@ export default {
   data() {
     return {
       username: '',
+      userId: 0,
+      myUser: {},
+      maps: [],
     }
   },
   created() {
     axios
-    .get('/api/myProfile/' + localStorage.getItem('token'))
+    .get('/api/v1/users/me')
     .then(response => {
       this.username = response.data.username
+      this.userId = response.data.id
+    })
+    .then(() => {
+      axios
+      .get('/api/myProfile/' + this.userId)
+      .then(response => {
+        this.myUser = response.data
+        console.log('myUser: ' + this.myUser)
+      })
+      .then(() => {
+        axios
+        .get('/api/myMaps/' + this.myUser.id)
+        .then(response => {
+          this.maps = response.data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
     })
     .catch(err => {
       console.log(err)
     })
   },
   mounted() {
-    document.title = 'PK SPOT MAP | Profile'
+    document.title = this.$store.state.title + ' | Profile'
   },
   methods: {
     logout() {
@@ -118,6 +141,7 @@ export default {
   background-color: #dcdcdc;
   border-radius: 20px;
   padding: 20px;
+  margin: 20px;
 }
 
 .map img {

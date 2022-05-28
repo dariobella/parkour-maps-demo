@@ -16,7 +16,7 @@ export default {
   },
 
   mounted() {
-    document.title = 'PKSPOTMAP'
+    document.title = this.$store.state.title
   },
 
 }

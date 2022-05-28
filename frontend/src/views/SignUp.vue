@@ -30,11 +30,12 @@ export default {
       email: '',
       password: '',
       confPassword: '',
+      lastId: 0,
       errors: []
     }
   },
   mounted() {
-    document.title = 'PKSPOTMAP | Sign Up'
+    document.title = this.$store.state.title + ' | Sign Up'
   },
   methods: {
     submitForm() {
@@ -54,14 +55,32 @@ export default {
         axios
         .post('/api/v1/users/', formData)
         .then(response => {
-          this.$router.push('/login')
           console.log(response)
+          this.lastId = response.data.id
+        })
+        .then(() => {
+          const userData = {
+            id: this.lastId
+          } 
+
+          axios
+          .post('/api/addUser/', userData)
+          .then(response => {
+            console.log(response)
+            this.$router.push('/login')
+          })
+          .catch(error => {
+              this.errors.push('Something went wrong, please try again')
+              console.log(JSON.stringify(error))
+          })
         })
         .catch(error => {
           if (error.response) {
+            const e = []
             for (const property in error.response.data) {
-              this.errors.push(`${property}: ${error.response.data[property]}`)
+              e.push(`${error.response.data[property][0]}`)
             }
+            this.errors.push(e[0])
 
             console.log(JSON.stringify(error.response.data))
           } else if (error.message) {

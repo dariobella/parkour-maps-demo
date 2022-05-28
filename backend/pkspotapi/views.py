@@ -1,118 +1,63 @@
 import re
+from unicodedata import name
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.renderers import JSONRenderer
 
-from pkspotapp.models import Spots, Pics, AuthUser, AuthtokenToken
-from .serializers import SpotsSerializer, PicsSerializer, AuthUserSerializer
+from django.contrib.auth.models import User
 
-
-# ----------------- USERS --------------------------------------------
+from pkspotapp.models import Spot, MyUser, Map, UserMap
+from .serializers import MapSerializer, SpotSerializer, MyUserSerializer, PicSerializer
 
 @api_view(['GET'])
-def myProfile(request, token):
-  user = AuthtokenToken.objects.get(pk=token).user
-  serializer = AuthUserSerializer(user, many=False)
-  return Response(serializer.data)
-
-class UsersView:
-    permission_classes = (IsAuthenticated,)
-
-    @api_view(['GET'])
-    def users(request):
-        users = Users.objects.all()
-        serializer = UsersSerializer(users, many=True)
-        return Response(serializer.data)
-
-
-@api_view(['GET'])
-def selectUser(request, id):
-    user = Users.objects.get(id=id)
-    serializer = UsersSerializer(user, many=False)
+def spots(request):
+    spots = Spot.objects.all()
+    serializer = SpotSerializer(spots, many=True)
     return Response(serializer.data)
 
 
 @api_view(['POST'])
 def addUser(request):
-    serializer = UsersSerializer(data=request.data)
+    userId = request.data['id']
+    u = User.objects.get(pk=userId)
+    mu = MyUser.objects.create(user=u)
+    a = Map.objects.create(name='Added by me')
+    f = Map.objects.create(name='Favourites')
+    umA = UserMap(user=mu, map=a, role='C')
+    umF = UserMap(user=mu, map=f, role='C')
+    umA.save()
+    umF.save()
 
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
-
-@api_view(['POST'])
-def updateUser(request, id):
-    user = Users.objects.get(id=id)
-    serializer = UsersSerializer(instance=user ,data=request.data)
-
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
-
-@api_view(['DELETE'])
-def deleteUser(request, id):
-    user = Users.objects.get(id=id)
-    user.delete()
-
-    return Response(status=204)
-
-
-# ----------------- SPOTS --------------------------------------------
-
-@api_view(['GET'])
-def spots(request):
-    spots = Spots.objects.all()
-    serializer = SpotsSerializer(spots, many=True)
+    serializer = MyUserSerializer(mu)
     return Response(serializer.data)
 
 
 @api_view(['GET'])
-def selectSpot(request, id):
-    spot = Spots.objects.get(id=id)
-    serializer = SpotsSerializer(spot, many=False)
+def myProfile(request, id):
+    u = User.objects.get(pk=id)
+    mu = MyUser.objects.get(user=u)
+
+    serializer = MyUserSerializer(mu, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def myMaps(request, id):
+    mu = MyUser.objects.get(pk=id)
+
+    serializer = MapSerializer(mu.maps.all(), many=True)
     return Response(serializer.data)
 
 
 @api_view(['POST'])
 def addSpot(request):
-    serializer = SpotsSerializer(data=request.data)
 
-    if serializer.is_valid():
-        lastSpot = serializer.save()
-
-    return Response(serializer.data)
-
-
-@api_view(['POST'])
-def updateSpot(request, id):
-    spot = Spots.objects.get(id=id)
-    serializer = UsersSerializer(instance=spot ,data=request.data)
-
+    serializer = SpotSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+    a = Map.objects.get(name='Added by me', myuser=serializer.data['adder'])
+    a.spots.add(serializer.data['id'])
 
-
-@api_view(['DELETE'])
-def deleteSpot(request, id):
-    spot = Spots.objects.get(id=id)
-    spot.delete()
-
-    return Response(status=204)
-
-
-# ----------------- PICS --------------------------------------------
-
-@api_view(['GET'])
-def pics(request):
-    pics = Pics.objects.all()
-    serializer = PicsSerializer(pics, many=True)
     return Response(serializer.data)
 
 
@@ -121,7 +66,7 @@ def addPics(request):
     images = request.FILES.getlist('images')
 
     for image in images:
-      serializer = PicsSerializer(data={'title':image.name, 'image':image, 'spotid':request.data['spotId']})
+      serializer = PicSerializer(data={'name':image.name, 'image':image, 'spot':request.data['spotId']})
 
       if serializer.is_valid():
         serializer.save()

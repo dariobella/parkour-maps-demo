@@ -1,11 +1,10 @@
-# PKSPOTMAP TO-DO LIST
+# PARKOUR MAPS TO-DO LIST
 
 ## Primary
 
-1. User authentication (sort of done)
 2. Add spots (missing .kml)
 3. User profile with maps
-4. spot images
+4. spot image
 
 ## Secondary
 
