@@ -1,15 +1,19 @@
-from enum import unique
 from django.db import models
 from django.contrib.auth.models import User
-
 from django.utils.translation import gettext_lazy as _
 
-def upload_to(instance, filename):
+
+def upload_spot(instance, filename):
   return 'spots/{filename}'.format(filename=filename)
+
+
+def upload_profile_picture(instance, filename):
+  return 'profile_pictures/{filename}'.format(filename=filename)
 
 
 class MyUser(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
+  profile_picture = models.ImageField(_("Image"), upload_to=upload_profile_picture, null=True)
   social = models.CharField(max_length=150, null=True)
   bio = models.TextField(blank=True, null=True)
   maps = models.ManyToManyField('Map', through='UserMap')
@@ -61,7 +65,7 @@ class Spot(models.Model):
 
 class Pic(models.Model):
   name = models.CharField(max_length=50)
-  image = models.ImageField(_("Image"), upload_to=upload_to)
+  image = models.ImageField(_("Image"), upload_to=upload_spot)
   spot = models.ForeignKey(Spot, on_delete=models.CASCADE)
 
   class Meta:

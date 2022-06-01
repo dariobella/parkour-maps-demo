@@ -69,7 +69,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=50)),
-                ('image', models.ImageField(upload_to=pkspotapp.models.upload_to, verbose_name='Image')),
+                ('image', models.ImageField(upload_to=pkspotapp.models.upload_spot, verbose_name='Image')),
                 ('spot_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pkspotapp.spot')),
             ],
             options={

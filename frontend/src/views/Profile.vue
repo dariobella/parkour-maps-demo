@@ -21,10 +21,16 @@
 
 
     <div class="maps container-fluid">
-      <div class="row">
-        <div class="map col-sm-6 col-md-4 col-lg-3" v-for="map in maps">
-          <img src="../assets/mapIcon.svg" alt="">
-          <div class="mapName"> {{ map.name }} </div>
+      <div class="row gy-4">
+        <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in maps">
+          <div class="card h-100">
+            <img v-if="map.name==='Added by me'" class="card-img-top" src="../assets/addedByMe.png" alt="">
+            <img v-else-if="map.name==='Favourites'" class="card-img-top" src="../assets/favoruites.png" alt="">
+            <img v-else class="card-img-top" src="../assets/mapIcon.svg" alt="">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">{{ map.name }}</h5>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -58,13 +64,14 @@ export default {
       .get('/api/myProfile/' + this.userId)
       .then(response => {
         this.myUser = response.data
-        console.log('myUser: ' + this.myUser)
+        console.log('myUserId: ' + this.myUser.id)
       })
       .then(() => {
         axios
         .get('/api/myMaps/' + this.myUser.id)
         .then(response => {
           this.maps = response.data
+          console.log(this.maps)
         })
         .catch(err => {
           console.log(err)
@@ -137,16 +144,8 @@ export default {
   padding: 30px;
 }
 
-.map {
-  background-color: #dcdcdc;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 20px;
-}
-
 .map img {
-  width: 50%;
-  margin-bottom: 20px;
+  padding: 15%
 }
 
 </style>
