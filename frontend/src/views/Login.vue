@@ -35,6 +35,7 @@ export default {
     },
     methods: {
       async submitForm() {
+        this.errors = []
         axios.defaults.headers.common["Authorization"] = ""
 
         localStorage.removeItem("token")

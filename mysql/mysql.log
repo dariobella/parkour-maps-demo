@@ -7919,3 +7919,776 @@ Time                 Id Command    Argument
 2022-05-23T07:20:10.276557Z	  186 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = '3af6233bc383f14bb40058daa797ad5c8302df2c' LIMIT 21
 2022-05-23T07:20:10.281177Z	  186 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
 2022-05-23T07:20:10.293361Z	  186 Quit	
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-05-31T16:54:21.998209Z	    9 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:54:22.021431Z	    9 Query	SET NAMES utf8
+2022-05-31T16:54:22.028492Z	    9 Query	SET autocommit=0
+2022-05-31T16:54:22.030641Z	    9 Query	SET autocommit=1
+2022-05-31T16:54:22.035863Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-31T16:54:22.062577Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:54:22.065907Z	    9 Query	SHOW FULL TABLES
+2022-05-31T16:54:22.134780Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-05-31T16:54:42.725540Z	   10 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:54:42.729617Z	   10 Query	SET NAMES utf8
+2022-05-31T16:54:42.732279Z	   10 Query	SET autocommit=0
+2022-05-31T16:54:42.736471Z	   10 Query	SET autocommit=1
+2022-05-31T16:54:42.739012Z	   10 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-31T16:54:42.740827Z	   10 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:54:42.741868Z	   10 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-31T16:54:42.789940Z	   10 Quit	
+2022-05-31T16:55:58.728126Z	   11 Connect	root@172.18.0.1 on parkour-maps using SSL/TLS
+2022-05-31T16:55:58.735911Z	   11 Query	/* mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2022-05-31T16:55:58.744484Z	   11 Query	SET NAMES utf8mb4
+2022-05-31T16:55:58.746673Z	   11 Query	SET character_set_results = utf8
+2022-05-31T16:55:58.748575Z	   11 Query	SET autocommit=1
+2022-05-31T16:55:58.752034Z	   11 Query	SET sql_mode='STRICT_ALL_TABLES,STRICT_TRANS_TABLES'
+2022-05-31T16:55:58.754368Z	   11 Query	SHOW WARNINGS
+2022-05-31T16:55:58.768474Z	   11 Query	select version(), @@version_comment, database()
+2022-05-31T16:55:58.786081Z	   11 Query	show variables like 'aurora\_version'
+2022-05-31T16:55:59.187252Z	   11 Query	SHOW WARNINGS
+2022-05-31T16:55:59.196808Z	   11 Query	/* ApplicationName=PyCharm 2022.1.1 */ SELECT 'keep alive'
+2022-05-31T16:55:59.203387Z	   11 Query	SHOW WARNINGS
+2022-05-31T16:55:59.211787Z	   11 Query	SHOW WARNINGS
+2022-05-31T16:55:59.215384Z	   11 Query	/* ApplicationName=PyCharm 2022.1.1 */ show status like 'ssl_version'
+2022-05-31T16:55:59.274987Z	   11 Query	SHOW WARNINGS
+2022-05-31T16:55:59.284138Z	   11 Quit	
+2022-05-31T16:56:04.171034Z	   12 Connect	root@172.18.0.1 on parkour-maps using SSL/TLS
+2022-05-31T16:56:04.178825Z	   12 Query	/* mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2022-05-31T16:56:04.190878Z	   12 Query	SET NAMES utf8mb4
+2022-05-31T16:56:04.196968Z	   12 Query	SET character_set_results = utf8
+2022-05-31T16:56:04.199714Z	   12 Query	SET autocommit=1
+2022-05-31T16:56:04.205360Z	   12 Query	SET sql_mode='STRICT_ALL_TABLES,STRICT_TRANS_TABLES'
+2022-05-31T16:56:04.207461Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.222182Z	   12 Query	select version(), @@version_comment, database()
+2022-05-31T16:56:04.242299Z	   12 Query	show variables like 'aurora\_version'
+2022-05-31T16:56:04.308125Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ set session transaction read write
+2022-05-31T16:56:04.326899Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.333583Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select database()
+2022-05-31T16:56:04.368275Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.451457Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.457476Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select database(), schema(), left(user(),instr(concat(user(),'@'),'@')-1)
+2022-05-31T16:56:04.469616Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.515732Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.520664Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.523143Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select @@event_scheduler
+2022-05-31T16:56:04.538445Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.544062Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.563950Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.567119Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.569626Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select @@default_storage_engine, @@default_tmp_storage_engine
+2022-05-31T16:56:04.575446Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.579164Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.586470Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.589270Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.591578Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select table_name from information_schema.tables
+        where table_schema collate utf8_general_ci = 'information_schema'
+          and table_name collate utf8_general_ci = 'parameters'
+2022-05-31T16:56:04.606504Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.611007Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.624826Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.628550Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.631108Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select @@GLOBAL.lower_case_table_names
+2022-05-31T16:56:04.640767Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.645505Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.653131Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.657038Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.660216Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select schema_name, default_collation_name
+        from information_schema.schemata
+        order by if(schema() = schema_name, 1, 2), schema_name
+2022-05-31T16:56:04.681823Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.685827Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.711916Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.715107Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.719592Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select collation_name, character_set_name,
+          is_default collate utf8_general_ci = 'Yes' as is_default
+        from information_schema.collations
+2022-05-31T16:56:04.753064Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.777202Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.787474Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.791327Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.794506Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select Host, User,
+       ssl_type, ssl_cipher, x509_issuer, x509_subject,
+       max_questions, max_updates, max_connections, max_user_connections, plugin, authentication_string, account_locked is_role
+      from mysql.user
+2022-05-31T16:56:04.810976Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.819096Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.826546Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.830715Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.833789Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select grantee, privilege_type, is_grantable from information_schema.user_privileges
+2022-05-31T16:56:04.847184Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.855602Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.868373Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.873032Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.877600Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select grantee, table_schema, privilege_type, is_grantable from information_schema.schema_privileges
+2022-05-31T16:56:04.886626Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.891766Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.900556Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.905311Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.909662Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select from_host, from_user, to_host, to_user, with_admin_option from mysql.role_edges order by to_user, to_host
+2022-05-31T16:56:04.917256Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.924978Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.943606Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.949421Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.952162Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select @@GLOBAL.lower_case_table_names
+2022-05-31T16:56:04.961914Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.965881Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.971514Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:04.973889Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:04.975990Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select schema_name, default_collation_name
+        from information_schema.schemata
+        order by if(schema() = schema_name, 1, 2), schema_name
+2022-05-31T16:56:04.984340Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:04.988908Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.008131Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.015922Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.019149Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select table_name, table_type, table_comment, engine, table_collation
+        from information_schema.tables
+        where table_schema = 'parkour-maps'
+2022-05-31T16:56:05.032244Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.054008Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.073960Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.079819Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.085111Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select
+          ordinal_position,
+          column_name,
+          column_type,
+          column_default,
+          generation_expression,
+          table_name,
+          column_comment,
+          is_nullable,
+          extra,
+          collation_name
+        from information_schema.columns
+        where table_schema = 'parkour-maps'
+        order by table_name, ordinal_position
+2022-05-31T16:56:05.114393Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.129835Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.138088Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.142379Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.147225Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select table_name, auto_increment
+        from information_schema.tables
+        where table_schema = 'parkour-maps' and auto_increment is not null
+2022-05-31T16:56:05.418989Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.427463Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.439363Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.444901Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.447040Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select
+          table_name,
+          index_name,
+          index_comment,
+          index_type,
+          non_unique,
+          column_name,
+          sub_part,
+          collation,
+          expression
+        from information_schema.statistics
+        where table_schema = 'parkour-maps' and
+              index_schema = 'parkour-maps' and
+              index_name collate utf8_general_ci <> 'PRIMARY'
+        order by
+          index_schema,
+          table_name,
+          index_name,
+          seq_in_index
+2022-05-31T16:56:05.473888Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.481306Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.488188Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.492278Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.494679Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select
+          c.constraint_name,
+          c.constraint_schema,
+          c.table_name,
+          c.constraint_type,
+          c.enforced = 'YES' enforced
+        from information_schema.table_constraints c
+          where c.table_schema = 'parkour-maps'
+2022-05-31T16:56:05.510907Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.517667Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.522429Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.526501Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.528902Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select
+          r.constraint_name,
+          null table_name,
+          r.match_option,
+          r.update_rule,
+          r.delete_rule
+        from information_schema.referential_constraints r
+          where r.constraint_schema = 'parkour-maps'
+2022-05-31T16:56:05.538538Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.542426Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.548620Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.554308Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.556483Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select
+          ck.constraint_name,
+          null table_name,
+          ck.check_clause
+        from information_schema.check_constraints ck
+          where ck.constraint_schema = 'parkour-maps'
+2022-05-31T16:56:05.565836Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.569372Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.577135Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.580388Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.583037Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select
+        constraint_name,
+        table_name,
+        column_name,
+        referenced_table_schema,
+        referenced_table_name,
+        referenced_column_name
+      from information_schema.key_column_usage
+      where table_schema = 'parkour-maps'
+      order by
+          table_name
+        , constraint_name
+        , ordinal_position
+2022-05-31T16:56:05.603496Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.623200Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.633599Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.638726Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.642897Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select table_name, partition_name, subpartition_name, partition_ordinal_position,
+       subpartition_ordinal_position, partition_method, subpartition_method, partition_expression,
+       subpartition_expression, partition_description, partition_comment/*, tablespace_name*/
+    from information_schema.partitions where partition_name is not null and table_schema = 'parkour-maps'
+2022-05-31T16:56:05.657991Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.666086Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.677499Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.683788Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.686609Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select
+          trigger_name,
+          event_object_table,
+          event_manipulation,
+          action_timing,
+          definer
+        from information_schema.triggers
+        where trigger_schema = 'parkour-maps'
+2022-05-31T16:56:05.697723Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.703738Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.712106Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.717266Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.721544Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select
+          event_name,
+          event_comment,
+          definer,
+          event_type = 'RECURRING' recurring,
+          interval_value,
+          interval_field,
+          cast(coalesce(starts, execute_at) as char) starts,
+          cast(ends as char) ends,
+          status,
+          on_completion = 'PRESERVE' preserve,
+          last_executed
+        from information_schema.events
+        where event_schema = 'parkour-maps'
+2022-05-31T16:56:05.731677Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.740808Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.748080Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.752133Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.755750Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select
+          routine_name,
+          routine_type,
+          routine_definition,
+          routine_comment,
+          dtd_identifier,
+          definer,
+          is_deterministic = 'YES' is_deterministic,
+          cast(sql_data_access as char(1)) sql_data_access,
+          cast(security_type as char(1)) security_type
+        from information_schema.routines
+        where routine_schema = 'parkour-maps'
+2022-05-31T16:56:05.807015Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.816815Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.823102Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.828799Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.832610Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select Host, User, Routine_name, Proc_priv, Routine_type = 'PROCEDURE' as is_proc
+    from mysql.procs_priv where Db = 'parkour-maps'
+2022-05-31T16:56:05.839259Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.846140Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.852579Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.856574Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.862836Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select grantee, table_name, column_name, privilege_type, is_grantable
+      from information_schema.column_privileges
+      where table_schema = 'parkour-maps'
+      union all
+      select grantee, table_name, '' column_name, privilege_type, is_grantable
+      from information_schema.table_privileges
+      where table_schema = 'parkour-maps'
+      order by table_name, grantee, privilege_type
+2022-05-31T16:56:05.870147Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.876786Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.883910Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.890411Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.895062Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select specific_name,
+        ordinal_position,
+        parameter_name,
+        parameter_mode,
+        dtd_identifier
+      from information_schema.parameters
+      where specific_schema = 'parkour-maps' and ordinal_position > 0
+      order by specific_name, ordinal_position
+2022-05-31T16:56:05.924449Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:05.931295Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.939869Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:05.943927Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:05.947269Z	   12 Query	/* ApplicationName=PyCharm 2022.1.1 */ select table_name, view_definition, definer
+      from information_schema.views
+      where table_schema = 'parkour-maps'
+2022-05-31T16:56:06.008397Z	   12 Query	SET net_write_timeout=60
+2022-05-31T16:56:06.045683Z	   12 Query	SHOW WARNINGS
+2022-05-31T16:56:06.070383Z	   12 Query	SELECT @@session.transaction_isolation
+2022-05-31T16:56:06.089146Z	   12 Quit	
+2022-05-31T16:56:23.313443Z	   13 Connect	root@172.18.0.1 on parkour-maps using SSL/TLS
+2022-05-31T16:56:23.321886Z	   13 Query	/* mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2022-05-31T16:56:23.328092Z	   13 Query	SET NAMES utf8mb4
+2022-05-31T16:56:23.331820Z	   13 Query	SET character_set_results = utf8
+2022-05-31T16:56:23.335555Z	   13 Query	SET autocommit=1
+2022-05-31T16:56:23.339607Z	   13 Query	SET sql_mode='STRICT_ALL_TABLES,STRICT_TRANS_TABLES'
+2022-05-31T16:56:23.343801Z	   13 Query	SHOW WARNINGS
+2022-05-31T16:56:23.348037Z	   13 Query	select version(), @@version_comment, database()
+2022-05-31T16:56:23.352885Z	   13 Query	show variables like 'aurora\_version'
+2022-05-31T16:56:23.388979Z	   13 Query	/* ApplicationName=PyCharm 2022.1.1 */ set session transaction read write
+2022-05-31T16:56:23.399264Z	   13 Query	SHOW WARNINGS
+2022-05-31T16:56:23.407947Z	   13 Query	SELECT @@session.transaction_read_only
+2022-05-31T16:56:23.412071Z	   13 Query	/* ApplicationName=PyCharm 2022.1.1 */ use `parkour-maps`
+2022-05-31T16:56:23.415432Z	   13 Query	SHOW WARNINGS
+2022-05-31T16:56:23.423368Z	   13 Query	SELECT @@session.transaction_read_only
+2022-05-31T16:56:23.437538Z	   13 Query	SHOW WARNINGS
+2022-05-31T16:56:23.441748Z	   13 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T16:56:23.445030Z	   13 Query	/* ApplicationName=PyCharm 2022.1.1 */ show tables
+2022-05-31T16:56:23.842824Z	   13 Query	SHOW WARNINGS
+2022-05-31T16:56:23.857945Z	   13 Query	SHOW WARNINGS
+2022-05-31T16:56:23.865413Z	   13 Query	/* ApplicationName=PyCharm 2022.1.1 */ select database()
+2022-05-31T16:56:23.878789Z	   13 Query	SHOW WARNINGS
+2022-05-31T16:56:23.893529Z	   13 Query	SELECT @@session.transaction_isolation
+2022-05-31T16:56:43.575181Z	   14 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:56:43.581212Z	   14 Query	SET NAMES utf8
+2022-05-31T16:56:43.583722Z	   14 Query	SET autocommit=0
+2022-05-31T16:56:43.585595Z	   14 Query	SET autocommit=1
+2022-05-31T16:56:43.588862Z	   14 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-31T16:56:43.591658Z	   14 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:56:43.594313Z	   14 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'darjo' LIMIT 21
+2022-05-31T16:56:43.672796Z	   14 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'darjo' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:56:43.720896Z	   14 Quit	
+2022-05-31T16:57:05.562090Z	   15 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:57:05.568772Z	   15 Query	SET NAMES utf8
+2022-05-31T16:57:05.573384Z	   15 Query	SET autocommit=0
+2022-05-31T16:57:05.576251Z	   15 Query	SET autocommit=1
+2022-05-31T16:57:05.579210Z	   15 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:57:05.582333Z	   15 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'darjo' LIMIT 21
+2022-05-31T16:57:05.651138Z	   15 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'darjo' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:57:05.697777Z	   15 Quit	
+2022-05-31T16:59:31.418161Z	   16 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:31.424043Z	   16 Query	SET NAMES utf8
+2022-05-31T16:59:31.427351Z	   16 Query	SET autocommit=0
+2022-05-31T16:59:31.429352Z	   16 Query	SET autocommit=1
+2022-05-31T16:59:31.431592Z	   16 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:31.434662Z	   16 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:31.497624Z	   16 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:31.501674Z	   16 Quit	
+2022-05-31T16:59:33.002872Z	   17 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:33.011500Z	   17 Query	SET NAMES utf8
+2022-05-31T16:59:33.015430Z	   17 Query	SET autocommit=0
+2022-05-31T16:59:33.017623Z	   17 Query	SET autocommit=1
+2022-05-31T16:59:33.020378Z	   17 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:33.023034Z	   17 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:33.092939Z	   17 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:33.095447Z	   17 Quit	
+2022-05-31T16:59:33.695000Z	   18 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:33.700057Z	   18 Query	SET NAMES utf8
+2022-05-31T16:59:33.704467Z	   18 Query	SET autocommit=0
+2022-05-31T16:59:33.707516Z	   18 Query	SET autocommit=1
+2022-05-31T16:59:33.711206Z	   18 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:33.715625Z	   18 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:33.792432Z	   18 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:33.794939Z	   18 Quit	
+2022-05-31T16:59:34.116335Z	   19 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:34.120678Z	   19 Query	SET NAMES utf8
+2022-05-31T16:59:34.124510Z	   19 Query	SET autocommit=0
+2022-05-31T16:59:34.128492Z	   19 Query	SET autocommit=1
+2022-05-31T16:59:34.132323Z	   19 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:34.136635Z	   19 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:34.208777Z	   19 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:34.211785Z	   19 Quit	
+2022-05-31T16:59:34.309716Z	   20 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:34.312368Z	   20 Query	SET NAMES utf8
+2022-05-31T16:59:34.314077Z	   20 Query	SET autocommit=0
+2022-05-31T16:59:34.315818Z	   20 Query	SET autocommit=1
+2022-05-31T16:59:34.317490Z	   20 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:34.319183Z	   20 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:34.370061Z	   20 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:34.372017Z	   20 Quit	
+2022-05-31T16:59:34.636621Z	   21 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:34.643435Z	   21 Query	SET NAMES utf8
+2022-05-31T16:59:34.648376Z	   21 Query	SET autocommit=0
+2022-05-31T16:59:34.653421Z	   21 Query	SET autocommit=1
+2022-05-31T16:59:34.656816Z	   21 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-31T16:59:34.660190Z	   21 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:34.662565Z	   21 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:34.732151Z	   21 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:34.734811Z	   21 Quit	
+2022-05-31T16:59:34.806861Z	   22 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:34.808358Z	   22 Query	SET NAMES utf8
+2022-05-31T16:59:34.809446Z	   22 Query	SET autocommit=0
+2022-05-31T16:59:34.810440Z	   22 Query	SET autocommit=1
+2022-05-31T16:59:34.811530Z	   22 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:34.812707Z	   22 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:34.858789Z	   22 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:34.861253Z	   22 Quit	
+2022-05-31T16:59:34.982809Z	   23 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:34.985349Z	   23 Query	SET NAMES utf8
+2022-05-31T16:59:34.987069Z	   23 Query	SET autocommit=0
+2022-05-31T16:59:34.989320Z	   23 Query	SET autocommit=1
+2022-05-31T16:59:34.991235Z	   23 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:34.992986Z	   23 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:35.046656Z	   23 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:35.050469Z	   23 Quit	
+2022-05-31T16:59:35.417535Z	   24 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:35.424261Z	   24 Query	SET NAMES utf8
+2022-05-31T16:59:35.428743Z	   24 Query	SET autocommit=0
+2022-05-31T16:59:35.433151Z	   24 Query	SET autocommit=1
+2022-05-31T16:59:35.436579Z	   24 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:35.439797Z	   24 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:35.513996Z	   24 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:35.516765Z	   24 Quit	
+2022-05-31T16:59:35.736419Z	   25 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:35.741856Z	   25 Query	SET NAMES utf8
+2022-05-31T16:59:35.745439Z	   25 Query	SET autocommit=0
+2022-05-31T16:59:35.749590Z	   25 Query	SET autocommit=1
+2022-05-31T16:59:35.752058Z	   25 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:35.754937Z	   25 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:35.824802Z	   25 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:35.827055Z	   25 Quit	
+2022-05-31T16:59:36.122910Z	   26 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:36.129505Z	   26 Query	SET NAMES utf8
+2022-05-31T16:59:36.133398Z	   26 Query	SET autocommit=0
+2022-05-31T16:59:36.136969Z	   26 Query	SET autocommit=1
+2022-05-31T16:59:36.141006Z	   26 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-05-31T16:59:36.143912Z	   26 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:36.146895Z	   26 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:36.217655Z	   26 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:36.220655Z	   26 Quit	
+2022-05-31T16:59:39.497137Z	   27 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:39.505425Z	   27 Query	SET NAMES utf8
+2022-05-31T16:59:39.509266Z	   27 Query	SET autocommit=0
+2022-05-31T16:59:39.512100Z	   27 Query	SET autocommit=1
+2022-05-31T16:59:39.515573Z	   27 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:39.518998Z	   27 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:39.592716Z	   27 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:39.595087Z	   27 Quit	
+2022-05-31T16:59:40.938105Z	   28 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T16:59:40.944570Z	   28 Query	SET NAMES utf8
+2022-05-31T16:59:40.948478Z	   28 Query	SET autocommit=0
+2022-05-31T16:59:40.951844Z	   28 Query	SET autocommit=1
+2022-05-31T16:59:40.954825Z	   28 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T16:59:40.959473Z	   28 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' LIMIT 21
+2022-05-31T16:59:41.034045Z	   28 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'dario' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T16:59:41.036071Z	   28 Quit	
+2022-05-31T17:00:07.598822Z	   29 Connect	root@172.18.0.1 on parkour-maps using SSL/TLS
+2022-05-31T17:00:07.603528Z	   29 Query	/* mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2022-05-31T17:00:07.606467Z	   29 Query	SET NAMES utf8mb4
+2022-05-31T17:00:07.609460Z	   29 Query	SET character_set_results = utf8
+2022-05-31T17:00:07.612187Z	   29 Query	SET autocommit=1
+2022-05-31T17:00:07.615366Z	   29 Query	SET sql_mode='STRICT_ALL_TABLES,STRICT_TRANS_TABLES'
+2022-05-31T17:00:07.617648Z	   29 Query	SHOW WARNINGS
+2022-05-31T17:00:07.620304Z	   29 Query	select version(), @@version_comment, database()
+2022-05-31T17:00:07.623552Z	   29 Query	show variables like 'aurora\_version'
+2022-05-31T17:00:07.657362Z	   29 Query	/* ApplicationName=PyCharm 2022.1.1 */ set session transaction read write
+2022-05-31T17:00:07.666412Z	   29 Query	SHOW WARNINGS
+2022-05-31T17:00:07.673459Z	   29 Query	SELECT @@session.transaction_read_only
+2022-05-31T17:00:07.680726Z	   29 Query	/* ApplicationName=PyCharm 2022.1.1 */ use `parkour-maps`
+2022-05-31T17:00:07.683873Z	   29 Query	SHOW WARNINGS
+2022-05-31T17:00:07.688133Z	   29 Query	SELECT @@session.transaction_read_only
+2022-05-31T17:00:07.740753Z	   29 Query	SHOW WARNINGS
+2022-05-31T17:00:07.743804Z	   29 Query	/* ApplicationName=PyCharm 2022.1.1 */ select database()
+2022-05-31T17:00:07.751930Z	   29 Query	SHOW WARNINGS
+2022-05-31T17:00:07.756871Z	   29 Query	SHOW WARNINGS
+2022-05-31T17:00:07.765046Z	   29 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T17:00:07.769544Z	   29 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET SQL_SELECT_LIMIT=501
+2022-05-31T17:00:07.774576Z	   29 Query	/* ApplicationName=PyCharm 2022.1.1 */ SELECT t.*
+FROM `parkour-maps`.auth_user t
+LIMIT 501
+2022-05-31T17:00:07.839897Z	   29 Query	SHOW WARNINGS
+2022-05-31T17:00:07.859850Z	   29 Query	SELECT @@session.transaction_isolation
+2022-05-31T17:00:24.653515Z	   29 Query	SELECT @@session.transaction_isolation
+2022-05-31T17:00:24.660127Z	   29 Query	/* ApplicationName=PyCharm 2022.1.1 */ set session transaction read write
+2022-05-31T17:00:24.667809Z	   29 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET autocommit=0
+2022-05-31T17:00:24.675156Z	   29 Query	SHOW WARNINGS
+2022-05-31T17:00:24.687137Z	   29 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET SQL_SELECT_LIMIT=DEFAULT
+2022-05-31T17:00:24.691349Z	   29 Query	/* ApplicationName=PyCharm 2022.1.1 */ DELETE FROM `parkour-maps`.auth_user WHERE id = 2
+2022-05-31T17:00:24.766013Z	   29 Query	SHOW WARNINGS
+2022-05-31T17:00:24.785659Z	   29 Query	/* ApplicationName=PyCharm 2022.1.1 */ rollback
+2022-05-31T17:00:24.795426Z	   29 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET autocommit=1
+2022-05-31T17:00:24.808660Z	   29 Query	SELECT @@session.transaction_isolation
+2022-05-31T17:00:38.935731Z	   30 Connect	root@172.18.0.1 on parkour-maps using SSL/TLS
+2022-05-31T17:00:38.942377Z	   30 Query	/* mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2022-05-31T17:00:38.945673Z	   30 Query	SET NAMES utf8mb4
+2022-05-31T17:00:38.948174Z	   30 Query	SET character_set_results = utf8
+2022-05-31T17:00:38.950335Z	   30 Query	SET autocommit=1
+2022-05-31T17:00:38.952230Z	   30 Query	SET sql_mode='STRICT_ALL_TABLES,STRICT_TRANS_TABLES'
+2022-05-31T17:00:38.953631Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:38.955799Z	   30 Query	select version(), @@version_comment, database()
+2022-05-31T17:00:38.958072Z	   30 Query	show variables like 'aurora\_version'
+2022-05-31T17:00:38.990896Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ set session transaction read write
+2022-05-31T17:00:38.997120Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:39.001015Z	   30 Query	SELECT @@session.transaction_read_only
+2022-05-31T17:00:39.004599Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ use `parkour-maps`
+2022-05-31T17:00:39.007068Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:39.010858Z	   30 Query	SELECT @@session.transaction_read_only
+2022-05-31T17:00:39.019125Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:39.021648Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ select database()
+2022-05-31T17:00:39.030739Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:39.034959Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:39.038758Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T17:00:39.041405Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET SQL_SELECT_LIMIT=501
+2022-05-31T17:00:39.043561Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ SELECT t.*
+FROM `parkour-maps`.authtoken_token t
+LIMIT 501
+2022-05-31T17:00:39.069704Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:39.085674Z	   30 Query	SELECT @@session.transaction_isolation
+2022-05-31T17:00:50.279596Z	   30 Query	SELECT @@session.transaction_isolation
+2022-05-31T17:00:50.287356Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ set session transaction read write
+2022-05-31T17:00:50.293744Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET autocommit=0
+2022-05-31T17:00:50.299428Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:50.307182Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET SQL_SELECT_LIMIT=DEFAULT
+2022-05-31T17:00:50.312136Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ DELETE FROM `parkour-maps`.authtoken_token WHERE `key` LIKE '042ab23559bf698c8b423fc9be3051849621114c' ESCAPE '#'
+2022-05-31T17:00:50.333641Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:50.340049Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ commit
+2022-05-31T17:00:50.352819Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET autocommit=1
+2022-05-31T17:00:50.359735Z	   30 Query	SELECT @@session.transaction_isolation
+2022-05-31T17:00:50.380048Z	   30 Query	SELECT @@session.transaction_isolation
+2022-05-31T17:00:50.382946Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ set session transaction read write
+2022-05-31T17:00:50.385367Z	   30 Query	SELECT @@session.transaction_read_only
+2022-05-31T17:00:50.392093Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:50.395055Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ select database()
+2022-05-31T17:00:50.400680Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:50.404036Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:50.407153Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T17:00:50.409870Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET SQL_SELECT_LIMIT=501
+2022-05-31T17:00:50.411881Z	   30 Query	/* ApplicationName=PyCharm 2022.1.1 */ SELECT t.*
+FROM `parkour-maps`.authtoken_token t
+LIMIT 501
+2022-05-31T17:00:50.420006Z	   30 Query	SHOW WARNINGS
+2022-05-31T17:00:50.429098Z	   30 Query	SELECT @@session.transaction_isolation
+2022-05-31T17:00:52.964868Z	   31 Connect	root@172.18.0.1 on parkour-maps using SSL/TLS
+2022-05-31T17:00:52.969364Z	   31 Query	/* mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2022-05-31T17:00:52.973154Z	   31 Query	SET NAMES utf8mb4
+2022-05-31T17:00:52.975439Z	   31 Query	SET character_set_results = utf8
+2022-05-31T17:00:52.977193Z	   31 Query	SET autocommit=1
+2022-05-31T17:00:52.978739Z	   31 Query	SET sql_mode='STRICT_ALL_TABLES,STRICT_TRANS_TABLES'
+2022-05-31T17:00:52.980321Z	   31 Query	SHOW WARNINGS
+2022-05-31T17:00:52.982411Z	   31 Query	select version(), @@version_comment, database()
+2022-05-31T17:00:52.984978Z	   31 Query	show variables like 'aurora\_version'
+2022-05-31T17:00:53.034076Z	   31 Query	/* ApplicationName=PyCharm 2022.1.1 */ set session transaction read write
+2022-05-31T17:00:53.040494Z	   31 Query	SHOW WARNINGS
+2022-05-31T17:00:53.044137Z	   31 Query	SELECT @@session.transaction_read_only
+2022-05-31T17:00:53.047470Z	   31 Query	/* ApplicationName=PyCharm 2022.1.1 */ use `parkour-maps`
+2022-05-31T17:00:53.049701Z	   31 Query	SHOW WARNINGS
+2022-05-31T17:00:53.053049Z	   31 Query	SELECT @@session.transaction_read_only
+2022-05-31T17:00:53.060611Z	   31 Query	SHOW WARNINGS
+2022-05-31T17:00:53.063919Z	   31 Query	/* ApplicationName=PyCharm 2022.1.1 */ select database()
+2022-05-31T17:00:53.071775Z	   31 Query	SHOW WARNINGS
+2022-05-31T17:00:53.075851Z	   31 Query	SHOW WARNINGS
+2022-05-31T17:00:53.078957Z	   31 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET net_write_timeout=600
+2022-05-31T17:00:53.080645Z	   31 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET SQL_SELECT_LIMIT=501
+2022-05-31T17:00:53.082377Z	   31 Query	/* ApplicationName=PyCharm 2022.1.1 */ SELECT t.*
+FROM `parkour-maps`.my_user t
+LIMIT 501
+2022-05-31T17:00:53.117928Z	   31 Query	SHOW WARNINGS
+2022-05-31T17:00:53.125848Z	   31 Query	SELECT @@session.transaction_isolation
+2022-05-31T17:00:58.257749Z	   31 Query	SELECT @@session.transaction_isolation
+2022-05-31T17:00:58.263833Z	   31 Query	/* ApplicationName=PyCharm 2022.1.1 */ set session transaction read write
+2022-05-31T17:00:58.269465Z	   31 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET autocommit=0
+2022-05-31T17:00:58.278824Z	   31 Query	SHOW WARNINGS
+2022-05-31T17:00:58.285012Z	   31 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET SQL_SELECT_LIMIT=DEFAULT
+2022-05-31T17:00:58.288810Z	   31 Query	/* ApplicationName=PyCharm 2022.1.1 */ DELETE FROM `parkour-maps`.my_user WHERE id = 1
+2022-05-31T17:00:58.307698Z	   31 Query	SHOW WARNINGS
+2022-05-31T17:00:58.312380Z	   31 Query	/* ApplicationName=PyCharm 2022.1.1 */ rollback
+2022-05-31T17:00:58.318005Z	   31 Query	/* ApplicationName=PyCharm 2022.1.1 */ SET autocommit=1
+2022-05-31T17:00:58.322984Z	   31 Query	SELECT @@session.transaction_isolation
+2022-05-31T17:01:40.669766Z	   32 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T17:01:40.678337Z	   32 Query	SET NAMES utf8
+2022-05-31T17:01:40.681907Z	   32 Query	SET autocommit=0
+2022-05-31T17:01:40.683801Z	   32 Query	SET autocommit=1
+2022-05-31T17:01:40.685718Z	   32 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T17:01:40.688238Z	   32 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'darjo' LIMIT 21
+2022-05-31T17:01:40.746304Z	   32 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'darjo' ORDER BY `auth_user`.`id` ASC LIMIT 1
+2022-05-31T17:01:40.793869Z	   32 Quit	
+2022-05-31T17:02:05.921450Z	   33 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T17:02:05.927752Z	   33 Query	SET NAMES utf8
+2022-05-31T17:02:05.930274Z	   33 Query	SET autocommit=0
+2022-05-31T17:02:05.932924Z	   33 Query	SET autocommit=1
+2022-05-31T17:02:05.935114Z	   33 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T17:02:05.937472Z	   33 Query	SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'ildarjo' LIMIT 1
+2022-05-31T17:02:05.967767Z	   33 Query	SET autocommit=0
+2022-05-31T17:02:06.024270Z	   33 Query	INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$260000$U4Z2gLVkV2s9Sa5rHGt1sV$SjcurBThAxFy5QyznHxvH3SAccTOElmVbo9ggCYC0+s=', NULL, 0, 'ildarjo', '', '', 'dariobella03@gmail.com', 0, 1, '2022-05-31 17:02:05.969763')
+2022-05-31T17:02:06.039097Z	   33 Query	COMMIT
+2022-05-31T17:02:06.044000Z	   33 Query	SET autocommit=1
+2022-05-31T17:02:06.046084Z	   33 Quit	
+2022-05-31T17:02:06.053690Z	   34 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T17:02:06.055217Z	   34 Query	SET NAMES utf8
+2022-05-31T17:02:06.056155Z	   34 Query	SET autocommit=0
+2022-05-31T17:02:06.057082Z	   34 Query	SET autocommit=1
+2022-05-31T17:02:06.057991Z	   34 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T17:02:06.059019Z	   34 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 3 LIMIT 21
+2022-05-31T17:02:06.061139Z	   34 Query	INSERT INTO `my_user` (`user_id`, `social`, `bio`) VALUES (3, NULL, NULL)
+2022-05-31T17:02:06.069910Z	   34 Query	INSERT INTO `maps` (`name`) VALUES ('Added by me')
+2022-05-31T17:02:06.088364Z	   34 Query	INSERT INTO `maps` (`name`) VALUES ('Favourites')
+2022-05-31T17:02:06.094295Z	   34 Query	INSERT INTO `users_maps` (`user_id`, `map_id`, `role`) VALUES (2, 3, 'C')
+2022-05-31T17:02:06.114073Z	   34 Query	INSERT INTO `users_maps` (`user_id`, `map_id`, `role`) VALUES (2, 4, 'C')
+2022-05-31T17:02:06.122659Z	   34 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 2
+2022-05-31T17:02:06.129115Z	   34 Quit	
+2022-05-31T17:02:13.226097Z	   35 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T17:02:13.233521Z	   35 Query	SET NAMES utf8
+2022-05-31T17:02:13.237298Z	   35 Query	SET autocommit=0
+2022-05-31T17:02:13.241291Z	   35 Query	SET autocommit=1
+2022-05-31T17:02:13.244335Z	   35 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T17:02:13.247214Z	   35 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'ildarjo' LIMIT 21
+2022-05-31T17:02:13.322684Z	   35 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created` FROM `authtoken_token` WHERE `authtoken_token`.`user_id` = 3 LIMIT 21
+2022-05-31T17:02:13.330533Z	   35 Query	SET autocommit=0
+2022-05-31T17:02:13.331996Z	   35 Query	INSERT INTO `authtoken_token` (`key`, `user_id`, `created`) VALUES ('bd87a4a60e37e1391d5dd49ba0c6f286fe38b635', 3, '2022-05-31 17:02:13.331709')
+2022-05-31T17:02:13.336482Z	   35 Query	COMMIT
+2022-05-31T17:02:13.340500Z	   35 Query	SET autocommit=1
+2022-05-31T17:02:13.342370Z	   35 Query	UPDATE `auth_user` SET `last_login` = '2022-05-31 17:02:13.341522' WHERE `auth_user`.`id` = 3
+2022-05-31T17:02:13.354720Z	   35 Quit	
+2022-05-31T17:02:13.376943Z	   36 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T17:02:13.379911Z	   36 Query	SET NAMES utf8
+2022-05-31T17:02:13.382018Z	   36 Query	SET autocommit=0
+2022-05-31T17:02:13.384542Z	   36 Query	SET autocommit=1
+2022-05-31T17:02:13.386944Z	   36 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T17:02:13.389480Z	   36 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'bd87a4a60e37e1391d5dd49ba0c6f286fe38b635' LIMIT 21
+2022-05-31T17:02:13.396801Z	   36 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-05-31T17:02:13.405523Z	   36 Quit	
+2022-05-31T17:02:43.411467Z	   37 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T17:02:43.419456Z	   37 Query	SET NAMES utf8
+2022-05-31T17:02:43.424211Z	   37 Query	SET autocommit=0
+2022-05-31T17:02:43.428375Z	   37 Query	SET autocommit=1
+2022-05-31T17:02:43.430403Z	   37 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T17:02:43.432416Z	   37 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'bd87a4a60e37e1391d5dd49ba0c6f286fe38b635' LIMIT 21
+2022-05-31T17:02:43.438651Z	   37 Quit	
+2022-05-31T17:02:43.496579Z	   38 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T17:02:43.499486Z	   38 Query	SET NAMES utf8
+2022-05-31T17:02:43.501193Z	   38 Query	SET autocommit=0
+2022-05-31T17:02:43.502609Z	   38 Query	SET autocommit=1
+2022-05-31T17:02:43.504121Z	   38 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T17:02:43.505626Z	   38 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'bd87a4a60e37e1391d5dd49ba0c6f286fe38b635' LIMIT 21
+2022-05-31T17:02:43.508649Z	   38 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 3 LIMIT 21
+2022-05-31T17:02:43.511370Z	   38 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 3 LIMIT 21
+2022-05-31T17:02:43.518929Z	   38 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 2
+2022-05-31T17:02:43.529391Z	   38 Quit	
+2022-05-31T17:02:43.582866Z	   39 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-05-31T17:02:43.584303Z	   39 Query	SET NAMES utf8
+2022-05-31T17:02:43.585286Z	   39 Query	SET autocommit=0
+2022-05-31T17:02:43.586347Z	   39 Query	SET autocommit=1
+2022-05-31T17:02:43.587515Z	   39 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-05-31T17:02:43.588699Z	   39 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'bd87a4a60e37e1391d5dd49ba0c6f286fe38b635' LIMIT 21
+2022-05-31T17:02:43.591114Z	   39 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 2 LIMIT 21
+2022-05-31T17:02:43.593181Z	   39 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 2
+2022-05-31T17:02:43.596361Z	   39 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 3
+2022-05-31T17:02:43.610618Z	   39 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 4
+2022-05-31T17:02:43.612797Z	   39 Quit	
+/usr/sbin/mysqld, Version: 8.0.29 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2022-06-01T09:21:41.799496Z	    9 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-06-01T09:21:41.822357Z	    9 Query	SET NAMES utf8
+2022-06-01T09:21:41.828421Z	    9 Query	SET autocommit=0
+2022-06-01T09:21:41.831778Z	    9 Query	SET autocommit=1
+2022-06-01T09:21:41.838259Z	    9 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-06-01T09:21:41.871626Z	    9 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-06-01T09:21:41.875445Z	    9 Query	SHOW FULL TABLES
+2022-06-01T09:21:41.961626Z	    9 Query	SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`
+2022-06-01T09:22:46.595473Z	   10 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-06-01T09:22:46.604941Z	   10 Query	SET NAMES utf8
+2022-06-01T09:22:46.609496Z	   10 Query	SET autocommit=0
+2022-06-01T09:22:46.611991Z	   10 Query	SET autocommit=1
+2022-06-01T09:22:46.615037Z	   10 Query	SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+2022-06-01T09:22:46.618026Z	   10 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-06-01T09:22:46.620788Z	   10 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-06-01T09:22:46.679789Z	   10 Quit	
+2022-06-01T09:22:52.884113Z	   11 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-06-01T09:22:52.890089Z	   11 Query	SET NAMES utf8
+2022-06-01T09:22:52.892912Z	   11 Query	SET autocommit=0
+2022-06-01T09:22:52.895351Z	   11 Query	SET autocommit=1
+2022-06-01T09:22:52.897558Z	   11 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-06-01T09:22:52.901603Z	   11 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'darjo' LIMIT 21
+2022-06-01T09:22:53.012191Z	   11 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created` FROM `authtoken_token` WHERE `authtoken_token`.`user_id` = 2 LIMIT 21
+2022-06-01T09:22:53.022250Z	   11 Query	SET autocommit=0
+2022-06-01T09:22:53.024267Z	   11 Query	INSERT INTO `authtoken_token` (`key`, `user_id`, `created`) VALUES ('f0f3cd19f45addea57241eba6eba064ee55b6cc6', 2, '2022-06-01 09:22:53.023313')
+2022-06-01T09:22:53.040737Z	   11 Query	COMMIT
+2022-06-01T09:22:53.049209Z	   11 Query	SET autocommit=1
+2022-06-01T09:22:53.052302Z	   11 Query	UPDATE `auth_user` SET `last_login` = '2022-06-01 09:22:53.050052' WHERE `auth_user`.`id` = 2
+2022-06-01T09:22:53.069226Z	   11 Quit	
+2022-06-01T09:22:53.086710Z	   12 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-06-01T09:22:53.093249Z	   12 Query	SET NAMES utf8
+2022-06-01T09:22:53.094887Z	   12 Query	SET autocommit=0
+2022-06-01T09:22:53.098587Z	   12 Query	SET autocommit=1
+2022-06-01T09:22:53.100845Z	   12 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-06-01T09:22:53.103153Z	   12 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'f0f3cd19f45addea57241eba6eba064ee55b6cc6' LIMIT 21
+2022-06-01T09:22:53.107275Z	   12 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots`
+2022-06-01T09:22:53.110970Z	   12 Quit	
+2022-06-01T09:22:54.940999Z	   13 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-06-01T09:22:54.944343Z	   13 Query	SET NAMES utf8
+2022-06-01T09:22:54.946220Z	   13 Query	SET autocommit=0
+2022-06-01T09:22:54.948224Z	   13 Query	SET autocommit=1
+2022-06-01T09:22:54.950698Z	   13 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-06-01T09:22:54.953761Z	   13 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'f0f3cd19f45addea57241eba6eba064ee55b6cc6' LIMIT 21
+2022-06-01T09:22:54.962362Z	   13 Quit	
+2022-06-01T09:22:55.060969Z	   14 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-06-01T09:22:55.064360Z	   14 Query	SET NAMES utf8
+2022-06-01T09:22:55.066658Z	   14 Query	SET autocommit=0
+2022-06-01T09:22:55.068712Z	   14 Query	SET autocommit=1
+2022-06-01T09:22:55.070611Z	   14 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-06-01T09:22:55.073004Z	   14 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'f0f3cd19f45addea57241eba6eba064ee55b6cc6' LIMIT 21
+2022-06-01T09:22:55.077682Z	   14 Query	SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2 LIMIT 21
+2022-06-01T09:22:55.080527Z	   14 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`user_id` = 2 LIMIT 21
+2022-06-01T09:22:55.097045Z	   14 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 1
+2022-06-01T09:22:55.131530Z	   14 Quit	
+2022-06-01T09:22:55.184621Z	   15 Connect	root@172.18.0.3 on parkour-maps using TCP/IP
+2022-06-01T09:22:55.186359Z	   15 Query	SET NAMES utf8
+2022-06-01T09:22:55.187594Z	   15 Query	SET autocommit=0
+2022-06-01T09:22:55.188570Z	   15 Query	SET autocommit=1
+2022-06-01T09:22:55.190042Z	   15 Query	SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-06-01T09:22:55.192037Z	   15 Query	SELECT `authtoken_token`.`key`, `authtoken_token`.`user_id`, `authtoken_token`.`created`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `authtoken_token` INNER JOIN `auth_user` ON (`authtoken_token`.`user_id` = `auth_user`.`id`) WHERE `authtoken_token`.`key` = 'f0f3cd19f45addea57241eba6eba064ee55b6cc6' LIMIT 21
+2022-06-01T09:22:55.194748Z	   15 Query	SELECT `my_user`.`id`, `my_user`.`user_id`, `my_user`.`social`, `my_user`.`bio` FROM `my_user` WHERE `my_user`.`id` = 1 LIMIT 21
+2022-06-01T09:22:55.197203Z	   15 Query	SELECT `maps`.`id`, `maps`.`name` FROM `maps` INNER JOIN `users_maps` ON (`maps`.`id` = `users_maps`.`map_id`) WHERE `users_maps`.`user_id` = 1
+2022-06-01T09:22:55.200233Z	   15 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 1
+2022-06-01T09:22:55.211327Z	   15 Query	SELECT `spots`.`id`, `spots`.`lat`, `spots`.`lng`, `spots`.`name`, `spots`.`type`, `spots`.`description`, `spots`.`adder_id` FROM `spots` INNER JOIN `maps_spots` ON (`spots`.`id` = `maps_spots`.`spot_id`) WHERE `maps_spots`.`map_id` = 2
+2022-06-01T09:22:55.213335Z	   15 Quit	
