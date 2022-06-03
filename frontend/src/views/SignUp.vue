@@ -55,7 +55,6 @@ export default {
         axios
         .post('/api/v1/users/', formData)
         .then(response => {
-          console.log(response)
           this.lastId = response.data.id
         })
         .then(() => {
@@ -66,7 +65,6 @@ export default {
           axios
           .post('/api/addUser/', userData)
           .then(response => {
-            console.log(response)
             this.$router.push('/login')
           })
           .catch(error => {

@@ -39,6 +39,16 @@ def myProfile(request, id):
     serializer = MyUserSerializer(mu, many=False)
     return Response(serializer.data)
 
+@api_view(['PUT'])
+def updateProfile(request, id):
+    mu = MyUser.objects.get(pk=id)
+    mu.social = request.data['social']
+    mu.bio = request.data['bio']
+    mu.profile_picture = request.data.get('profile_picture', None)
+    mu.save()
+    serializer = MyUserSerializer(mu, many=False)
+    return Response(serializer.data)
+
 
 @api_view(['GET'])
 def myMaps(request, id):

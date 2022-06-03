@@ -4,16 +4,16 @@ from django.utils.translation import gettext_lazy as _
 
 
 def upload_spot(instance, filename):
-  return 'spots/{filename}'.format(filename=filename)
+    return 'spots/{filename}'.format(filename=filename)
 
 
 def upload_profile_picture(instance, filename):
-  return 'profile_pictures/{filename}'.format(filename=filename)
+    return 'profile_pictures/{filename}'.format(filename=filename)
 
 
 class MyUser(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
-  profile_picture = models.ImageField(_("Image"), upload_to=upload_profile_picture, null=True)
+  profile_picture = models.ImageField(_("Image"), upload_to=upload_profile_picture, blank=True, null=True)
   social = models.CharField(max_length=150, null=True)
   bio = models.TextField(blank=True, null=True)
   maps = models.ManyToManyField('Map', through='UserMap')
