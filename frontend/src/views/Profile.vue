@@ -35,16 +35,19 @@
     <div class="maps container-fluid">
       <div class="row gy-4">
         <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in maps">
-          <div class="card mb-4 shadow-sm h-100">
-            <div class="card-img-top">
-              <img v-if="map.name==='Added by me'" src="../assets/addedByMe.png" alt="">
-              <img v-else-if="map.name==='Favourites'" src="../assets/favoruites.png" alt="">
-              <img v-else src="../assets/mapIcon.svg" alt="">
+          <router-link :to="'/map/' + map.id">
+            <div class="card mb-4 shadow-sm h-100">
+              <div class="card-img-top">
+                <img v-if="map.name==='Added by me'" src="../assets/addedByMe.png" alt="">
+                <img v-else-if="map.name==='Favourites'" src="../assets/favoruites.png" alt="">
+                <img v-else src="../assets/mapIcon.svg" alt="">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title fw-bold align-middle">{{ map.name }}</h5>
+              </div>
             </div>
-            <div class="card-body">
-              <h5 class="card-title fw-bold align-middle">{{ map.name }}</h5>
-            </div>
-          </div>
+          </router-link>
+
         </div>
         <div class="map col-6 col-sm-4 col-md-3 col-lg-2">
           <button class="new-map-btn shadow-sm w-100 h-100">
@@ -271,6 +274,24 @@ export default {
   padding: 30px;
 }
 
+.map {
+  transition: transform .2s ease-in-out;
+}
+
+.map:hover {
+  transform: scale(1.1);
+}
+
+.map a {
+  color: black;
+  text-decoration: none;
+  transition: transform .2s ease-in-out;
+}
+
+.map a:hover {
+  color: black;
+}
+
 .map img {
   width: 100%;
   height: auto;
@@ -289,6 +310,10 @@ export default {
   border-radius: 0.25rem;
   padding-top: 6rem;
   padding-bottom: 6rem;
+}
+
+.new-map-btn:hover {
+  transform: none!important;
 }
 
 .new-map-btn .material-icons {

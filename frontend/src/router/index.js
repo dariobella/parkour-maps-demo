@@ -7,6 +7,7 @@ import SignUp from '../views/SignUp.vue'
 import Home from '../views/Home.vue'
 import Profile from '../views/Profile.vue'
 import AddSpots from '../views/AddSpots.vue'
+import MapView from '../views/MapView.vue';
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     meta: {
       requireLogin: true
     }
+  },
+  {
+    path: '/map/:id',
+    name: 'Map',
+    component: MapView,
   },
   {
     path: '/add-spots',

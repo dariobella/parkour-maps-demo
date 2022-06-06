@@ -1,15 +1,16 @@
 <script>
 
 import axios from 'axios'
-import App from '../App.vue'
 
 export default {
-  components: { App },
   name: Map,
+
+  props: {
+    spots: Array,
+  },
 
   data() {
     return {
-      APIData: [],
       map: {},
       iconSize: {},
       infoWindow: {},
@@ -18,26 +19,14 @@ export default {
   },
 
 
-  created () {
-    axios
-      .get('/api/spots/',)
-      .then(response => {
-        console.log('API data retrieved')
-        this.APIData = response.data
-      })
-      .then(load => {
-        this.loadSpots()
-      })
-    .catch(err => {
-        console.log(err)
-    })
+  mounted() {
+    this.initMap()
   },
 
-
-  mounted() {
-
-    this.initMap()
-
+  watch: {
+    spots() {
+      this.loadSpots()
+    }
   },
 
 
@@ -164,7 +153,7 @@ export default {
 
     loadSpots() {
       var vm = this;
-      for (var spot of JSON.parse(JSON.stringify(vm.APIData))) {
+      for (var spot of JSON.parse(JSON.stringify(vm.spots))) {
         vm.addMarker({
           position: {lat: spot.lat, lng: spot.lng},
           info: "<b>" + spot.name + "</b> <br>" + spot.type + "<br> <br>" + spot.description + "<br>" + ' <br> <a href="https://www.google.com/maps/search/?api=1&query='+ spot.lat +'%2C'+ spot.lng + '" target="_blank" >Visualizza su Google Maps</a>',
@@ -185,7 +174,7 @@ export default {
 
   <div class="maproot">
     <div id="map"></div>
-    <button @click="$router.push('add-spots')" type="button" id="addBtn" v-if="$store.state.isAuthenticated">
+    <button @click="$router.push('add-spots')" type="button" id="addBtn" v-if="$store.state.isAuthenticated && $router.currentRoute.value.name === 'Home'">
       <span>+</span>
     </button>
   </div>

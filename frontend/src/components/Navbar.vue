@@ -3,8 +3,7 @@
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
       <div class="collapse navbar-collapse order-md-1 order-3" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-        </ul>
+        <ul class="navbar-nav me-auto"></ul>
       </div>
       <router-link class="navbar-brand order-1" to="/"> {{ title }} </router-link>
       <button class="navbar-toggler order-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,16 +13,16 @@
         <ul class="navbar-nav ms-auto">
           <template v-if="$store.state.isAuthenticated">
             <li class="nav-item">
-              <router-link class="nav-link" :class="{'active': $router.currentRoute.value.name == 'Profile'}" to="/profile">Profile</router-link>
+              <router-link class="nav-link" :class="{'active': $router.currentRoute.value.name === 'Profile'}" to="/profile">Profile</router-link>
             </li>
           </template>
           
           <template v-else>
             <li class="nav-item">
-              <router-link class="nav-link" :class="{'active': $router.currentRoute.value.name == 'Login'}" to="/login">Login</router-link>
+              <router-link class="nav-link" :class="{'active': $router.currentRoute.value.name === 'Login'}" to="/login">Login</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" :class="{'active': $router.currentRoute.value.name == 'SignUp'}" to="/sign-up">Sign Up</router-link>
+              <router-link class="nav-link" :class="{'active': $router.currentRoute.value.name === 'SignUp'}" to="/sign-up">Sign Up</router-link>
             </li>
           </template>
         </ul>

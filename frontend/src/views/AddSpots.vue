@@ -6,15 +6,15 @@
 
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a href="#" class="nav-link" :class="{'active': current == 1}" @click.prevent="this.current = 1">Add Spot</a>
+        <a href="#" class="nav-link" :class="{'active': current === 1}" @click.prevent="this.current = 1">Add Spot</a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link" :class="{'active': current == 2}" @click.prevent="this.current = 2">Import KML file</a>
+        <a href="#" class="nav-link" :class="{'active': current === 2}" @click.prevent="this.current = 2">Import KML file</a>
       </li>
     </ul>
 
     <div class="tab-content">
-      <div class="tab-spot" v-show="current == 1">
+      <div class="tab-spot" v-show="current === 1">
 
         <div class="alert alert-danger" v-if="spotErrors.length">
           <p v-for="error in spotErrors" :key="error">{{ error }}</p>

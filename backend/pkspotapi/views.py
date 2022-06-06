@@ -1,5 +1,6 @@
 import re
 from unicodedata import name
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
@@ -55,6 +56,13 @@ def myMaps(request, id):
     mu = MyUser.objects.get(pk=id)
 
     serializer = MapSerializer(mu.maps.all(), many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def map(request, id):
+    m = Map.objects.get(pk=id)
+
+    serializer = MapSerializer(m)
     return Response(serializer.data)
 
 
