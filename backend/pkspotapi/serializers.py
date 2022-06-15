@@ -1,27 +1,57 @@
 from rest_framework import serializers
+from django.contrib.auth.models import User
 from pkspotapp.models import Spot, MyUser, Map, Pic
 
-class SpotSerializer(serializers.ModelSerializer):
+
+class UserSerializer(serializers.ModelSerializer):
+
     class Meta:
-        model = Spot
-        fields = ['id', 'lat', 'lng', 'name', 'type', 'description', 'adder']
+        model = User
+        fields = ['id', 'username', 'email']
 
 
-class MyUserSerializer(serializers.ModelSerializer):
+class MyUserSerializerD0(serializers.ModelSerializer):
+
     class Meta:
         model = MyUser
         fields = ['id', 'user', 'profile_picture', 'social', 'bio', 'maps']
+        depth = 0
+
+
+class MyUserSerializerD1(serializers.ModelSerializer):
+
+    class Meta:
+        model = MyUser
+        fields = ['id', 'user', 'profile_picture', 'social', 'bio', 'maps']
+        depth = 1
+
+
+class SpotSerializerD0(serializers.ModelSerializer):
+
+    class Meta:
+        model = Spot
+        fields = ['id', 'lat', 'lng', 'name', 'type', 'description', 'adder']
+        depth = 0
+
+
+class SpotSerializerD2(serializers.ModelSerializer):
+
+    class Meta:
+        model = Spot
+        fields = ['id', 'lat', 'lng', 'name', 'type', 'description', 'adder']
+        depth = 2
 
 
 class MapSerializer(serializers.ModelSerializer):
-    spots = SpotSerializer(many=True, read_only=True)
 
     class Meta:
         model = Map
-        fields = ['id' ,'name', 'spots']
+        fields = ['id', 'name', 'spots']
+        depth = 3
 
 
 class PicSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Pic
         fields = ['id', 'name', 'image', 'spot']

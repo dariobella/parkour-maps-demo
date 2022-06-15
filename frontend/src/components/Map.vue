@@ -1,9 +1,13 @@
 <script>
 
-import axios from 'axios'
+import SpotInfo from "./SpotInfo.vue";
 
 export default {
   name: Map,
+
+  components: {
+    SpotInfo
+  },
 
   props: {
     spots: Array,
@@ -11,9 +15,9 @@ export default {
 
   data() {
     return {
+      spotSelected: 0,
       map: {},
       iconSize: {},
-      infoWindow: {},
       searchWindow: {},
     }
   },
@@ -58,7 +62,6 @@ export default {
       };
 
       this.map = new google.maps.Map(document.getElementById('map'), options);
-      this.infoWindow = new google.maps.InfoWindow();
 
       var search = document.createElement('input')
       search.id = 'search'
@@ -100,7 +103,6 @@ export default {
             anchor: searchMarker,
             map: vm.map,
           });
-          vm.infoWindow.close();
 
           searchMarker.addListener('click', function() {
             vm.searchWindow.open({
@@ -140,13 +142,8 @@ export default {
 
       var offset = new google.maps.Size(0, 0);
       marker.addListener("click", function () {
-        vm.infoWindow.setContent(m.info);
-        vm.infoWindow.setOptions({maxWidth: m.maxWidth, pixelOffset: offset});
-        vm.infoWindow.open({
-          anchor: marker,
-          map: vm.map,
-        });
-        document.getElementById('search').placeholder = 'Enter a place';
+        vm.spotSelected = m.id;
+        document.getElementById('search').placeholder = 'Search places';
         vm.searchWindow.close();
       });
     },
@@ -154,11 +151,15 @@ export default {
     loadSpots() {
       var vm = this;
       for (var spot of JSON.parse(JSON.stringify(vm.spots))) {
+        var i = ""
+        if (spot.type === 'U') i = "https://i.ibb.co/LZQWkQB/bluePin.png"
+        else if (spot.type === 'P') i = "https://i.ibb.co/VBtTnMG/orange-Pin.png"
+        else if (spot.type === 'G') i = "https://i.ibb.co/cXdG8Dv/purple-Pin.png"
+        else i = "https://i.ibb.co/CWLrJK6/redPin.png"
         vm.addMarker({
+          id: spot.id,
           position: {lat: spot.lat, lng: spot.lng},
-          info: "<b>" + spot.name + "</b> <br>" + spot.type + "<br> <br>" + spot.description + "<br>" + ' <br> <a href="https://www.google.com/maps/search/?api=1&query='+ spot.lat +'%2C'+ spot.lng + '" target="_blank" >Visualizza su Google Maps</a>',
-          icon: "https://i.ibb.co/ZddWhrd/redPin.png",
-          maxWidth: 250,
+          icon: i,
         });
       }
     },
@@ -173,6 +174,7 @@ export default {
 <template>
 
   <div class="maproot">
+    <SpotInfo v-for="spot in spots" :spot="spot" :spotSelected="spotSelected"></SpotInfo>
     <div id="map"></div>
     <button @click="$router.push('add-spots')" type="button" id="addBtn" v-if="$store.state.isAuthenticated && $router.currentRoute.value.name === 'Home'">
       <span>+</span>
@@ -183,6 +185,14 @@ export default {
 
 
 <style>
+
+.maproot {
+  display: grid;
+}
+
+.spotInfo, #map {
+  grid-area: 1 / 1;
+}
 
 #map {
   height: 94vh;
@@ -196,6 +206,7 @@ export default {
   border-radius: 3px;
   border: 0;
   margin-top: 10px;
+  margin-left: 30px;
   width: 70%;
   max-width: 400px;
   height: 40px;
@@ -229,6 +240,11 @@ export default {
 #addBtn span {
   font-size: 3rem;
   font-family: 'Nunito', sans-serif;
+}
+
+.spotInfo {
+  z-index: 1;
+  width: 30%;
 }
 
 </style>

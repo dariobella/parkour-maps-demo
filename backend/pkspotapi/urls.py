@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
 
     path('api/spots/', views.spots, name="spots"),
+    path('api/spotPics/<id>/', views.spotPics, name="spotPics"),
     path('api/addSpot/', views.addSpot, name="addSpot"),
     path('api/addPics/', views.addPics, name="addPics"),
     path('api/addUser/', views.addUser, name="addUser"),

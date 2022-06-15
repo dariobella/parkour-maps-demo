@@ -21,49 +21,51 @@
         </div>
 
         <form @submit.prevent="spotSubmitForm">
-          <div class="selectLocation">
-            <div class="choose">
-              <span>Location:</span> <button @click.prevent="initMapModal()" data-bs-toggle="modal" data-bs-target="#locationModal">Choose from map</button>
-            </div>
-            <div class="LatLng">
-              <label for="Lat">Lat:</label> <input type="number" name="Lat" id="Lat" v-model="lat" step="0.000001">
-              <label for="Lat">Lng:</label> <input type="number" name="Lat" id="Lng" v-model="lng" step="0.000001">
-            </div>
-            
-          </div>
+          <div class="container-fluid">
+            <div class="row gy-3">
 
-          <div class="name">
-            <label for="name">Name:</label> <input type="text" name="name" id="name" v-model="name">
-          </div>
-
-          <div class="type">
-            <label for="type">Type:</label>
-            <select name="type" id="type" v-model="type">
-              <option value="S">Spot</option>
-              <option value="G">Gym</option>
-              <option value="P">Parkour Park</option>
-              <option value="U">Undercover spot</option>
-            </select>
-          </div>
-
-          <div class="description">
-            <label for="description">Description:</label>
-            <textarea name="description" id="description" v-model="description"></textarea>
-          </div>
-
-          <div class="images">
-            <input type="file" name="images" id="images" ref="images" @change="imageSelected" multiple>
-            <div class="imagesBtn">
-              <button @click.prevent="this.$refs.images.click()"> <span class="material-icons">upload</span> <span> Upload images</span> </button>
-            </div>  
-            <div class="allImages">
-              <div class="imageSelected" v-for="(image, index) in images" :key="index">
-                <div v-if="this.images" class="fileName"> <span class="material-icons">image</span> <span class="text"> {{ image.name }} </span> </div>
-                <div v-else> No file selected </div>
+              <div class="selectLocation col-12">
+                <div class="choose">
+                  <span>Location:</span> <button @click.prevent="initMapModal()" data-bs-toggle="modal" data-bs-target="#locationModal">Choose from map</button>
+                </div>
+                <div class="LatLng">
+                  <label for="Lat">Lat: </label> <input type="number" name="Lat" id="Lat" v-model="lat" step="0.000001">
+                  <label for="Lat">Lng: </label> <input type="number" name="Lat" id="Lng" v-model="lng" step="0.000001">
+                </div>
               </div>
+
+              <div class="label col-6"> <label for="name">Name: </label> </div>
+              <div class="name col-6"> <input type="text" name="name" id="name" v-model="name"> </div>
+
+              <div class="label col-6"> <label for="type">Type: </label> </div>
+              <div class="type col-6">
+                <select name="type" id="type" v-model="type">
+                  <option value="S">Spot</option>
+                  <option value="G">Gym</option>
+                  <option value="P">Parkour Park</option>
+                  <option value="U">Undercover spot</option>
+                </select>
+              </div>
+
+              <div class="label col-6"> <label for="description">Description: </label> </div>
+              <div class="description col-6"> <textarea name="description" id="description" v-model="description"></textarea> </div>
+
+              <div class="images">
+                <input type="file" name="images" id="images" ref="images" @change="imageSelected" multiple>
+                <div class="imagesBtn">
+                  <button @click.prevent="this.$refs.images.click()"> <span class="material-icons">upload</span> <span> Upload images</span> </button>
+                </div>
+                <div class="allImages">
+                  <div class="imageSelected" v-for="(image, index) in images" :key="index">
+                    <div v-if="this.images" class="fileName"> <span class="material-icons">image</span> <span class="text"> {{ image.name }} </span> </div>
+                    <div v-else> No file selected </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
-        
+
           <button class="btn-success" type="submit">Add spot</button>
         </form>
 
@@ -193,13 +195,11 @@ export default {
                 })
                 imagesData.append('spotId', this.spotId)
 
-                console.log(imagesData)
                 axios
                 .post('api/addPics/', imagesData, { headers: {
                     "Content-Type": "multipart/form-data",
                 }})
                 .then(response => {
-                  console.log('images response')
                   console.log(response.data)
                 })
                 .catch(error => {
@@ -226,9 +226,7 @@ export default {
     },
 
     initMapModal() {
-      
-      console.log(this.lat)
-      console.log(this.lng)
+
       var location = {lat: parseInt(this.lat), lng: parseInt(this.lng)};
       const bounds = {
         north: 85,
@@ -351,10 +349,24 @@ export default {
 .addSpots h1, .addSpots button {
   margin: 1em;
 }
+.addSpots .LatLng label {
+  padding-inline: 0.5rem;
+}
 
-.addSpots label {
-  margin-left: 1em;
-  margin-right: 0.5em;
+.addSpots .label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.addSpots .name, .addSpots .type, .addSpots .description {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.addSpots .container-fluid input, .addSpots .container-fluid select {
+  margin: 0;
 }
 
 .addSpots input[type=number] {

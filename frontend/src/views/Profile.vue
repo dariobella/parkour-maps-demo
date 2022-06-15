@@ -154,9 +154,8 @@ export default {
         const userData = new FormData()
         userData.append('social', this.myUser.social)
         userData.append('bio', this.myUser.bio)
-        if (this.pictureChanged) {
-          userData.append('profile_picture', this.myUser.profile_picture)
-        }
+        if (typeof this.myUser.profile_picture === 'string') this.myUser.profile_picture = this.myUser.profile_picture.substring('/media/'.length)
+        userData.append('profile_picture', this.myUser.profile_picture)
 
         axios
         .put('api/updateProfile/' + this.myUser.id + '/', userData, { headers: {
