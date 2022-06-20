@@ -71,7 +71,11 @@ export default {
   name: 'Profile',
   computed: {
     profile_picture () {
-      return this.myUser.profile_picture ? 'http://127.0.0.1:8000' + this.myUser.profile_picture : '/src/assets/profile-placeholder.png'
+      if (!this.pictureChanged) {
+        return this.myUser.profile_picture ? 'http://127.0.0.1:8000' + this.myUser.profile_picture : '/src/assets/profile-placeholder.png'
+      } else {
+        return URL.createObjectURL(this.$refs.profile_picture.files[0]);
+      }
     },
     upload_icon () {
       return this.pictureChanged ? 'download_done' : 'file_upload'

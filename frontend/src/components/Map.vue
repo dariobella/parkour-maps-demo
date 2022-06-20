@@ -1,3 +1,16 @@
+<template>
+
+  <div class="maproot">
+    <SpotInfo v-for="spot in spots" :spot="spot" :spotSelected="spotSelected"></SpotInfo>
+    <div id="map" :class="mapClass"></div>
+    <button @click="$router.push('add-spots')" type="button" id="addBtn" v-if="$store.state.isAuthenticated && $router.currentRoute.value.name === 'Home'">
+      <span>+</span>
+    </button>
+  </div>
+
+</template>
+
+
 <script>
 
 import SpotInfo from "./SpotInfo.vue";
@@ -11,6 +24,12 @@ export default {
 
   props: {
     spots: Array,
+  },
+
+  computed: {
+    mapClass () {
+      return this.$router.currentRoute.value.name === 'Map' ? 'vh-89' : 'vh-94'
+    }
   },
 
   data() {
@@ -38,7 +57,7 @@ export default {
 
     initMap() {
       this.iconSize = new google.maps.Size(20, 30); // (width, height)
-      const lonato = {lat:45.4609, lng:10.4845};
+      const krk = {lat:50.0646501, lng:19.9449799};
       const bounds = {
         north: 85,
         south: -85,
@@ -47,8 +66,8 @@ export default {
       }
 
       var options = {
-        zoom: 12, 
-        center: lonato,
+        zoom: 12,
+        center: krk,
         restriction: {
           latLngBounds: bounds,
           strictBounds: false,
@@ -171,19 +190,6 @@ export default {
 </script>
 
 
-<template>
-
-  <div class="maproot">
-    <SpotInfo v-for="spot in spots" :spot="spot" :spotSelected="spotSelected"></SpotInfo>
-    <div id="map"></div>
-    <button @click="$router.push('add-spots')" type="button" id="addBtn" v-if="$store.state.isAuthenticated && $router.currentRoute.value.name === 'Home'">
-      <span>+</span>
-    </button>
-  </div>
-  
-</template>
-
-
 <style>
 
 .maproot {
@@ -194,8 +200,13 @@ export default {
   grid-area: 1 / 1;
 }
 
-#map {
-  height: 94vh;
+.vh-89 {
+  height: 89.4vh;
+  text-align: left;
+}
+
+.vh-94 {
+  height: 94.1vh;
   text-align: left;
 }
 

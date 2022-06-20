@@ -1,4 +1,4 @@
-import re
+import os
 from unicodedata import name
 from rest_framework import status
 from rest_framework.response import Response
@@ -54,6 +54,8 @@ def updateProfile(request, id):
     mu = MyUser.objects.get(pk=id)
     mu.social = request.data['social']
     mu.bio = request.data['bio']
+    if mu.profile_picture:
+        os.remove(mu.profile_picture.path)
     mu.profile_picture = request.data.get('profile_picture', None)
     mu.save()
     serializer = MyUserSerializerD0(mu, many=False)

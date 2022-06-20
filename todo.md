@@ -2,17 +2,14 @@
 
 ## Primary
 
+1. Get new spot coords directly from Home page
 2. Add spots (missing .kml)
-3. User profile with maps
-4. spot image
+3. New map
+5. Profile page for other users + link in "added by"
 
 ## Secondary
 
 1. Cool Django landing page 
-2. Better spot visualization
+2. Better spot visualization (carousel is dumb)
 3. toasts and alerts in forms
 4. Check google autocomplete for relevant results
-
-## Maybe
-
-1. API paths in Django landing page

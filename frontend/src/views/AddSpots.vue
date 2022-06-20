@@ -365,6 +365,11 @@ export default {
   justify-content: flex-start;
 }
 
+.addSpots .name input, .addSpots .description textarea {
+  width: 100%;
+  max-width: 300px;
+}
+
 .addSpots .container-fluid input, .addSpots .container-fluid select {
   margin: 0;
 }
