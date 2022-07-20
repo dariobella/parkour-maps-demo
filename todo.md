@@ -2,10 +2,11 @@
 
 ## Primary
 
+0. PINIA !
 1. Get new spot coords directly from Home page
 2. Add spots (missing .kml)
 3. New map
-5. Profile page for other users + link in "added by"
+4. Profile page for other users + link in "added by"
 
 ## Secondary
 

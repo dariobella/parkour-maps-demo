@@ -8,6 +8,7 @@ import Home from '../views/Home.vue'
 import Profile from '../views/Profile.vue'
 import AddSpots from '../views/AddSpots.vue'
 import MapView from '../views/MapView.vue';
+import MyProfile from "../views/MyProfile.vue";
 
 const routes = [
   {
@@ -26,9 +27,9 @@ const routes = [
     component: Login
   },
   {
-    path: '/profile',
-    name: 'Profile',
-    component: Profile,
+    path: '/my-profile',
+    name: 'MyProfile',
+    component: MyProfile,
     meta: {
       requireLogin: true
     }
@@ -45,6 +46,11 @@ const routes = [
     meta: {
       requireLogin: true
     }
+  },
+  {
+    path: '/profile/:id',
+    name: 'Profile',
+    component: Profile,
   },
 ]
 

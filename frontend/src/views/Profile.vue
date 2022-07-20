@@ -4,29 +4,16 @@
       <div class="username">
         {{ username }}
       </div>
-      <div class="btns">
-        <button @click="edit()" type="button" class="btn" :class="editBtnClass">{{ editBtn }}</button>
-        <button @click="logout()" type="button" class="btn btn-danger">Logout</button>
-      </div>
     </div>
 
     <div class="infoProfile container-fluid">
       <div class="row">
         <div class="piCol col-3 col-md-2">
           <img class="pictureProfile w-100" :src="this.profile_picture" alt="">
-          <input @change="profilePictureSelected" type="file" accept="image" ref="profile_picture" hidden>
-          <div v-if="editing" class="img-overlay">
-            <button class="upload-profile-picture" @click.prevent="this.$refs.profile_picture.click()">
-              <span class="material-icons">{{ upload_icon }}</span>
-            </button>
-          </div>
         </div>
         <div class="infoText col-9">
-          <input v-model="myUser.social" type="text" class="social" :class="text_editing" size="30" placeholder="Click edit to add your social handle" :disabled="!editing" >
-          <textarea v-model="myUser.bio" type="text" class="bio w-75" :class="text_editing" onkeypress="
-              this.style.height = 'auto';
-              this.style.height = (this.scrollHeight) + 'px';
-          " placeholder="Click edit to add your bio" :disabled="!editing"></textarea>
+          <input v-model="myUser.social" type="text" class="social" size="30" disabled >
+          <textarea v-model="myUser.bio" type="text" class="bio w-75" disabled></textarea>
         </div>
       </div>
     </div>
@@ -49,140 +36,69 @@
           </router-link>
 
         </div>
-        <div class="map col-6 col-sm-4 col-md-3 col-lg-2">
-          <button class="new-map-btn shadow-sm w-100 h-100">
-            <div class="card-img-top">
-              <span class="material-icons">add_circle</span>
-            </div>
-            <span class="card-body fw-bold">New Map</span>
-          </button>
+      </div>
+    </div>
+
+
+
+  </div>
+  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#alertModal" id="modalTrigger" ref="modalTrigger" hidden></button>
+    <div class="modal fade" id="alertModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header"></div>
+          <div class="modal-body">
+            <p>The user you are looking for doesn't exist</p>
+          </div>
+          <div class="modal-footer">
+            <router-link to="/"> <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</button> </router-link>
+          </div>
         </div>
       </div>
     </div>
-    
-
-    
-  </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
+
 export default {
-  name: 'Profile',
+  name: "Profile",
+
   computed: {
     profile_picture () {
-      if (!this.pictureChanged) {
         return this.myUser.profile_picture ? 'http://127.0.0.1:8000' + this.myUser.profile_picture : '/src/assets/profile-placeholder.png'
-      } else {
-        return URL.createObjectURL(this.$refs.profile_picture.files[0]);
-      }
     },
-    upload_icon () {
-      return this.pictureChanged ? 'download_done' : 'file_upload'
-    },
-    text_editing () {
-      return this.editing ? 'text-editing' : ''
-    },
-    editBtn () {
-      return this.editing ? 'Save' : 'Edit'
-    },
-    editBtnClass () {
-      return this.editing ? 'btn-success' : 'btn-secondary'
-    }
   },
+
   data () {
     return {
-      editing: false,
-      pictureChanged: false,
       username: '',
       userId: 0,
       myUser: {},
       maps: [],
     }
   },
+
   created () {
     axios
-    .get('/api/v1/users/me')
-    .then(response => {
-      this.username = response.data.username
-      this.userId = response.data.id
-    })
-    .then(() => {
-      this.loadMyUser()
-    })
+      .get('/api/profile/' + this.$route.params.id + '/')
+      .then(response => {
+        this.userId = response.data.id
+        this.myUser = response.data.myUser
+      })
     .catch(err => {
       console.log(err)
+      this.$refs.modalTrigger.click()
     })
   },
-  mounted () {
+
+  mounted() {
     document.title = this.$store.state.title + ' | Profile'
   },
-  methods: {
-    loadMyUser () {
-      axios
-      .get('/api/myProfile/' + this.userId)
-      .then(response => {
-        this.myUser = response.data
-        this.pictureChanged = false
-      })
-      .then(() => {
-        axios
-        .get('/api/myMaps/' + this.myUser.id)
-        .then(response => {
-          this.maps = response.data
-        })
-        .catch(err => {
-          console.log(err)
-        })
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    },
-    logout () {
-      axios.defaults.headers.common["Authorization"] = ""
 
-      localStorage.removeItem("token")
-      localStorage.removeItem("username")
-      localStorage.removeItem("userId")
-
-      this.$store.commit('removeToken')
-
-      this.$router.push('/')
-    },
-
-    edit () {
-      if (!this.editing) {
-        this.editing = true
-      } else {
-        const userData = new FormData()
-        userData.append('social', this.myUser.social)
-        userData.append('bio', this.myUser.bio)
-        if (typeof this.myUser.profile_picture === 'string') this.myUser.profile_picture = this.myUser.profile_picture.substring('/media/'.length)
-        userData.append('profile_picture', this.myUser.profile_picture)
-
-        axios
-        .put('api/updateProfile/' + this.myUser.id + '/', userData, { headers: {
-            "Content-Type": "multipart/form-data",
-        }})
-        .then(() => {
-          this.editing = false
-          this.loadMyUser()
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-      }
-    },
-
-    profilePictureSelected () {
-      this.pictureChanged = true;
-      if (this.$refs.profile_picture.files[0]) {
-       this.myUser.profile_picture = this.$refs.profile_picture.files[0]
-      }
-    }
-  }
 }
+
+
 </script>
 
 <style>
@@ -307,20 +223,9 @@ export default {
   justify-content: center;
 }
 
-.new-map-btn {
-  background-color: #bbb;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
-
-.new-map-btn:hover {
-  transform: none!important;
-}
-
-.new-map-btn .material-icons {
-  font-size: 4rem;
+#alertModal .modal-content {
+  background-color: #f8d7da;
+  color: #842029;
 }
 
 </style>

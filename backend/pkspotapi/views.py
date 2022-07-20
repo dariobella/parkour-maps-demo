@@ -42,6 +42,15 @@ def addUser(request):
 
 
 @api_view(['GET'])
+def profile(request, id):
+    u = User.objects.get(pk=id)
+    mu = MyUser.objects.get(user=u)
+
+    serializer = MyUserSerializerD1(mu, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
 def myProfile(request, id):
     u = User.objects.get(pk=id)
     mu = MyUser.objects.get(user=u)
@@ -49,13 +58,14 @@ def myProfile(request, id):
     serializer = MyUserSerializerD1(mu, many=False)
     return Response(serializer.data)
 
+
 @api_view(['PUT'])
 def updateProfile(request, id):
     mu = MyUser.objects.get(pk=id)
     mu.social = request.data['social']
     mu.bio = request.data['bio']
-    if mu.profile_picture:
-        os.remove(mu.profile_picture.path)
+    #if mu.profile_picture:
+        #os.remove(mu.profile_picture.path)
     mu.profile_picture = request.data.get('profile_picture', None)
     mu.save()
     serializer = MyUserSerializerD0(mu, many=False)

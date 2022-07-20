@@ -13,7 +13,7 @@
         <ul class="navbar-nav ms-auto">
           <template v-if="$store.state.isAuthenticated">
             <li class="nav-item">
-              <router-link class="nav-link" :class="{'active': $router.currentRoute.value.name === 'Profile'}" to="/profile">Profile</router-link>
+              <router-link class="nav-link" :class="{'active': $router.currentRoute.value.name === 'Profile'}" to="/my-profile">Profile</router-link>
             </li>
           </template>
           

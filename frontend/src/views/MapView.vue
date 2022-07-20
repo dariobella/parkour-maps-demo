@@ -14,7 +14,7 @@
             <p>The map you are looking for doesn't exist</p>
           </div>
           <div class="modal-footer">
-            <router-link to="/profile"> <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</button> </router-link>
+            <router-link to="/myProfile"> <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</button> </router-link>
           </div>
         </div>
       </div>
