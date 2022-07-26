@@ -1,13 +1,15 @@
 <template>
     <div class="Home">
-      <Map :spots="spots"/>
+      <Map />
     </div>
 </template>
 
 
 <script>
-import Map from '../components/Map.vue'
-import axios from "axios";
+import { mapState, mapStores } from 'pinia';
+import { useUserStore } from "@/stores/UserStore";
+import { useMapStore } from "@/stores/MapStore";
+import Map from '@/components/Map.vue'
 
 export default {
   name: 'Home',
@@ -16,33 +18,24 @@ export default {
     Map
   },
 
-  data () {
-    return {
-      spots: [],
-    }
+  computed: {
+    ...mapState(useUserStore, ['title']),
+    ...mapStores(useMapStore)
   },
 
-  created () {
-    axios
-      .get('/api/spots/',)
-      .then(response => {
-        console.log('API data retrieved')
-        this.spots = response.data
-      })
-    .catch(err => {
-        console.log(err)
-    })
+  beforeMount() {
+    this.mapStore.loadSpots()
   },
 
   mounted() {
-    document.title = this.$store.state.title
+    document.title = this.title
   },
 
 }
 </script>
 
 
-<style scoped>
+<style>
 
 .home {
   background-color: var(--my-black)!important;

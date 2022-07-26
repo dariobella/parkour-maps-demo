@@ -9,21 +9,28 @@
 
 <script>
 import axios from 'axios'
-import Navbar from './components/Navbar.vue'
+import { mapStores } from 'pinia';
+import { useUserStore } from "@/stores/UserStore";
+import Navbar from '@/components/Navbar.vue'
 
 export default {
   name: 'App',
   components: {
     Navbar
   },
-  beforeCreate() {
-    this.$store.commit('initializeStore')
-    const token = this.$store.state.token
+  computed: {
+    ...mapStores(useUserStore)
+  },
+  mounted() {
+    this.userStore.initializeStore()
+    const token = this.userStore.token
   
     if (token) {
       axios.defaults.headers.common['Authorization'] = "Token " + token
+      this.userStore.loadMyMe()
     } else {
       axios.defaults.headers.common['Authorization'] = ""
+      this.userStore.clearUser()
     }
   },
 }

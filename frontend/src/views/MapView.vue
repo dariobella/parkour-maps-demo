@@ -4,7 +4,7 @@
     <div class="currentMap">
       <div class="currentMapLabel">Current map: {{ name }} </div>
     </div>
-    <Map :spots="spots"/>
+    <Map />
     <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#alertModal" id="modalTrigger" ref="modalTrigger" hidden></button>
     <div class="modal fade" id="alertModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -25,8 +25,10 @@
 
 <script>
 
-import Map from '../components/Map.vue'
-import axios from "axios";
+import Map from '@/components/Map.vue'
+import { mapStores, mapState } from 'pinia';
+import { useMapStore } from "@/stores/MapStore";
+import { useUserStore } from "@/stores/UserStore";
 
 export default {
   name: 'MapView',
@@ -35,28 +37,18 @@ export default {
     Map
   },
 
-  data () {
-    return {
-      spots: [],
-      name: '',
-    }
+  computed: {
+    ...mapStores(useMapStore),
+    ...mapState(useMapStore, ['name']),
+    ...mapState(useUserStore, ['title'])
   },
 
   created () {
-    axios
-      .get('/api/map/' + this.$route.params.id + '/')
-      .then(response => {
-        this.name = response.data.name
-        this.spots = response.data.spots
-      })
-    .catch(err => {
-      console.log(err)
-      this.$refs.modalTrigger.click()
-    })
+    this.mapStore.loadMap(this.$route.params.id)
   },
 
   mounted() {
-    document.title = this.$store.state.title + ' | Map'
+    document.title = this.title + ' | Map'
   },
 
 }

@@ -11,7 +11,7 @@
       </button>
       <div class="collapse navbar-collapse order-md-3 order-4" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
-          <template v-if="$store.state.isAuthenticated">
+          <template v-if="isAuthenticated">
             <li class="nav-item">
               <router-link class="nav-link" :class="{'active': $router.currentRoute.value.name === 'Profile'}" to="/my-profile">Profile</router-link>
             </li>
@@ -33,14 +33,14 @@
 </template>
 
 <script>
+import { mapState } from 'pinia';
+import { useUserStore } from "@/stores/UserStore";
 
 export default {
   name: 'Navbar',
-  data() {
-    return {
-      title: this.$store.state.title
-    }
-  }
+  computed: {
+    ...mapState(useUserStore, ['title', 'isAuthenticated'])
+  },
 }
 
 </script>

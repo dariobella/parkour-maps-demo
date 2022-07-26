@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { spotPics } from "@/api";
 
 export default {
   name: 'SpotInfo',
@@ -67,10 +67,6 @@ export default {
     spotSelected: Number,
   },
 
-  computed: {
-
-  },
-
   data () {
     return {
       pics: []
@@ -78,16 +74,13 @@ export default {
   },
 
   mounted() {
-    console.log(this.spot)
-    axios
-        .get('/api/spotPics/' + this.spot.id + '/')
-        .then((response) => {
-          this.pics = response.data
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-
+    spotPics(this.spot.id)
+      .then((response) => {
+        this.pics = response.data
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   },
 }
 </script>

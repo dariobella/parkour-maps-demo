@@ -120,10 +120,17 @@
 
 <script>
 
-import axios from 'axios'
+import { mapState, mapStores } from 'pinia';
+import { useMapStore } from "@/stores/MapStore";
+import { useUserStore } from "@/stores/UserStore";
+import { addPics } from "@/api";
 
 export default {
   name: 'AddSpots',
+  computed: {
+    ...mapStores(useMapStore),
+    ...mapState(useUserStore, ['title', 'myUser'])
+  },
   data() {
     return {
       current: 1,
@@ -138,14 +145,12 @@ export default {
       images: [],
       spotId: 0,
       kmlFile : '',
-      userId: 0,
-      myUserId: 0,
       spotErrors: [],
       kmlErrors: [],
     }
   },
   mounted() {
-    document.title = this.$store.state.title + ' | Add Spots'
+    document.title = this.title + ' | Add Spots'
   },
   methods: {
     spotSubmitForm() {
@@ -158,32 +163,17 @@ export default {
 
       if (!this.spotErrors.length) {
 
-        axios
-        .get('/api/v1/users/me')
-        .then(response => {
-          this.userId = response.data.id
-        })
-        .then(() => {
-          axios
-          .get('/api/myProfile/' + this.userId)
-          .then(response => {
-            this.myUserId = response.data.id
-            console.log('myUserId: ' + this.myUserId)
-          })
-          .then(() => {
+        const formData = {
+          lat: this.lat,
+          lng: this.lng,
+          name: this.name,
+          type: this.type,
+          description: this.description,
+          adder: this.myUser.id
+        }
 
-            const formData = {
-              lat: this.lat,
-              lng: this.lng,
-              name: this.name,
-              type: this.type,
-              description: this.description,
-              adder: this.myUserId
-            }
-
-            axios
-            .post('/api/addSpot/', formData)
-            .then(response => {
+        this.mapStore.addSpot(formData)
+            .then((response) => {
               console.log(response)
               this.spotId = response.data.id
             })
@@ -195,33 +185,22 @@ export default {
                 })
                 imagesData.append('spotId', this.spotId)
 
-                axios
-                .post('api/addPics/', imagesData, { headers: {
-                    "Content-Type": "multipart/form-data",
-                }})
-                .then(response => {
-                  console.log(response.data)
-                })
-                .catch(error => {
-                  this.spotErrors.push('Something went wrong, please try again')
-                  console.log(JSON.stringify(error))
-                })
+                addPics(imagesData)
+                  .then(response => {
+                    console.log(response.data)
+                  })
+                  .catch(error => {
+                    this.spotErrors.push('Something went wrong, please try again')
+                    console.log(JSON.stringify(error))
+                  })
               }
             })
             .then(() => {
               this.$router.push('/')
             })
-            .catch(err => {
-              console.log(err)
+            .catch((error) => {
+                console.log(error)
             })
-          })
-          .catch(err => {
-            console.log(err)
-          })
-        })
-        .catch(err => {
-          console.log(err)
-        })
       }
     },
 
