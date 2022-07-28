@@ -2,7 +2,7 @@
   <div class="profile">
     <div class="topProfile container-fluid">
       <div class="username">
-        {{ username }}
+        {{ user.username }}
       </div>
       <div class="btns">
         <button @click="edit()" type="button" class="btn" :class="editBtnClass">{{ editBtn }}</button>
@@ -94,7 +94,7 @@ export default {
       return this.editing ? 'btn-success' : 'btn-secondary'
     },
     ...mapStores(useUserStore),
-    ...mapState(useUserStore, ['myUser', 'title'])
+    ...mapState(useUserStore, ['user', 'myUser', 'title'])
   },
 
   data () {
@@ -130,16 +130,14 @@ export default {
         this.editing = true
       } else {
         const userData = new FormData()
-        userData.append('id', this.myUser.id)
         userData.append('social', this.myUser.social)
         userData.append('bio', this.myUser.bio)
         if (typeof this.myUser.profile_picture === 'string') this.myUser.profile_picture = this.myUser.profile_picture.substring('/media/'.length)
         userData.append('profile_picture', this.myUser.profile_picture)
 
-        this.userStore.updateProfile(userData)
-          .then(() => {
-            this.editing = false
-          })
+        this.userStore.updateMyUser(userData, this.myUser.id)
+
+        this.editing = false
       }
     },
 

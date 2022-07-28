@@ -15,8 +15,8 @@ export function addMyUser(user) {
     return axios.post(`${API_URL}/addUser/`, user)
 }
 
-export function updateMyUser(user) {
-    return axios.post(`${API_URL}/updateProfile/${user.id}/`, user, { headers: {
+export function updateMyUser(user, id) {
+    return axios.put(`${API_URL}/updateProfile/${id}/`, user, { headers: {
             "Content-Type": "multipart/form-data",
         }})
 }

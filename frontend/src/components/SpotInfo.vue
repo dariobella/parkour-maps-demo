@@ -50,7 +50,7 @@
     </div>
 
     <div class="spotDesc">
-      <a :href="'https://www.google.com/maps/search/?api=1&query=' + spot.lat + ',' + spot.lng" target="_blank">Visualizza su Google Maps</a>
+      <a :href="'https://www.google.com/maps/search/?api=1&query=' + spot.lat + ',' + spot.lng" target="_blank">See in Google Maps</a>
     </div>
 
   </div>

@@ -1,6 +1,7 @@
 import {defineStore} from 'pinia'
 import axios from 'axios'
 import * as Api from '@/api'
+import {updateMyUser} from "../api";
 
 export const useUserStore = defineStore("user", {
 
@@ -102,9 +103,9 @@ export const useUserStore = defineStore("user", {
 
     },
 
-    updateProfile(user) {
-      return Api.updateProfile(user)
-        .then((response) => {
+    updateMyUser(user, id) {
+      return Api.updateMyUser(user, id)
+        .then(() => {
           this.loadMyMe()
         })
         .catch((error) => {
