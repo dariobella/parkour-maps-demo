@@ -50,15 +50,6 @@ def profile(request, id):
     return Response(serializer.data)
 
 
-@api_view(['GET'])
-def myProfile(request, id):
-    u = User.objects.get(pk=id)
-    mu = MyUser.objects.get(user=u)
-
-    serializer = MyUserSerializerD1(mu, many=False)
-    return Response(serializer.data)
-
-
 @api_view(['PUT'])
 def updateProfile(request, id):
     mu = MyUser.objects.get(pk=id)

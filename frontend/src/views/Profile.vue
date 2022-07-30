@@ -21,7 +21,7 @@
 
     <div class="maps container-fluid">
       <div class="row gy-4">
-        <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in maps">
+        <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in myUser.maps">
           <router-link :to="'/map/' + map.id">
             <div class="card mb-4 shadow-sm h-100">
               <div class="card-img-top">
@@ -59,7 +59,9 @@
 </template>
 
 <script>
-import axios from "axios";
+import { fetchMyUser } from "@/api";
+import { mapState } from 'pinia';
+import { useUserStore } from "@/stores/UserStore";
 
 export default {
   name: "Profile",
@@ -68,32 +70,32 @@ export default {
     profile_picture () {
         return this.myUser.profile_picture ? 'http://127.0.0.1:8000' + this.myUser.profile_picture : '/src/assets/profile-placeholder.png'
     },
+    ...mapState(useUserStore, ['title'])
   },
 
   data () {
     return {
       username: '',
-      userId: 0,
       myUser: {},
-      maps: [],
     }
   },
 
   created () {
-    axios
-      .get('/api/profile/' + this.$route.params.id + '/')
+
+    fetchMyUser(this.$route.params.id)
       .then(response => {
         this.userId = response.data.id
         this.myUser = response.data.myUser
       })
-    .catch(err => {
-      console.log(err)
-      this.$refs.modalTrigger.click()
-    })
+      .catch(err => {
+        console.log(err)
+        this.$refs.modalTrigger.click()
+      })
+
   },
 
   mounted() {
-    document.title = this.$store.state.title + ' | Profile'
+    document.title = this.title + ' | Profile'
   },
 
 }

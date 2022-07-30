@@ -1,14 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import store from '../store'
+import { useUserStore } from "@/stores/UserStore";
 
-import Login from '../views/Login.vue'
-import SignUp from '../views/SignUp.vue'
-import Home from '../views/Home.vue'
-import Profile from '../views/Profile.vue'
-import AddSpots from '../views/AddSpots.vue'
-import MapView from '../views/MapView.vue';
-import MyProfile from "../views/MyProfile.vue";
+import Login from '@/views/Login.vue'
+import SignUp from '@/views/SignUp.vue'
+import Home from '@/views/Home.vue'
+import Profile from '@/views/Profile.vue'
+import AddSpots from '@/views/AddSpots.vue'
+import MapView from '@/views/MapView.vue';
+import MyProfile from "@/views/MyProfile.vue";
+
 
 const routes = [
   {
@@ -60,7 +61,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requireLogin) && !store.state.isAuthenticated) {
+  const userStore = useUserStore()
+  if (to.matched.some(record => record.meta.requireLogin) && !userStore.isAuthenticated) {
     next({ name: 'Login', query: { to: to.path } });
   } else {
     next()

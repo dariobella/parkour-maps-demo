@@ -3,7 +3,7 @@
   <div class="maproot">
     <SpotInfo v-for="spot in spots" :spot="spot" :spotSelected="spotSelected"></SpotInfo>
     <div id="map" :class="mapClass"></div>
-    <button @click="$router.push('add-spots')" type="button" id="addBtn" v-if="$store.state.isAuthenticated && $router.currentRoute.value.name === 'Home'">
+    <button @click="$router.push('add-spots')" type="button" id="addBtn" v-if="isAuthenticated && $router.currentRoute.value.name === 'Home'">
       <span>+</span>
     </button>
   </div>
@@ -13,7 +13,10 @@
 
 <script>
 
-import SpotInfo from "./SpotInfo.vue";
+import SpotInfo from "@/components/SpotInfo.vue";
+import { mapState } from 'pinia';
+import { useMapStore } from "@/stores/MapStore";
+import { useUserStore } from "@/stores/UserStore";
 
 export default {
   name: Map,
@@ -22,14 +25,12 @@ export default {
     SpotInfo
   },
 
-  props: {
-    spots: Array,
-  },
-
   computed: {
     mapClass () {
       return this.$router.currentRoute.value.name === 'Map' ? 'vh-89' : 'vh-94'
-    }
+    },
+    ...mapState(useMapStore, ['spots']),
+    ...mapState(useUserStore, ['isAuthenticated'])
   },
 
   data() {
@@ -40,7 +41,6 @@ export default {
       searchWindow: {},
     }
   },
-
 
   mounted() {
     this.initMap()

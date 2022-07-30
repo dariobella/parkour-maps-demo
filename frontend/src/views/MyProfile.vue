@@ -2,7 +2,7 @@
   <div class="profile">
     <div class="topProfile container-fluid">
       <div class="username">
-        {{ username }}
+        {{ user.username }}
       </div>
       <div class="btns">
         <button @click="edit()" type="button" class="btn" :class="editBtnClass">{{ editBtn }}</button>
@@ -34,7 +34,7 @@
 
     <div class="maps container-fluid">
       <div class="row gy-4">
-        <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in maps">
+        <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in myUser.maps">
           <router-link :to="'/map/' + map.id">
             <div class="card mb-4 shadow-sm h-100">
               <div class="card-img-top">
@@ -67,8 +67,12 @@
 
 <script>
 import axios from 'axios'
+import { mapStores, mapState } from 'pinia';
+import { useUserStore } from "@/stores/UserStore";
+
 export default {
   name: 'Profile',
+
   computed: {
     profile_picture () {
       if (!this.pictureChanged) {
@@ -88,57 +92,27 @@ export default {
     },
     editBtnClass () {
       return this.editing ? 'btn-success' : 'btn-secondary'
-    }
+    },
+    ...mapStores(useUserStore),
+    ...mapState(useUserStore, ['user', 'myUser', 'title'])
   },
+
   data () {
     return {
       editing: false,
       pictureChanged: false,
-      username: '',
-      userId: 0,
-      myUser: {},
-      maps: [],
     }
   },
+
   created () {
-    axios
-    .get('/api/v1/users/me')
-    .then(response => {
-      this.username = response.data.username
-      this.userId = response.data.id
-    })
-    .then(() => {
-      this.loadMyUser()
-    })
-    .catch(err => {
-      console.log(err)
-    })
+    this.userStore.loadMyMe()
   },
+
   mounted () {
-    document.title = this.$store.state.title + ' | Profile'
+    document.title = this.title + ' | Profile'
   },
+
   methods: {
-    loadMyUser () {
-      axios
-      .get('/api/myProfile/' + this.userId)
-      .then(response => {
-        this.myUser = response.data
-        this.pictureChanged = false
-      })
-      .then(() => {
-        axios
-        .get('/api/myMaps/' + this.myUser.id)
-        .then(response => {
-          this.maps = response.data
-        })
-        .catch(err => {
-          console.log(err)
-        })
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    },
     logout () {
       axios.defaults.headers.common["Authorization"] = ""
 
@@ -146,9 +120,9 @@ export default {
       localStorage.removeItem("username")
       localStorage.removeItem("userId")
 
-      this.$store.commit('removeToken')
-
-      this.$router.push('/')
+      this.userStore.removeToken()
+      this.userStore.clearUser()
+      this.$router.push({name: 'Home'})
     },
 
     edit () {
@@ -161,17 +135,9 @@ export default {
         if (typeof this.myUser.profile_picture === 'string') this.myUser.profile_picture = this.myUser.profile_picture.substring('/media/'.length)
         userData.append('profile_picture', this.myUser.profile_picture)
 
-        axios
-        .put('api/updateProfile/' + this.myUser.id + '/', userData, { headers: {
-            "Content-Type": "multipart/form-data",
-        }})
-        .then(() => {
-          this.editing = false
-          this.loadMyUser()
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+        this.userStore.updateMyUser(userData, this.myUser.id)
+
+        this.editing = false
       }
     },
 
