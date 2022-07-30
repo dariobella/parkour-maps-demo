@@ -1,5 +1,6 @@
 import {defineStore} from 'pinia'
 import * as Api from '@/api'
+import {addPics} from "../api";
 
 export const useMapStore = defineStore("map", {
 
@@ -23,10 +24,23 @@ export const useMapStore = defineStore("map", {
         })
     },
 
-    addSpot(spot) {
-      return Api.addSpot(spot)
-        .then(() => {
-          this.loadSpots()
+    addSpot(formData) {
+      return Api.addSpot(formData[0])
+        .then((response) => {
+          console.log(response)
+          if (formData.length > 1) {
+            formData[1].append('spotId', response.data.id)
+            Api.addPics(formData[1])
+              .then((response) => {
+                console.log(response)
+                this.loadSpots()
+              })
+              .catch((error) => {
+                console.log(error)
+              })
+          } else {
+            this.loadSpots()
+          }
         })
         .catch((error) => {
           console.log(error)

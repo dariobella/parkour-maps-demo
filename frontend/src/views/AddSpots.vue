@@ -153,7 +153,7 @@ export default {
     document.title = this.title + ' | Add Spots'
   },
   methods: {
-    spotSubmitForm() {
+    async spotSubmitForm() {
       this.spotErrors = []
 
       if (this.lat === 0 && this.lng  === 0) {
@@ -163,7 +163,9 @@ export default {
 
       if (!this.spotErrors.length) {
 
-        const formData = {
+        const formData = []
+
+        const spotData = {
           lat: this.lat,
           lng: this.lng,
           name: this.name,
@@ -172,35 +174,20 @@ export default {
           adder: this.myUser.id
         }
 
-        this.mapStore.addSpot(formData)
-            .then((response) => {
-              console.log(response)
-              this.spotId = response.data.id
-            })
-            .then(() => {
-              if (this.images.length > 0) {
-                const imagesData = new FormData()
-                this.images.forEach(image => {
-                  imagesData.append('images', image, image.name)
-                })
-                imagesData.append('spotId', this.spotId)
+        formData.push(spotData)
 
-                addPics(imagesData)
-                  .then(response => {
-                    console.log(response.data)
-                  })
-                  .catch(error => {
-                    this.spotErrors.push('Something went wrong, please try again')
-                    console.log(JSON.stringify(error))
-                  })
-              }
-            })
-            .then(() => {
-              this.$router.push('/')
-            })
-            .catch((error) => {
-                console.log(error)
-            })
+        if (this.images.length > 0) {
+          const imagesData = new FormData()
+          this.images.forEach(image => {
+            imagesData.append('images', image, image.name)
+          })
+          formData.push(imagesData)
+        }
+
+        await this.mapStore.addSpot(formData)
+
+        this.$router.push({name: 'Home'})
+
       }
     },
 
