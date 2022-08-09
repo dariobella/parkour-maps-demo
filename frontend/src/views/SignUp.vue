@@ -43,7 +43,7 @@ export default {
     document.title = this.userStore.title + ' | Sign Up'
   },
   methods: {
-    submitForm() {
+    async submitForm() {
       this.errors = []
 
       if (this.username === '') this.errors.push('The username is missing')
@@ -57,7 +57,9 @@ export default {
           password: this.password,
         }
 
-        this.userStore.addMyUser(formData)
+        await this.userStore.addMyUser(formData)
+
+        this.$router.push({name: 'Login'})
 
       }
     }
