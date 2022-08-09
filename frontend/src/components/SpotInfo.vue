@@ -2,9 +2,14 @@
   <div class="spotInfo" v-if="spot.id === spotSelected">
     <div class="spotInfo-name">
       <h4 class="spotName"> {{ spot.name }} </h4>
-      <button id="closeInfoBtn" @click="spotSelected = 0">
-        <span class="material-icons">close</span>
-      </button>
+      <div class="controlBtns">
+        <button v-if="spot.adder.id === myUser.id" id="editSpotBtn">
+          <span class="material-icons">edit</span>
+        </button>
+        <button id="closeInfoBtn" @click="spotSelected = 0">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
     </div>
 
     <div class="spotInfo-top">
@@ -58,6 +63,8 @@
 
 <script>
 import { spotPics } from "@/api";
+import { mapState } from 'pinia';
+import { useUserStore } from "@/stores/UserStore";
 
 export default {
   name: 'SpotInfo',
@@ -65,6 +72,10 @@ export default {
   props: {
     spot: Object,
     spotSelected: Number,
+  },
+
+  computed: {
+    ...mapState(useUserStore, ['myUser'])
   },
 
   data () {
@@ -102,11 +113,11 @@ export default {
   margin-top: 20px;
 }
 
-#closeInfoBtn {
+#closeInfoBtn,  #editSpotBtn {
   color: var(--my-black);
-    background-color: #f8f8f8;
-    border: none;
-    padding: 0;
+  background-color: #f8f8f8;
+  border: none;
+  padding: 0 0 0 5px;
 }
 
 .spotInfo-top {

@@ -62,6 +62,7 @@ export const useUserStore = defineStore("user", {
           this.isAuthenticated = true
           localStorage.setItem("token", token)
           axios.defaults.headers.common['Authorization'] = "Token " + token
+          this.loadMyMe()
         })
         .catch(error => {
           console.log(error)
