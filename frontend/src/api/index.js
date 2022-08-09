@@ -8,7 +8,7 @@ let API_URL = 'http://127.0.0.1:8000/api'
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export function fetchMyUser(id_user) {
-    return axios.get(`${API_URL}/profile/${id_user}`)
+    return axios.get(`${API_URL}/user/${id_user}`)
 }
 
 export function addMyUser(user) {
@@ -16,7 +16,7 @@ export function addMyUser(user) {
 }
 
 export function updateMyUser(user, id) {
-    return axios.put(`${API_URL}/updateProfile/${id}/`, user, { headers: {
+    return axios.put(`${API_URL}/user/${id}/`, user, { headers: {
             "Content-Type": "multipart/form-data",
         }})
 }
@@ -32,7 +32,7 @@ export function fetchSpots() {
 }
 
 export function addSpot(spot) {
-    return axios.post(`${API_URL}/addSpot/`, spot)
+    return axios.post(`${API_URL}/spots/`, spot)
 }
 
 
