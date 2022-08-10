@@ -31,10 +31,10 @@
 
     <div id="picsCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
-        <button v-for="(pic, i) in pics" class="carousel-indicator" type="button" data-bs-target="#picsCarousel" :class="{ 'active': i === 0 }" aria-current="true"></button>
+        <button v-for="(pic, i) in pics" class="carousel-indicator" type="button" :data-bs-slide-to="i" data-bs-target="#picsCarousel" :class="{ active : i === 0 }" :aria-current="i === 0 ? 'true' : ''" :aria-label="'Slide ' + i"></button>
       </div>
       <div class="carousel-inner">
-        <div v-for="(pic, i) in pics" class="carousel-item" :class="{ 'active': i === 0 }">
+        <div v-for="(pic, i) in pics" class="carousel-item" :class="{ active: i === 0 }">
           <img :src="'http://127.0.0.1:8000' + pic.image" class="d-block w-100" alt="">
         </div>
       </div>
