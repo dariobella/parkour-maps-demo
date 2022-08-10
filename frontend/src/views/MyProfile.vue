@@ -23,10 +23,7 @@
         </div>
         <div class="infoText col-9">
           <input v-model="myUser.social" type="text" class="social" :class="text_editing" size="30" placeholder="Click edit to add your social handle" :disabled="!editing" >
-          <textarea v-model="myUser.bio" type="text" class="bio w-75" :class="text_editing" onkeypress="
-              this.style.height = 'auto';
-              this.style.height = (this.scrollHeight) + 'px';
-          " placeholder="Click edit to add your bio" :disabled="!editing"></textarea>
+          <textarea v-model="myUser.bio" type="text" class="bio w-75" :class="text_editing" placeholder="Click edit to add your bio" :disabled="!editing"></textarea>
         </div>
       </div>
     </div>

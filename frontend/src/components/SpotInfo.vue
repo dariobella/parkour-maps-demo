@@ -1,10 +1,10 @@
 <template>
   <div class="spotInfo" v-if="spot.id === spotSelected">
     <div class="spotInfo-name">
-      <h4 class="spotName"> {{ spot.name }} </h4>
+      <input v-model="spot.name" type="text" class="spotName" :class="editing ? 'text_editing' : 'text_disabled' " :size="spot.name.length" placeholder="Spot name" :disabled="!editing" >
       <div class="controlBtns">
-        <button v-if="spot.adder.id === myUser.id" id="editSpotBtn">
-          <span class="material-icons">edit</span>
+        <button v-if="spot.adder.id === myUser.id" id="editSpotBtn" @click="edit()">
+          <span class="material-icons" :class="{ save : editing }"> {{ editing ? 'save' : 'edit' }} </span>
         </button>
         <button id="closeInfoBtn" @click="spotSelected = 0">
           <span class="material-icons">close</span>
@@ -12,19 +12,33 @@
       </div>
     </div>
 
+
+
     <div class="spotInfo-top">
-      <div v-if="spot.type === 'S'" class="spotType" style="background-color: #E65100">
-        <p>Spot</p>
+
+      <div class="spotTypeIf">
+        <select v-if="editing" name="type" class="spotType" :class="spot.type" v-model="spot.type" >
+          <option value="S">Spot</option>
+          <option value="G">Gym</option>
+          <option value="P">Parkour Park</option>
+          <option value="U">Undercover spot</option>
+        </select>
+        <div v-else>
+          <div v-if="spot.type === 'S'" class="spotType" style="background-color: #E65100">
+            <p>Spot</p>
+          </div>
+          <div v-else-if="spot.type === 'U'" class="spotType" style="background-color: #4169E1FF">
+            <p>Undercover Spot</p>
+          </div>
+          <div v-else-if="spot.type === 'P'" class="spotType" style="background-color: #FF8C00FF">
+            <p>Parkour Park</p>
+          </div>
+          <div v-else-if="spot.type === 'G'" class="spotType" style="background-color: #800080FF">
+            <p>Gym</p>
+          </div>
+        </div>
       </div>
-      <div v-if="spot.type === 'U'" class="spotType" style="background-color: #4169E1FF">
-        <p>Undercover Spot</p>
-      </div>
-      <div v-if="spot.type === 'P'" class="spotType" style="background-color: #FF8C00FF">
-        <p>Parkour Park</p>
-      </div>
-      <div v-if="spot.type === 'G'" class="spotType" style="background-color: #800080FF">
-        <p>Gym</p>
-      </div>
+
 
       <div class="adder">Added by {{ spot.adder.user.username }}</div>
     </div>
@@ -51,10 +65,8 @@
     </div>
 
     <div class="spotDesc">
-      <p> {{spot.description}} </p>
-    </div>
-
-    <div class="spotDesc">
+      <textarea v-model="spot.description" ref="descTextArea" :style="descTextAreaStyle" type="text" class="w-100" :class="editing ? 'text_editing' : 'text_disabled' " placeholder="Spot description" :disabled="!editing"></textarea>
+      <br><br>
       <a :href="'https://www.google.com/maps/search/?api=1&query=' + spot.lat + ',' + spot.lng" target="_blank">See in Google Maps</a>
     </div>
 
@@ -75,12 +87,16 @@ export default {
   },
 
   computed: {
-    ...mapState(useUserStore, ['myUser'])
+    ...mapState(useUserStore, ['myUser']),
   },
 
   data () {
     return {
-      pics: []
+      pics: [],
+      editing: false,
+      descTextAreaStyle: {
+        height: this.$refs.descTextArea.scrollHeight.toString() + "px",
+      }
     }
   },
 
@@ -93,6 +109,16 @@ export default {
         console.log(error)
       })
   },
+
+  methods: {
+    edit () {
+      if (!this.editing) {
+        this.editing = true
+      } else {
+        this.editing = false
+      }
+    },
+  }
 }
 </script>
 
@@ -120,6 +146,20 @@ export default {
   padding: 0 0 0 5px;
 }
 
+#editSpotBtn .save {
+  color: #198754;
+}
+
+.spotName {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+input.text_disabled, textarea.text_disabled {
+  background-color: #f8f8f8;
+  resize: none;
+}
+
 .spotInfo-top {
   align-self: flex-start;
   display: flex;
@@ -135,9 +175,15 @@ export default {
   border-radius: 10px;
 }
 
+select.spotType {
+  background-color: #dcdcdc;
+  color: var(--my-black);
+}
+
 .spotDesc {
   padding: 10px;
   text-align: left;
+  white-space: break-spaces;
 }
 
 .carousel-inner > .carousel-item > img{
