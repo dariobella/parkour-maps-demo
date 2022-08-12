@@ -15,12 +15,12 @@ from .serializers import MapSerializer, SpotSerializerD0, SpotSerializerD2, MyUs
 
 
 class SpotList(APIView):
-    def get(self, request, format=None):
+    def get(self, request):
         spots = Spot.objects.all()
         serializer = SpotSerializerD2(spots, many=True)
         return Response(serializer.data)
 
-    def post(self, request, format=None):
+    def post(self, request):
         serializer = SpotSerializerD0(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -38,20 +38,20 @@ class SpotDetail(APIView):
         except Spot.DoesNotExist:
             raise Http404
 
-    def get(self, request, id, format=None):
+    def get(self, request, id):
         spot = self.get_object(id)
         serializer = SpotSerializerD2(spot)
         return Response(serializer.data)
 
-    def put(self, request, id, format=None):
+    def put(self, request, id):
         spot = self.get_object(id)
-        serializer = SpotSerializer(spot, data=request.data)
+        serializer = SpotSerializerD0(spot, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, id, format=None):
+    def delete(self, request, id):
         spot = self.get_object(id)
         spot.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -59,13 +59,13 @@ class SpotDetail(APIView):
 
 class UserDetail(APIView):
 
-    def get(self, request, id, format=None):
+    def get(self, request, id):
         mu = MyUser.objects.get(user=id)
 
         serializer = MyUserSerializerD1(mu, many=False)
         return Response(serializer.data)
 
-    def put(self, request, id, format=None):
+    def put(self, request, id):
         mu = MyUser.objects.get(pk=id)
         mu.social = request.data['social']
         mu.bio = request.data['bio']
@@ -74,10 +74,10 @@ class UserDetail(APIView):
             #os.remove(mu.profile_picture.path)
         mu.profile_picture = p
         mu.save()
-        serializer = MyUserSerializerD0(mu, many=False)
+        serializer = MyUserSerializerD0(mu, many=False, partial=True)
         return Response(serializer.data)
 
-    def delete(self, request, id, format=None):
+    def delete(self, request, id):
         u = User.objects.get(pk=id)
         u.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

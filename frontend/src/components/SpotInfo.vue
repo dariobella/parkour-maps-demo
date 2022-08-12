@@ -6,7 +6,7 @@
         <button v-if="spot.adder.id === myUser.id" id="editSpotBtn" @click="edit()">
           <span class="material-icons" :class="{ save : editing }"> {{ editing ? 'save' : 'edit' }} </span>
         </button>
-        <button id="closeInfoBtn" @click="spotSelected = 0">
+        <button id="closeInfoBtn" @click="closeSpotInfo()">
           <span class="material-icons">close</span>
         </button>
       </div>
@@ -65,8 +65,12 @@
     </div>
 
     <div class="spotDesc">
-      <textarea v-model="spot.description" ref="descTextArea" :style="descTextAreaStyle" type="text" class="w-100" :class="editing ? 'text_editing' : 'text_disabled' " placeholder="Spot description" :disabled="!editing"></textarea>
-      <br><br>
+      <textarea v-show="editing" v-model="spot.description"
+                @keydown="resizeDescTextArea"
+                style="overflow: hidden; resize: none"
+                ref="descTextArea" class="w-100" placeholder="Spot description">
+      </textarea>
+      <div v-show="!editing" ref="descText"> {{ spot.description }} </div>
       <a :href="'https://www.google.com/maps/search/?api=1&query=' + spot.lat + ',' + spot.lng" target="_blank">See in Google Maps</a>
     </div>
 
@@ -75,8 +79,9 @@
 
 <script>
 import { spotPics } from "@/api";
-import { mapState } from 'pinia';
+import {mapState, mapStores} from 'pinia';
 import { useUserStore } from "@/stores/UserStore";
+import {useMapStore} from "../stores/MapStore";
 
 export default {
   name: 'SpotInfo',
@@ -88,19 +93,19 @@ export default {
 
   computed: {
     ...mapState(useUserStore, ['myUser']),
+    ...mapStores(useMapStore)
   },
 
   data () {
     return {
       pics: [],
       editing: false,
-      descTextAreaStyle: {
-        height: this.$refs.descTextArea.scrollHeight.toString() + "px",
-      }
+      descTextHeight: 0
     }
   },
 
   mounted() {
+
     spotPics(this.spot.id)
       .then((response) => {
         this.pics = response.data
@@ -111,12 +116,31 @@ export default {
   },
 
   methods: {
-    edit () {
+    async edit () {
       if (!this.editing) {
+        if (this.spot.description) this.$refs.descTextArea.style.height = this.$refs.descText.scrollHeight + 10 + 'px'
         this.editing = true
       } else {
+        const spotData = new FormData()
+        spotData.append('name', this.spot.name)
+        spotData.append('type', this.spot.type)
+        spotData.append('description', this.spot.description)
+
+        //for (let e of spotData.entries()) console.log(e)
+
+        await this.mapStore.updateSpot(spotData, this.spot.id)
         this.editing = false
+        if (this.$router.currentRoute.value.name === 'Home') this.mapStore.loadSpots()
+        else if (this.$router.currentRoute.value.name === 'Map') this.mapStore.loadMap(this.$route.params.id)
       }
+    },
+    resizeDescTextArea () {
+      this.$refs.descTextArea.style.height = '1px'
+      this.$refs.descTextArea.style.height = this.$refs.descTextArea.scrollHeight + 'px'
+    },
+    closeSpotInfo() {
+      this.editing = false
+      this.$emit('closeSpotInfo')
     },
   }
 }
@@ -155,7 +179,7 @@ export default {
   font-weight: bold;
 }
 
-input.text_disabled, textarea.text_disabled {
+input.text_disabled {
   background-color: #f8f8f8;
   resize: none;
 }
@@ -184,6 +208,10 @@ select.spotType {
   padding: 10px;
   text-align: left;
   white-space: break-spaces;
+}
+
+.spotDesc textarea, .spotDesc div {
+  margin-bottom: 20px;
 }
 
 .carousel-inner > .carousel-item > img{

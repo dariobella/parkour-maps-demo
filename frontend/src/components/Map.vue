@@ -1,7 +1,7 @@
 <template>
 
   <div class="maproot">
-    <SpotInfo v-for="spot in spots" :spot="spot" :spotSelected="spotSelected"></SpotInfo>
+    <SpotInfo v-for="spot in spots" :spot="spot" :spotSelected="spotSelected" @closeSpotInfo="spotSelected = 0"></SpotInfo>
     <div id="map" :class="mapClass"></div>
     <button @click="$router.push('add-spots')" type="button" id="addBtn" v-if="isAuthenticated && $router.currentRoute.value.name === 'Home'">
       <span>+</span>

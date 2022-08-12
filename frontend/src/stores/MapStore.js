@@ -47,6 +47,16 @@ export const useMapStore = defineStore("map", {
         })
     },
 
+    updateSpot(spot, id) {
+      return Api.updateSpot(spot, id)
+        .then(() => {
+          //
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+
     loadSpots() {
       return Api.fetchSpots()
         .then((response) => {

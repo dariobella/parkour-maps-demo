@@ -35,6 +35,10 @@ export function addSpot(spot) {
     return axios.post(`${API_URL}/spots/`, spot)
 }
 
+export function updateSpot(spot, id) {
+    return axios.put(`${API_URL}/spots/${id}/`, spot)
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
