@@ -3,6 +3,9 @@
     <div class="spotInfo-name">
       <input v-model="spot.name" type="text" class="spotName" :class="editing ? 'text_editing' : 'text_disabled' " :size="spot.name.length" placeholder="Spot name" :disabled="!editing" >
       <div class="controlBtns">
+        <button v-if="editing" id="deleteSpotBtn" data-bs-toggle="modal" data-bs-target="#deleteSpotModal">
+          <span class="material-icons">delete</span>
+        </button>
         <button v-if="spot.adder.id === myUser.id" id="editSpotBtn" @click="edit()">
           <span class="material-icons" :class="{ save : editing }"> {{ editing ? 'save' : 'edit' }} </span>
         </button>
@@ -81,7 +84,7 @@
 import { spotPics } from "@/api";
 import {mapState, mapStores} from 'pinia';
 import { useUserStore } from "@/stores/UserStore";
-import {useMapStore} from "../stores/MapStore";
+import {useMapStore} from "@/stores/MapStore";
 
 export default {
   name: 'SpotInfo',
@@ -126,8 +129,6 @@ export default {
         spotData.append('type', this.spot.type)
         spotData.append('description', this.spot.description)
 
-        //for (let e of spotData.entries()) console.log(e)
-
         await this.mapStore.updateSpot(spotData, this.spot.id)
         this.editing = false
         if (this.$router.currentRoute.value.name === 'Home') this.mapStore.loadSpots()
@@ -163,11 +164,15 @@ export default {
   margin-top: 20px;
 }
 
-#closeInfoBtn,  #editSpotBtn {
+.controlBtns button {
   color: var(--my-black);
-  background-color: #f8f8f8;
+  background-color: transparent;
   border: none;
   padding: 0 0 0 5px;
+}
+
+#deleteSpotBtn {
+  color: #dc3545;
 }
 
 #editSpotBtn .save {

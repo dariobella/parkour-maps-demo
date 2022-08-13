@@ -6,6 +6,23 @@
     <button @click="$router.push('add-spots')" type="button" id="addBtn" v-if="isAuthenticated && $router.currentRoute.value.name === 'Home'">
       <span>+</span>
     </button>
+
+
+    <div class="modal fade" id="deleteSpotModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modalText">Are you sure you want to delete this spot?</div>
+            <div class="modalBtns">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="deleteSpot()">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
 </template>
@@ -14,7 +31,7 @@
 <script>
 
 import SpotInfo from "@/components/SpotInfo.vue";
-import { mapState } from 'pinia';
+import {mapState, mapStores} from 'pinia';
 import { useMapStore } from "@/stores/MapStore";
 import { useUserStore } from "@/stores/UserStore";
 
@@ -30,7 +47,8 @@ export default {
       return this.$router.currentRoute.value.name === 'Map' ? 'vh-89' : 'vh-94'
     },
     ...mapState(useMapStore, ['spots']),
-    ...mapState(useUserStore, ['isAuthenticated'])
+    ...mapState(useUserStore, ['isAuthenticated']),
+    ...mapStores(useMapStore),
   },
 
   data() {
@@ -182,6 +200,13 @@ export default {
         });
       }
     },
+
+    async deleteSpot() {
+      await this.mapStore.deleteSpot(this.spotSelected)
+      this.spotSelected = 0;
+      if (this.$router.currentRoute.value.name === 'Home') this.mapStore.loadSpots()
+      else if (this.$router.currentRoute.value.name === 'Map') this.mapStore.loadMap(this.$route.params.id)
+    },
   },
 
 }
@@ -256,6 +281,24 @@ export default {
 .spotInfo {
   z-index: 1;
   width: 30%;
+}
+
+.modal-body {
+  background-color: #f8f8f8;
+  border-radius: 10px;
+}
+
+.modalText {
+  padding: 20px;
+}
+
+.modalBtns {
+  display: flex;
+  justify-content: end;
+}
+
+.modalBtns .btn-danger {
+  margin-left: 10px;
 }
 
 </style>

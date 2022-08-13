@@ -57,6 +57,16 @@ export const useMapStore = defineStore("map", {
         })
     },
 
+    deleteSpot(id) {
+      return Api.deleteSpot(id)
+        .then(() => {
+          //
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+
     loadSpots() {
       return Api.fetchSpots()
         .then((response) => {

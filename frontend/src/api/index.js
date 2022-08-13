@@ -39,6 +39,10 @@ export function updateSpot(spot, id) {
     return axios.put(`${API_URL}/spots/${id}/`, spot)
 }
 
+export function deleteSpot(id) {
+    return axios.delete(`${API_URL}/spots/${id}/`)
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -53,6 +53,10 @@ const routes = [
     name: 'Profile',
     component: Profile,
   },
+  {
+    path: "/:catchAll(.*)",
+    redirect: '/',
+  }
 ]
 
 const router = createRouter({
