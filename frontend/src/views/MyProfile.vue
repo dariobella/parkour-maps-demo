@@ -5,7 +5,8 @@
         {{ user.username }}
       </div>
       <div class="btns">
-        <button @click="edit()" type="button" class="btn" :class="editBtnClass">{{ editBtn }}</button>
+        <button v-if="editing" @click="edit(0)" type="button" class="btn btn-secondary">Cancel</button>
+        <button @click="edit(1)" type="button" class="btn" :class="editBtnClass">{{ editBtn }}</button>
         <button @click="logout()" type="button" class="btn btn-danger">Logout</button>
       </div>
     </div>
@@ -122,18 +123,21 @@ export default {
       this.$router.push({name: 'Home'})
     },
 
-    edit () {
+    edit (save = 0) {
       if (!this.editing) {
         this.editing = true
       } else {
-        const userData = new FormData()
-        userData.append('social', this.myUser.social)
-        userData.append('bio', this.myUser.bio)
-        if (typeof this.myUser.profile_picture === 'string') this.myUser.profile_picture = this.myUser.profile_picture.substring('/media/'.length)
-        userData.append('profile_picture', this.myUser.profile_picture)
+        if (save) {
+          const userData = new FormData()
+          userData.append('social', this.myUser.social)
+          userData.append('bio', this.myUser.bio)
+          if (typeof this.myUser.profile_picture === 'string') this.myUser.profile_picture = this.myUser.profile_picture.substring('/media/'.length)
+          userData.append('profile_picture', this.myUser.profile_picture)
 
-        this.userStore.updateMyUser(userData, this.myUser.id)
-
+          this.userStore.updateMyUser(userData, this.myUser.id)
+        } else {
+          this.userStore.loadMyMe()
+        }
         this.editing = false
       }
     },

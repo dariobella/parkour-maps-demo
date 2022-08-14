@@ -67,6 +67,7 @@
         </div>
     </div>
 
+
     <div class="spotDesc">
       <textarea v-show="editing" v-model="spot.description"
                 @keydown="resizeDescTextArea"
@@ -140,8 +141,13 @@ export default {
       this.$refs.descTextArea.style.height = this.$refs.descTextArea.scrollHeight + 'px'
     },
     closeSpotInfo() {
+      if (this.editing) {
+        if (this.$router.currentRoute.value.name === 'Home') this.mapStore.loadSpots()
+        else if (this.$router.currentRoute.value.name === 'Map') this.mapStore.loadMap(this.$route.params.id)
+      } else {
+        this.$emit('closeSpotInfo')
+      }
       this.editing = false
-      this.$emit('closeSpotInfo')
     },
   }
 }
