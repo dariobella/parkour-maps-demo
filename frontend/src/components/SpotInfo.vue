@@ -46,15 +46,22 @@
       <div class="adder">Added by {{ spot.adder.user.username }}</div>
     </div>
 
-    <div id="picsCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button v-for="(pic, i) in pics" class="carousel-indicator" type="button" :data-bs-slide-to="i" data-bs-target="#picsCarousel" :class="{ active : i === 0 }" :aria-current="i === 0 ? 'true' : ''" :aria-label="'Slide ' + i"></button>
-      </div>
-      <div class="carousel-inner">
-        <div v-for="(pic, i) in pics" class="carousel-item" :class="{ active: i === 0 }">
-          <img :src="'http://127.0.0.1:8000' + pic.image" class="d-block w-100" alt="">
+    <div class="spotPicsContainer">
+      <div id="picsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button v-for="(pic, i) in pics"
+                  class="carousel-indicator" type="button"
+                  :data-bs-slide-to="i"
+                  data-bs-target="#picsCarousel"
+                  :class="{ active : i === 0 }"
+                  :aria-current="i === 0 ? 'true' : ''" :aria-label="'Slide ' + i">
+          </button>
         </div>
-      </div>
+        <div class="carousel-inner">
+          <div v-for="(pic, i) in pics" class="carousel-item" :class="{ active: i === 0 }">
+            <img :src="'http://127.0.0.1:8000' + pic.image" class="d-block w-100" alt="">
+          </div>
+        </div>
         <div class="carouselControls" v-if="pics.length > 1">
           <button class="carousel-control-prev" type="button" data-bs-target="#picsCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -65,6 +72,15 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+      </div>
+      <div v-if="editing && pics.length > 0" class="img-overlay">
+        <button class="manageSpotPics" @click="editPics">
+          Manage Images
+        </button>
+      </div>
+      <button v-else-if="editing" class="addSpotPics" @click="editPics">
+        Add Images
+      </button>
     </div>
 
 
@@ -75,7 +91,7 @@
                 ref="descTextArea" class="w-100" placeholder="Spot description">
       </textarea>
       <div v-show="!editing" ref="descText"> {{ spot.description }} </div>
-      <a :href="'https://www.google.com/maps/search/?api=1&query=' + spot.lat + ',' + spot.lng" target="_blank">See in Google Maps</a>
+      <a :href="'https://www.google.com/maps/search/?api=1&query=' + spot.lat + ',' + spot.lng" target="_blank">Open in Google Maps</a>
     </div>
 
   </div>
@@ -93,6 +109,8 @@ export default {
   props: {
     spot: Object,
     spotSelected: Number,
+    addPics: Array,
+    deletePics: Array,
   },
 
   computed: {
@@ -144,11 +162,15 @@ export default {
       if (this.editing) {
         if (this.$router.currentRoute.value.name === 'Home') this.mapStore.loadSpots()
         else if (this.$router.currentRoute.value.name === 'Map') this.mapStore.loadMap(this.$route.params.id)
+        this.$emit('discardEdit')
       } else {
         this.$emit('closeSpotInfo')
       }
       this.editing = false
     },
+    editPics() {
+      this.$emit('editSpotPics', this.spot.name, this.pics)
+    }
   }
 }
 </script>
@@ -229,6 +251,46 @@ select.spotType {
   min-height : 300px;
   max-height : 300px;
   width : 100%;
+}
+
+.spotPicsContainer {
+  position: relative;
+  display: flex;
+}
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.img-overlay:before {
+    content: '';
+    display: block;
+    height: 50%;
+}
+.manageSpotPics {
+  border: none;
+  padding: 0.375rem 0.75rem;
+  font-size: 1.1rem;
+  border-radius: 0.25rem;
+  display: flex;
+  --webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: var(--my-black);
+  margin-left: 50%;
+}
+.manageSpotPics:hover {
+  --webkit-transform: scale(1.2) translate(-40%, -40%);
+  transform: scale(1.2) translate(-40%, -40%);
+}
+.addSpotPics {
+  margin-left: 10px;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  font-size: 1.1rem;
+  border-radius: 0.25rem;
+  background-color: var(--my-black);
 }
 
 </style>

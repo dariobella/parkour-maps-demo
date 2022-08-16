@@ -1,9 +1,20 @@
 <template>
 
   <div class="maproot">
-    <SpotInfo v-for="spot in spots" :spot="spot" :spotSelected="spotSelected" @closeSpotInfo="spotSelected = 0"></SpotInfo>
+    <SpotInfo v-for="spot in spots"
+              :spot="spot"
+              :addPics="addPics"
+              :deletePics="deletePics"
+              :spotSelected="spotSelected"
+              @closeSpotInfo="spotSelected = 0"
+              @editSpotPics="editSpotPics"
+              @discardEdit="discardEdit">
+    </SpotInfo>
     <div id="map" :class="mapClass"></div>
-    <button @click="$router.push('add-spots')" type="button" id="addBtn" v-if="isAuthenticated && $router.currentRoute.value.name === 'Home'">
+    <button @click="$router.push('add-spots')"
+            v-if="isAuthenticated && $router.currentRoute.value.name === 'Home'"
+            type="button" id="addBtn"
+    >
       <span>+</span>
     </button>
 
@@ -22,6 +33,41 @@
       </div>
     </div>
 
+    <div class="modal fade" id="editPicsModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="editPicsTop">
+              <h3>Manage {{ editSpot }} images</h3>
+              <button>
+                <span class="material-icons" data-bs-dismiss="modal">close</span>
+              </button>
+            </div>
+              <div class="divBtn">
+                <button class="btn btn-dark" @click="$refs.addPics.click()">Add Images</button>
+                <input type="file" name="addPics" id="addPics" ref="addPics" @change="addPicsChanged" multiple>
+              </div>
+
+            <div class="imageList">
+              <div v-for="pic in spotPics" class="image">
+                <div v-if="!deletePics.includes(pic.id)">
+                  <img :src="'http://127.0.0.1:8000' + pic.image" alt="">
+                </div>
+                <button v-if="!deletePics.includes(pic.id)" @click="deleteSpotPic(pic.id)"> <span class="material-icons">delete</span> </button>
+              </div>
+              <div v-for="(pic, i) in addPics" :key="i" class="image">
+                <div>
+                  <img :src="addPicUrl(i)" alt="">
+                </div>
+                <button @click="deleteAddPic(i)"> <span class="material-icons">delete</span> </button>
+              </div>
+            </div>
+            <div class="divBtn submit"><button class="btn btn-success" data-bs-dismiss="modal">Submit</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
   </div>
 
@@ -30,8 +76,10 @@
 
 <script>
 
-import SpotInfo from "@/components/SpotInfo.vue";
+import { Modal } from 'bootstrap'
 import {mapState, mapStores} from 'pinia';
+
+import SpotInfo from "@/components/SpotInfo.vue";
 import { useMapStore } from "@/stores/MapStore";
 import { useUserStore } from "@/stores/UserStore";
 
@@ -57,6 +105,10 @@ export default {
       map: {},
       iconSize: {},
       searchWindow: {},
+      editSpot: '',
+      spotPics: [],
+      deletePics: [],
+      addPics: [],
     }
   },
 
@@ -207,6 +259,39 @@ export default {
       if (this.$router.currentRoute.value.name === 'Home') this.mapStore.loadSpots()
       else if (this.$router.currentRoute.value.name === 'Map') this.mapStore.loadMap(this.$route.params.id)
     },
+
+
+    editSpotPics(spot, pics) {
+      this.spotPics = pics
+      this.editSpot = spot
+      const modal = new Modal('#editPicsModal')
+      modal.toggle()
+    },
+
+    addPicsChanged() {
+      for (let i = 0; i < this.$refs.addPics.files.length; i++) {
+        this.addPics.push(this.$refs.addPics.files[i])
+      }
+    },
+
+    addPicUrl(i) {
+      return URL.createObjectURL(this.addPics[i])
+    },
+
+    deleteSpotPic(id) {
+      this.deletePics.push(id)
+    },
+
+    deleteAddPic(i) {
+      this.addPics.splice(i, 1)
+    },
+
+    discardEdit() {
+      this.editSpot = ''
+      this.spotPics = []
+      this.deletePics = []
+      this.addPics = []
+    },
   },
 
 }
@@ -299,6 +384,53 @@ export default {
 
 .modalBtns .btn-danger {
   margin-left: 10px;
+}
+
+#editPicsModal .modal-body {
+  display: flex;
+  flex-direction: column;
+}
+.editPicsTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.editPicsTop button, .imageList button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+#editPicsModal button span {
+  color: var(--my-black);
+  padding: 5px;
+}
+.divBtn {
+  display: flex;
+  margin: 10px 0;
+}
+.divBtn.submit {
+  margin: 10px 0 0;
+  justify-content: flex-end;
+}
+.image {
+  display: flex;
+  align-items: center;
+}
+#editPicsModal .image button span {
+  color: red;
+  font-size: 2rem;
+  padding: 5px;
+}
+.image div {
+  flex-grow: 1;
+  padding: 10px 0;
+}
+.image div img {
+  width: 100%;
+  height: auto;
+}
+#addPics {
+  display: none;
 }
 
 </style>

@@ -123,7 +123,7 @@ export default {
       this.$router.push({name: 'Home'})
     },
 
-    edit (save = 0) {
+    async edit (save = 0) {
       if (!this.editing) {
         this.editing = true
       } else {
@@ -134,10 +134,12 @@ export default {
           if (typeof this.myUser.profile_picture === 'string') this.myUser.profile_picture = this.myUser.profile_picture.substring('/media/'.length)
           userData.append('profile_picture', this.myUser.profile_picture)
 
-          this.userStore.updateMyUser(userData, this.myUser.id)
-        } else {
-          this.userStore.loadMyMe()
+          await this.userStore.updateMyUser(userData, this.myUser.id)
         }
+
+        this.userStore.loadMyMe()
+        this.$refs.profile_picture.value = null
+        this.pictureChanged = false
         this.editing = false
       }
     },
@@ -152,7 +154,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 @media (min-width: 992px) {
   .upload-profile-picture span {
