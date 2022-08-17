@@ -171,7 +171,6 @@ export default {
     },
 
     loadPics() {
-      console.log('loading pics spot ' + this.spot.id)
       spotPics(this.spot.id)
       .then((response) => {
         this.pics = response.data

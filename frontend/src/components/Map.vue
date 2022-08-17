@@ -301,7 +301,6 @@ export default {
           editData.append('deletePics', id)
         })
       }
-      console.log(editData.getAll('deletePics'))
 
       if (this.addPics.length > 0) {
         this.addPics.forEach(image => {
