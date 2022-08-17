@@ -5,7 +5,8 @@
         {{ user.username }}
       </div>
       <div class="btns">
-        <button @click="edit()" type="button" class="btn" :class="editBtnClass">{{ editBtn }}</button>
+        <button v-if="editing" @click="edit(0)" type="button" class="btn btn-secondary">Cancel</button>
+        <button @click="edit(1)" type="button" class="btn" :class="editBtnClass">{{ editBtn }}</button>
         <button @click="logout()" type="button" class="btn btn-danger">Logout</button>
       </div>
     </div>
@@ -23,10 +24,7 @@
         </div>
         <div class="infoText col-9">
           <input v-model="myUser.social" type="text" class="social" :class="text_editing" size="30" placeholder="Click edit to add your social handle" :disabled="!editing" >
-          <textarea v-model="myUser.bio" type="text" class="bio w-75" :class="text_editing" onkeypress="
-              this.style.height = 'auto';
-              this.style.height = (this.scrollHeight) + 'px';
-          " placeholder="Click edit to add your bio" :disabled="!editing"></textarea>
+          <textarea v-model="myUser.bio" type="text" class="bio w-75" :class="text_editing" placeholder="Click edit to add your bio" :disabled="!editing"></textarea>
         </div>
       </div>
     </div>
@@ -125,18 +123,23 @@ export default {
       this.$router.push({name: 'Home'})
     },
 
-    edit () {
+    async edit (save = 0) {
       if (!this.editing) {
         this.editing = true
       } else {
-        const userData = new FormData()
-        userData.append('social', this.myUser.social)
-        userData.append('bio', this.myUser.bio)
-        if (typeof this.myUser.profile_picture === 'string') this.myUser.profile_picture = this.myUser.profile_picture.substring('/media/'.length)
-        userData.append('profile_picture', this.myUser.profile_picture)
+        if (save) {
+          const userData = new FormData()
+          userData.append('social', this.myUser.social)
+          userData.append('bio', this.myUser.bio)
+          if (typeof this.myUser.profile_picture === 'string') this.myUser.profile_picture = this.myUser.profile_picture.substring('/media/'.length)
+          userData.append('profile_picture', this.myUser.profile_picture)
 
-        this.userStore.updateMyUser(userData, this.myUser.id)
+          await this.userStore.updateMyUser(userData, this.myUser.id)
+        }
 
+        this.userStore.loadMyMe()
+        this.$refs.profile_picture.value = null
+        this.pictureChanged = false
         this.editing = false
       }
     },
@@ -151,7 +154,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 @media (min-width: 992px) {
   .upload-profile-picture span {

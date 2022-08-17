@@ -35,6 +35,14 @@ export function addSpot(spot) {
     return axios.post(`${API_URL}/spots/`, spot)
 }
 
+export function updateSpot(spot, id) {
+    return axios.put(`${API_URL}/spots/${id}/`, spot)
+}
+
+export function deleteSpot(id) {
+    return axios.delete(`${API_URL}/spots/${id}/`)
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,6 +59,11 @@ export function spotPics(id) {
     return axios.get(`${API_URL}/spotPics/${id}/`)
 }
 
+export function updateSpotPics(id, data) {
+    return axios.post(`${API_URL}/updateSpotPics/${id}/`, data,{ headers: {
+            "Content-Type": "multipart/form-data",
+        }})
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
