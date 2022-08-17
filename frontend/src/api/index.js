@@ -59,6 +59,11 @@ export function spotPics(id) {
     return axios.get(`${API_URL}/spotPics/${id}/`)
 }
 
+export function updateSpotPics(id, data) {
+    return axios.post(`${API_URL}/updateSpotPics/${id}/`, data,{ headers: {
+            "Content-Type": "multipart/form-data",
+        }})
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

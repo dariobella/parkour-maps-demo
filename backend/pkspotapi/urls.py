@@ -9,6 +9,7 @@ urlpatterns = [
     path('api/spots/<int:id>/', views.SpotDetail.as_view(), name="spotDetail"),
     path('api/spotPics/<int:id>/', views.spotPics, name="spotPics"),
     path('api/addPics/', views.addPics, name="addPics"),
+    path('api/updateSpotPics/<int:id>/', views.updateSpotPics, name="updateSpotPics"),
     path('api/addUser/', views.addUser, name="addUser"),
     path('api/user/<int:id>/', views.UserDetail.as_view(), name="userDetail"),
     path('api/myMaps/<int:id>/', views.myMaps, name="myMaps"),

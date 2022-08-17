@@ -109,8 +109,6 @@ export default {
   props: {
     spot: Object,
     spotSelected: Number,
-    addPics: Array,
-    deletePics: Array,
   },
 
   computed: {
@@ -126,15 +124,12 @@ export default {
     }
   },
 
-  mounted() {
-
-    spotPics(this.spot.id)
-      .then((response) => {
-        this.pics = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+  watch: {
+    spotSelected: function(v) {
+      if (v === this.spot.id) {
+        this.loadPics()
+      }
+    }
   },
 
   methods: {
@@ -154,10 +149,12 @@ export default {
         else if (this.$router.currentRoute.value.name === 'Map') this.mapStore.loadMap(this.$route.params.id)
       }
     },
+
     resizeDescTextArea () {
       this.$refs.descTextArea.style.height = '1px'
       this.$refs.descTextArea.style.height = this.$refs.descTextArea.scrollHeight + 'px'
     },
+
     closeSpotInfo() {
       if (this.editing) {
         if (this.$router.currentRoute.value.name === 'Home') this.mapStore.loadSpots()
@@ -168,8 +165,20 @@ export default {
       }
       this.editing = false
     },
+
     editPics() {
-      this.$emit('editSpotPics', this.spot.name, this.pics)
+      this.$emit('editSpotPics', this.spot.id, this.spot.name, this.pics)
+    },
+
+    loadPics() {
+      console.log('loading pics spot ' + this.spot.id)
+      spotPics(this.spot.id)
+      .then((response) => {
+        this.pics = response.data
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     }
   }
 }

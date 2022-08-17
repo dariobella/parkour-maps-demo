@@ -3,12 +3,11 @@
   <div class="maproot">
     <SpotInfo v-for="spot in spots"
               :spot="spot"
-              :addPics="addPics"
-              :deletePics="deletePics"
               :spotSelected="spotSelected"
               @closeSpotInfo="spotSelected = 0"
               @editSpotPics="editSpotPics"
-              @discardEdit="discardEdit">
+              @discardEdit="discardEdit"
+              ref="SpotInfo">
     </SpotInfo>
     <div id="map" :class="mapClass"></div>
     <button @click="$router.push('add-spots')"
@@ -62,7 +61,7 @@
                 <button @click="deleteAddPic(i)"> <span class="material-icons">delete</span> </button>
               </div>
             </div>
-            <div class="divBtn submit"><button class="btn btn-success" data-bs-dismiss="modal">Submit</button></div>
+            <div class="divBtn submit"><button @click.prevent="submitEdit" class="btn btn-success" data-bs-dismiss="modal">Submit</button></div>
           </div>
         </div>
       </div>
@@ -105,6 +104,7 @@ export default {
       map: {},
       iconSize: {},
       searchWindow: {},
+      editSpotId: 0,
       editSpot: '',
       spotPics: [],
       deletePics: [],
@@ -261,9 +261,10 @@ export default {
     },
 
 
-    editSpotPics(spot, pics) {
-      this.spotPics = pics
+    editSpotPics(id, spot, pics) {
+      this.editSpotId = id
       this.editSpot = spot
+      this.spotPics = pics
       const modal = new Modal('#editPicsModal')
       modal.toggle()
     },
@@ -291,6 +292,40 @@ export default {
       this.spotPics = []
       this.deletePics = []
       this.addPics = []
+    },
+
+    async submitEdit() {
+      const editData = new FormData()
+      if (this.deletePics.length > 0) {
+        this.deletePics.forEach(id => {
+          editData.append('deletePics', id)
+        })
+      }
+      console.log(editData.getAll('deletePics'))
+
+      if (this.addPics.length > 0) {
+        this.addPics.forEach(image => {
+          editData.append('addPics', image, image.name)
+        })
+      }
+
+      let e = 0
+      for (const v of editData.entries()) {
+        e++
+      }
+
+      if (e > 0) {
+        await this.mapStore.updateSpotPics(this.editSpotId, editData)
+
+        this.deletePics = []
+        this.addPics = []
+        this.$refs.SpotInfo.forEach((s) => {
+          if (s.editing) {
+            s.loadPics()
+          }
+        })
+
+      }
     },
   },
 
