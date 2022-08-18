@@ -315,6 +315,11 @@ export default {
 .addSpots h1, .addSpots button {
   margin: 1em;
 }
+
+.addSpots .imagesBtn button {
+  margin: 10px 1em;
+}
+
 .addSpots .LatLng label {
   padding-inline: 0.5rem;
 }
@@ -396,7 +401,7 @@ export default {
 
 .addSpots .images .allImages {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .addSpots .file .selectedFile div {

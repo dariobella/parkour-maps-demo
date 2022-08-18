@@ -1,7 +1,12 @@
 <template>
   <div class="spotInfo" v-if="spot.id === spotSelected">
     <div class="spotInfo-name">
-      <input v-model="spot.name" type="text" class="spotName" :class="editing ? 'text_editing' : 'text_disabled' " :size="spot.name.length" placeholder="Spot name" :disabled="!editing" >
+      <div class="nameInput">
+        <input v-model="spot.name" type="text" class="spotName" :class="editing ? 'text_editing' : 'text_disabled' " :size="spot.name.length" placeholder="Spot name" :disabled="!editing" >
+        <button v-if="this.userStore.isAuthenticated" @click="toggleFavourite">
+          <span class="material-icons">{{ favourite }}</span>
+        </button>
+      </div>
       <div class="controlBtns">
         <button v-if="editing" id="deleteSpotBtn" data-bs-toggle="modal" data-bs-target="#deleteSpotModal">
           <span class="material-icons">delete</span>
@@ -112,8 +117,12 @@ export default {
   },
 
   computed: {
+    favourite () {
+      return this.myUser.maps[1].spots.includes(this.spot.id) ? 'star' : 'star_border'
+    },
     ...mapState(useUserStore, ['myUser']),
-    ...mapStores(useMapStore)
+    ...mapStores(useUserStore),
+    ...mapStores(useMapStore),
   },
 
   data () {
@@ -178,6 +187,10 @@ export default {
       .catch((error) => {
         console.log(error)
       })
+    },
+
+    toggleFavourite() {
+      this.userStore.toggleFavourite(this.spot.id)
     }
   }
 }
@@ -198,6 +211,24 @@ export default {
   justify-content: space-between;
   padding-inline: 10px;
   margin-top: 20px;
+}
+
+.spotInfo-name .nameInput {
+  display: flex;
+  align-items: center;
+}
+
+.spotInfo-name .nameInput button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: var(--bs-yellow);
+  padding: 0;
+}
+
+.spotInfo-name .nameInput button span {
+  font-size: 2.2rem;
 }
 
 .controlBtns button {

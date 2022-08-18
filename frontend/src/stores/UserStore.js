@@ -117,7 +117,19 @@ export const useUserStore = defineStore("user", {
     clearUser() {
       this.user = {}
       this.myUser = {}
-    }
-  }
+    },
+
+    toggleFavourite(spot) {
+      const user = new FormData()
+      user.append('user', this.myUser.id)
+      return Api.toggleFavourite(spot, user)
+        .then(() => {
+          this.loadMyMe()
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+  },
 
 })

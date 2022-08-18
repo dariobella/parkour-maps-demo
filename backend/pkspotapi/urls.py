@@ -7,6 +7,7 @@ urlpatterns = [
 
     path('api/spots/', views.SpotList.as_view(), name="spotList"),
     path('api/spots/<int:id>/', views.SpotDetail.as_view(), name="spotDetail"),
+    path('api/toggleFavourite/<int:id>/', views.toggleFavourite, name="toggleFavourite"),
     path('api/spotPics/<int:id>/', views.spotPics, name="spotPics"),
     path('api/addPics/', views.addPics, name="addPics"),
     path('api/updateSpotPics/<int:id>/', views.updateSpotPics, name="updateSpotPics"),

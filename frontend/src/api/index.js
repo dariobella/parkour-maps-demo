@@ -7,8 +7,8 @@ let API_URL = 'http://127.0.0.1:8000/api'
 //  U S E R S
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export function fetchMyUser(id_user) {
-    return axios.get(`${API_URL}/user/${id_user}`)
+export function fetchMyUser(id) {
+    return axios.get(`${API_URL}/user/${id}`)
 }
 
 export function addMyUser(user) {
@@ -43,6 +43,9 @@ export function deleteSpot(id) {
     return axios.delete(`${API_URL}/spots/${id}/`)
 }
 
+export function toggleFavourite(spot, user) {
+    return axios.post(`${API_URL}/toggleFavourite/${spot}/`, user)
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

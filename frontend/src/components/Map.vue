@@ -289,7 +289,6 @@ export default {
 
     discardEdit() {
       this.editSpot = ''
-      this.spotPics = []
       this.deletePics = []
       this.addPics = []
     },

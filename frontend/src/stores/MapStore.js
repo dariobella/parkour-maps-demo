@@ -70,7 +70,7 @@ export const useMapStore = defineStore("map", {
     deleteSpot(id) {
       return Api.deleteSpot(id)
         .then(() => {
-          //
+          this.loadSpots()
         })
         .catch((error) => {
           console.log(error)
