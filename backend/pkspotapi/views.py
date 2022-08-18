@@ -12,7 +12,7 @@ from django.contrib.auth.models import User
 
 from pkspotapp.models import Spot, MyUser, Map, UserMap, Pic
 from .serializers import MapSerializer, SpotSerializerD0, SpotSerializerD2, MyUserSerializerD0, MyUserSerializerD1, \
-  PicSerializer
+                         PicSerializer
 
 
 class SpotList(APIView):
@@ -82,6 +82,20 @@ class UserDetail(APIView):
     u = User.objects.get(pk=id)
     u.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+@api_view(['POST'])
+def toggleFavourite(request, id):
+  s = Spot.objects.get(pk=id)
+  f = Map.objects.get(myuser=request.data.get('user'), name='Favourites', usermap__role='C')
+
+  if f.spots.filter(pk=id).exists():
+    f.spots.remove(s)
+  else:
+    f.spots.add(s)
+
+  return Response(status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
