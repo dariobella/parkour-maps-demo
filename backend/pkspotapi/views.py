@@ -11,7 +11,7 @@ from django.http import Http404
 from django.contrib.auth.models import User
 
 from pkspotapp.models import Spot, MyUser, Map, UserMap, Pic
-from .serializers import MapSerializer, SpotSerializerD0, SpotSerializerD2, MyUserSerializerD0, MyUserSerializerD1, \
+from .serializers import UserSerializer, MapSerializer, SpotSerializerD0, SpotSerializerD2, MyUserSerializerD0, MyUserSerializerD1, \
                          PicSerializer
 
 
@@ -61,10 +61,20 @@ class SpotDetail(APIView):
 class UserDetail(APIView):
 
   def get(self, request, id):
-    mu = MyUser.objects.get(user=id)
+    u = User.objects.get(pk=id)
+    mu = MyUser.objects.get(user=u)
+    uSerializer = UserSerializer(u, many=False)
+    muSerializer = MyUserSerializerD1(mu, many=False)
 
-    serializer = MyUserSerializerD1(mu, many=False)
-    return Response(serializer.data)
+    serializerList = [uSerializer.data, muSerializer.data]
+
+    r = {
+        'status': 1,
+        'responseCode' : status.HTTP_200_OK,
+        'user': serializerList,
+    }
+
+    return Response(r)
 
   def put(self, request, id):
     mu = MyUser.objects.get(pk=id)
