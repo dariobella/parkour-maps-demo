@@ -166,6 +166,11 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 30px;
+}
+
+.infoProfile {
+  padding-left: 30px;
 }
 
 .topProfile button {
@@ -177,7 +182,6 @@ export default {
 .topProfile .username {
   font-size: x-large;
   font-weight: bold;
-  padding-left: 1rem;
 }
 
 .pictureProfile {

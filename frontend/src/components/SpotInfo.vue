@@ -48,7 +48,7 @@
       </div>
 
 
-      <div class="adder">Added by {{ spot.adder.user.username }}</div>
+      <div class="adder" @click="$router.push('/profile/' + spot.adder.user.id)">Added by {{ spot.adder.user.username }}</div>
     </div>
 
     <div class="spotPicsContainer">
@@ -260,6 +260,10 @@ input.text_disabled {
   align-self: flex-start;
   display: flex;
   align-items: center;
+}
+
+.adder:hover {
+  cursor: pointer;
 }
 
 .spotType {

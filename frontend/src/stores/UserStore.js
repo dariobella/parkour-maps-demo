@@ -96,7 +96,7 @@ export const useUserStore = defineStore("user", {
       await this.loadMe()
       return Api.fetchMyUser(this.user.id)
         .then((response) => {
-          this.myUser = response.data
+          this.myUser = response.data.user[1]
         })
         .catch((error) => {
           console.log(error)

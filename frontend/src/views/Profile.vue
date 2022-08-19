@@ -9,11 +9,11 @@
     <div class="infoProfile container-fluid">
       <div class="row">
         <div class="piCol col-3 col-md-2">
-          <img class="pictureProfile w-100" :src="this.profile_picture" alt="">
+          <img class="pictureProfile w-100" :src="profile_picture" alt="">
         </div>
         <div class="infoText col-9">
-          <input v-model="myUser.social" type="text" class="social" size="30" disabled >
-          <textarea v-model="myUser.bio" type="text" class="bio w-75" disabled></textarea>
+          <input v-model="profile.social" type="text" class="social" size="30" disabled >
+          <textarea v-model="profile.bio" type="text" class="bio w-75" disabled></textarea>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
 
     <div class="maps container-fluid">
       <div class="row gy-4">
-        <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in myUser.maps">
+        <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in profile.maps">
           <router-link :to="'/map/' + map.id">
             <div class="card mb-4 shadow-sm h-100">
               <div class="card-img-top">
@@ -59,43 +59,56 @@
 </template>
 
 <script>
+import { mapState, mapStores } from 'pinia';
 import { fetchMyUser } from "@/api";
-import { mapState } from 'pinia';
 import { useUserStore } from "@/stores/UserStore";
 
 export default {
   name: "Profile",
 
   computed: {
-    profile_picture () {
-        return this.myUser.profile_picture ? 'http://127.0.0.1:8000' + this.myUser.profile_picture : '/src/assets/profile-placeholder.png'
+    title () {
+      return `${this.title} | ${this.profile.user.username}'s Profile`
     },
-    ...mapState(useUserStore, ['title'])
+    userId () {
+      return this.user.id
+    },
+    profile_picture () {
+        return this.profile.profile_picture ? 'http://127.0.0.1:8000' + this.profile.profile_picture : '/src/assets/profile-placeholder.png'
+    },
+    ...mapStores(useUserStore),
+    ...mapState(useUserStore, ['title', 'user', 'isAuthenticated'])
   },
 
   data () {
     return {
       username: '',
-      myUser: {},
+      profile: {},
     }
   },
 
-  created () {
-
-    fetchMyUser(this.$route.params.id)
-      .then(response => {
-        this.userId = response.data.id
-        this.myUser = response.data.myUser
-      })
-      .catch(err => {
-        console.log(err)
-        this.$refs.modalTrigger.click()
-      })
-
+  watch: {
+    userId: function(id) {
+      console.log({'isAuth': this.isAuthenticated, 'param': this.$route.params.id})
+      if (this.isAuthenticated && parseInt(this.$route.params.id) === id) {
+        this.$router.push({name: 'MyProfile'})
+      }
+    }
   },
 
   mounted() {
-    document.title = this.title + ' | Profile'
+    document.title = this.title
+
+    fetchMyUser(this.$route.params.id)
+        .then(response => {
+          this.username = response.data.user[0].username
+          this.profile = response.data.user[1]
+        })
+        .catch(err => {
+          console.log(err)
+          this.$refs.modalTrigger.click()
+        })
+
   },
 
 }
@@ -103,7 +116,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 
 @media (min-width: 992px) {
   .upload-profile-picture span {
@@ -115,6 +128,11 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 30px;
+}
+
+.infoProfile {
+  padding-left: 30px;
 }
 
 .topProfile button {
@@ -126,7 +144,7 @@ export default {
 .topProfile .username {
   font-size: x-large;
   font-weight: bold;
-  padding-left: 1rem;
+  margin: 1em 0;
 }
 
 .pictureProfile {
@@ -150,45 +168,12 @@ export default {
   resize: none;
 }
 
-.infoText .text-editing {
-  background-color: #dedede;
-  color: #333333;
-}
-
 .piCol {
   max-width: 300px!important;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.img-overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.img-overlay:before {
-  content: '';
-  display: block;
-  height: 50%;
-}
-
-.upload-profile-picture {
-  display: flex;
-  --webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  background-color: var(--my-black);
-  border-radius: 100%;
-  margin-left: 50%;
-}
-
-.upload-profile-picture:hover {
-  --webkit-transform: scale(1.2) translate(-40%, -40%);
-  transform: scale(1.2) translate(-40%, -40%);
 }
 
 .maps {
@@ -223,6 +208,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.modal-body {
+  background-color: transparent;
 }
 
 #alertModal .modal-content {
