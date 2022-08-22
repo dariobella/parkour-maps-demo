@@ -24,6 +24,10 @@ function toast () {
 }
 </script>
 
-<style scoped>
+<style>
+
+.mosha__toast__content__text {
+  font-family: 'Nunito', sans-serif;
+}
 
 </style>

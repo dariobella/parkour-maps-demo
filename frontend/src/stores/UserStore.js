@@ -35,6 +35,7 @@ export const useUserStore = defineStore("user", {
       await Api.addUser(user)
         .then((response) => {
           this.user = response.data
+          global.setToast()
         })
         .catch((error) => {
           console.log(error)
@@ -46,9 +47,13 @@ export const useUserStore = defineStore("user", {
       return Api.addMyUser({id: this.user.id})
         .then((response) => {
           this.myUser = response.data
+          const global = useGlobalStore()
+          global.setToast({title: 'Signed up successfully'}, {type: 'success'})
         })
         .catch((error) => {
           console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while signing up'}, {type: 'danger'})
         })
     },
 
@@ -62,6 +67,8 @@ export const useUserStore = defineStore("user", {
           localStorage.setItem("token", token)
           axios.defaults.headers.common['Authorization'] = "Token " + token
           this.loadMyMe()
+          const global = useGlobalStore()
+          global.setToast({title: 'Logged in successfully'}, {type: 'success'})
         })
         .catch(error => {
           const global = useGlobalStore()
@@ -114,6 +121,8 @@ export const useUserStore = defineStore("user", {
         })
         .catch((error) => {
           console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to update profile'}, {type: 'danger'})
         })
     },
 

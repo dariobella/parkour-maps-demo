@@ -1,5 +1,6 @@
 import {defineStore} from 'pinia'
 import * as Api from '@/api'
+import {useGlobalStore} from "./GlobalStore";
 
 export const useMapStore = defineStore("map", {
 
@@ -32,16 +33,22 @@ export const useMapStore = defineStore("map", {
               .then((response) => {
                 console.log(response)
                 this.loadSpots()
+                  const global = useGlobalStore()
+                  global.setToast({title: 'Spot addded successfully'}, {type: 'success'})
               })
               .catch((error) => {
                 console.log(error)
               })
           } else {
             this.loadSpots()
+            const global = useGlobalStore()
+            global.setToast({title: 'Spot addded successfully'}, {type: 'success'})
           }
         })
         .catch((error) => {
           console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to add spot'}, {type: 'danger'})
         })
     },
 
@@ -52,6 +59,8 @@ export const useMapStore = defineStore("map", {
         })
         .catch((error) => {
           console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to update spot'}, {type: 'danger'})
         })
     },
 
@@ -62,6 +71,8 @@ export const useMapStore = defineStore("map", {
         })
         .catch((error) => {
           console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to updated images'}, {type: 'danger'})
         })
     },
 
@@ -69,9 +80,13 @@ export const useMapStore = defineStore("map", {
       return Api.deleteSpot(id)
         .then(() => {
           this.loadSpots()
+          const global = useGlobalStore()
+          global.setToast({title: 'Spot deleted successfully'}, {type: 'success'})
         })
         .catch((error) => {
           console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to delete spot'}, {type: 'danger'})
         })
     },
 
