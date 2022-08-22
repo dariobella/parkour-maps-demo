@@ -3,10 +3,6 @@
       
       <h1>Login</h1>
 
-      <div class="alert alert-danger" v-if="errors.length">
-        <p v-for="error in errors" :key="error">{{ error }}</p>
-      </div>
-
       <form @submit.prevent="submitForm">
           <input type="text" name="username" v-model="username" placeholder="username">
           <input type="password" name="password" v-model="password" placeholder="password">
@@ -21,7 +17,9 @@
 
 import axios from 'axios'
 import { mapStores } from 'pinia';
+
 import { useUserStore } from "@/stores/UserStore";
+import { useGlobalStore } from "@/stores/GlobalStore";
 
 export default {
     name: 'Login',
@@ -29,18 +27,16 @@ export default {
         return {
             username: '',
             password: '',
-            errors: []
         }
     },
     computed: {
-      ...mapStores(useUserStore)
+      ...mapStores(useUserStore, useGlobalStore)
     },
     mounted() {
-      document.title = this.userStore.title + ' | Login'
+      document.title = 'Login | ' + this.globalStore.title
     },
     methods: {
       async submitForm() {
-        this.errors = []
         axios.defaults.headers.common["Authorization"] = ""
         localStorage.removeItem("token")
 

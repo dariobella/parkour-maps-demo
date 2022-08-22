@@ -28,7 +28,7 @@
 import Map from '@/components/Map.vue'
 import { mapStores, mapState } from 'pinia';
 import { useMapStore } from "@/stores/MapStore";
-import { useUserStore } from "@/stores/UserStore";
+import { useGlobalStore } from "@/stores/GlobalStore";
 
 export default {
   name: 'MapView',
@@ -38,9 +38,8 @@ export default {
   },
 
   computed: {
-    ...mapStores(useMapStore),
+    ...mapStores(useMapStore, useGlobalStore),
     ...mapState(useMapStore, ['name']),
-    ...mapState(useUserStore, ['title'])
   },
 
   created () {
@@ -48,7 +47,7 @@ export default {
   },
 
   mounted() {
-    document.title = this.title + ' | Map'
+    document.title = 'Map | ' + this.globalStore.title
   },
 
 }

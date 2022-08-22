@@ -20,9 +20,9 @@
 
 <script>
 
-import axios from 'axios'
 import { mapStores } from 'pinia';
 import { useUserStore } from "@/stores/UserStore";
+import { useGlobalStore } from "@/stores/GlobalStore";
 
 export default {
   name: 'SignUp',
@@ -37,10 +37,10 @@ export default {
     }
   },
   computed: {
-    ...mapStores(useUserStore)
+    ...mapStores(useUserStore, useGlobalStore)
   },
   mounted() {
-    document.title = this.userStore.title + ' | Sign Up'
+    document.title = 'Sign Up | ' + this.globalStore.title
   },
   methods: {
     async submitForm() {

@@ -60,15 +60,17 @@
 
 <script>
 import { mapState, mapStores } from 'pinia';
+
 import { fetchMyUser } from "@/api";
 import { useUserStore } from "@/stores/UserStore";
+import { useGlobalStore } from "@/stores/GlobalStore";
 
 export default {
   name: "Profile",
 
   computed: {
-    title () {
-      return `${this.title} | ${this.profile.user.username}'s Profile`
+    computedTitle () {
+      return `${this.profile.user.username}'s Profile | ${this.title}`
     },
     userId () {
       return this.user.id
@@ -76,8 +78,9 @@ export default {
     profile_picture () {
         return this.profile.profile_picture ? 'http://127.0.0.1:8000' + this.profile.profile_picture : '/src/assets/profile-placeholder.png'
     },
-    ...mapStores(useUserStore),
-    ...mapState(useUserStore, ['title', 'user', 'isAuthenticated'])
+    ...mapStores(useUserStore, useGlobalStore),
+    ...mapState(useUserStore, ['user', 'isAuthenticated']),
+    ...mapState(useGlobalStore, ['title'])
   },
 
   data () {
@@ -97,12 +100,12 @@ export default {
   },
 
   mounted() {
-    document.title = this.title
 
     fetchMyUser(this.$route.params.id)
         .then(response => {
           this.username = response.data.user[0].username
           this.profile = response.data.user[1]
+          document.title = `${this.username}'s profile | ${this.title}`
         })
         .catch(err => {
           console.log(err)

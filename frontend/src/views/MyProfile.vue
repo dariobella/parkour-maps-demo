@@ -67,6 +67,7 @@
 import axios from 'axios'
 import { mapStores, mapState } from 'pinia';
 import { useUserStore } from "@/stores/UserStore";
+import { useGlobalStore } from "@/stores/GlobalStore";
 
 export default {
   name: 'Profile',
@@ -91,8 +92,8 @@ export default {
     editBtnClass () {
       return this.editing ? 'btn-success' : 'btn-secondary'
     },
-    ...mapStores(useUserStore),
-    ...mapState(useUserStore, ['user', 'myUser', 'title'])
+    ...mapStores(useUserStore, useGlobalStore),
+    ...mapState(useUserStore, ['user', 'myUser'])
   },
 
   data () {
@@ -107,7 +108,7 @@ export default {
   },
 
   mounted () {
-    document.title = this.title + ' | Profile'
+    document.title = 'My Profile | ' + this.globalStore.title
   },
 
   methods: {

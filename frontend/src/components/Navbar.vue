@@ -35,11 +35,13 @@
 <script>
 import { mapState } from 'pinia';
 import { useUserStore } from "@/stores/UserStore";
+import { useGlobalStore } from "@/stores/GlobalStore";
 
 export default {
   name: 'Navbar',
   computed: {
-    ...mapState(useUserStore, ['title', 'isAuthenticated'])
+    ...mapState(useGlobalStore, ['title']),
+    ...mapState(useUserStore, ['isAuthenticated'])
   },
 }
 

@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <Navbar></Navbar>
+    <Toast></Toast>
     <router-view/>
   </div>
 </template>
@@ -12,11 +13,13 @@ import axios from 'axios'
 import { mapStores } from 'pinia';
 import { useUserStore } from "@/stores/UserStore";
 import Navbar from '@/components/Navbar.vue'
+import Toast from '@/components/Toast.vue'
 
 export default {
   name: 'App',
   components: {
-    Navbar
+    Navbar,
+    Toast
   },
   computed: {
     ...mapStores(useUserStore)

@@ -1,7 +1,8 @@
 import {defineStore} from 'pinia'
 import axios from 'axios'
+
 import * as Api from '@/api'
-import {updateMyUser} from "../api";
+import { useGlobalStore } from "./GlobalStore";
 
 export const useUserStore = defineStore("user", {
 
@@ -10,8 +11,6 @@ export const useUserStore = defineStore("user", {
     myUser: {},
     token: '',
     isAuthenticated: false,
-    title: 'Parkour Maps',
-    //toast: {},
   }),
 
   getters: {},
@@ -36,6 +35,7 @@ export const useUserStore = defineStore("user", {
       await Api.addUser(user)
         .then((response) => {
           this.user = response.data
+          global.setToast()
         })
         .catch((error) => {
           console.log(error)
@@ -47,9 +47,13 @@ export const useUserStore = defineStore("user", {
       return Api.addMyUser({id: this.user.id})
         .then((response) => {
           this.myUser = response.data
+          const global = useGlobalStore()
+          global.setToast({title: 'Signed up successfully'}, {type: 'success'})
         })
         .catch((error) => {
           console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while signing up'}, {type: 'danger'})
         })
     },
 
@@ -63,22 +67,28 @@ export const useUserStore = defineStore("user", {
           localStorage.setItem("token", token)
           axios.defaults.headers.common['Authorization'] = "Token " + token
           this.loadMyMe()
+          const global = useGlobalStore()
+          global.setToast({title: 'Logged in successfully'}, {type: 'success'})
         })
         .catch(error => {
-          console.log(error)
-/*          if (error.response) {
-            const e = []
+          const global = useGlobalStore()
+          //console.log(error)
+          if (error.response) {
+            let e = ''
             for (const property in error.response.data) {
-              e.push(`${error.response.data[property][0]}`)
+              if (property === 'non_field_errors') {
+                e = 'Unable to login with provided credentials'
+              } else {
+                e = `${property} field is missing`
+              }
             }
-            this.errors.push(e[0])
 
-            console.log(JSON.stringify(error.response.data))
+            global.setToast({title: e}, {type: 'danger'})
+
+            console.log(error.response.data)
           } else if (error.message) {
-            this.errors.push('Something went wrong, please try again')
-
-            console.log(JSON.stringify(error))
-          }*/
+            global.setToast({title: error.message}, {type: 'danger'})
+          }
         })
     },
 
@@ -111,6 +121,8 @@ export const useUserStore = defineStore("user", {
         })
         .catch((error) => {
           console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to update profile'}, {type: 'danger'})
         })
     },
 

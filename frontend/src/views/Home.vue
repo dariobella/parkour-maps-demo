@@ -6,9 +6,10 @@
 
 
 <script>
-import { mapState, mapStores } from 'pinia';
-import { useUserStore } from "@/stores/UserStore";
+import { mapStores } from 'pinia';
+
 import { useMapStore } from "@/stores/MapStore";
+import { useGlobalStore } from "@/stores/GlobalStore";
 import Map from '@/components/Map.vue'
 
 export default {
@@ -19,8 +20,7 @@ export default {
   },
 
   computed: {
-    ...mapState(useUserStore, ['title']),
-    ...mapStores(useMapStore)
+    ...mapStores(useMapStore, useGlobalStore)
   },
 
   beforeMount() {
@@ -28,8 +28,14 @@ export default {
   },
 
   mounted() {
-    document.title = this.title
+    document.title = this.globalStore.title
   },
+
+  methods: {
+    toast() {
+      this.globalStore.setToast({title: 'Butun'}, {type: 'success'})
+    },
+  }
 
 }
 </script>
