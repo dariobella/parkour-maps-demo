@@ -121,15 +121,16 @@
 <script>
 
 import { mapState, mapStores } from 'pinia';
+
 import { useMapStore } from "@/stores/MapStore";
 import { useUserStore } from "@/stores/UserStore";
-import { addPics } from "@/api";
+import { useGlobalStore } from "@/stores/GlobalStore";
 
 export default {
   name: 'AddSpots',
   computed: {
-    ...mapStores(useMapStore),
-    ...mapState(useUserStore, ['title', 'myUser'])
+    ...mapStores(useMapStore, useGlobalStore),
+    ...mapState(useUserStore, ['myUser'])
   },
   data() {
     return {
@@ -150,7 +151,7 @@ export default {
     }
   },
   mounted() {
-    document.title = this.title + ' | Add Spots'
+    document.title = 'Add Spots | ' + this.globalStore.title
   },
   methods: {
     async spotSubmitForm() {

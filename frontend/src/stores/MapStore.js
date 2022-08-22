@@ -1,13 +1,11 @@
 import {defineStore} from 'pinia'
 import * as Api from '@/api'
-import {addPics} from "../api";
 
 export const useMapStore = defineStore("map", {
 
   state: () => ({
     name: '',
     spots: [],
-    //toast: {},
   }),
 
   getters: {},
