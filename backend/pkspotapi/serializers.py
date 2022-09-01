@@ -46,7 +46,7 @@ class MapSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Map
-        fields = ['id', 'name', 'spots']
+        fields = ['id', 'name', 'spots', 'creator']
         depth = 3
 
 

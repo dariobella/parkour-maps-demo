@@ -9,7 +9,8 @@
               @discardEdit="discardEdit"
               ref="SpotInfo">
     </SpotInfo>
-    <div id="map" :class="mapClass"></div>
+
+    <div id="map"></div>
     <button @click="$router.push('add-spots')"
             v-if="isAuthenticated && $router.currentRoute.value.name === 'Home'"
             type="button" id="addBtn"
@@ -90,9 +91,6 @@ export default {
   },
 
   computed: {
-    mapClass () {
-      return this.$router.currentRoute.value.name === 'Map' ? 'vh-89' : 'vh-94'
-    },
     ...mapState(useMapStore, ['spots']),
     ...mapState(useUserStore, ['isAuthenticated']),
     ...mapStores(useMapStore),
@@ -335,22 +333,17 @@ export default {
 
 <style>
 
+#map {
+  height: 94.1vh;
+  text-align: left;
+}
+
 .maproot {
   display: grid;
 }
 
 .spotInfo, #map {
   grid-area: 1 / 1;
-}
-
-.vh-89 {
-  height: 89.4vh;
-  text-align: left;
-}
-
-.vh-94 {
-  height: 94.1vh;
-  text-align: left;
 }
 
 #search {

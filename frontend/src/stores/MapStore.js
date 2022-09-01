@@ -7,21 +7,12 @@ export const useMapStore = defineStore("map", {
   state: () => ({
     name: '',
     spots: [],
+    creator: {},
   }),
 
   getters: {},
 
   actions: {
-
-    loadMyMaps(id) {
-      return Api.fetchMyMaps(id)
-        .then((response) => {
-          this.myMaps = response.data
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    },
 
     addSpot(formData) {
       return Api.addSpot(formData[0])
@@ -93,7 +84,9 @@ export const useMapStore = defineStore("map", {
     loadSpots() {
       return Api.fetchSpots()
         .then((response) => {
+          this.name = ""
           this.spots = response.data
+          this.creator = {}
         })
         .catch((error) => {
           console.log(error)
@@ -103,8 +96,10 @@ export const useMapStore = defineStore("map", {
     loadMap(id) {
       return Api.loadMap(id)
         .then((response) => {
-          this.name = response.data.name
-          this.spots = response.data.spots
+          console.log(response)
+          this.name = response.data.map.name
+          this.spots = response.data.map.spots
+          this.creator = response.data.creator
         })
         .catch((error) => {
           console.log(error)

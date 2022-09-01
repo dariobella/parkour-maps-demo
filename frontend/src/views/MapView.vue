@@ -1,9 +1,6 @@
 <template>
 
   <div class="mapView">
-    <div class="currentMap">
-      <div class="currentMapLabel">Current map: {{ name }} </div>
-    </div>
     <Map />
     <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#alertModal" id="modalTrigger" ref="modalTrigger" hidden></button>
     <div class="modal fade" id="alertModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
@@ -58,19 +55,6 @@ export default {
 #alertModal .modal-content {
   background-color: #f8d7da;
   color: #842029;
-}
-
-.currentMap {
-  background-color: var(--my-black);
-  display: flex;
-}
-
-.currentMapLabel {
-  background-color: white;
-  padding: 5px;
-  padding-inline: 10px;
-  border-radius: 5px;
-  margin: 5px;
 }
 
 </style>

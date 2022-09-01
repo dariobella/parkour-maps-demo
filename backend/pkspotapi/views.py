@@ -10,7 +10,7 @@ from django.http import Http404
 
 from django.contrib.auth.models import User
 
-from pkspotapp.models import Spot, MyUser, Map, UserMap, Pic
+from pkspotapp.models import Spot, MyUser, Map, MyUserMap, Pic
 from .serializers import UserSerializer, MapSerializer, SpotSerializerD0, SpotSerializerD2, MyUserSerializerD0, MyUserSerializerD1, \
                          PicSerializer
 
@@ -19,7 +19,7 @@ class SpotList(APIView):
   def get(self, request):
     spots = Spot.objects.all()
     serializer = SpotSerializerD2(spots, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
   def post(self, request):
     serializer = SpotSerializerD0(data=request.data)
@@ -42,14 +42,14 @@ class SpotDetail(APIView):
   def get(self, request, id):
     spot = self.get_object(id)
     serializer = SpotSerializerD2(spot)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
   def put(self, request, id):
     spot = self.get_object(id)
     serializer = SpotSerializerD0(spot, data=request.data, partial=True)
     if serializer.is_valid():
       serializer.save()
-      return Response(serializer.data)
+      return Response(serializer.data, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
   def delete(self, request, id):
@@ -66,15 +66,12 @@ class UserDetail(APIView):
     uSerializer = UserSerializer(u, many=False)
     muSerializer = MyUserSerializerD1(mu, many=False)
 
-    serializerList = [uSerializer.data, muSerializer.data]
-
     r = {
-        'status': 1,
-        'responseCode' : status.HTTP_200_OK,
-        'user': serializerList,
+        'user': uSerializer.data,
+        'myuser': muSerializer.data,
     }
 
-    return Response(r)
+    return Response(r, status=status.HTTP_200_OK)
 
   def put(self, request, id):
     mu = MyUser.objects.get(pk=id)
@@ -92,7 +89,6 @@ class UserDetail(APIView):
     u = User.objects.get(pk=id)
     u.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
-
 
 
 @api_view(['POST'])
@@ -177,6 +173,6 @@ def myMaps(request, id):
 @api_view(['GET'])
 def map(request, id):
   m = Map.objects.get(pk=id)
-
   serializer = MapSerializer(m)
-  return Response(serializer.data)
+
+  return Response(serializer.data, status=status.HTTP_200_OK)

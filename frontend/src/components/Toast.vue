@@ -13,7 +13,6 @@ const store = useGlobalStore()
 const toastRef = ref()
 
 store.$subscribe((mutation, state) => {
-  console.log({mutation, state})
   if (mutation.events.key === 'toast') {
     toastRef.value.click()
   }

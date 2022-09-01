@@ -16,7 +16,7 @@ class MyUser(models.Model):
   profile_picture = models.ImageField(_("Image"), upload_to=upload_profile_picture, blank=True, null=True)
   social = models.CharField(max_length=150, null=True)
   bio = models.TextField(blank=True, null=True)
-  maps = models.ManyToManyField('Map', through='UserMap')
+  maps = models.ManyToManyField('Map', through='MyUserMap', related_name='myusers')
 
   class Meta:
     db_table = 'my_user'
@@ -26,23 +26,30 @@ class Map(models.Model):
   name = models.CharField(max_length=50)
   spots = models.ManyToManyField('Spot', blank=True)
 
+  @property
+  def creator(self):
+    if self.id:
+      m = Map.objects.get(pk=self.id)
+      c = m.myusermap_set.get(role='C').myuser.user
+      return {'id': c.id, 'username': c.username}
+
   class Meta:
     db_table = 'maps'
 
 
-class UserMap(models.Model):
+class MyUserMap(models.Model):
   ROLES = [
     ('C', 'Creator'),
     ('E', 'Editor'),
     ('V', 'Viewer'),
   ]
-  user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
+  myuser = models.ForeignKey(MyUser, on_delete=models.CASCADE)
   map = models.ForeignKey(Map, on_delete=models.CASCADE)
   role = models.CharField(max_length=1, choices=ROLES, default='V')
 
   class Meta:
-    unique_together = ['user', 'map']
-    db_table = 'users_maps'
+    unique_together = ['myuser', 'map']
+    db_table = 'myusers_maps'
 
 
 class Spot(models.Model):
