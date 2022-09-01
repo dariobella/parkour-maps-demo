@@ -73,7 +73,7 @@ export function updateSpotPics(id, data) {
 //  M A P S
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export function fetchMyMaps(id_user) {
+export function fetchMaps(id_user) {
     return axios.get(`${API_URL}/myMaps/${id_user}/`)
 }
 

@@ -32,7 +32,7 @@
 
     <div class="maps container-fluid">
       <div class="row gy-4">
-        <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in myUser.maps">
+        <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in maps">
           <router-link :to="'/map/' + map.id">
             <div class="card mb-4 shadow-sm h-100">
               <div class="card-img-top">
@@ -41,7 +41,9 @@
                 <img v-else src="../assets/mapIcon.svg" alt="">
               </div>
               <div class="card-body">
-                <h5 class="card-title fw-bold align-middle">{{ map.name }}</h5>
+                <h5 v-if="map.creator?.id === user.id" class="card-title fw-bold align-middle">{{ map.name }}</h5>
+                <h5 v-else-if="map.name==='Added by me'" class="card-title fw-bold align-middle"> Added by {{map.creator?.username}} </h5>
+                <h5 v-else class="card-title fw-bold align-middle">{{map.creator?.username}}'s {{map.name}} </h5>
               </div>
             </div>
           </router-link>
@@ -93,7 +95,7 @@ export default {
       return this.editing ? 'btn-success' : 'btn-secondary'
     },
     ...mapStores(useUserStore, useGlobalStore),
-    ...mapState(useUserStore, ['user', 'myUser'])
+    ...mapState(useUserStore, ['user', 'myUser', 'maps'])
   },
 
   data () {
@@ -103,8 +105,9 @@ export default {
     }
   },
 
-  created () {
-    this.userStore.loadMyMe()
+  async created () {
+    await this.userStore.loadMyMe()
+    this.userStore.loadMyMaps()
   },
 
   mounted () {

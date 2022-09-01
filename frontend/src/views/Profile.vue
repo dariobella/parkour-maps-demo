@@ -21,7 +21,7 @@
 
     <div class="maps container-fluid">
       <div class="row gy-4">
-        <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in profile.maps">
+        <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in maps">
           <router-link :to="'/map/' + map.id">
             <div class="card mb-4 shadow-sm h-100">
               <div class="card-img-top">
@@ -30,7 +30,9 @@
                 <img v-else src="../assets/mapIcon.svg" alt="">
               </div>
               <div class="card-body">
-                <h5 class="card-title fw-bold align-middle">{{ map.name }}</h5>
+                <h5 v-if="map.creator.id === parseInt($route.params.id)" class="card-title fw-bold align-middle">{{ map.name }}</h5>
+                <h5 v-else-if="map.name==='Added by me'" class="card-title fw-bold align-middle"> Added by {{map.creator.username}} </h5>
+                <h5 v-else class="card-title fw-bold align-middle">{{map.creator.username}}'s {{map.name}} </h5>
               </div>
             </div>
           </router-link>
@@ -61,7 +63,7 @@
 <script>
 import { mapState, mapStores } from 'pinia';
 
-import { fetchMyUser } from "@/api";
+import { fetchMyUser, fetchMaps } from "@/api";
 import { useUserStore } from "@/stores/UserStore";
 import { useGlobalStore } from "@/stores/GlobalStore";
 
@@ -70,7 +72,7 @@ export default {
 
   computed: {
     computedTitle () {
-      return `${this.profile.user.username}'s Profile | ${this.title}`
+      return `${this.username}'s Profile | ${this.title}`
     },
     userId () {
       return this.user.id
@@ -87,6 +89,7 @@ export default {
     return {
       username: '',
       profile: {},
+      maps: [],
     }
   },
 
@@ -99,17 +102,26 @@ export default {
     }
   },
 
-  mounted() {
+  async created () {
 
-    fetchMyUser(this.$route.params.id)
+    await fetchMyUser(this.$route.params.id)
         .then(response => {
-          this.username = response.data.user[0].username
-          this.profile = response.data.user[1]
+          this.username = response.data.user.username
+          this.profile = response.data.myuser
           document.title = `${this.username}'s profile | ${this.title}`
         })
         .catch(err => {
           console.log(err)
           this.$refs.modalTrigger.click()
+        })
+
+    fetchMaps(this.profile.id)
+        .then(response => {
+          console.log(response)
+          this.maps = response.data
+        })
+        .catch(error => {
+          console.log(error)
         })
 
   },

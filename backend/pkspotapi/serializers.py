@@ -10,15 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email']
 
 
-class MyUserSerializerD0(serializers.ModelSerializer):
-
-    class Meta:
-        model = MyUser
-        fields = ['id', 'profile_picture', 'social', 'bio', 'maps']
-        depth = 0
-
-
-class MyUserSerializerD1(serializers.ModelSerializer):
+class MyUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MyUser
@@ -42,7 +34,15 @@ class SpotSerializerD2(serializers.ModelSerializer):
         depth = 2
 
 
-class MapSerializer(serializers.ModelSerializer):
+class MapSerializerD0(serializers.ModelSerializer):
+
+    class Meta:
+        model = Map
+        fields = ['id', 'name', 'spots', 'creator']
+        depth = 0
+
+
+class MapSerializerD3(serializers.ModelSerializer):
 
     class Meta:
         model = Map

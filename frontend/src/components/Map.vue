@@ -236,7 +236,7 @@ export default {
     },
 
     loadSpots() {
-      var vm = this;
+      let vm = this;
       for (var spot of JSON.parse(JSON.stringify(vm.spots))) {
         var i = ""
         if (spot.type === 'U') i = "https://i.ibb.co/LZQWkQB/bluePin.png"

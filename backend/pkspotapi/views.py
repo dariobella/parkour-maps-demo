@@ -11,8 +11,7 @@ from django.http import Http404
 from django.contrib.auth.models import User
 
 from pkspotapp.models import Spot, MyUser, Map, MyUserMap, Pic
-from .serializers import UserSerializer, MapSerializer, SpotSerializerD0, SpotSerializerD2, MyUserSerializerD0, MyUserSerializerD1, \
-                         PicSerializer
+from .serializers import UserSerializer, MapSerializerD0, MapSerializerD3, SpotSerializerD0, SpotSerializerD2, MyUserSerializer, PicSerializer
 
 
 class SpotList(APIView):
@@ -64,7 +63,7 @@ class UserDetail(APIView):
     u = User.objects.get(pk=id)
     mu = MyUser.objects.get(user=u)
     uSerializer = UserSerializer(u, many=False)
-    muSerializer = MyUserSerializerD1(mu, many=False)
+    muSerializer = MyUserSerializer(mu, many=False)
 
     r = {
         'user': uSerializer.data,
@@ -82,7 +81,7 @@ class UserDetail(APIView):
     # os.remove(mu.profile_picture.path)
     mu.profile_picture = p
     mu.save()
-    serializer = MyUserSerializerD0(mu, many=False, partial=True)
+    serializer = MyUserSerializer(mu, many=False, partial=True)
     return Response(serializer.data)
 
   def delete(self, request, id):
@@ -94,7 +93,7 @@ class UserDetail(APIView):
 @api_view(['POST'])
 def toggleFavourite(request, id):
   s = Spot.objects.get(pk=id)
-  f = Map.objects.get(myuser=request.data.get('user'), name='Favourites', usermap__role='C')
+  f = Map.objects.get(myusers=request.data.get('user'), name='Favourites', myusermap__role='C')
 
   if f.spots.filter(pk=id).exists():
     f.spots.remove(s)
@@ -158,7 +157,7 @@ def addUser(request):
   muA.save()
   muF.save()
 
-  serializer = MyUserSerializerD0(mu)
+  serializer = MyUserSerializer(mu)
   return Response(serializer.data)
 
 
@@ -166,13 +165,13 @@ def addUser(request):
 def myMaps(request, id):
   mu = MyUser.objects.get(pk=id)
 
-  serializer = MapSerializer(mu.maps.all(), many=True)
+  serializer = MapSerializerD0(mu.maps.all(), many=True)
   return Response(serializer.data)
 
 
 @api_view(['GET'])
 def map(request, id):
   m = Map.objects.get(pk=id)
-  serializer = MapSerializer(m)
+  serializer = MapSerializerD3(m)
 
   return Response(serializer.data, status=status.HTTP_200_OK)

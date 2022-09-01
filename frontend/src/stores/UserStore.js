@@ -9,6 +9,7 @@ export const useUserStore = defineStore("user", {
   state: () => ({
     user: {},
     myUser: {},
+    maps: [],
     token: '',
     isAuthenticated: false,
   }),
@@ -106,12 +107,13 @@ export const useUserStore = defineStore("user", {
       await this.loadMe()
       return Api.fetchMyUser(this.user.id)
         .then((response) => {
-          this.myUser = response.data['myuser']
+          console.log(response.data)
+          this.myUser = response.data.myuser
+          this.maps = response.data.myuser.maps
         })
         .catch((error) => {
           console.log(error)
         })
-
     },
 
     updateMyUser(user, id) {
@@ -142,6 +144,19 @@ export const useUserStore = defineStore("user", {
           console.log(error)
         })
     },
+
+    loadMyMaps() {
+      return Api.fetchMaps(this.myUser.id)
+        .then((response) => {
+          console.log(response.data)
+          this.maps = response.data
+        })
+        .catch((error) => {
+          console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to load maps'}, {type: 'danger'})
+        })
+    }
   },
 
 })

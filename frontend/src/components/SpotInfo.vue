@@ -3,7 +3,7 @@
     <div class="spotInfo-name">
       <div class="nameInput">
         <input v-model="spot.name" type="text" class="spotName" :class="editing ? 'text_editing' : 'text_disabled' " :size="spot.name.length" placeholder="Spot name" :disabled="!editing" >
-        <button v-if="this.userStore.isAuthenticated" @click="toggleFavourite">
+        <button v-if="userStore.isAuthenticated" @click="toggleFavourite">
           <span class="material-icons">{{ favourite }}</span>
         </button>
       </div>
@@ -46,7 +46,6 @@
           </div>
         </div>
       </div>
-
 
       <div class="adder" @click="$router.push('/profile/' + spot.adder.user.id)">Added by {{ spot.adder.user.username }}</div>
     </div>
@@ -118,9 +117,9 @@ export default {
 
   computed: {
     favourite () {
-      return this.myUser.maps[1].spots.includes(this.spot.id) ? 'star' : 'star_border'
+      return this.maps[1]?.spots.includes(this.spot.id) ? 'star' : 'star_border'
     },
-    ...mapState(useUserStore, ['myUser']),
+    ...mapState(useUserStore, ['myUser', 'maps']),
     ...mapStores(useUserStore),
     ...mapStores(useMapStore),
   },
