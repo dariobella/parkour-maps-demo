@@ -2,3 +2,4 @@
 .idea
 /frontend/node_modules
 *.local
+/mysql/mysql.log
