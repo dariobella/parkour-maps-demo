@@ -74,9 +74,6 @@ export default {
     computedTitle () {
       return `${this.username}'s Profile | ${this.title}`
     },
-    userId () {
-      return this.user.id
-    },
     profile_picture () {
         return this.profile.profile_picture ? 'http://127.0.0.1:8000' + this.profile.profile_picture : '/src/assets/profile-placeholder.png'
     },
@@ -96,9 +93,7 @@ export default {
   watch: {
     userId: function(id) {
       console.log({'isAuth': this.isAuthenticated, 'param': this.$route.params.id})
-      if (this.isAuthenticated && parseInt(this.$route.params.id) === id) {
-        this.$router.push({name: 'MyProfile'})
-      }
+
     }
   },
 
@@ -109,6 +104,7 @@ export default {
           this.username = response.data.user.username
           this.profile = response.data.myuser
           document.title = `${this.username}'s profile | ${this.title}`
+
         })
         .catch(err => {
           console.log(err)
@@ -125,6 +121,12 @@ export default {
         })
 
   },
+
+  mounted() {
+    if (this.isAuthenticated && parseInt(this.$route.params.id) === this.user.id) {
+        this.$router.push({name: 'MyProfile'})
+    }
+  }
 
 }
 

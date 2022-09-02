@@ -41,9 +41,11 @@
                 <img v-else src="../assets/mapIcon.svg" alt="">
               </div>
               <div class="card-body">
-                <h5 v-if="map.creator?.id === user.id" class="card-title fw-bold align-middle">{{ map.name }}</h5>
-                <h5 v-else-if="map.name==='Added by me'" class="card-title fw-bold align-middle"> Added by {{map.creator?.username}} </h5>
-                <h5 v-else class="card-title fw-bold align-middle">{{map.creator?.username}}'s {{map.name}} </h5>
+                <div class="mapName" v-if="map.creator">
+                  <h5 v-if="map.creator.id === user.id" class="card-title fw-bold align-middle">{{ map.name }}</h5>
+                  <h5 v-else-if="map.name==='Added by me'" class="card-title fw-bold align-middle"> Added by {{map.creator.username}} </h5>
+                  <h5 v-else class="card-title fw-bold align-middle">{{map.creator.username}}'s {{map.name}} </h5>
+                </div>
               </div>
             </div>
           </router-link>
@@ -107,7 +109,7 @@ export default {
 
   async created () {
     await this.userStore.loadMyMe()
-    this.userStore.loadMyMaps()
+    await this.userStore.loadMyMaps()
   },
 
   mounted () {
@@ -124,6 +126,7 @@ export default {
 
       this.userStore.removeToken()
       this.userStore.clearUser()
+      this.globalStore.setToast({title: 'Logged out successfully'}, {type: 'success'})
       this.$router.push({name: 'Home'})
     },
 
@@ -142,6 +145,7 @@ export default {
         }
 
         this.userStore.loadMyMe()
+        this.userStore.loadMyMaps()
         this.$refs.profile_picture.value = null
         this.pictureChanged = false
         this.editing = false

@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
       <div class="collapse navbar-collapse order-md-1 order-3" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto"></ul>
+        <div v-if="name" class="currentMap">Current map: {{mapName}}</div>
       </div>
       <router-link class="navbar-brand order-1" to="/"> {{ title }} </router-link>
       <button class="navbar-toggler order-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,13 +35,22 @@
 <script>
 import { mapState } from 'pinia';
 import { useUserStore } from "@/stores/UserStore";
+import { useMapStore } from "@/stores/MapStore";
 import { useGlobalStore } from "@/stores/GlobalStore";
 
 export default {
   name: 'Navbar',
   computed: {
     ...mapState(useGlobalStore, ['title']),
-    ...mapState(useUserStore, ['isAuthenticated'])
+    ...mapState(useUserStore, ['user', 'isAuthenticated']),
+    ...mapState(useMapStore, ['name', 'creator']),
+    mapName () {
+      let n = ''
+      if (this.creator.id === this.user.id) n = this.name
+      else if (this.name === 'Added by me') n = `Added by ${this.creator.username}`
+      else n = `${this.creator.username}'s ${this.name}`
+      return n
+    }
   },
 }
 
@@ -58,6 +67,12 @@ export default {
 .logo-link {
     color: white;
     text-decoration: none;
+}
+
+.currentMap {
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
 }
 
 </style>

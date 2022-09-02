@@ -104,7 +104,9 @@ export const useUserStore = defineStore("user", {
     },
 
     async loadMyMe() {
-      await this.loadMe()
+      if (Object.keys(this.user).length === 0) {
+        await this.loadMe()
+      }
       return Api.fetchMyUser(this.user.id)
         .then((response) => {
           console.log(response.data)

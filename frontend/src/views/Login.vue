@@ -47,7 +47,7 @@ export default {
 
         await this.userStore.login(formData)
 
-        if (this.userStore.isAuthenticated) this.$router.push({name: 'Home'})
+        if (this.userStore.isAuthenticated) this.$router.push(this.$route.query.to ?? {name: 'Home'})
 
       }
     }
