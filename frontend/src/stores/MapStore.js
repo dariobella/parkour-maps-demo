@@ -91,7 +91,7 @@ export const useMapStore = defineStore("map", {
         .catch((error) => {
           console.log(error)
           const global = useGlobalStore()
-          global.setToast({title: 'Error while trying to load spot'}, {type: 'danger'})
+          global.setToast({title: 'Error while trying to load spots'}, {type: 'danger'})
         })
     },
 

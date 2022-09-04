@@ -39,11 +39,8 @@ export default {
     ...mapState(useMapStore, ['name']),
   },
 
-  created () {
-    this.mapStore.loadMap(this.$route.params.id)
-  },
-
   mounted() {
+    this.mapStore.loadMap(this.$route.params.id)
     document.title = 'Map | ' + this.globalStore.title
   },
 
