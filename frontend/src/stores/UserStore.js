@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import * as Api from '@/api'
 import { useGlobalStore } from "./GlobalStore";
+import { useMapStore } from "./MapStore";
 
 export const useUserStore = defineStore("user", {
 
@@ -109,9 +110,8 @@ export const useUserStore = defineStore("user", {
       }
       return Api.fetchMyUser(this.user.id)
         .then((response) => {
-          console.log(response.data)
           this.myUser = response.data.myuser
-          this.maps = response.data.myuser.maps
+          this.loadMyMaps()
         })
         .catch((error) => {
           console.log(error)
@@ -140,7 +140,11 @@ export const useUserStore = defineStore("user", {
       user.append('user', this.myUser.id)
       return Api.toggleFavourite(spot, user)
         .then(() => {
-          this.loadMyMe()
+          this.loadMyMaps()
+          const map = useMapStore()
+          if (map.name === 'Favourites') {
+            map.loadMap(map.id)
+          }
         })
         .catch((error) => {
           console.log(error)
@@ -150,7 +154,6 @@ export const useUserStore = defineStore("user", {
     loadMyMaps() {
       return Api.fetchMaps(this.myUser.id)
         .then((response) => {
-          console.log(response.data)
           this.maps = response.data
         })
         .catch((error) => {

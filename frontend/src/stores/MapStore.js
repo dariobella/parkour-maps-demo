@@ -5,6 +5,7 @@ import {useGlobalStore} from "./GlobalStore";
 export const useMapStore = defineStore("map", {
 
   state: () => ({
+    id : 0,
     name: '',
     spots: [],
     creator: {},
@@ -91,14 +92,14 @@ export const useMapStore = defineStore("map", {
         .catch((error) => {
           console.log(error)
           const global = useGlobalStore()
-          global.setToast({title: 'Error while trying to load spot'}, {type: 'danger'})
+          global.setToast({title: 'Error while trying to load spots'}, {type: 'danger'})
         })
     },
 
     loadMap(id) {
       return Api.loadMap(id)
         .then((response) => {
-          console.log(response)
+          this.id = response.data.id
           this.name = response.data.name
           this.spots = response.data.spots
           this.creator = response.data.creator

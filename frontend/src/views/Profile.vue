@@ -30,9 +30,7 @@
                 <img v-else src="../assets/mapIcon.svg" alt="">
               </div>
               <div class="card-body">
-                <h5 v-if="map.creator.id === parseInt($route.params.id)" class="card-title fw-bold align-middle">{{ map.name }}</h5>
-                <h5 v-else-if="map.name==='Added by me'" class="card-title fw-bold align-middle"> Added by {{map.creator.username}} </h5>
-                <h5 v-else class="card-title fw-bold align-middle">{{map.creator.username}}'s {{map.name}} </h5>
+                <h5 class="card-title fw-bold align-middle">{{ mapName(map) }}</h5>
               </div>
             </div>
           </router-link>
@@ -126,6 +124,18 @@ export default {
     if (this.isAuthenticated && parseInt(this.$route.params.id) === this.user.id) {
         this.$router.push({name: 'MyProfile'})
     }
+  },
+
+  methods: {
+    mapName (map) {
+      let n = ''
+      if (map) {
+        if (map.creator.id === parseInt($route.params.id)) n = map.name
+        else if (map.name === 'Added by me') n = `Added by ${map.creator.username}`
+        else n = `${map.creator.username}'s ${map.name}`
+      }
+      return n
+    },
   }
 
 }
