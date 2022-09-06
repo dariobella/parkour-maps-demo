@@ -44,6 +44,12 @@ export default {
     document.title = 'Map | ' + this.globalStore.title
   },
 
+  watch: {
+    '$route.params.id': function () {
+      if (this.$route.params.id) this.mapStore.loadMap(this.$route.params.id)
+    }
+  }
+
 }
 </script>
 

@@ -100,6 +100,7 @@ export default {
     return {
       spotSelected: 0,
       map: {},
+      markers: [],
       iconSize: {},
       searchWindow: {},
       editSpotId: 0,
@@ -111,11 +112,12 @@ export default {
   },
 
   mounted() {
+    this.markers = []
     this.initMap()
   },
 
   watch: {
-    spots() {
+    spots: function () {
       this.loadSpots()
     }
   },
@@ -227,15 +229,24 @@ export default {
 
       var vm = this
 
-      var offset = new google.maps.Size(0, 0);
       marker.addListener("click", function () {
         vm.spotSelected = m.id;
         document.getElementById('search').placeholder = 'Search places';
         vm.searchWindow.close();
       });
+
+      this.markers.push(marker)
+    },
+
+    clearMarkers() {
+      this.markers.forEach((marker) => {
+        marker.setVisible(false);
+      })
+      this.markers = []
     },
 
     loadSpots() {
+      this.clearMarkers()
       let vm = this;
       for (var spot of JSON.parse(JSON.stringify(vm.spots))) {
         var i = ""

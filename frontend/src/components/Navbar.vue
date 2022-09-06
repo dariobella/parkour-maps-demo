@@ -4,12 +4,12 @@
     <div class="container-fluid">
       <div class="collapse navbar-collapse order-md-1 order-3" id="navbarSupportedContent">
         <div v-if="isAuthenticated && ['Home', 'Map'].includes($router.currentRoute.value.name)" class="selectMap dropdown">
-          <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" v-if="$router.currentRoute.value.name === 'Home'"> Home </button>
-          <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" v-else> {{ mapName({name, creator}) }} </button>
-          <ul class="dropdown-menu">
-            <li> <router-link class="dropdown-item" to="/">Home</router-link> </li>
-            <li> <router-link class="dropdown-item" :to="`/map/${map.id}`" v-for="map in maps">{{ mapName(map) }}</router-link> </li>
-          </ul>
+          <button class="dropBtn" v-if="$router.currentRoute.value.name === 'Home'"> Home </button>
+          <button class="dropBtn" v-else> {{ mapName({name, creator}) }} </button>
+          <div class="dropdown-content">
+            <router-link class="dropdown-item" to="/">Home</router-link>
+            <router-link v-for="map in maps" class="dropdown-item" :to="`/map/${map.id}`">{{ mapName(map) }}</router-link>
+          </div>
         </div>
       </div>
       <router-link class="navbar-brand order-1" to="/"> {{ title }} </router-link>
@@ -50,7 +50,7 @@ export default {
   computed: {
     ...mapState(useGlobalStore, ['title']),
     ...mapState(useUserStore, ['user', 'isAuthenticated', 'maps']),
-    ...mapState(useMapStore, ['name', 'creator']),
+    ...mapState(useMapStore, ['id', 'name', 'creator']),
     ...mapStores(useMapStore),
   },
 
@@ -92,6 +92,49 @@ export default {
   background-color: white;
   border-radius: 5px;
   padding: 5px 10px;
+}
+
+.dropBtn {
+  background-color: #f8f8f8;
+  color: var(--my-black);
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 100%;
+  background-color: #f1f1f1;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 3;
+}
+
+.dropdown-content a {
+  color: var(--my-black);
+  text-align: left;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropBtn {
+  background-color: #e1e1e1;
+  transform: none;
+  border-radius: 5px 5px 0 0;
+}
+
+.dropdown-item.router-link-active {
+  display: none;
 }
 
 </style>
