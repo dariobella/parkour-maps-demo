@@ -130,7 +130,7 @@ export default {
   name: 'AddSpots',
   computed: {
     ...mapStores(useMapStore, useGlobalStore),
-    ...mapState(useUserStore, ['myUser'])
+    ...mapState(useUserStore, ['myUser', 'addSpotPosition']),
   },
   data() {
     return {
@@ -152,6 +152,10 @@ export default {
   },
   mounted() {
     document.title = 'Add Spots | ' + this.globalStore.title
+    if (Object.keys(this.addSpotPosition).length > 0) {
+      this.lat = this.addSpotPosition.lat
+      this.lng = this.addSpotPosition.lng
+    }
   },
   methods: {
     async spotSubmitForm() {

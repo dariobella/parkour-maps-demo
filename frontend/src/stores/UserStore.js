@@ -13,6 +13,7 @@ export const useUserStore = defineStore("user", {
     maps: [],
     token: '',
     isAuthenticated: false,
+    addSpotPosition: {}
   }),
 
   getters: {},
