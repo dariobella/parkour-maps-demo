@@ -24,7 +24,7 @@ class SpotList(APIView):
     serializer = SpotSerializerD0(data=request.data)
     if serializer.is_valid():
       serializer.save()
-      a = Map.objects.get(name='Added by me', myuser=serializer.data['adder'])
+      a = Map.objects.get(myusers=serializer.data['adder'], name='Added by me', myusermap__role='C')
       a.spots.add(serializer.data['id'])
       return Response(serializer.data, status=status.HTTP_201_CREATED)
 

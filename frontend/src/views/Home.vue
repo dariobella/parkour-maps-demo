@@ -11,6 +11,7 @@ import { mapStores } from 'pinia';
 import { useMapStore } from "@/stores/MapStore";
 import { useGlobalStore } from "@/stores/GlobalStore";
 import Map from '@/components/Map.vue'
+import {useUserStore} from "../stores/UserStore";
 
 export default {
   name: 'Home',
@@ -20,7 +21,7 @@ export default {
   },
 
   computed: {
-    ...mapStores(useMapStore, useGlobalStore)
+    ...mapStores(useMapStore, useGlobalStore, useUserStore)
   },
 
   beforeMount() {
@@ -29,6 +30,7 @@ export default {
 
   mounted() {
     document.title = this.globalStore.title
+    this.userStore.addSpotPosition = {}
   },
 
   methods: {

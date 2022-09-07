@@ -11,7 +11,7 @@
     </SpotInfo>
 
     <div id="map"></div>
-    <button @click="$router.push('add-spots')"
+    <button @click="this.$router.push({name: 'AddSpots'})"
             v-if="isAuthenticated && $router.currentRoute.value.name === 'Home'"
             type="button" id="addBtn"
     >
@@ -93,7 +93,7 @@ export default {
   computed: {
     ...mapState(useMapStore, ['spots']),
     ...mapState(useUserStore, ['isAuthenticated']),
-    ...mapStores(useMapStore),
+    ...mapStores(useMapStore, useUserStore),
   },
 
   data() {
@@ -112,6 +112,7 @@ export default {
   },
 
   mounted() {
+    this.clearMarkers()
     this.markers = []
     this.initMap()
   },
@@ -150,6 +151,8 @@ export default {
         },
       };
 
+      if (this.$router.currentRoute.value.name === 'Home') options.draggableCursor = 'pointer'
+
       this.map = new google.maps.Map(document.getElementById('map'), options);
 
       var search = document.createElement('input')
@@ -170,15 +173,33 @@ export default {
       });
       this.searchWindow = new google.maps.InfoWindow();
 
-      var vm = this;
-      autocomplete.addListener('place_changed', function() {
+      if (this.$router.currentRoute.value.name === 'Home') {
+        let addSpotMarker = new google.maps.Marker({
+          map: this.map
+        })
+
+        this.map.addListener("click", (mapsMouseEvent) => {
+          let position = mapsMouseEvent.latLng
+          addSpotMarker.setPosition(position)
+          this.userStore.addSpotPosition.lat = position.toJSON().lat.toFixed(6)
+          this.userStore.addSpotPosition.lng = position.toJSON().lng.toFixed(6)
+        })
+
+        addSpotMarker.addListener('click', () => {
+          addSpotMarker.setVisible(false)
+          addSpotMarker.setPosition(null)
+          this.userStore.addSpotPosition = {}
+        })
+      }
+
+      autocomplete.addListener('place_changed', () => {
 
         var place = autocomplete.getPlace();
 
         if (!place.geometry) {
           search.placeholder = 'Enter a place';
           searchMarker.setPosition();
-          vm.searchWindow.close();
+          this.searchWindow.close();
         } else {
           var bounds = new google.maps.LatLngBounds();
 
@@ -186,17 +207,17 @@ export default {
 
 
           searchMarker.setPosition(place.geometry.location);
-          vm.searchWindow.setContent(placeInfo);
-          vm.searchWindow.setOptions({maxWidth: 200});
-          vm.searchWindow.open({
+          this.searchWindow.setContent(placeInfo);
+          this.searchWindow.setOptions({maxWidth: 200});
+          this.searchWindow.open({
             anchor: searchMarker,
-            map: vm.map,
+            map: this.map,
           });
 
-          searchMarker.addListener('click', function() {
-            vm.searchWindow.open({
+          searchMarker.addListener('click', () => {
+            this.searchWindow.open({
               anchor: searchMarker,
-              map: vm.map,
+              map: this.map,
             });
           });
 
@@ -206,7 +227,7 @@ export default {
           } else {
             bounds.extend(place.geometry.location);
           }
-          vm.map.fitBounds(bounds);
+          this.map.fitBounds(bounds);
         }
       });
 
@@ -227,12 +248,10 @@ export default {
         marker.setIcon(icon);
       }
 
-      var vm = this
-
-      marker.addListener("click", function () {
-        vm.spotSelected = m.id;
+      marker.addListener("click", () => {
+        this.spotSelected = m.id;
         document.getElementById('search').placeholder = 'Search places';
-        vm.searchWindow.close();
+        this.searchWindow.close();
       });
 
       this.markers.push(marker)
@@ -247,14 +266,13 @@ export default {
 
     loadSpots() {
       this.clearMarkers()
-      let vm = this;
-      for (var spot of JSON.parse(JSON.stringify(vm.spots))) {
+      for (var spot of JSON.parse(JSON.stringify(this.spots))) {
         var i = ""
         if (spot.type === 'U') i = "https://i.ibb.co/LZQWkQB/bluePin.png"
         else if (spot.type === 'P') i = "https://i.ibb.co/VBtTnMG/orange-Pin.png"
         else if (spot.type === 'G') i = "https://i.ibb.co/cXdG8Dv/purple-Pin.png"
         else i = "https://i.ibb.co/CWLrJK6/redPin.png"
-        vm.addMarker({
+        this.addMarker({
           id: spot.id,
           position: {lat: spot.lat, lng: spot.lng},
           icon: i,
@@ -268,7 +286,6 @@ export default {
       if (this.$router.currentRoute.value.name === 'Home') this.mapStore.loadSpots()
       else if (this.$router.currentRoute.value.name === 'Map') this.mapStore.loadMap(this.$route.params.id)
     },
-
 
     editSpotPics(id, spot, pics) {
       this.editSpotId = id
