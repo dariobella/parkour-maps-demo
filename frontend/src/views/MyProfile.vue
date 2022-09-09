@@ -50,12 +50,39 @@
 
         </div>
         <div class="map col-6 col-sm-4 col-md-3 col-lg-2">
-          <button class="new-map-btn shadow-sm w-100 h-100">
+          <button type="button" class="new-map-btn shadow-sm w-100 h-100" data-bs-toggle="modal" data-bs-target="#newMapModal">
             <div class="card-img-top">
               <span class="material-icons">add_circle</span>
             </div>
             <span class="card-body fw-bold">New Map</span>
           </button>
+        </div>
+        <div class="modal fade" id="newMapModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New Map</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form @submit.prevent id="newMapForm">
+                  <div>
+                    <label for="newMapName">Map name: </label>
+                    <input type="text" name="newMapName" id="newMapName" v-model="newMapName">
+                  </div>
+                  <div>
+                    <input @change="newMapIcon = this.$refs.newMapIcon.files[0]" type="file" name="newMapIcon" id="newMapIcon" ref="newMapIcon" hidden>
+                    <button id="newMapIconBtn" @click.prevent="this.$refs.newMapIcon.click()"> <span class="material-icons">upload</span> Map icon </button>
+                    <img class="newMapIconImg" :src="newMapIconUrl" alt="">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Save</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -82,6 +109,14 @@ export default {
         return URL.createObjectURL(this.$refs.profile_picture.files[0]);
       }
     },
+    newMapIconUrl () {
+      if (this.newMapIcon) {
+        console.log('returning newMapIcon url')
+        return URL.createObjectURL(this.newMapIcon);
+      } else {
+        return ''
+      }
+    },
     upload_icon () {
       return this.pictureChanged ? 'download_done' : 'file_upload'
     },
@@ -102,6 +137,8 @@ export default {
     return {
       editing: false,
       pictureChanged: false,
+      newMapName: '',
+      newMapIcon: null,
     }
   },
 
@@ -115,7 +152,7 @@ export default {
   },
 
   methods: {
-        mapName (map) {
+    mapName (map) {
       let n = ''
       if (map) {
         if (map.creator.id === this.user.id) n = map.name
@@ -158,6 +195,10 @@ export default {
         this.pictureChanged = false
         this.editing = false
       }
+    },
+
+    newMap () {
+
     },
 
     profilePictureSelected () {
@@ -310,6 +351,45 @@ export default {
 
 .new-map-btn .material-icons {
   font-size: 4rem;
+}
+
+.modal-content {
+  margin-bottom: 8rem;
+}
+
+#newMapForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+#newMapForm div {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+#newMapForm input {
+  margin: 0;
+}
+
+#newMapForm label, #newMapIconBtn {
+  margin-right: 10px;
+}
+
+#newMapIconBtn {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+#newMapIconBtn span {
+  padding-right: 5px;
+}
+
+.newMapIconImg {
+  height: 5rem;
 }
 
 </style>
