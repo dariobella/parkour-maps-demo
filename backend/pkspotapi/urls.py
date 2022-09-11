@@ -14,6 +14,8 @@ urlpatterns = [
     path('api/addUser/', views.addUser, name="addUser"),
     path('api/user/<int:id>/', views.UserDetail.as_view(), name="userDetail"),
     path('api/myMaps/<int:id>/', views.myMaps, name="myMaps"),
+    path('api/addMap/<int:id>/', views.addMap, name="addMap"),
+    path('api/deleteMap/<int:userId>/<int:mapId>', views.deleteMap, name="deleteMap"),
     path('api/map/<int:id>/', views.map, name="map"),
 
 ]

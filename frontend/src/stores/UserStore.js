@@ -162,7 +162,37 @@ export const useUserStore = defineStore("user", {
           const global = useGlobalStore()
           global.setToast({title: 'Error while trying to load maps'}, {type: 'danger'})
         })
-    }
+    },
+
+    addMap(map) {
+      return Api.addMap(map, this.myUser.id)
+        .then((response) => {
+          console.log(response)
+          const global = useGlobalStore()
+          global.setToast({title: 'Map added successfully'}, {type: 'success'})
+          this.loadMyMaps()
+        })
+        .catch((error) => {
+          console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to add map'}, {type: 'danger'})
+        })
+    },
+
+    deleteMap(map) {
+      return Api.deleteMap(this.myUser.id, map)
+        .then((response) => {
+          console.log(response)
+          const global = useGlobalStore()
+          global.setToast({title: 'Map deleted successfully'}, {type: 'success'})
+          this.loadMyMaps()
+        })
+        .catch((error) => {
+          console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to delete map'}, {type: 'danger'})
+        })
+    },
   },
 
 })

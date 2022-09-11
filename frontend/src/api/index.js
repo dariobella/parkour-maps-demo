@@ -73,12 +73,20 @@ export function updateSpotPics(id, data) {
 //  M A P S
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export function fetchMaps(id_user) {
-    return axios.get(`${API_URL}/myMaps/${id_user}/`)
+export function fetchMaps(idUser) {
+    return axios.get(`${API_URL}/myMaps/${idUser}/`)
 }
 
 export function loadMap(id) {
     return axios.get(`${API_URL}/map/${id}/`)
+}
+
+export function addMap(map, idUser) {
+    return axios.post(`${API_URL}/addMap/${idUser}/`, map)
+}
+
+export function deleteMap(idUser, map) {
+    return axios.delete(`${API_URL}/deleteMap/${idUser}/${map}`)
 }
 
 

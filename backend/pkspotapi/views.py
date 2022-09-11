@@ -77,8 +77,8 @@ class UserDetail(APIView):
     mu.social = request.data['social']
     mu.bio = request.data['bio']
     p = request.data.get('profile_picture', None)
-    # if p:
-    # os.remove(mu.profile_picture.path)
+    if p:
+      os.remove(mu.profile_picture.path)
     mu.profile_picture = p
     mu.save()
     serializer = MyUserSerializer(mu, many=False, partial=True)
@@ -152,21 +152,13 @@ def addUser(request):
   mu = MyUser.objects.create(user=u)
   a = Map.objects.create(name='Added by me')
   f = Map.objects.create(name='Favourites')
-  muA = UserMap(user=mu, map=a, role='C')
-  muF = UserMap(user=mu, map=f, role='C')
+  muA = MyUserMap(user=mu, map=a, role='C')
+  muF = MyUserMap(user=mu, map=f, role='C')
   muA.save()
   muF.save()
 
   serializer = MyUserSerializer(mu)
-  return Response(serializer.data)
-
-
-@api_view(['GET'])
-def myMaps(request, id):
-  mu = MyUser.objects.get(pk=id)
-
-  serializer = MapSerializerD0(mu.maps.all(), many=True)
-  return Response(serializer.data)
+  return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET'])
@@ -175,3 +167,44 @@ def map(request, id):
   serializer = MapSerializerD3(m)
 
   return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def myMaps(request, id):
+  mu = MyUser.objects.get(pk=id)
+
+  serializer = MapSerializerD0(mu.maps.all(), many=True)
+  return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def addMap(request, id):
+  mu = MyUser.objects.get(pk=id)
+  i = request.data.get('icon', None)
+
+  serializer = MapSerializerD0(data={'name': request.data['name'], 'icon': i})
+  if serializer.is_valid():
+    serializer.save()
+    m = Map.objects.get(pk=serializer.data['id'])
+    um = MyUserMap(myuser=mu, map=m, role='C')
+    um.save()
+
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+  return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+def deleteMap(request, userId, mapId):
+  m = Map.objects.get(pk=mapId)
+  um = MyUserMap.objects.get(myuser=userId, map=m)
+
+  if um.role == 'C':
+    if m.icon:
+      os.remove(m.icon.path)
+    m.delete()
+
+  else:
+    um.delete()
+
+  return Response(status=status.HTTP_204_NO_CONTENT)

@@ -130,7 +130,7 @@ export default {
     mapName (map) {
       let n = ''
       if (map) {
-        if (map.creator.id === parseInt($route.params.id)) n = map.name
+        if (map.creator.id === parseInt(this.$route.params.id)) n = map.name
         else if (map.name === 'Added by me') n = `Added by ${map.creator.username}`
         else n = `${map.creator.username}'s ${map.name}`
       }
