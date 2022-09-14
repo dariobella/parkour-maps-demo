@@ -112,6 +112,8 @@ export const useUserStore = defineStore("user", {
       return Api.fetchMyUser(this.user.id)
         .then((response) => {
           this.myUser = response.data.myuser
+          this.myUser.social = this.myUser.social === 'null' ? null : this.myUser.social
+          this.myUser.bio = this.myUser.bio === 'null' ? null : this.myUser.bio
           this.loadMyMaps()
         })
         .catch((error) => {
@@ -182,7 +184,6 @@ export const useUserStore = defineStore("user", {
     deleteMap(map) {
       return Api.deleteMap(this.myUser.id, map)
         .then((response) => {
-          console.log(response)
           const global = useGlobalStore()
           global.setToast({title: 'Map deleted successfully'}, {type: 'success'})
           this.loadMyMaps()
@@ -193,6 +194,20 @@ export const useUserStore = defineStore("user", {
           global.setToast({title: 'Error while trying to delete map'}, {type: 'danger'})
         })
     },
+
+    addSpotToMap(spot, map) {
+      return Api.addSpotToMap(this.myUser.id, spot, map)
+        .then((response) => {
+          const global = useGlobalStore()
+          global.setToast({title: 'Spot added successfully'}, {type: 'success'})
+          this.loadMyMaps()
+        })
+        .catch((error) => {
+          console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to add spot'}, {type: 'danger'})
+        })
+    }
   },
 
 })

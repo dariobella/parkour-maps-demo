@@ -77,8 +77,8 @@ class UserDetail(APIView):
     mu.social = request.data['social']
     mu.bio = request.data['bio']
     p = request.data.get('profile_picture', None)
-    if p:
-      os.remove(mu.profile_picture.path)
+    #if p:
+      #os.remove(mu.profile_picture.path)
     mu.profile_picture = p
     mu.save()
     serializer = MyUserSerializer(mu, many=False, partial=True)
@@ -208,3 +208,15 @@ def deleteMap(request, userId, mapId):
     um.delete()
 
   return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['POST'])
+def addSpotToMap(request, id):
+  m = Map.objects.get(pk=request.data['map'])
+  um = MyUserMap.objects.get(myuser=id, map=m)
+
+  if um.role in ['C', 'E']:
+    m.spots.add(request.data['spot'])
+    return Response(status=status.HTTP_201_CREATED)
+  else:
+    return Response(status=status.HTTP_401_UNAUTHORIZED)

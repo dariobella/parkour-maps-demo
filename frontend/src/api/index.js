@@ -89,6 +89,10 @@ export function deleteMap(idUser, map) {
     return axios.delete(`${API_URL}/deleteMap/${idUser}/${map}`)
 }
 
+export function addSpotToMap(idUser, spot, map) {
+    return axios.post(`${API_URL}/addSpotToMap/${idUser}/`, {spot, map})
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

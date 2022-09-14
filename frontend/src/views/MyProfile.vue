@@ -201,8 +201,7 @@ export default {
           const userData = new FormData()
           userData.append('social', this.myUser.social)
           userData.append('bio', this.myUser.bio)
-          if (typeof this.myUser.profile_picture === 'string') this.myUser.profile_picture = this.myUser.profile_picture.substring('/media/'.length)
-          userData.append('profile_picture', this.myUser.profile_picture)
+          if (this.pictureChanged) userData.append('profile_picture', this.$refs.profile_picture.files[0])
 
           await this.userStore.updateMyUser(userData, this.myUser.id)
         }
@@ -215,9 +214,6 @@ export default {
 
     profilePictureSelected () {
       this.pictureChanged = true
-      if (this.$refs.profile_picture.files[0]) {
-       this.myUser.profile_picture = this.$refs.profile_picture.files[0]
-      }
     },
 
     newMap () {

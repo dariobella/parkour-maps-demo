@@ -101,8 +101,9 @@ export default {
         .then(response => {
           this.username = response.data.user.username
           this.profile = response.data.myuser
+          this.profile.social = this.profile.social === 'null' ? '' : this.profile.social
+          this.profile.bio = this.profile.bio === 'null' ? '' : this.profile.bio
           document.title = `${this.username}'s profile | ${this.title}`
-
         })
         .catch(err => {
           console.log(err)
@@ -111,7 +112,6 @@ export default {
 
     fetchMaps(this.profile.id)
         .then(response => {
-          console.log(response)
           this.maps = response.data
         })
         .catch(error => {

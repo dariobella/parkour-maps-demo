@@ -2,10 +2,20 @@
   <div class="spotInfo" v-if="spot.id === spotSelected">
     <div class="spotInfo-name">
       <div class="nameInput">
-        <input v-model="spot.name" type="text" class="spotName" :class="editing ? 'text_editing' : 'text_disabled' " :size="spot.name.length" placeholder="Spot name" :disabled="!editing" >
-        <button v-if="userStore.isAuthenticated" @click="toggleFavourite">
+        <input v-model="spot.name" type="text" class="spotName" :class="editing ? 'text_editing' : 'text_disabled' " :size="spot.name.length-1" placeholder="Spot name" :disabled="!editing" >
+        <button v-if="userStore.isAuthenticated" @click="toggleFavourite" class="favouriteBtn">
           <span class="material-icons">{{ favourite }}</span>
         </button>
+        <div class="dropdown" v-if="userStore.isAuthenticated">
+          <button @click="dropdownToggle" class="addSpotToMapBtn">
+            <span class="material-icons">add_box</span>
+          </button>
+          <div class="dropdown-content" tabindex="-1" @blur="this.$refs.addSpotToMapDropdown.classList.remove('show')" ref="addSpotToMapDropdown">
+            <div @click="addSpotToMap(map.id)"
+                 v-for="map in maps" v-show="map.creator.id === user.id && !(['Added by me', 'Favourites'].includes(map.name))"> {{ map.name }}
+            </div>
+          </div>
+        </div>
       </div>
       <div class="controlBtns">
         <button v-if="editing" id="deleteSpotBtn" data-bs-toggle="modal" data-bs-target="#deleteSpotModal">
@@ -51,7 +61,7 @@
     </div>
 
     <div class="spotPicsContainer">
-      <div id="picsCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div id="picsCarousel" class="carousel slide" data-bs-interval="false">
         <div class="carousel-indicators">
           <button v-for="(pic, i) in pics"
                   class="carousel-indicator" type="button"
@@ -102,10 +112,11 @@
 </template>
 
 <script>
-import { spotPics } from "@/api";
 import {mapState, mapStores} from 'pinia';
+
+import { spotPics } from "@/api";
 import { useUserStore } from "@/stores/UserStore";
-import {useMapStore} from "@/stores/MapStore";
+import { useMapStore } from "@/stores/MapStore";
 
 export default {
   name: 'SpotInfo',
@@ -119,7 +130,7 @@ export default {
     favourite () {
       return this.maps[1]?.spots.includes(this.spot.id) ? 'star' : 'star_border'
     },
-    ...mapState(useUserStore, ['myUser', 'maps']),
+    ...mapState(useUserStore, ['user','myUser', 'maps']),
     ...mapStores(useUserStore),
     ...mapStores(useMapStore),
   },
@@ -128,7 +139,8 @@ export default {
     return {
       pics: [],
       editing: false,
-      descTextHeight: 0
+      descTextHeight: 0,
+      dropdownClicked: false,
     }
   },
 
@@ -190,7 +202,17 @@ export default {
 
     toggleFavourite() {
       this.userStore.toggleFavourite(this.spot.id)
-    }
+    },
+
+    dropdownToggle () {
+      this.$refs.addSpotToMapDropdown.classList.toggle('show')
+      this.$refs.addSpotToMapDropdown.focus()
+    },
+
+    addSpotToMap(map) {
+      this.userStore.addSpotToMap(this.spot.id, map)
+      this.$refs.addSpotToMapDropdown.classList.remove('show')
+    },
   }
 }
 </script>
@@ -222,8 +244,50 @@ export default {
   align-items: center;
   background-color: transparent;
   border: none;
+  padding: 0 5px 0 0;
+}
+
+.favouriteBtn {
   color: var(--bs-yellow);
-  padding: 0;
+}
+
+.addSpotToMapBtn {
+  color: var(--my-black);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  z-index: 3;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 5px 0;
+}
+
+.dropdown-content div {
+  text-align: left;
+  display: block;
+  white-space: nowrap;
+  padding: 5px 10px;
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.dropdown-content div:hover {
+  background-color: #ddd;
+  cursor: pointer;
 }
 
 .spotInfo-name .nameInput button span {

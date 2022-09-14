@@ -38,9 +38,9 @@ export const useMapStore = defineStore("map", {
           }
         })
         .catch((error) => {
-          console.log(error)
           const global = useGlobalStore()
-          global.setToast({title: 'Error while trying to add spot'}, {type: 'danger'})
+          let e = error.response.data.name[0] ?? 'Error while trying to add spot'
+          global.setToast({title: e}, {type: 'danger'})
         })
     },
 
@@ -52,7 +52,8 @@ export const useMapStore = defineStore("map", {
         .catch((error) => {
           console.log(error)
           const global = useGlobalStore()
-          global.setToast({title: 'Error while trying to update spot'}, {type: 'danger'})
+          let e = error.response.data.name[0] ?? 'Error while trying to update spot'
+          global.setToast({title: e}, {type: 'danger'})
         })
     },
 

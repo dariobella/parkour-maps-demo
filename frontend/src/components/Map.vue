@@ -179,6 +179,7 @@ export default {
         })
 
         this.map.addListener("click", (mapsMouseEvent) => {
+          addSpotMarker.setVisible(true)
           let position = mapsMouseEvent.latLng
           addSpotMarker.setPosition(position)
           this.userStore.addSpotPosition.lat = position.toJSON().lat.toFixed(6)
