@@ -189,6 +189,8 @@ export default {
     },
 
     showPics() {
+      console.log(this.spot.name)
+      console.log(this.pics)
       this.$emit('showSpotPics', this.spot.name, this.pics)
     },
 

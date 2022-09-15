@@ -39,12 +39,12 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">{{ modalSpot }} images</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div id="showPicsCarousel" class="carousel slide" data-bs-interval="false">
               <div class="carousel-indicators">
-                <button v-for="(pic, i) in pics"
+                <button v-for="(pic, i) in spotPics"
                         class="carousel-indicator" type="button"
                         :data-bs-slide-to="i"
                         data-bs-target="#showPicsCarousel"
@@ -57,7 +57,7 @@
                   <img :src="'http://127.0.0.1:8000' + pic.image" class="d-block w-100" alt="">
                 </div>
               </div>
-              <div class="carouselControls" v-if="pics.length > 1">
+              <div class="carouselControls" v-if="spotPics.length > 1">
                 <button class="carousel-control-prev" type="button" data-bs-target="#showPicsCarousel" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
@@ -486,6 +486,11 @@ export default {
 
 .modalBtns .btn-danger {
   margin-left: 10px;
+}
+
+#showPicsModal .modal-header {
+  background-color: var(--my-black);
+  color: #f8f8f8;
 }
 
 #editPicsModal .modal-body {
