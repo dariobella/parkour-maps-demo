@@ -2,7 +2,7 @@
   <div class="spotInfo" v-if="spot.id === spotSelected">
     <div class="spotInfo-name">
       <div class="nameInput">
-        <input v-model="spot.name" type="text" class="spotName" :class="editing ? 'text_editing' : 'text_disabled' " :size="spot.name.length-1" placeholder="Spot name" :disabled="!editing" >
+        <input v-model="spot.name" type="text" class="spotName" :class="editing ? 'text_editing' : 'text_disabled' " :size="spot.name.length" placeholder="Spot name" :disabled="!editing" >
         <button v-if="userStore.isAuthenticated" @click="toggleFavourite" class="favouriteBtn">
           <span class="material-icons">{{ favourite }}</span>
         </button>
@@ -11,8 +11,10 @@
             <span class="material-icons">add_box</span>
           </button>
           <div class="dropdown-content" tabindex="-1" @blur="this.$refs.addSpotToMapDropdown.classList.remove('show')" ref="addSpotToMapDropdown">
-            <div @click="addSpotToMap(map.id)"
-                 v-for="map in maps" v-show="map.creator.id === user.id && !(['Added by me', 'Favourites'].includes(map.name))"> {{ map.name }}
+            <div @click="addSpotToMap(map)"
+                 v-for="map in maps" v-show="map.creator.id === user.id && !(['Added by me', 'Favourites'].includes(map.name))"
+            >
+              {{ map.name }} <span :class="!map.spots.includes(spot.id) ? 'transparent' : ''" class="material-icons">check</span>
             </div>
           </div>
         </div>
@@ -71,7 +73,7 @@
                   :aria-current="i === 0 ? 'true' : ''" :aria-label="'Slide ' + i">
           </button>
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner" @click="showPics">
           <div v-for="(pic, i) in pics" class="carousel-item" :class="{ active: i === 0 }">
             <img :src="'http://127.0.0.1:8000' + pic.image" class="d-block w-100" alt="">
           </div>
@@ -117,6 +119,7 @@ import {mapState, mapStores} from 'pinia';
 import { spotPics } from "@/api";
 import { useUserStore } from "@/stores/UserStore";
 import { useMapStore } from "@/stores/MapStore";
+import { useGlobalStore } from "@/stores/GlobalStore";
 
 export default {
   name: 'SpotInfo',
@@ -131,8 +134,7 @@ export default {
       return this.maps[1]?.spots.includes(this.spot.id) ? 'star' : 'star_border'
     },
     ...mapState(useUserStore, ['user','myUser', 'maps']),
-    ...mapStores(useUserStore),
-    ...mapStores(useMapStore),
+    ...mapStores(useUserStore, useMapStore, useGlobalStore),
   },
 
   data () {
@@ -186,6 +188,10 @@ export default {
       this.editing = false
     },
 
+    showPics() {
+      this.$emit('showSpotPics', this.spot.name, this.pics)
+    },
+
     editPics() {
       this.$emit('editSpotPics', this.spot.id, this.spot.name, this.pics)
     },
@@ -210,7 +216,11 @@ export default {
     },
 
     addSpotToMap(map) {
-      this.userStore.addSpotToMap(this.spot.id, map)
+      if (map.spots.includes(this.spot.id)) {
+        this.globalStore.setToast({title: 'Spot is already in this map'}, {type: 'info'})
+      } else {
+        this.userStore.addSpotToMap(this.spot.id, map.id)
+      }
       this.$refs.addSpotToMapDropdown.classList.remove('show')
     },
   }
@@ -274,9 +284,20 @@ export default {
 
 .dropdown-content div {
   text-align: left;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   white-space: nowrap;
   padding: 5px 10px;
+}
+
+.dropdown-content span {
+  color: var(--my-black);
+  padding-left: 10px;
+}
+
+.dropdown-content span.transparent {
+  color: transparent;
 }
 
 .show {
@@ -363,6 +384,11 @@ select.spotType {
   position: relative;
   display: flex;
 }
+
+#picsCarousel .carousel-inner {
+  cursor: pointer;
+}
+
 .img-overlay {
   position: absolute;
   top: 0;

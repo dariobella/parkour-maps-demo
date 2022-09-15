@@ -113,6 +113,7 @@ export default {
   min-width: 100%;
   background-color: #f1f1f1;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   z-index: 3;
 }
 

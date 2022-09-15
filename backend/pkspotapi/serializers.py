@@ -14,7 +14,7 @@ class MyUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MyUser
-        fields = ['id', 'profile_picture', 'social', 'bio', 'maps']
+        fields = ['id', 'profile_picture', 'social', 'bio']
         depth = 1
 
 
