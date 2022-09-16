@@ -219,7 +219,7 @@ export default {
 
     addSpotToMap(map) {
       if (map.spots.includes(this.spot.id)) {
-        this.globalStore.setToast({title: 'Spot is already in this map'}, {type: 'info'})
+        this.globalStore.setToast({title: `${this.spot.name} is already in this map`}, {type: 'info'})
       } else {
         this.userStore.addSpotToMap(this.spot.id, map.id)
       }

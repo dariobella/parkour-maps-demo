@@ -11,6 +11,9 @@
               ref="SpotInfo">
     </SpotInfo>
 
+    <MapInfo v-if="$router.currentRoute.value.name === 'Map'">
+    </MapInfo>
+
     <div id="map"></div>
     <button @click="this.$router.push({name: 'AddSpots'})"
             v-if="isAuthenticated && $router.currentRoute.value.name === 'Home'"
@@ -37,7 +40,7 @@
     <div class="modal fade" id="showPicsModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header bg-dark text-white">
             <h5 class="modal-title">{{ modalSpot }} images</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
@@ -76,17 +79,15 @@
     <div class="modal fade" id="editPicsModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title">Manage {{ modalSpot }} images</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
           <div class="modal-body">
-            <div class="editPicsTop">
-              <h3>Manage {{ modalSpot }} images</h3>
-              <button>
-                <span class="material-icons" data-bs-dismiss="modal">close</span>
-              </button>
+            <div class="divBtn">
+              <button class="btn btn-dark" @click="$refs.addPics.click()">Add Images</button>
+              <input type="file" name="addPics" id="addPics" ref="addPics" @change="addPicsChanged" multiple>
             </div>
-              <div class="divBtn">
-                <button class="btn btn-dark" @click="$refs.addPics.click()">Add Images</button>
-                <input type="file" name="addPics" id="addPics" ref="addPics" @change="addPicsChanged" multiple>
-              </div>
 
             <div class="imageList">
               <div v-for="pic in spotPics" class="image">
@@ -119,14 +120,16 @@
 import { Modal } from 'bootstrap'
 import {mapState, mapStores} from 'pinia';
 
-import SpotInfo from "@/components/SpotInfo.vue";
 import { useMapStore } from "@/stores/MapStore";
 import { useUserStore } from "@/stores/UserStore";
+import SpotInfo from "./SpotInfo.vue";
+import MapInfo from "./MapInfo.vue";
 
 export default {
   name: Map,
 
   components: {
+    MapInfo,
     SpotInfo
   },
 
@@ -418,7 +421,7 @@ export default {
   display: grid;
 }
 
-.spotInfo, #map {
+.spotInfo, .mapInfo, #map {
   grid-area: 1 / 1;
 }
 
@@ -465,7 +468,7 @@ export default {
   font-family: 'Nunito', sans-serif;
 }
 
-.spotInfo {
+.spotInfo, .mapInfo {
   z-index: 1;
   width: 30%;
 }
@@ -488,11 +491,6 @@ export default {
   margin-left: 10px;
 }
 
-#showPicsModal .modal-header {
-  background-color: var(--my-black);
-  color: #f8f8f8;
-}
-
 #editPicsModal .modal-body {
   display: flex;
   flex-direction: column;
@@ -513,7 +511,7 @@ export default {
 }
 .divBtn {
   display: flex;
-  margin: 10px 0;
+  margin-bottom: 5px;
 }
 .divBtn.submit {
   margin: 10px 0 0;
