@@ -171,7 +171,7 @@ export const useUserStore = defineStore("user", {
         .then((response) => {
           console.log(response)
           const global = useGlobalStore()
-          global.setToast({title: 'Map added successfully'}, {type: 'success'})
+          global.setToast({title: 'Map created successfully'}, {type: 'success'})
           this.loadMyMaps()
         })
         .catch((error) => {
@@ -201,11 +201,29 @@ export const useUserStore = defineStore("user", {
           const global = useGlobalStore()
           global.setToast({title: 'Spot added successfully'}, {type: 'success'})
           this.loadMyMaps()
+          const mapStore = useMapStore()
+          mapStore.loadMap(map)
         })
         .catch((error) => {
           console.log(error)
           const global = useGlobalStore()
           global.setToast({title: 'Error while trying to add spot'}, {type: 'danger'})
+        })
+    },
+
+    deleteSpotFromMap(spot, map) {
+      return Api.deleteSpotFromMap(this.myUser.id, spot, map)
+        .then((response) => {
+          const global = useGlobalStore()
+          global.setToast({title: 'Spot deleted from map successfully'}, {type: 'success'})
+          this.loadMyMaps()
+          const mapStore = useMapStore()
+          mapStore.loadMap(map)
+        })
+        .catch((error) => {
+          console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: error.message}, {type: 'danger'})
         })
     }
   },

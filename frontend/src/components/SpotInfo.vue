@@ -232,6 +232,8 @@ export default {
 <style scoped>
 
 .spotInfo {
+  z-index: 1;
+  width: 30%;
   background-color: #f8f8f8;
   box-shadow: 3px 0 3px 2px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.08);
   display: flex;

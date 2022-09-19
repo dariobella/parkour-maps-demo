@@ -11,7 +11,8 @@
               ref="SpotInfo">
     </SpotInfo>
 
-    <MapInfo v-if="$router.currentRoute.value.name === 'Map'">
+    <MapInfo v-if="$router.currentRoute.value.name === 'Map'" v-show="spotSelected === 0"
+             @selectSpot="selectSpot">
     </MapInfo>
 
     <div id="map"></div>
@@ -402,6 +403,12 @@ export default {
 
       }
     },
+
+    selectSpot(id, lat, lng) {
+      this.spotSelected = id
+      this.map.setCenter({lat, lng})
+      this.map.setZoom(17)
+    }
   },
 
 }
@@ -466,11 +473,6 @@ export default {
 #addBtn span {
   font-size: 3rem;
   font-family: 'Nunito', sans-serif;
-}
-
-.spotInfo, .mapInfo {
-  z-index: 1;
-  width: 30%;
 }
 
 .modal-body {

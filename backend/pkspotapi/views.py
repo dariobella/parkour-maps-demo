@@ -220,3 +220,18 @@ def addSpotToMap(request, id):
     return Response(status=status.HTTP_201_CREATED)
   else:
     return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+
+@api_view(['DELETE'])
+def deleteSpotFromMap(request, userId, spotId, mapId):
+  m = Map.objects.get(pk=mapId)
+  um = MyUserMap.objects.get(myuser=userId, map=m)
+
+  if um.role in ['C', 'E']:
+    if m.spots.filter(pk=spotId).exists():
+      m.spots.remove(spotId)
+      return Response(status=status.HTTP_204_NO_CONTENT)
+    else:
+      return Response(status=status.HTTP_400_BAD_REQUEST)
+  else:
+    return Response(status=status.HTTP_401_UNAUTHORIZED)
