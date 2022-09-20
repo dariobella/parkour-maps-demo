@@ -85,6 +85,10 @@ export function addMap(map, idUser) {
     return axios.post(`${API_URL}/addMap/${idUser}/`, map)
 }
 
+export function updateMap(idUser, idMap, map) {
+    return axios.put(`${API_URL}/updateMap/${idUser}/${idMap}/`, map)
+}
+
 export function deleteMap(idUser, map) {
     return axios.delete(`${API_URL}/deleteMap/${idUser}/${map}`)
 }

@@ -28,6 +28,7 @@ class MyUser(models.Model):
 
 class Map(models.Model):
   name = models.CharField(max_length=50)
+  description = models.TextField(blank=True, null=True)
   icon = models.ImageField(_('Image'), upload_to=upload_map_icon, blank=True, null=True)
   spots = models.ManyToManyField('Spot', blank=True)
 

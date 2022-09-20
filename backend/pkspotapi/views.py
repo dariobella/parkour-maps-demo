@@ -182,7 +182,7 @@ def addMap(request, id):
   mu = MyUser.objects.get(pk=id)
   i = request.data.get('icon', None)
 
-  serializer = MapSerializerD0(data={'name': request.data['name'], 'icon': i})
+  serializer = MapSerializerD0(data={'name': request.data['name'], 'description': request.data['description'],'icon': i})
   if serializer.is_valid():
     serializer.save()
     m = Map.objects.get(pk=serializer.data['id'])
@@ -192,6 +192,19 @@ def addMap(request, id):
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
   return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['PUT'])
+def updateMap(request, idUser, idMap):
+  m = Map.objects.get(pk=idMap)
+  um = MyUserMap.objects.get(myuser=idUser, map=m)
+
+  if um.role in ['C', 'E']:
+    serializer = MapSerializerD0(m, data=request.data, partial=True)
+    if serializer.is_valid():
+      serializer.save()
+      return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['DELETE'])

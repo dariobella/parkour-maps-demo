@@ -201,8 +201,6 @@ export const useUserStore = defineStore("user", {
           const global = useGlobalStore()
           global.setToast({title: 'Spot added successfully'}, {type: 'success'})
           this.loadMyMaps()
-          const mapStore = useMapStore()
-          mapStore.loadMap(map)
         })
         .catch((error) => {
           console.log(error)

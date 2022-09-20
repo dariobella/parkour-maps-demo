@@ -75,6 +75,16 @@
                     <input type="text" name="newMapName" id="newMapName" v-model="newMapName">
                   </div>
                   <div>
+                    <label for="newMapDescription">Description: </label>
+                    <textarea name="newMapDescription"
+                              id="newMapDescription"
+                              ref="newMapDescription"
+                              v-model="newMapDescription"
+                              @keydown="resizeDescTextArea"
+                              style="overflow: hidden; resize: none">
+                    </textarea>
+                  </div>
+                  <div>
                     <input @change="newMapIconSelected" type="file" name="newMapIcon" id="newMapIcon" ref="newMapIcon" hidden>
                     <button id="newMapIconBtn" @click.prevent="this.$refs.newMapIcon.click()"> <span class="material-icons">upload</span> Map icon </button>
                     <img class="newMapIconImg" :src="newMapIconUrl" alt="">
@@ -155,6 +165,7 @@ export default {
       editing: false,
       pictureChanged: false,
       newMapName: '',
+      newMapDescription: '',
       newMapIcon: null,
       mapToDelete: 0,
     }
@@ -224,6 +235,7 @@ export default {
       } else {
         const formData = new FormData()
         formData.append('name', this.newMapName)
+        formData.append('description', this.newMapDescription)
         if (this.newMapIcon) formData.append('icon', this.newMapIcon)
 
         this.userStore.addMap(formData)
@@ -238,7 +250,12 @@ export default {
 
     deleteMap() {
       if (this.mapToDelete) this.userStore.deleteMap(this.mapToDelete)
-    }
+    },
+
+    resizeDescTextArea () {
+      this.$refs.newMapDescription.style.height = '1px'
+      this.$refs.newMapDescription.style.height = this.$refs.newMapDescription.scrollHeight + 'px'
+    },
   }
 }
 </script>

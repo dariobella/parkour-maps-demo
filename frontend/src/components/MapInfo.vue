@@ -1,14 +1,31 @@
 <template>
 <div class="mapInfo show" v-if="show">
   <div class="mapInfoTop">
-    <input class="mapName" v-model="name" :class="editing ? 'text_editing' : 'text_disabled'" placeholder="Map name" :disabled="!editing"> <!-- :size="name.length" -->
+    <input type="text" class="mapName" placeholder="Map name"
+           :size="map.name ? map.name.length : 15"
+           v-model="map.name"
+           :class="editing ? 'text_editing' : 'text_disabled'"
+           :disabled="!editing">
     <div class="controlBtns">
-      <button v-if="creator.id === user.id" id="editMapBtn" @click="editMap()">
+      <button v-if="map.creator.id === user.id" id="editMapBtn" @click="editMap()">
         <span class="material-icons" :class="{ save : editing }"> {{ editing ? 'save' : 'edit' }} </span>
       </button>
       <button id="hideInfoBtn" @click="hideMapInfo()">
         <span class="material-icons">{{ editing ? 'close' : 'arrow_left' }}</span>
       </button>
+    </div>
+  </div>
+  <div>
+    <div class="mapCreator">
+      <span>created by <router-link :to="`/profile/${map.creator.id}`"> {{map.creator.username}} </router-link> </span>
+    </div>
+    <div class="mapDescription">
+      <textarea v-show="editing" v-model="map.description"
+          @keydown="resizeTextArea"
+          style="overflow: hidden; resize: none"
+          ref="mapDescTextArea" placeholder="Map description">
+      </textarea>
+      <div v-show="!editing" ref="mapDescText"> {{ map.description }} </div>
     </div>
   </div>
   <div class="spotList">
@@ -42,10 +59,14 @@ import {useUserStore} from "@/stores/UserStore";
 export default {
   name: "MapInfo",
 
+  props: {
+    map: Object
+  },
+
   computed: {
     ...mapStores(useMapStore, useUserStore),
-    ...mapState(useMapStore, ['id', 'name', 'spots', 'creator']),
-    ...mapState(useUserStore, ['user']),
+    ...mapState(useMapStore, ['spots']),
+    ...mapState(useUserStore, ['user', 'myUser']),
   },
 
   data () {
@@ -81,10 +102,31 @@ export default {
     },
 
     deleteSpotFromMap(e, spotId) {
-      this.userStore.deleteSpotFromMap(spotId, this.id)
+      this.userStore.deleteSpotFromMap(spotId, this.map.id)
 
       e.cancelBubble = true;
       if (e.stopPropagation) e.stopPropagation();
+    },
+
+    async editMap () {
+      if (!this.editing) {
+        if (this.map.description) this.$refs.mapDescTextArea.style.height = this.$refs.mapDescText.scrollHeight + 10 + 'px'
+        this.editing = true
+      } else {
+        const mapData = new FormData()
+        mapData.append('name', this.map.name)
+        console.log(this.map.description)
+        mapData.append('description', this.map.description)
+
+        await this.mapStore.updateMap(this.myUser.id, mapData)
+        this.editing = false
+        this.mapStore.loadMap(this.$route.params.id)
+      }
+    },
+
+    resizeTextArea () {
+      this.$refs.mapDescTextArea.style.height = '1px'
+      this.$refs.mapDescTextArea.style.height = this.$refs.mapDescTextArea.scrollHeight + 'px'
     },
   }
 }
@@ -118,9 +160,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid var(--my-black);
-  border-right: 1px solid var(--my-black);
-  border-bottom: 1px solid var(--my-black);
+  /*border-top: 1px solid var(--my-black);*/
+  /*border-right: 1px solid var(--my-black);*/
+  /*border-bottom: 1px solid var(--my-black);*/
   border-radius: 0 5px 5px 0;
   margin-top: 20px;
   margin-left: -20px;
@@ -136,7 +178,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding-inline: 10px;
-  margin: 20px 0;
+  margin-top: 20px;
 }
 
 .controlBtns {
@@ -171,6 +213,14 @@ input.text_disabled {
   font-weight: bold;
   border: none;
   color: var(--my-black);
+}
+
+.mapCreator {
+  padding-left: 16px;
+}
+
+.mapDescription {
+  padding: 16px;
 }
 
 .spotList {

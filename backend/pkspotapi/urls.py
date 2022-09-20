@@ -15,6 +15,7 @@ urlpatterns = [
     path('api/myMaps/<int:id>/', views.myMaps, name="myMaps"),
     path('api/map/<int:id>/', views.map, name="map"),
     path('api/addMap/<int:id>/', views.addMap, name="addMap"),
+    path('api/updateMap/<int:idUser>/<int:idMap>/', views.updateMap, name="updateMap"),
     path('api/deleteMap/<int:userId>/<int:mapId>', views.deleteMap, name="deleteMap"),
     path('api/addSpotToMap/<int:id>/', views.addSpotToMap, name="addSpotToMap"),
     path('api/deleteSpotFromMap/<int:userId>/<int:spotId>/<int:mapId>/', views.deleteSpotFromMap, name="deleteSpotFromMap"),

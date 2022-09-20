@@ -12,6 +12,7 @@
     </SpotInfo>
 
     <MapInfo v-if="$router.currentRoute.value.name === 'Map'" v-show="spotSelected === 0"
+             :map="mapInfoObj"
              @selectSpot="selectSpot">
     </MapInfo>
 
@@ -135,7 +136,15 @@ export default {
   },
 
   computed: {
-    ...mapState(useMapStore, ['spots']),
+    mapInfoObj () {
+      return {
+        id: this.id,
+        name: this.name,
+        description: this.description,
+        creator: this.creator,
+      }
+    },
+    ...mapState(useMapStore, ['id', 'name', 'description', 'creator', 'spots']),
     ...mapState(useUserStore, ['isAuthenticated']),
     ...mapStores(useMapStore, useUserStore),
   },
