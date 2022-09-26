@@ -7,6 +7,7 @@ export const useMapStore = defineStore("map", {
   state: () => ({
     id : 0,
     name: '',
+    description: '',
     spots: [],
     creator: {},
   }),
@@ -38,9 +39,9 @@ export const useMapStore = defineStore("map", {
           }
         })
         .catch((error) => {
-          console.log(error)
           const global = useGlobalStore()
-          global.setToast({title: 'Error while trying to add spot'}, {type: 'danger'})
+          let e = error.response.data.name[0] ?? 'Error while trying to add spot'
+          global.setToast({title: e}, {type: 'danger'})
         })
     },
 
@@ -52,7 +53,8 @@ export const useMapStore = defineStore("map", {
         .catch((error) => {
           console.log(error)
           const global = useGlobalStore()
-          global.setToast({title: 'Error while trying to update spot'}, {type: 'danger'})
+          let e = error.response.data.name[0] ?? 'Error while trying to update spot'
+          global.setToast({title: e}, {type: 'danger'})
         })
     },
 
@@ -86,6 +88,7 @@ export const useMapStore = defineStore("map", {
       return Api.fetchSpots()
         .then((response) => {
           this.name = ""
+          this.description = ""
           this.spots = response.data
           this.creator = {}
         })
@@ -101,13 +104,28 @@ export const useMapStore = defineStore("map", {
         .then((response) => {
           this.id = response.data.id
           this.name = response.data.name
+          this.description = response.data.description
           this.spots = response.data.spots
           this.creator = response.data.creator
         })
         .catch((error) => {
           console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to load map'}, {type: 'danger'})
         })
     },
+
+    updateMap(idUser, map) {
+      return Api.updateMap(idUser, this.id, map)
+        .then((response) => {
+          this.loadMap(this.id)
+        })
+        .catch((error) => {
+          console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to update map'}, {type: 'danger'})
+        })
+    }
 
   }
 

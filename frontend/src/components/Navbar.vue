@@ -3,10 +3,10 @@
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
       <div class="collapse navbar-collapse order-md-1 order-3" id="navbarSupportedContent">
-        <div v-if="isAuthenticated && ['Home', 'Map'].includes($router.currentRoute.value.name)" class="selectMap dropdown">
-          <button class="dropBtn" v-if="$router.currentRoute.value.name === 'Home'"> Home </button>
-          <button class="dropBtn" v-else> {{ mapName({name, creator}) }} </button>
-          <div class="dropdown-content">
+        <div v-if="['Home', 'Map'].includes($router.currentRoute.value.name)" class="selectMap dropdown">
+          <button class="dropBtn" :class="isAuthenticated ? 'hoverable' : ''" v-if="$router.currentRoute.value.name === 'Home'"> Home </button>
+          <button class="dropBtn" :class="isAuthenticated ? 'hoverable' : ''" v-else> {{ mapName({name, creator}) }} </button>
+          <div v-if="isAuthenticated" class="dropdown-content">
             <router-link class="dropdown-item" to="/">Home</router-link>
             <router-link v-for="map in maps" class="dropdown-item" :to="`/map/${map.id}`">{{ mapName(map) }}</router-link>
           </div>
@@ -113,6 +113,7 @@ export default {
   min-width: 100%;
   background-color: #f1f1f1;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   z-index: 3;
 }
 
@@ -128,9 +129,14 @@ export default {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropBtn {
-  background-color: #e1e1e1;
   transform: none;
+  cursor: default;
+}
+
+.dropdown:hover .dropBtn.hoverable {
+  background-color: #e1e1e1;
   border-radius: 5px 5px 0 0;
+  cursor: pointer;
 }
 
 .dropdown-item.router-link-active {

@@ -112,6 +112,8 @@ export const useUserStore = defineStore("user", {
       return Api.fetchMyUser(this.user.id)
         .then((response) => {
           this.myUser = response.data.myuser
+          this.myUser.social = this.myUser.social === 'null' ? null : this.myUser.social
+          this.myUser.bio = this.myUser.bio === 'null' ? null : this.myUser.bio
           this.loadMyMaps()
         })
         .catch((error) => {
@@ -162,6 +164,69 @@ export const useUserStore = defineStore("user", {
           const global = useGlobalStore()
           global.setToast({title: 'Error while trying to load maps'}, {type: 'danger'})
         })
+    },
+
+    addMap(map) {
+      return Api.addMap(map, this.myUser.id)
+        .then((response) => {
+          console.log(response)
+          const global = useGlobalStore()
+          global.setToast({title: 'Map created successfully'}, {type: 'success'})
+          this.loadMyMaps()
+        })
+        .catch((error) => {
+          console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to add map'}, {type: 'danger'})
+        })
+    },
+
+    deleteMap(map) {
+      return Api.deleteMap(this.myUser.id, map)
+        .then((response) => {
+          const global = useGlobalStore()
+          global.setToast({title: 'Map deleted successfully'}, {type: 'success'})
+          this.loadMyMaps()
+        })
+        .catch((error) => {
+          console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to delete map'}, {type: 'danger'})
+        })
+    },
+
+    addSpotToMap(spot, map) {
+      return Api.addSpotToMap(this.myUser.id, spot, map)
+        .then((response) => {
+          const global = useGlobalStore()
+          global.setToast({title: 'Spot added successfully'}, {type: 'success'})
+          this.loadMyMaps()
+        })
+        .catch((error) => {
+          console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: 'Error while trying to add spot'}, {type: 'danger'})
+        })
+    },
+
+    deleteSpotFromMap(spot, map) {
+      return Api.deleteSpotFromMap(this.myUser.id, spot, map)
+        .then((response) => {
+          const global = useGlobalStore()
+          global.setToast({title: 'Spot deleted from map successfully'}, {type: 'success'})
+          this.loadMyMaps()
+          const mapStore = useMapStore()
+          mapStore.loadMap(map)
+        })
+        .catch((error) => {
+          console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: error.message}, {type: 'danger'})
+        })
+    },
+
+    getProfilePicture(id) {
+      return Api.fetchProfilePicture(id)
     }
   },
 

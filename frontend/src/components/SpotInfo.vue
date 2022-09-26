@@ -3,9 +3,21 @@
     <div class="spotInfo-name">
       <div class="nameInput">
         <input v-model="spot.name" type="text" class="spotName" :class="editing ? 'text_editing' : 'text_disabled' " :size="spot.name.length" placeholder="Spot name" :disabled="!editing" >
-        <button v-if="userStore.isAuthenticated" @click="toggleFavourite">
+        <button v-if="userStore.isAuthenticated" @click="toggleFavourite" class="favouriteBtn">
           <span class="material-icons">{{ favourite }}</span>
         </button>
+        <div class="dropdown" v-if="userStore.isAuthenticated">
+          <button @click="dropdownToggle" class="addSpotToMapBtn">
+            <span class="material-icons">add_box</span>
+          </button>
+          <div class="dropdown-content" tabindex="-1" @blur="this.$refs.addSpotToMapDropdown.classList.remove('show')" ref="addSpotToMapDropdown">
+            <div @click="addSpotToMap(map)"
+                 v-for="map in maps" v-show="map.creator.id === user.id && !(['Added by me', 'Favourites'].includes(map.name))"
+            >
+              {{ map.name }} <span :class="!map.spots.includes(spot.id) ? 'transparent' : ''" class="material-icons">check</span>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="controlBtns">
         <button v-if="editing" id="deleteSpotBtn" data-bs-toggle="modal" data-bs-target="#deleteSpotModal">
@@ -47,11 +59,11 @@
         </div>
       </div>
 
-      <div class="adder" @click="$router.push('/profile/' + spot.adder.user.id)">Added by {{ spot.adder.user.username }}</div>
+      <div class="adder">Added by <ProfileLink :id="spot.adder.user.id" :username="spot.adder.user.username"></ProfileLink> </div>
     </div>
 
     <div class="spotPicsContainer">
-      <div id="picsCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div id="picsCarousel" class="carousel slide" data-bs-interval="false">
         <div class="carousel-indicators">
           <button v-for="(pic, i) in pics"
                   class="carousel-indicator" type="button"
@@ -61,7 +73,7 @@
                   :aria-current="i === 0 ? 'true' : ''" :aria-label="'Slide ' + i">
           </button>
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner" @click="showPics">
           <div v-for="(pic, i) in pics" class="carousel-item" :class="{ active: i === 0 }">
             <img :src="'http://127.0.0.1:8000' + pic.image" class="d-block w-100" alt="">
           </div>
@@ -102,14 +114,17 @@
 </template>
 
 <script>
-import { spotPics } from "@/api";
 import {mapState, mapStores} from 'pinia';
+
+import { spotPics } from "@/api";
 import { useUserStore } from "@/stores/UserStore";
-import {useMapStore} from "@/stores/MapStore";
+import { useMapStore } from "@/stores/MapStore";
+import { useGlobalStore } from "@/stores/GlobalStore";
+import ProfileLink from "./ProfileLink.vue";
 
 export default {
   name: 'SpotInfo',
-
+  components: {ProfileLink},
   props: {
     spot: Object,
     spotSelected: Number,
@@ -119,16 +134,16 @@ export default {
     favourite () {
       return this.maps[1]?.spots.includes(this.spot.id) ? 'star' : 'star_border'
     },
-    ...mapState(useUserStore, ['myUser', 'maps']),
-    ...mapStores(useUserStore),
-    ...mapStores(useMapStore),
+    ...mapState(useUserStore, ['user','myUser', 'maps']),
+    ...mapStores(useUserStore, useMapStore, useGlobalStore),
   },
 
   data () {
     return {
       pics: [],
       editing: false,
-      descTextHeight: 0
+      descTextHeight: 0,
+      dropdownClicked: false,
     }
   },
 
@@ -174,6 +189,12 @@ export default {
       this.editing = false
     },
 
+    showPics() {
+      console.log(this.spot.name)
+      console.log(this.pics)
+      this.$emit('showSpotPics', this.spot.name, this.pics)
+    },
+
     editPics() {
       this.$emit('editSpotPics', this.spot.id, this.spot.name, this.pics)
     },
@@ -190,7 +211,21 @@ export default {
 
     toggleFavourite() {
       this.userStore.toggleFavourite(this.spot.id)
-    }
+    },
+
+    dropdownToggle () {
+      this.$refs.addSpotToMapDropdown.classList.toggle('show')
+      this.$refs.addSpotToMapDropdown.focus()
+    },
+
+    addSpotToMap(map) {
+      if (map.spots.includes(this.spot.id)) {
+        this.globalStore.setToast({title: `${this.spot.name} is already in this map`}, {type: 'info'})
+      } else {
+        this.userStore.addSpotToMap(this.spot.id, map.id)
+      }
+      this.$refs.addSpotToMapDropdown.classList.remove('show')
+    },
   }
 }
 </script>
@@ -198,6 +233,8 @@ export default {
 <style scoped>
 
 .spotInfo {
+  z-index: 1;
+  width: 30%;
   background-color: #f8f8f8;
   box-shadow: 3px 0 3px 2px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -222,8 +259,61 @@ export default {
   align-items: center;
   background-color: transparent;
   border: none;
+  padding: 0 5px 0 0;
+}
+
+.favouriteBtn {
   color: var(--bs-yellow);
-  padding: 0;
+}
+
+.addSpotToMapBtn {
+  color: var(--my-black);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  z-index: 3;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 5px 0;
+}
+
+.dropdown-content div {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+  padding: 5px 10px;
+}
+
+.dropdown-content span {
+  color: var(--my-black);
+  padding-left: 10px;
+}
+
+.dropdown-content span.transparent {
+  color: transparent;
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.dropdown-content div:hover {
+  background-color: #ddd;
+  cursor: pointer;
 }
 
 .spotInfo-name .nameInput button span {
@@ -299,6 +389,11 @@ select.spotType {
   position: relative;
   display: flex;
 }
+
+#picsCarousel .carousel-inner {
+  cursor: pointer;
+}
+
 .img-overlay {
   position: absolute;
   top: 0;

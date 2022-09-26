@@ -5,10 +5,15 @@
               :spot="spot"
               :spotSelected="spotSelected"
               @closeSpotInfo="spotSelected = 0"
+              @showSpotPics="showSpotPics"
               @editSpotPics="editSpotPics"
               @discardEdit="discardEdit"
               ref="SpotInfo">
     </SpotInfo>
+
+    <MapInfo v-if="$router.currentRoute.value.name === 'Map'" v-show="spotSelected === 0"
+             @selectSpot="selectSpot">
+    </MapInfo>
 
     <div id="map"></div>
     <button @click="this.$router.push({name: 'AddSpots'})"
@@ -33,20 +38,57 @@
       </div>
     </div>
 
+    <div class="modal fade" id="showPicsModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title">{{ modalSpot }} images</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="showPicsCarousel" class="carousel slide" data-bs-interval="false">
+              <div class="carousel-indicators">
+                <button v-for="(pic, i) in spotPics"
+                        class="carousel-indicator" type="button"
+                        :data-bs-slide-to="i"
+                        data-bs-target="#showPicsCarousel"
+                        :class="{ active : i === 0 }"
+                        :aria-current="i === 0 ? 'true' : ''" :aria-label="'Slide ' + i">
+                </button>
+              </div>
+              <div class="carousel-inner">
+                <div v-for="(pic, i) in spotPics" class="carousel-item" :class="{ active: i === 0 }">
+                  <img :src="'http://127.0.0.1:8000' + pic.image" class="d-block w-100" alt="">
+                </div>
+              </div>
+              <div class="carouselControls" v-if="spotPics.length > 1">
+                <button class="carousel-control-prev" type="button" data-bs-target="#showPicsCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#showPicsCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="modal fade" id="editPicsModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title">Manage {{ modalSpot }} images</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
           <div class="modal-body">
-            <div class="editPicsTop">
-              <h3>Manage {{ editSpot }} images</h3>
-              <button>
-                <span class="material-icons" data-bs-dismiss="modal">close</span>
-              </button>
+            <div class="divBtn">
+              <button class="btn btn-dark" @click="$refs.addPics.click()">Add Images</button>
+              <input type="file" name="addPics" id="addPics" ref="addPics" @change="addPicsChanged" multiple>
             </div>
-              <div class="divBtn">
-                <button class="btn btn-dark" @click="$refs.addPics.click()">Add Images</button>
-                <input type="file" name="addPics" id="addPics" ref="addPics" @change="addPicsChanged" multiple>
-              </div>
 
             <div class="imageList">
               <div v-for="pic in spotPics" class="image">
@@ -79,19 +121,21 @@
 import { Modal } from 'bootstrap'
 import {mapState, mapStores} from 'pinia';
 
-import SpotInfo from "@/components/SpotInfo.vue";
 import { useMapStore } from "@/stores/MapStore";
 import { useUserStore } from "@/stores/UserStore";
+import SpotInfo from "./SpotInfo.vue";
+import MapInfo from "./MapInfo.vue";
 
 export default {
   name: Map,
 
   components: {
+    MapInfo,
     SpotInfo
   },
 
   computed: {
-    ...mapState(useMapStore, ['spots']),
+    ...mapState(useMapStore, ['id', 'name', 'description', 'creator', 'spots']),
     ...mapState(useUserStore, ['isAuthenticated']),
     ...mapStores(useMapStore, useUserStore),
   },
@@ -104,7 +148,7 @@ export default {
       iconSize: {},
       searchWindow: {},
       editSpotId: 0,
-      editSpot: '',
+      modalSpot: '',
       spotPics: [],
       deletePics: [],
       addPics: [],
@@ -179,6 +223,7 @@ export default {
         })
 
         this.map.addListener("click", (mapsMouseEvent) => {
+          addSpotMarker.setVisible(true)
           let position = mapsMouseEvent.latLng
           addSpotMarker.setPosition(position)
           this.userStore.addSpotPosition.lat = position.toJSON().lat.toFixed(6)
@@ -287,9 +332,16 @@ export default {
       else if (this.$router.currentRoute.value.name === 'Map') this.mapStore.loadMap(this.$route.params.id)
     },
 
+    showSpotPics(spot, pics) {
+      this.modalSpot = spot
+      this.spotPics = pics
+      const modal = new Modal('#showPicsModal')
+      modal.toggle()
+    },
+
     editSpotPics(id, spot, pics) {
       this.editSpotId = id
-      this.editSpot = spot
+      this.modalSpot = spot
       this.spotPics = pics
       const modal = new Modal('#editPicsModal')
       modal.toggle()
@@ -314,7 +366,7 @@ export default {
     },
 
     discardEdit() {
-      this.editSpot = ''
+      this.modalSpot = ''
       this.deletePics = []
       this.addPics = []
     },
@@ -351,6 +403,12 @@ export default {
 
       }
     },
+
+    selectSpot(id, lat, lng) {
+      this.spotSelected = id
+      this.map.setCenter({lat, lng})
+      this.map.setZoom(17)
+    }
   },
 
 }
@@ -370,7 +428,7 @@ export default {
   display: grid;
 }
 
-.spotInfo, #map {
+.spotInfo, .mapInfo, #map {
   grid-area: 1 / 1;
 }
 
@@ -417,11 +475,6 @@ export default {
   font-family: 'Nunito', sans-serif;
 }
 
-.spotInfo {
-  z-index: 1;
-  width: 30%;
-}
-
 .modal-body {
   background-color: #f8f8f8;
   border-radius: 10px;
@@ -460,7 +513,7 @@ export default {
 }
 .divBtn {
   display: flex;
-  margin: 10px 0;
+  margin-bottom: 5px;
 }
 .divBtn.submit {
   margin: 10px 0 0;

@@ -32,12 +32,13 @@
 
     <div class="maps container-fluid">
       <div class="row gy-4">
-        <div class="map col-6 col-sm-4 col-md-3 col-lg-2" v-for="map in maps">
-          <router-link :to="'/map/' + map.id">
+        <div class="map col-8 col-sm-4 col-md-3 col-lg-2" v-for="map in maps">
+          <router-link :to="'/map/' + map.id" class="position-relative">
             <div class="card mb-4 shadow-sm h-100">
               <div class="card-img-top">
                 <img v-if="map.name==='Added by me'" src="../assets/addedByMe.png" alt="">
                 <img v-else-if="map.name==='Favourites'" src="../assets/favoruites.png" alt="">
+                <img v-else-if="map.icon" :src="`http://127.0.0.1:8000${map.icon}`" alt="">
                 <img v-else src="../assets/mapIcon.svg" alt="">
               </div>
               <div class="card-body">
@@ -46,16 +47,70 @@
                 </div>
               </div>
             </div>
+            <button v-if="editing" id="deleteMapBtn" data-bs-toggle="modal" data-bs-target="#deleteMapModal" @click.prevent="this.mapToDelete = map.id" class="position-absolute top-0 start-100">
+              <span class="material-icons">delete</span>
+            </button>
           </router-link>
 
         </div>
         <div class="map col-6 col-sm-4 col-md-3 col-lg-2">
-          <button class="new-map-btn shadow-sm w-100 h-100">
+          <button type="button" class="new-map-btn shadow-sm w-100 h-100" data-bs-toggle="modal" data-bs-target="#newMapModal">
             <div class="card-img-top">
               <span class="material-icons">add_circle</span>
             </div>
             <span class="card-body fw-bold">New Map</span>
           </button>
+        </div>
+        <div class="modal fade" id="newMapModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title" id="exampleModalLabel">New Map</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form @submit.prevent id="newMapForm">
+                  <div>
+                    <label for="newMapName">Map name: </label>
+                    <input type="text" name="newMapName" id="newMapName" v-model="newMapName">
+                  </div>
+                  <div>
+                    <label for="newMapDescription">Description: </label>
+                    <textarea name="newMapDescription"
+                              id="newMapDescription"
+                              ref="newMapDescription"
+                              v-model="newMapDescription"
+                              @keydown="resizeDescTextArea"
+                              style="overflow: hidden; resize: none">
+                    </textarea>
+                  </div>
+                  <div>
+                    <input @change="newMapIconSelected" type="file" name="newMapIcon" id="newMapIcon" ref="newMapIcon" hidden>
+                    <button id="newMapIconBtn" @click.prevent="this.$refs.newMapIcon.click()"> <span class="material-icons">upload</span> Map icon </button>
+                    <img class="newMapIconImg" :src="newMapIconUrl" alt="">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success"  data-bs-dismiss="modal" @click="newMap">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="deleteMapModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modalText">Are you sure you want to delete this map?</div>
+            <div class="modalBtns">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="this.mapToDelete = 0">No</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @click="deleteMap()">Yes</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -77,9 +132,16 @@ export default {
   computed: {
     profile_picture () {
       if (!this.pictureChanged) {
-        return this.myUser.profile_picture ? 'http://127.0.0.1:8000' + this.myUser.profile_picture : '/src/assets/profile-placeholder.png'
+        return this.myUser.profile_picture ? `http://127.0.0.1:8000${this.myUser.profile_picture}` : '/src/assets/profile-placeholder.png'
       } else {
         return URL.createObjectURL(this.$refs.profile_picture.files[0]);
+      }
+    },
+    newMapIconUrl () {
+      if (this.newMapIcon) {
+        return URL.createObjectURL(this.newMapIcon);
+      } else {
+        return ''
       }
     },
     upload_icon () {
@@ -102,6 +164,10 @@ export default {
     return {
       editing: false,
       pictureChanged: false,
+      newMapName: '',
+      newMapDescription: '',
+      newMapIcon: null,
+      mapToDelete: 0,
     }
   },
 
@@ -115,7 +181,7 @@ export default {
   },
 
   methods: {
-        mapName (map) {
+    mapName (map) {
       let n = ''
       if (map) {
         if (map.creator.id === this.user.id) n = map.name
@@ -146,14 +212,11 @@ export default {
           const userData = new FormData()
           userData.append('social', this.myUser.social)
           userData.append('bio', this.myUser.bio)
-          if (typeof this.myUser.profile_picture === 'string') this.myUser.profile_picture = this.myUser.profile_picture.substring('/media/'.length)
-          userData.append('profile_picture', this.myUser.profile_picture)
+          if (this.pictureChanged) userData.append('profile_picture', this.$refs.profile_picture.files[0])
 
           await this.userStore.updateMyUser(userData, this.myUser.id)
         }
 
-        this.userStore.loadMyMe()
-        this.userStore.loadMyMaps()
         this.$refs.profile_picture.value = null
         this.pictureChanged = false
         this.editing = false
@@ -161,11 +224,38 @@ export default {
     },
 
     profilePictureSelected () {
-      this.pictureChanged = true;
-      if (this.$refs.profile_picture.files[0]) {
-       this.myUser.profile_picture = this.$refs.profile_picture.files[0]
+      this.pictureChanged = true
+    },
+
+    newMap () {
+      if (!this.newMapName) {
+        this.globalStore.setToast({title: 'Map name is required'}, {type: 'danger'})
+      } else if (['Added by me', 'Favourites'].includes(this.newMapName)) {
+        this.globalStore.setToast({title: 'Cannot create a map with that name'}, {type: 'danger'})
+      } else {
+        const formData = new FormData()
+        formData.append('name', this.newMapName)
+        formData.append('description', this.newMapDescription)
+        if (this.newMapIcon) formData.append('icon', this.newMapIcon)
+
+        this.userStore.addMap(formData)
       }
-    }
+    },
+
+    newMapIconSelected () {
+      if (this.$refs.newMapIcon.files[0]) {
+        this.newMapIcon = this.$refs.newMapIcon.files[0]
+      }
+    },
+
+    deleteMap() {
+      if (this.mapToDelete) this.userStore.deleteMap(this.mapToDelete)
+    },
+
+    resizeDescTextArea () {
+      this.$refs.newMapDescription.style.height = '1px'
+      this.$refs.newMapDescription.style.height = this.$refs.newMapDescription.scrollHeight + 'px'
+    },
   }
 }
 </script>
@@ -296,6 +386,13 @@ export default {
   justify-content: center;
 }
 
+.card-img-top {
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .new-map-btn {
   background-color: #bbb;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -310,6 +407,61 @@ export default {
 
 .new-map-btn .material-icons {
   font-size: 4rem;
+}
+
+.modal-content {
+  margin-bottom: 8rem;
+}
+
+#newMapForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+#newMapForm div {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+#newMapForm input {
+  margin: 0;
+}
+
+#newMapForm label, #newMapIconBtn {
+  margin-right: 10px;
+}
+
+#newMapIconBtn {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+#newMapIconBtn span {
+  padding-right: 5px;
+}
+
+.newMapIconImg {
+  height: 5rem;
+}
+
+#deleteMapBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  transform: translateX(-70%) translateY(-30%);
+  border-radius: 100%;
+  background-color: #dc3545;
+  padding: 10px;
+  transition: transform .2s ease-in-out;
+}
+
+#deleteMapBtn:hover {
+  transform: scale(1.2) translateX(-60%) translateY(-25%);
 }
 
 </style>

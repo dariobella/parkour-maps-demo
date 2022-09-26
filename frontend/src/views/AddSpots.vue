@@ -73,7 +73,7 @@
 
       </div>
 
-      <div class="tab-kml" v-show="current == 2">
+      <div class="tab-kml" v-show="current === 2">
 
         <div class="alert alert-danger" v-if="kmlErrors.length">
           <p v-for="error in kmlErrors" :key="error">{{ error }}</p>
