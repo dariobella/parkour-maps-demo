@@ -59,7 +59,7 @@
         </div>
       </div>
 
-      <div class="adder" @click="$router.push('/profile/' + spot.adder.user.id)">Added by {{ spot.adder.user.username }}</div>
+      <div class="adder">Added by <ProfileLink :id="spot.adder.user.id" :username="spot.adder.user.username"></ProfileLink> </div>
     </div>
 
     <div class="spotPicsContainer">
@@ -120,10 +120,11 @@ import { spotPics } from "@/api";
 import { useUserStore } from "@/stores/UserStore";
 import { useMapStore } from "@/stores/MapStore";
 import { useGlobalStore } from "@/stores/GlobalStore";
+import ProfileLink from "./ProfileLink.vue";
 
 export default {
   name: 'SpotInfo',
-
+  components: {ProfileLink},
   props: {
     spot: Object,
     spotSelected: Number,

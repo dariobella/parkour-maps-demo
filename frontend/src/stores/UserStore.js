@@ -223,6 +223,10 @@ export const useUserStore = defineStore("user", {
           const global = useGlobalStore()
           global.setToast({title: error.message}, {type: 'danger'})
         })
+    },
+
+    getProfilePicture(id) {
+      return Api.fetchProfilePicture(id)
     }
   },
 

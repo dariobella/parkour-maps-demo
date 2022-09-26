@@ -90,6 +90,12 @@ class UserDetail(APIView):
     return Response(status=status.HTTP_204_NO_CONTENT)
 
 
+@api_view(['GET'])
+def profilePicture(request, id):
+  mu = MyUser.objects.get(user=id)
+  return Response(data={'profilePicture': mu.profile_picture.url}, status=status.HTTP_200_OK)
+
+
 @api_view(['POST'])
 def toggleFavourite(request, id):
   s = Spot.objects.get(pk=id)

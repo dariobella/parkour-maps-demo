@@ -21,6 +21,10 @@ export function updateMyUser(user, id) {
         }})
 }
 
+export function fetchProfilePicture(id) {
+    return axios.get(`${API_URL}/profilePicture/${id}/`)
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

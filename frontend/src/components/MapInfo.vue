@@ -2,12 +2,12 @@
 <div class="mapInfo show" v-if="show">
   <div class="mapInfoTop">
     <input type="text" class="mapName" placeholder="Map name"
-           :size="map.name ? map.name.length : 15"
-           v-model="map.name"
+           :size="name ? name.length : 15"
+           v-model="name"
            :class="editing ? 'text_editing' : 'text_disabled'"
            :disabled="!editing">
     <div class="controlBtns">
-      <button v-if="map.creator.id === user.id" id="editMapBtn" @click="editMap()">
+      <button v-if="creator.id === user.id" id="editMapBtn" @click="editMap()">
         <span class="material-icons" :class="{ save : editing }"> {{ editing ? 'save' : 'edit' }} </span>
       </button>
       <button id="hideInfoBtn" @click="hideMapInfo()">
@@ -17,15 +17,15 @@
   </div>
   <div>
     <div class="mapCreator">
-      <span>created by <router-link :to="`/profile/${map.creator.id}`"> {{map.creator.username}} </router-link> </span>
+      <span>created by <ProfileLink :id="creator.id" :username="creator.username"></ProfileLink> </span>
     </div>
     <div class="mapDescription">
-      <textarea v-show="editing" v-model="map.description"
+      <textarea v-show="editing" v-model="description"
           @keydown="resizeTextArea"
           style="overflow: hidden; resize: none"
           ref="mapDescTextArea" placeholder="Map description">
       </textarea>
-      <div v-show="!editing" ref="mapDescText"> {{ map.description }} </div>
+      <div v-show="!editing" ref="mapDescText"> {{ description }} </div>
     </div>
   </div>
   <div class="spotList">
@@ -55,17 +55,15 @@
 import {mapState, mapStores} from "pinia";
 import { useMapStore } from "@/stores/MapStore";
 import {useUserStore} from "@/stores/UserStore";
+import ProfileLink from "./ProfileLink.vue";
 
 export default {
   name: "MapInfo",
-
-  props: {
-    map: Object
-  },
+  components: {ProfileLink},
 
   computed: {
     ...mapStores(useMapStore, useUserStore),
-    ...mapState(useMapStore, ['spots']),
+    ...mapState(useMapStore, ['id', 'name', 'description', 'creator', 'spots']),
     ...mapState(useUserStore, ['user', 'myUser']),
   },
 
