@@ -125,7 +125,21 @@ export const useMapStore = defineStore("map", {
           const global = useGlobalStore()
           global.setToast({title: 'Error while trying to update map'}, {type: 'danger'})
         })
-    }
+    },
+
+    deleteSpotFromMap(userId, spot, map) {
+      return Api.deleteSpotFromMap(userId, spot, map)
+        .then((response) => {
+          const global = useGlobalStore()
+          global.setToast({title: 'Spot deleted from map successfully'}, {type: 'success'})
+          this.loadMap(map)
+        })
+        .catch((error) => {
+          console.log(error)
+          const global = useGlobalStore()
+          global.setToast({title: error.message}, {type: 'danger'})
+        })
+    },
 
   }
 

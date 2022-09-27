@@ -209,22 +209,6 @@ export const useUserStore = defineStore("user", {
         })
     },
 
-    deleteSpotFromMap(spot, map) {
-      return Api.deleteSpotFromMap(this.myUser.id, spot, map)
-        .then((response) => {
-          const global = useGlobalStore()
-          global.setToast({title: 'Spot deleted from map successfully'}, {type: 'success'})
-          this.loadMyMaps()
-          const mapStore = useMapStore()
-          mapStore.loadMap(map)
-        })
-        .catch((error) => {
-          console.log(error)
-          const global = useGlobalStore()
-          global.setToast({title: error.message}, {type: 'danger'})
-        })
-    },
-
     getProfilePicture(id) {
       return Api.fetchProfilePicture(id)
     }

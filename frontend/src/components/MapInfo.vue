@@ -21,9 +21,9 @@
     </div>
     <div class="mapDescription">
       <textarea v-show="editing" v-model="description"
-          @keydown="resizeTextArea"
-          style="overflow: hidden; resize: none"
-          ref="mapDescTextArea" placeholder="Map description">
+                @keydown="resizeTextArea"
+                style="overflow: hidden; resize: none"
+                ref="mapDescTextArea" placeholder="Map description">
       </textarea>
       <div v-show="!editing" ref="mapDescText"> {{ description }} </div>
     </div>
@@ -100,7 +100,7 @@ export default {
     },
 
     deleteSpotFromMap(e, spotId) {
-      this.userStore.deleteSpotFromMap(spotId, this.map.id)
+      this.mapStore.deleteSpotFromMap(this.myUser.id, spotId, this.id)
 
       e.cancelBubble = true;
       if (e.stopPropagation) e.stopPropagation();
@@ -108,13 +108,13 @@ export default {
 
     async editMap () {
       if (!this.editing) {
-        if (this.map.description) this.$refs.mapDescTextArea.style.height = this.$refs.mapDescText.scrollHeight + 10 + 'px'
+        if (this.description) this.$refs.mapDescTextArea.style.height = this.$refs.mapDescText.scrollHeight + 10 + 'px'
         this.editing = true
       } else {
         const mapData = new FormData()
-        mapData.append('name', this.map.name)
-        console.log(this.map.description)
-        mapData.append('description', this.map.description)
+        mapData.append('name', this.name)
+        console.log(this.description)
+        mapData.append('description', this.description)
 
         await this.mapStore.updateMap(this.myUser.id, mapData)
         this.editing = false
@@ -219,6 +219,10 @@ input.text_disabled {
 
 .mapDescription {
   padding: 16px;
+}
+
+.mapDescription textarea {
+  width: 100%;
 }
 
 .spotList {
